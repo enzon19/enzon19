@@ -1,5 +1,5 @@
 ## About
-Enzo is a JavaScript, VBA and C developer, knows a little bit of HTML, CSS, and C#. He wants to know more and more of those languages.
+Enzo is a JavaScript, HTML, CSS, VBA and C developer. He wants to know more and more of those languages.
 
 ## Working On
 - ### Dicionário Bot
