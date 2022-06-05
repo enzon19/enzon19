@@ -1,0 +1,103 @@
+{
+  "description": "O Enzo é um desenvolvedor JavaScript, VBA e C, conhece um pouco de HTML, CSS e C#. Ele quer saber mais e mais dessas linguagens.",
+  "log": {
+    "placeholder": "(ou Enzo)",
+    "or": "ou"
+  },
+  "about": {
+    "title": "Sobre",
+    "description": "Oi, meu nome é Enzo! Desde pequeno, sempre gostei de criar coisas. Por muito tempo, fui fascinado com o mundo audiovisual e, por isso, sei usar diversos aplicativos dessa área e que envolvam criação e montagem de vídeos e fotos. Ainda gosto de produzir vídeos e fotos, mas também de criar aplicações que ajudam o meu dia a dia. Por isso, eu desenvolvo bots para Telegram e Discord, faço extensões para navegador e crio ferramentas online. Uso JavaScript, HTML, CSS, VBA e C para desenvolver meus projetos. Ainda quero, futuramente, criar jogos e aplicativos mais avançados para celular e computador, mas, infelizmente, a escola atrapalha este processo de aprendizado tomando boa parte do meu dia para ensinar processo de formação de rochas, funções de uma membrana celular, a tabela periódica ou como fazer escansão.",
+    "buttons": {
+      "contact": "Entrar em contato",
+      "donate": "Fazer uma doação"
+    }
+  },
+  "projects": {
+    "title": "Projetos Pessoais",
+    "description": "Como eu disse, eu também me interesso pela área audiovisual, mas só inclui projetos de programação na lista.",
+    "presentation": [
+      {
+        "title": "Decoradas do Meet",
+        "description": "Você sempre envia a mesma mensagem? Cansou de digitar isso todos os dias? Com a extensão, atalhos de mensagens pré-definidas por você vão ser adicionadas ao chat para que você possa enviar com um único clique.",
+        "image": "assets/logo2.png",
+        "buttons": [
+          {
+            "name": "Site",
+            "url": ""
+          },
+          {
+            "name": "Chrome Web Store",
+            "url": ""
+          },
+          {
+            "name": "GitHub",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "title": "Dicionário Bot",
+        "description": "Um dicionário da língua portuguesa brasileira no Telegram. O Dicionário Bot funciona normalmente ou através do modo inline. Se você cometer um erro, o bot talvez te corrija ou corrija outros membros de um grupo.",
+        "image": "https://raw.githubusercontent.com/enzon19/dicionariobot/main/resources/favicon.png",
+        "buttons": [
+          {
+            "name": "Site",
+            "url": "https://dicionario-bot.enzon19.repl.co"
+          },
+          {
+            "name": "Telegram",
+            "url": "https://t.me/dicionariobot"
+          },
+          {
+            "name": "GitHub",
+            "url": "https://github.com/enzon19/dicionariobot"
+          }
+        ]
+      },
+      {
+        "title": "LookHere!",
+        "description": "Então você está esperando por um táxi ou um Uber, como dizer que você é a pessoa esperando? LookHere! Com esta ferramenta, você pode criar mensagens chamativas para chamar a atenção de pessoas na vida real.",
+        "image": "assets/icon.png",
+        "buttons": [
+          {
+            "name": "Site",
+            "url": "https://enzon19.github.io/lookhere/"
+          },
+          {
+            "name": "GitHub",
+            "url": "https://github.com/enzon19/lookhere"
+          }
+        ]
+      },
+      {
+        "title": "Mochila do Enzo",
+        "description": "Este projeto usa tags NFCs para identificar meus materiais escolares. As tags NFCs estão presentes em celulares mais recentes, basta aproximar o celular e ver informações sobre o material que está na sua mão.",
+        "image": "https://mochila-do-enzo.enzon19.repl.co/res/icon.svg",
+        "buttons": [
+          {
+            "name": "Site",
+            "url": "https://mochila-do-enzo.enzon19.repl.co/"
+          }
+        ]
+      }
+    ]
+  },
+  "donate": {
+    "title": "Doar",
+    "description": "Eu sou um desenvolvedor independente que disponibiliza projetos gratuitos com código-fonte aberto para todos. Se você pode, por favor, dá uma ajuda! Qualquer contribuição já é bem-vinda.",
+    "methods": {
+      "pix": {
+        "description": "Método recente e popular no Brasil. O meu Pix é: cccb157b-0c9c-4502-acc3-7b4e811b3ca9",
+        "copy": "Copiar"
+      },
+      "bmc": {
+        "description": "Plataforma feita especialmente para doações. Funciona em dólar.",
+        "access": "Acessar"
+      },
+      "kofi": {
+        "description": "O mesmo esquema do Buy Me a Coffee, também em dólar.",
+        "access": "Acessar"
+      }
+    }
+  }
+}

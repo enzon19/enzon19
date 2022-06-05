@@ -1,0 +1,80 @@
+.eye {
+  background-repeat: no-repeat;
+  position: absolute;
+  animation: eyesBlinking 1s ease infinite;
+  z-index: 2;
+  display: none;
+  animation: blinker 21s steps(1, start) infinite;
+}
+
+.right {
+  background-image: url("/assets/face/eyeLeft.png");
+  height: 72px;
+  width: 24px;
+  margin: 211px 319px;
+}
+
+.left {
+  background-image: url("/assets/face/eyeRight.png");
+  height: 82px;
+  width: 28px;
+  margin: 228px 135px;
+}
+
+.enzoFace {
+  margin: -8px;
+  background-image: url("/assets/face/background.png");
+  position: relative;
+  z-index: 1;
+}
+
+img.face {
+  max-width: 619px;
+  width: 100%;
+  margin: 28px auto;
+}
+
+@keyframes blinker {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

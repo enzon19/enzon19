@@ -1,0 +1,103 @@
+{
+  "description": "Enzo is a developer and edits videos and photos. To create him projects, he uses JavaScript, HTML, CSS, VBA, C and Adobe's apps.",
+  "log": {
+    "placeholder": "(or Enzo)",
+    "or": "or"
+  },
+  "about": {
+    "title": "About",
+    "description": "Hi! My name's Enzo and I live in Brazil. Since I'm young, I always liked to create things. For a long time, I was fascinated with the audio-visual world and, because that, I know how to use a lot of these apps that create videos and photos. I still like to create videos and photo, but I like too to create applications that help my everyday. Because of that, I develop bots for Telegram and Discord, I make browser extensions and create online tools. I use JavaScript, HTML, CSS, VBA and C to develope my projects. I still want, in the future, make games and apps more advanced for mobile and computer, but, unfortunately, the school gets in the way in this process of learning taking so much of my time of my day trying to make my learn the process of formation of stones, functions of a cell membrane, the periodic table or how to do scansion (portuguese stuff).",
+    "buttons": {
+      "contact": "Get in touch",
+      "donate": "Donate"
+    }
+  },
+  "projects": {
+    "title": "Personal Projects",
+    "description": "As I said, I have an interest with audio-visual, but I put just programming projects on the list.",
+    "presentation": [
+      {
+        "title": "Quick Reply Meet",
+        "description": "Do you always send the same message? Tired of typing this every day? With the extension, message shortcuts predefined by you will be added to the chat so you can send with a single click.",
+        "image": "assets/logo2.png",
+        "buttons": [
+          {
+            "name": "Site",
+            "url": ""
+          },
+          {
+            "name": "Chrome Web Store",
+            "url": ""
+          },
+          {
+            "name": "GitHub",
+            "url": ""
+          }
+        ]
+      },
+      {
+        "title": "Dicionário Bot",
+        "description": "Dicionário Bot is a Brazilian Portuguese dictionary on Telegram that works normally or through inline mode. If you make a mistake, the bot might fix you or fix other members of a group.",
+        "image": "https://raw.githubusercontent.com/enzon19/dicionariobot/main/resources/favicon.png",
+        "buttons": [
+          {
+            "name": "Site",
+            "url": "https://dicionario-bot.enzon19.repl.co"
+          },
+          {
+            "name": "Telegram",
+            "url": "https://t.me/dicionariobot"
+          },
+          {
+            "name": "GitHub",
+            "url": "https://github.com/enzon19/dicionariobot"
+          }
+        ]
+      },
+      {
+        "title": "LookHere!",
+        "description": "So you are waiting for a Taxi or a Uber, how to tell you are the person waiting? LookHere! With this tool, you can create flashy messages to call attention from people near from you in real life.",
+        "image": "assets/icon.png",
+        "buttons": [
+          {
+            "name": "Site",
+            "url": "https://enzon19.github.io/lookhere/"
+          },
+          {
+            "name": "GitHub",
+            "url": "https://github.com/enzon19/lookhere"
+          }
+        ]
+      },
+      {
+        "title": "Mochila do Enzo",
+        "description": "This project uses NFCs tags to identify my school materials. NFCs tags are present in newer phones, just approach your phone and see information about the material in your hand.",
+        "image": "https://mochila-do-enzo.enzon19.repl.co/res/icon.svg",
+        "buttons": [
+          {
+            "name": "Site",
+            "url": "https://mochila-do-enzo.enzon19.repl.co/"
+          }
+        ]
+      }
+    ]
+  },
+  "donate": {
+    "title": "Donate",
+    "description": "I'm an independent developer who leaves free open source projects for everybody. If you can, please, give a help! Any contribution is welcome.",
+    "methods": {
+      "pix": {
+        "description": "Popular method available just in Brasil. My Pix is: cccb157b-0c9c-4502-acc3-7b4e811b3ca9",
+        "copy": "Copy"
+      },
+      "bmc": {
+        "description": "Platform made just for donations. Works in dollar.",
+        "access": "Visit"
+      },
+      "kofi": {
+        "description": "The same of Buy Me a Coffee, works in dollar too.",
+        "access": "Visit"
+      }
+    }
+  }
+}

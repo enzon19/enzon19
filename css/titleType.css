@@ -1,0 +1,69 @@
+/* Códigos com asterisco significam roubados da internet e adaptados */
+
+.logNames {
+  font-weight: 600;
+  margin: 0px;
+}
+
+.descriptionUpdate {
+  animation: descriptionUpdate 0.35s; 
+}
+
+.type { /* * */
+  overflow: hidden;
+  border-right: 7px solid rgb(44, 44, 44);
+  animation: typing 1s steps(20, end) forwards, 
+    blinking 0.6s infinite alternate;
+  width: 0;
+}
+
+.delete { /* * */
+  overflow: hidden; 
+  border-right: 7px solid rgb(44, 44, 44);
+  animation: deleting 1s steps(20, end) forwards,
+    blinking 0.6s infinite alternate;
+  width: 100%; 
+}
+
+.container {
+  display: inline-block;
+}
+
+@keyframes typing { /* * */
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes deleting {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+
+@keyframes blinking { /* * */
+  from {
+    border-color: transparent;
+  }
+  to {
+    border-color: rgb(44, 44, 44);
+  }
+}
+
+@keyframes descriptionUpdate {
+  0% {
+    color: #0f0f0f;
+  }
+  50% {
+    color: transparent;
+  }
+  100% {
+    color: #0f0f0f;
+  }
+}

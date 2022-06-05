@@ -1,0 +1,35 @@
+.gallery {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: left;
+  overflow: visible;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  padding: 12px;
+  align-items: left;
+  text-align: left;
+  overflow: visible;
+  margin: 8px;
+  background-color: rgb(226, 226, 226);
+  border-radius: 20px;
+}
+
+.cardImage {
+  width: 76px;
+  display: block;
+  margin: 0px auto 8px;
+}
+
+.noMarginButton {
+  margin: 8px 8px 0px 0px !important;
+}
+
+@media screen and (max-width: 666px) {
+  .gallery {
+    display: block;
+  }
+}
