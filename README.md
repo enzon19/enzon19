@@ -5,12 +5,6 @@ Enzo is a JavaScript, HTML, CSS, VBA and C developer. He wants to know more and 
 - ### Dicionário Bot
   Dicionário Bot is a Brazilian Portuguese dictionary on Telegram that works normally or through inline mode.<br>
   [Use on Telegram](https://t.me/dicionariobot) | [See on GitHub](https://github.com/enzon19/dicionariobot)
-- ### Quick Reply Meet
-  A browser extension to save replies for the chat on Google Meet.<br>
-  _Not ready yet._
-- ### Portfolio Website
-  My personal website with projects.<br>
-  _Not ready yet._
   
 ## Good Projects
 - ### Dicionário Bot
