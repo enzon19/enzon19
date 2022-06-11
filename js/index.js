@@ -52,7 +52,7 @@ function eyePos() {
 async function createGallery() {
   const language = (navigator.language || navigator.userLanguage).split('-')[0];
   if (!['pt', 'en'].includes(language)) language = 'en';
-  strings = await $.getJSON(`/locales/${language}/strings.json`);
+  strings = await $.getJSON(`locales/${language}/strings.json`);
 
   const gallery = document.getElementsByClassName('gallery')[0];
   const projects = strings.projects.presentation;

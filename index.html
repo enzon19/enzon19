@@ -7,15 +7,15 @@
     <meta name="description" id="description" content="O Enzo é um desenvolvedor e edita vídeos e fotos. Para colocar suas ideias no papel, ele usa JavaScript, HTML, CSS, VBA, C e a suíte da Adobe.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/face.css">
-    <link rel="stylesheet" href="/css/titleType.css">
-    <link rel="stylesheet" href="/css/gallery.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/face.css">
+    <link rel="stylesheet" href="css/titleType.css">
+    <link rel="stylesheet" href="css/gallery.css">
 
-    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
     <div class="enzoFace alignCenter">
       <div class="eye left"></div>
       <div class="eye right"></div>
-      <img class="face" src="/assets/face/enzo.png">
+      <img class="face" src="assets/face/enzo.png">
     </div>
     <br>
     <div class="alignCenter">
@@ -57,21 +57,21 @@
       <p id="donate.description" class="limitWidth">Eu sou um desenvolvedor independente que disponibiliza projetos gratuitos com código-fonte aberto para todos. Se você pode, por favor, dá uma ajuda! Qualquer contribuição já é bem-vinda.</p>
       <div class="gallery">
         <div class="card">
-          <img src="/assets/donate/pix.png" class="cardImage" alt="Pix">
+          <img src="assets/donate/pix.png" class="cardImage" alt="Pix">
           <h3 style="margin-top: 0px">Pix</h3>
           <span id="donate.methods.pix.description">Método recente e popular no Brasil. O meu Pix é: cccb157b-0c9c-4502-acc3-7b4e811b3ca9</span>
           <br>
           <a class="button noMarginButton" onclick="navigator.clipboard.writeText('cccb157b-0c9c-4502-acc3-7b4e811b3ca9');" style="margin-right: 0px; cursor: pointer;" id="donate.methods.pix.copy">Copiar</a>
         </div>
         <div class="card">
-          <img src="/assets/donate/bmc.png" class="cardImage" alt="">
+          <img src="assets/donate/bmc.png" class="cardImage" alt="">
           <h3 style="margin-top: 0px">Buy Me a Coffee</h3>
           <span id="donate.methods.bmc.description">Plataforma feita especialmente para doações. Funciona em dólar.</span>
           <br>
           <a class="button noMarginButton" href="https://www.buymeacoffee.com/enzon19" target="_blank" style="margin-right: 0px;" id="donate.methods.bmc.access">Acessar</a>
         </div>
         <div class="card">
-          <img src="/assets/donate/kofi.png" class="cardImage" alt="">
+          <img src="assets/donate/kofi.png" class="cardImage" alt="">
           <h3 style="margin-top: 0px">Ko-fi</h3>
           <span id="donate.methods.kofi.description">O mesmo esquema do Buy Me a Coffee, também em dólar.</span>
           <br>
@@ -80,9 +80,9 @@
       </div>
     </div>
 
-    <script src="/js/translation.js" async defer></script>
-    <script src="/js/index.js" async defer></script>
-    <script src="/js/textAnimation.js" async defer></script>
+    <script src="js/translation.js" async defer></script>
+    <script src="js/index.js" async defer></script>
+    <script src="js/textAnimation.js" async defer></script>
     <script>
       function scrollToDonate() {
         document.getElementById('donate.title').scrollIntoView({behavior: 'smooth'});

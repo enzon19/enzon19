@@ -4,7 +4,7 @@ translate()
 async function translate() {
   const language = (navigator.language || navigator.userLanguage).split('-')[0];
   if (!['pt', 'en'].includes(language)) language = 'en';
-  strings = await $.getJSON(`/locales/${language}/strings.json`);
+  strings = await $.getJSON(`locales/${language}/strings.json`);
 
   try {
     const elements = document.querySelectorAll('[id]');
