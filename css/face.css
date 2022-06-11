@@ -8,14 +8,14 @@
 }
 
 .right {
-  background-image: url("assets/face/eyeLeft.png");
+  background-image: url("../assets/face/eyeLeft.png");
   height: 72px;
   width: 24px;
   margin: 211px 319px;
 }
 
 .left {
-  background-image: url("assets/face/eyeRight.png");
+  background-image: url("../assets/face/eyeRight.png");
   height: 82px;
   width: 28px;
   margin: 228px 135px;
@@ -23,7 +23,7 @@
 
 .enzoFace {
   margin: -8px;
-  background-image: url("assets/face/background.png");
+  background-image: url("../assets/face/background.png");
   position: relative;
   z-index: 1;
 }
