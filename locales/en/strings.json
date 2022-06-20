@@ -95,7 +95,7 @@
         "access": "Visit"
       },
       "soon": {
-        "description": "More options soon!",
+        "description": "More options soon! If you have any idea, use the button below.",
         "access": "Suggest"
       }
     }
