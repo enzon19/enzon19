@@ -75,7 +75,6 @@ async function createGallery() {
   }
 
   gallery.innerHTML = presentationElements; 
-  
 }
 
 function resetAnimation(element, className) {
@@ -96,5 +95,7 @@ function shuffle(array) { // *
   return array;
 }
 
-createGallery();
-eyePos();
+$(document).ready(() => {
+  createGallery();
+  eyePos();
+});

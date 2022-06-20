@@ -1,5 +1,5 @@
 let strings = '';
-translate()
+$(document).ready(() => translate());
 
 async function translate() {
   const language = (navigator.language || navigator.userLanguage).split('-')[0];
