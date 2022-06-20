@@ -1,5 +1,5 @@
 {
-  "description": "O Enzo é um desenvolvedor JavaScript, VBA e C, conhece um pouco de HTML, CSS e C#. Ele quer saber mais e mais dessas linguagens.",
+  "description": "O Enzo é um desenvolvedor e edita vídeos e fotos. Para colocar suas ideias em prática, ele usa JavaScript, HTML, CSS, VBA, C e a suíte da Adobe.",
   "log": {
     "placeholder": "(ou Enzo)",
     "or": "ou"
@@ -14,7 +14,7 @@
   },
   "projects": {
     "title": "Projetos Pessoais",
-    "description": "Como eu disse, eu também me interesso pela área audiovisual, mas só inclui projetos de programação na lista.",
+    "description": "Como eu disse, eu também me interesso pela área audiovisual, mas só incluí projetos de programação na lista.",
     "presentation": [
       {
         "title": "Decoradas do Meet",
@@ -23,15 +23,15 @@
         "buttons": [
           {
             "name": "Site",
-            "url": ""
+            "url": "https://qrm.enzon19.com"
           },
           {
             "name": "Chrome Web Store",
-            "url": ""
+            "url": "https://chrome.google.com/webstore/detail/quick-reply-meet/cdbjicopbakfpcehddbflbofeaeaaokk"
           },
           {
             "name": "GitHub",
-            "url": ""
+            "url": "https://github.com/enzon19/quick-reply-meet"
           }
         ]
       },
@@ -90,12 +90,8 @@
         "description": "Método recente e popular no Brasil. O meu Pix é: cccb157b-0c9c-4502-acc3-7b4e811b3ca9",
         "copy": "Copiar"
       },
-      "bmc": {
-        "description": "Plataforma feita especialmente para doações. Funciona em dólar.",
-        "access": "Acessar"
-      },
       "kofi": {
-        "description": "O mesmo esquema do Buy Me a Coffee, também em dólar.",
+        "description": "Plataforma feita especialmente para doações. Funciona em dólar.",
         "access": "Acessar"
       }
     }

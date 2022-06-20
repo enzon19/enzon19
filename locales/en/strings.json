@@ -23,15 +23,15 @@
         "buttons": [
           {
             "name": "Site",
-            "url": ""
+            "url": "https://qrm.enzon19.com"
           },
           {
             "name": "Chrome Web Store",
-            "url": ""
+            "url": "https://chrome.google.com/webstore/detail/quick-reply-meet/cdbjicopbakfpcehddbflbofeaeaaokk"
           },
           {
             "name": "GitHub",
-            "url": ""
+            "url": "https://github.com/enzon19/quick-reply-meet"
           }
         ]
       },
@@ -90,12 +90,8 @@
         "description": "Popular method available just in Brasil. My Pix is: cccb157b-0c9c-4502-acc3-7b4e811b3ca9",
         "copy": "Copy"
       },
-      "bmc": {
-        "description": "Platform made just for donations. Works in dollar.",
-        "access": "Visit"
-      },
       "kofi": {
-        "description": "The same of Buy Me a Coffee, works in dollar too.",
+        "description": "Platform made just for donations. Works in dollar.",
         "access": "Visit"
       }
     }
