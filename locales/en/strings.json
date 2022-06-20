@@ -93,6 +93,10 @@
       "kofi": {
         "description": "Platform made just for donations. Works in dollar.",
         "access": "Visit"
+      },
+      "soon": {
+        "description": "More options soon!",
+        "access": "Suggest"
       }
     }
   }

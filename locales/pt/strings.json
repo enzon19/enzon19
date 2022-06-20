@@ -93,6 +93,10 @@
       "kofi": {
         "description": "Plataforma feita especialmente para doações. Funciona em dólar.",
         "access": "Acessar"
+      },
+      "soon": {
+        "description": "Mais opções em breve!",
+        "access": "Sugerir"
       }
     }
   }
