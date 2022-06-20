@@ -10,9 +10,9 @@
 
 .card {
   padding: 12px;
-  align-items: left;
   text-align: left;
   overflow: visible;
+  max-width: 356px;
   margin: 8px;
   background-color: rgb(226, 226, 226);
   border-radius: 20px;
@@ -31,5 +31,9 @@
 @media screen and (max-width: 666px) {
   .gallery {
     display: block;
+  }
+
+  .card {
+    max-width: auto;
   }
 }
