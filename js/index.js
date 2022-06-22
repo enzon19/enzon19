@@ -97,5 +97,8 @@ function shuffle(array) { // *
 
 $(document).ready(() => {
   createGallery();
+});
+
+$(document).ready(() => {
   eyePos();
 });
