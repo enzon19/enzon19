@@ -95,10 +95,5 @@ function shuffle(array) { // *
   return array;
 }
 
-$(document).ready(() => {
-  createGallery();
-});
-
-$(document).ready(() => {
-  eyePos();
-});
+$(document).ready(() => createGallery());
+$(window).on("load", () => eyePos());
