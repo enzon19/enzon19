@@ -38,7 +38,7 @@
       {
         "title": "Dicionário Bot",
         "description": "Um dicionário da língua portuguesa brasileira no Telegram. O Dicionário Bot funciona normalmente ou através do modo inline. Se você cometer um erro, o bot talvez te corrija ou corrija outros membros de um grupo.",
-        "image": "https://raw.githubusercontent.com/enzon19/dicionariobot/main/resources/favicon.png",
+        "image": "https://raw.githubusercontent.com/enzon19/dicionariobot/main/images/logo/favicon.png",
         "buttons": [
           {
             "name": "Site",

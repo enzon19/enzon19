@@ -95,5 +95,16 @@ function shuffle(array) { // *
   return array;
 }
 
+function scrollToDonate() {
+  document.getElementById('donate.title').scrollIntoView({behavior: 'smooth'});
+}
+
+if (window.location.href.split('#')[1] == 'donate') {
+  setTimeout(() => scrollToDonate(), 500);
+}
+
 $(document).ready(() => createGallery());
-$(window).on("load", () => eyePos());
+$(window).on("load", () => {
+  eyePos();
+  if (window.location.href.split('#')[1] == 'donate') scrollToDonate();
+});

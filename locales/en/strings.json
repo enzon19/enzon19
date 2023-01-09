@@ -38,7 +38,7 @@
       {
         "title": "Dicionário Bot",
         "description": "Dicionário Bot is a Brazilian Portuguese dictionary on Telegram that works normally or through inline mode. If you make a mistake, the bot might fix you or fix other members of a group.",
-        "image": "https://raw.githubusercontent.com/enzon19/dicionariobot/main/resources/favicon.png",
+        "image": "https://raw.githubusercontent.com/enzon19/dicionariobot/main/images/logo/favicon.png",
         "buttons": [
           {
             "name": "Site",
