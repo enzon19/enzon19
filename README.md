@@ -1,7 +1,7 @@
 ## About
 Enzo is a JavaScript, HTML, CSS, VBA and C developer. He wants to know more and more of those languages.
 
-## Good Projects
+## Main Projects
 - ### Dicionário Bot
   Dicionário Bot is a Brazilian Portuguese dictionary on Telegram that works normally or through inline mode.<br>
   [Use on Telegram](https://t.me/dicionariobot) | [See on GitHub](https://github.com/enzon19/dicionariobot)
