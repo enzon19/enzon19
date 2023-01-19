@@ -1,5 +1,5 @@
 ## About
-Enzo is a JavaScript, HTML, CSS, VBA and C developer. He wants to know more and more of those languages.
+I'm a JavaScript, HTML and CSS developer. I used to know VBA and C, but I don't use them anymore, so... Oh, and I'm looking to learn Svelte.
 
 ## Main Projects
 - ### Dicionário Bot
