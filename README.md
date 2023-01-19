@@ -7,7 +7,7 @@ I'm a JavaScript, HTML and CSS developer. I used to know VBA and C, but I don't 
   [Website](https://dicionariobot.enzon19.com/) | [Use on Telegram](https://t.me/dicionariobot) | [See on GitHub](https://github.com/enzon19/dicionariobot)
 - ### Quick Reply Meet
   Create shortcuts for messages usually used by you to be sent quickly on chat.<br>
-  [Website](https://quickreplymeet.enzon19.com/) | [Chrome Web Store]([quickreplymeet.bolhastudios.com/](https://chrome.google.com/webstore/detail/quick-reply-meet/dodpcgfhomjldnenagdibjcoofheocfc)) | [See on GitHub](https://github.com/enzon19/quick-reply-meet)
+  [Website](https://quickreplymeet.enzon19.com/) | [Chrome Web Store](https://chrome.google.com/webstore/detail/quick-reply-meet/dodpcgfhomjldnenagdibjcoofheocfc) | [See on GitHub](https://github.com/enzon19/quick-reply-meet)
 - ### LookHere!
   Hey, I have a message for you here! LookHere! With this tool, you can create flashy messages to call attention from people near from you in real life.<br>
   [Use](https://lookhere.enzon19.com/) | [See on GitHub](https://github.com/enzon19/lookhere)
