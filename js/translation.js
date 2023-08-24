@@ -5,7 +5,7 @@ function handleLanguageChange() {
 }
 
 function loadLanguage() {
-  selectLanguageElement.value = window.i18nextify.i18next.language;
+  selectLanguageElement.value = ['pt', 'eng'].find(lng => lng == window.i18nextify.i18next.language) || '';
 }
 
 window.i18nextify.i18next.on('initialized', loadLanguage);
