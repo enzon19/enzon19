@@ -633,8 +633,8 @@ video {
   margin-top: 0.5rem;
 }
 
-.mt-4{
-  margin-top: 1rem;
+.mt-6{
+  margin-top: 1.5rem;
 }
 
 .inline-block{
@@ -918,10 +918,6 @@ video {
   text-decoration-line: underline;
 }
 
-.outline{
-  outline-style: solid;
-}
-
 .outline-1{
   outline-width: 1px;
 }
@@ -955,7 +951,6 @@ video {
 }
 
 html.dark #main {
-  background: #083D95;
   background-size: 100% 100%;
   background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
   background-image: radial-gradient(18% 28% at 24% 50%, #0C2969FF 1%, #073AFF00 100%),radial-gradient(18% 28% at 18% 71%, #071846 6%, #073AFF00 100%),radial-gradient(70% 53% at 36% 76%, #040E23FF 0%, #073AFF00 100%),radial-gradient(42% 53% at 15% 94%, #071846 7%, #073AFF00 100%),radial-gradient(42% 53% at 34% 72%, #071846 7%, #073AFF00 100%),radial-gradient(18% 28% at 35% 87%, #071846 7%, #073AFF00 100%),radial-gradient(31% 43% at 7% 98%, #071846 24%, #073AFF00 100%),radial-gradient(21% 37% at 72% 23%, #0A2E64FF 24%, #073AFF00 100%),radial-gradient(35% 56% at 91% 74%, #004267FF 9%, #073AFF00 100%),radial-gradient(74% 86% at 67% 38%, #081948 24%, #073AFF00 100%),linear-gradient(125deg, rgb(16, 69, 177) 1%, #030D5EFF 100%);
@@ -965,7 +960,6 @@ html.dark #main {
 }
 
 #main {
-  background: #76a9f7;
   background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
   background-image: radial-gradient(18% 28% at 24% 50%, #CEFAFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 27% 85%, #FFFFFF59 6%, #073AFF00 100%),radial-gradient(70% 53% at 36% 76%, #63A6FFFF 0%, #073AFF00 100%),radial-gradient(42% 53% at 15% 94%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(42% 53% at 34% 72%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(18% 28% at 35% 87%, #FFFFFFFF 7%, #073AFF00 100%),radial-gradient(31% 43% at 7% 98%, #FFFFFFFF 24%, #073AFF00 100%),radial-gradient(21% 37% at 72% 23%, #5DB1FF9C 24%, #073AFF00 100%),radial-gradient(35% 56% at 91% 74%, #584FFFF5 0%, #073AFF00 100%),radial-gradient(74% 86% at 67% 38%, #9CF5FFFF 24%, #073AFF00 100%),linear-gradient(125deg, #2586f0 0%, #010a83 100%);
   background-attachment: fixed;
