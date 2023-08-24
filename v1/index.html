@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Enzo (enzon19)</title>
+    <meta name="description" id="description" content="O Enzo é um desenvolvedor e edita vídeos e fotos. Para colocar suas ideias em prática, ele usa JavaScript, HTML, CSS, VBA, C e a suíte da Adobe.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="Enzo (enzon19)"/>
+    <meta property="og:description" content="O Enzo é um desenvolvedor e edita vídeos e fotos. Para colocar suas ideias em prática, ele usa JavaScript, HTML, CSS, VBA, C e a suíte da Adobe."/>
+    <meta property="og:image" content="https://raw.githubusercontent.com/enzon19/enzon19/main/assets/logo.png"/>
+    <meta property="og:url" content="enzon19.com"/>
+    <meta property="og:type" content="website"/>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/face.css">
+    <link rel="stylesheet" href="css/titleType.css">
+    <link rel="stylesheet" href="css/gallery.css">
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  </head>
+  <body onresize="eyePos()">
+    <div class="enzoFace alignCenter">
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <img class="face" src="assets/face/enzo.png">
+    </div>
+    <br>
+    <div class="alignCenter">
+      <div class="container">
+        <h1 class="bigTitle type">enzon19</h1>
+      </div>
+      <h3 class="logNames" id="log.placeholder">(ou Enzo)</h3>
+    </div>
+    <br><hr>
+    <div class="alignCenter">
+      <h1 id="about.title">Sobre</h1>
+      <p id="about.description" class="limitWidth">Oi, meu nome é Enzo! Desde pequeno, sempre gostei de criar coisas. Por muito tempo, fui fascinado com o mundo audiovisual e, por isso, sei usar diversos aplicativos dessa área e que envolvam criação e montagem de vídeos e fotos. Ainda gosto de produzir vídeos e fotos, mas também de criar aplicações que ajudam o meu dia a dia. Por isso, eu desenvolvo bots para Telegram e Discord, faço extensões para navegador e crio ferramentas online. Uso JavaScript, HTML, CSS, VBA e C para desenvolver meus projetos. Ainda quero, futuramente, criar jogos e aplicativos mais avançados para celular e computador, mas, infelizmente, a escola atrapalha este processo de aprendizado tomando boa parte do meu dia para ensinar processo de formação de rochas, funções de uma membrana celular, a tabela periódica ou como fazer escansão.</p>
+      <!-- É muito triste ter tanta vontade de aprender o que realmente gosta, quando é obrigado a obter conhecimentos inúteis apenas para receber um certificado. O conhecimento foi desvalorizado, eu, minha vida e meu sucesso foram resumidos à um certificado. -->
+      <a class="button" id="about.buttons.contact" href="mailto:contato@enzon19.com?subject=E aí, Enzo?" style="margin-left: 0px;">Entrar em contato</a>
+      <a class="button" id="about.buttons.donate" onclick="scrollToDonate()" target="_blank">Fazer uma doação</a>
+      <a class="button" href="https://github.com/enzon19" target="_blank" style="margin-right: 0px;">GitHub</a>
+    </div>
+    <hr>
+    <div class="alignCenter">
+      <h1 id="projects.title">Projetos Pessoais</h1>
+      <p id="projects.description" class="limitWidth">Como eu disse, eu também me interesso pela área audiovisual, mas só incluí projetos de programação na lista.</p>
+      <div class="gallery"></div>
+    </div>
+    <hr>
+    <div class="alignCenter">
+      <h1 id="donate.title">Doar</h1>
+      <p id="donate.description" class="limitWidth">Eu sou um desenvolvedor independente que disponibiliza projetos gratuitos com código-fonte aberto para todos. Se você pode, por favor, dá uma ajuda! Qualquer contribuição já é bem-vinda.</p>
+      <div class="gallery">
+        <div class="card">
+          <img src="assets/donate/pix.png" class="cardImage" alt="Pix">
+          <h3 style="margin-top: 0px">Pix</h3>
+          <span id="donate.methods.pix.description">Método recente e popular no Brasil. O meu Pix é: enzonbarata@outlook.com</span>
+          <br>
+          <a class="button noMarginButton" onclick="navigator.clipboard.writeText('enzonbarata@outlook.com');" style="margin-right: 0px; cursor: pointer;" id="donate.methods.pix.copy">Copiar</a>
+        </div>
+        <div class="card">
+          <img src="assets/donate/kofi.png" class="cardImage" alt="">
+          <h3 style="margin-top: 0px">Ko-fi</h3>
+          <span id="donate.methods.kofi.description">Plataforma feita especialmente para doações. Funciona em dólar.</span>
+          <br>
+          <a class="button noMarginButton" href="https://ko-fi.com/enzon19" target="_blank" style="margin-right: 0px;" id="donate.methods.kofi.access">Acessar</a>
+        </div>
+        <div class="card">
+          <img src="assets/donate/soon.png" class="cardImage" alt="">
+          <h3 style="margin-top: 0px">Outros</h3>
+          <span id="donate.methods.soon.description">Mais opções em breve!</span>
+          <br>
+          <a class="button noMarginButton" href="mailto:sugerir@enzon19.com?subject=Sugerir" target="_blank" style="margin-right: 0px;" id="donate.methods.soon.access">Sugerir</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/translation.js" async defer></script>
+    <script src="js/index.js" async defer></script>
+    <script src="js/textAnimation.js" async defer></script>
+  </body>
+</html>

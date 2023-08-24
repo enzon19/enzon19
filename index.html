@@ -1,93 +1,321 @@
 <!DOCTYPE html>
-<html>
+<!-- en -->
+<html lang="pt" class="scroll-smooth">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Enzo (enzon19)</title>
-    <meta name="description" id="description" content="O Enzo é um desenvolvedor e edita vídeos e fotos. Para colocar suas ideias em prática, ele usa JavaScript, HTML, CSS, VBA, C e a suíte da Adobe.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta property="og:title" content="Enzo (enzon19)"/>
-    <meta property="og:description" content="O Enzo é um desenvolvedor e edita vídeos e fotos. Para colocar suas ideias em prática, ele usa JavaScript, HTML, CSS, VBA, C e a suíte da Adobe."/>
-    <meta property="og:image" content="https://raw.githubusercontent.com/enzon19/enzon19/main/assets/logo.png"/>
-    <meta property="og:url" content="enzon19.com"/>
-    <meta property="og:type" content="website"/>
+    <!-- Geral -->
+    <title>enzon19</title>
+    <meta name="title" content="enzon19" />
+    <meta name="description" content="Eu sou o Enzo, um desenvolvedor web brasileiro apaixonado por transformar problemas e desafios em códigos, criando soluções que aprimoram a vida das pessoas, tornando o dia a dia mais simples e divertido">
 
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/face.css">
-    <link rel="stylesheet" href="css/titleType.css">
-    <link rel="stylesheet" href="css/gallery.css">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://enzon19.com/" />
+    <meta property="og:title" content="enzon19" />
+    <meta property="og:description" content="Eu sou o Enzo, um desenvolvedor web brasileiro apaixonado por transformar problemas e desafios em códigos, criando soluções que aprimoram a vida das pessoas, tornando o dia a dia mais simples e divertido." />
+    <meta property="og:image" content="imagemCapa" />
 
-    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://enzon19.com/" />
+    <meta property="twitter:title" content="enzon19" />
+    <meta property="twitter:description" content="Eu sou o Enzo, um desenvolvedor web brasileiro apaixonado por transformar problemas e desafios em códigos, criando soluções que aprimoram a vida das pessoas, tornando o dia a dia mais simples e divertido." />
+    <meta property="twitter:image" content="imagemCapa" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/animations.css" rel="stylesheet">
   </head>
-  <body onresize="eyePos()">
-    <div class="enzoFace alignCenter">
-      <div class="eye left"></div>
-      <div class="eye right"></div>
-      <img class="face" src="assets/face/enzo.png">
-    </div>
-    <br>
-    <div class="alignCenter">
-      <div class="container">
-        <h1 class="bigTitle type">enzon19</h1>
+  <!-- E aí, fuçando no meu código? -->
+  <body class="text-neutral-800 bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-900 selection:bg-enzo-sky selection:text-white">
+    <main class="flex flex-col gap-4">
+      <div id="main" class="flex flex-col md:flex-row md:justify-between gap-4">
+        <div class="flex flex-col p-6 md:flex-row md:items-center md:justify-center md:sticky md:top-0 md:h-screen md:w-1/2">
+          <div>
+            <canvas class="w-full h-full" id="enzoFace" width="619" height="687"></canvas>
+          </div>
+        </div>
+        <div class="md:w-1/2 p-6 flex flex-col md:gap-4 gap-12">
+          <div class="md:h-screen flex flex-col justify-center max-w-xl gap-4">
+              <div id="name" class="inline-block type">
+                <h1 class="md:text-7xl text-6xl text-black dark:text-white font-black inline pr-2 cursor-pointer border-[--caret-color] border-r-8" onclick="type()" translated>enzon19</h1>
+              </div>
+              <p class="text-xl" id="shortDescription" merge>
+                <strong>Oi!</strong> Eu sou o <strong>Enzo</strong>, um <strong>desenvolvedor web brasileiro</strong> apaixonado por transformar problemas e desafios em códigos, <strong>criando soluções</strong> que aprimoram a vida das pessoas, tornando o <strong>dia a dia mais simples e divertido</strong>.
+              </p>
+              <div class="flex flex-row gap-4" id="mainButtons">
+                <div>
+                  <a href="mailto:contato@enzon19.com" target="_blank" class="button dark:bg-neutral-300 dark:text-neutral-800 dark:hover:text-white text-lg px-4">
+                    <ion-icon name="mail" class="text-xl"></ion-icon>
+                    <span>E-mail</span>
+                  </a>
+                </div>
+                <div>
+                  <a href="https://github.com/enzon19" target="_blank" class="button dark:bg-neutral-300 dark:text-neutral-800 dark:hover:text-white text-lg px-4">
+                    <ion-icon name="logo-github" class="text-xl"></ion-icon>
+                    <span>GitHub</span>
+                  </a>
+                </div>
+              </div>
+          </div>
+          <div class="max-w-3xl flex flex-col gap-4">
+            <div>
+              <h2 class="text-2xl font-bold">Sobre</h2>
+              <p class="indent-4" merge>
+                Desde pequeno, <strong>sempre gostei de criar coisas</strong>. Usando papelão, papel, desenhos e gravando, a imaginação e criatividade sempre foram minhas aliadas. Com o tempo, desenvolvi uma fascinação pelo mundo audiovisual, me levando a explorar uma variedade de aplicativos relacionados à <strong>criação e edição de fotos e vídeos</strong>. Embora ainda goste da produção de conteúdo em foto e vídeo, nos últimos anos tenho me atraído mais por <strong>desenvolvimento de software</strong>.
+              </p>
+              <p class="indent-4" merge>
+                No começo, criava joguinhos usando Office e <strong>VBA</strong>. Depois, em 2019, <strong>avancei para C</strong> por conta de um curso oferecido na minha cidade por um grande professor meu. Indignado por ser limitado por um console com tela preta, comecei a estudar <strong>JavaScript, HTML e CSS</strong> por conta própria na quarentena. Foi assim que pude, finalmente, criar <strong>sites e ferramentas online, extensões para navegadores e bots para Telegram e Discord</strong>.
+              </p>
+              <p class="indent-4" merge>
+                Tenho o desejo de explorar a criação de jogos e aplicativos mais complexos, voltados para dispositivos móveis e computadores. No entanto, essa jornada tem sido um <strong>desafio</strong>, já que a <strong>escola e os vestibulares consomem grande parte do meu tempo</strong> para me ensinar o processo de formação de rochas, funções de uma membrana celular, a tabela periódica ou como fazer escansão.
+              </p>
+              <p class="indent-4" merge>
+                Quando não estou programando, estou conversando com amigos, <a href="https://ign.com/playlist/enzon19" class="underline font-bold" target="_blank">jogando videogame</a>, <a href="https://trakt.tv/user/enzon19" class="underline font-bold" target="_blank">vendo filmes e séries</a>, ou, infelizmente, estudando para passar em vestibulares.
+              </p>
+            </div>
+            <div>
+              <h2 class="text-2xl font-bold">Habilidades</h2>
+              <div class="grid gap-4" style="grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));">
+                  <div>
+                    <h3 class="text-xl font-semibold">Linguagens</h3>
+                    <ul merge translated>
+                      <li>JavaScript</li>
+                      <li>HTML</li>
+                      <li>CSS</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold">Frameworks</h3>
+                    <ul merge translated>
+                      <li>Node.js</li>
+                      <li>Svelte</li>
+                      <li>SvelteKit</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold">Ferramentas</h3>
+                    <ul merge translated>
+                      <li>Git</li>
+                      <li>GitHub</li>
+                      <li>Supabase</li>
+                      <li>Xata</li>
+                      <li>Postman</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-semibold">Mídia</h3>
+                    <ul merge translated>
+                      <li>Photoshop</li>
+                      <li>Premiere</li>
+                      <li>After Effects</li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <h3 class="logNames" id="log.placeholder">(ou Enzo)</h3>
-    </div>
-    <br><hr>
-    <div class="alignCenter">
-      <h1 id="about.title">Sobre</h1>
-      <p id="about.description" class="limitWidth">Oi, meu nome é Enzo! Desde pequeno, sempre gostei de criar coisas. Por muito tempo, fui fascinado com o mundo audiovisual e, por isso, sei usar diversos aplicativos dessa área e que envolvam criação e montagem de vídeos e fotos. Ainda gosto de produzir vídeos e fotos, mas também de criar aplicações que ajudam o meu dia a dia. Por isso, eu desenvolvo bots para Telegram e Discord, faço extensões para navegador e crio ferramentas online. Uso JavaScript, HTML, CSS, VBA e C para desenvolver meus projetos. Ainda quero, futuramente, criar jogos e aplicativos mais avançados para celular e computador, mas, infelizmente, a escola atrapalha este processo de aprendizado tomando boa parte do meu dia para ensinar processo de formação de rochas, funções de uma membrana celular, a tabela periódica ou como fazer escansão.</p>
-      <!-- É muito triste ter tanta vontade de aprender o que realmente gosta, quando é obrigado a obter conhecimentos inúteis apenas para receber um certificado. O conhecimento foi desvalorizado, eu, minha vida e meu sucesso foram resumidos à um certificado. -->
-      <a class="button" id="about.buttons.contact" href="mailto:contato@enzon19.com?subject=E aí, Enzo?" style="margin-left: 0px;">Entrar em contato</a>
-      <a class="button" id="about.buttons.donate" onclick="scrollToDonate()" target="_blank">Fazer uma doação</a>
-      <a class="button" href="https://github.com/enzon19" target="_blank" style="margin-right: 0px;">GitHub</a>
-    </div>
-    <hr>
-    <div class="alignCenter">
-      <h1 id="projects.title">Projetos Pessoais</h1>
-      <p id="projects.description" class="limitWidth">Como eu disse, eu também me interesso pela área audiovisual, mas só incluí projetos de programação na lista.</p>
-      <div class="gallery"></div>
-    </div>
-    <hr>
-    <div class="alignCenter">
-      <h1 id="donate.title">Doar</h1>
-      <p id="donate.description" class="limitWidth">Eu sou um desenvolvedor independente que disponibiliza projetos gratuitos com código-fonte aberto para todos. Se você pode, por favor, dá uma ajuda! Qualquer contribuição já é bem-vinda.</p>
-      <div class="gallery">
-        <div class="card">
-          <img src="assets/donate/pix.png" class="cardImage" alt="Pix">
-          <h3 style="margin-top: 0px">Pix</h3>
-          <span id="donate.methods.pix.description">Método recente e popular no Brasil. O meu Pix é: enzonbarata@outlook.com</span>
-          <br>
-          <a class="button noMarginButton" onclick="navigator.clipboard.writeText('enzonbarata@outlook.com');" style="margin-right: 0px; cursor: pointer;" id="donate.methods.pix.copy">Copiar</a>
-        </div>
-        <div class="card">
-          <img src="assets/donate/kofi.png" class="cardImage" alt="">
-          <h3 style="margin-top: 0px">Ko-fi</h3>
-          <span id="donate.methods.kofi.description">Plataforma feita especialmente para doações. Funciona em dólar.</span>
-          <br>
-          <a class="button noMarginButton" href="https://ko-fi.com/enzon19" target="_blank" style="margin-right: 0px;" id="donate.methods.kofi.access">Acessar</a>
-        </div>
-        <div class="card">
-          <img src="assets/donate/soon.png" class="cardImage" alt="">
-          <h3 style="margin-top: 0px">Outros</h3>
-          <span id="donate.methods.soon.description">Mais opções em breve!</span>
-          <br>
-          <a class="button noMarginButton" href="mailto:sugerir@enzon19.com?subject=Sugerir" target="_blank" style="margin-right: 0px;" id="donate.methods.soon.access">Sugerir</a>
+      <div class="container mx-auto px-6 flex flex-col gap-4">
+        <h2 class="text-2xl font-bold text-center">Principais Projetos</h2>
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-4">
+          <div id="dicionario-bot" class="flex flex-col gap-4">
+            <a class="rounded-3xl overflow-hidden flex flex-row items-center cursor-pointer hover:scale-[1.02] hover:shadow-lg transition-all duration-300 group bg-[#661008] hover:bg-[#8e190f]">
+              <img class="translate-y-[25%] w-2/3 group-hover:translate-y-[5%] transition-all ease-in-out duration-300" src="/assets/projects/dicionario-bot/hero_phone_screenshot.png" alt="Hero Dicionário Bot">
+              <div class="w-1/3">
+                <img class="mx-auto w-[65%] group-hover:scale-125 transition-all ease-in-out duration-300" src="/assets/projects/dicionario-bot/favicon.png" alt="Logo Dicionário Bot">
+              </div>
+            </a>
+            <div class="flex flex-col items-center mx-5">
+              <h3 class="text-lg font-semibold text-center">Dicionário Bot</h3>
+              <span class="text-base text-center">Um dicionário da língua portuguesa brasileira no Telegram</span>
+              <div class="mt-2 flex flex-row gap-2">
+                <a href="https://dicionariobot.enzon19.com" target="_blank" class="button">
+                  <ion-icon name="globe-outline" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">Site</span>
+                </a>
+                <a href="https://t.me/dicionariobot" target="_blank" class="button">
+                  <ion-icon name="paper-plane" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">Telegram</span>
+                </a>
+                <a href="https://github.com/enzon19/dicionariobot" target="_blank" class="button">
+                  <ion-icon name="logo-github" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div id="quick-reply-meet" class="flex flex-col gap-4">
+            <a class="rounded-3xl overflow-hidden flex flex-row items-center cursor-pointer hover:scale-[1.02] hover:shadow-lg transition-all duration-300 group bg-[#206e67] hover:bg-[#0f8c80]">
+              <img class="translate-y-[15%] w-2/3 group-hover:translate-y-[3%] transition-all ease-in-out duration-300" src="/assets/projects/quick-reply-meet/chat.png" alt="Google Meet Chat com Decoradas do Meet">
+              <div class="w-1/3">
+                <img class="object-cover mx-auto w-[65%] group-hover:scale-125 transition-all ease-in-out duration-300" src="/assets/projects/quick-reply-meet/logo512.png" alt="Logo Decoradas do Meet">
+              </div>
+            </a>
+            <div class="flex flex-col items-center mx-5">
+              <h3 class="text-lg font-semibold text-center">Decoradas do Meet</h3>
+              <span class="text-base text-center">Atalhos de mensagens para enviar rapidamente no Meet</span>
+              <div class="mt-2 flex flex-row gap-2 text-center">
+                <a href="https://qrm.enzon19.com" target="_blank" class="button">
+                  <ion-icon name="globe-outline" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">Site</span>
+                </a>
+                <a href="https://chrome.google.com/webstore/detail/quick-reply-meet/dodpcgfhomjldnenagdibjcoofheocfc" target="_blank" class="button">
+                  <ion-icon name="logo-chrome" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">Web Store</span>
+                </a>
+                <a href="https://github.com/enzon19/quick-reply-meet" target="_blank" class="button">
+                  <ion-icon name="logo-github" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div id="randomtv" class="flex flex-col gap-4">
+            <a class="rounded-3xl overflow-hidden flex flex-row items-center cursor-pointer hover:scale-[1.02] hover:shadow-lg transition-all duration-300 group bg-[#222222] hover:bg-[#302f2f]">
+              <img class="translate-y-[25%] w-2/3 group-hover:translate-y-[5%] transition-all ease-in-out duration-300" src="/assets/projects/randomtv/rtv.png" alt="Recursos do RandomTV">
+              <div class="w-1/3">
+                <img class="mx-auto w-[55%] group-hover:scale-125 transition-all ease-in-out duration-300" src="/assets/projects/randomtv/logo.png" alt="Logo RandomTV">
+              </div>
+            </a>
+            <div class="flex flex-col items-center mx-5">
+              <h3 class="text-lg font-semibold text-center">RandomTV</h3>
+              <span class="text-base text-center">Escolher um item aleatório de uma lista no Trakt</span>
+              <div class="mt-2 flex flex-row gap-2">
+                <a href="https://randomtv.enzon19.com" target="_blank" class="button">
+                  <ion-icon name="globe-outline" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">Site</span>
+                </a>
+                <a href="https://chrome.google.com/webstore/detail/randomtv-for-trakt/pfpgceagljbjijjfbhafopadmhdifoaa" target="_blank" class="button">
+                  <ion-icon name="logo-chrome" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">Web Store</span>
+                </a>
+                <a href="https://github.com/enzon19/randomtv" target="_blank" class="button">
+                  <ion-icon name="logo-github" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div id="mapa-de-sala" class="flex flex-col gap-4">
+            <a class="rounded-3xl overflow-hidden flex flex-row items-center cursor-pointer hover:scale-[1.02] hover:shadow-lg transition-all duration-300 group bg-[#0f1014] hover:bg-[#0c101f]">
+              <img class="translate-y-[25%] w-2/3 group-hover:translate-y-[5%] transition-all ease-in-out duration-300" src="/assets/projects/mapa-de-sala/mapadesala.png" alt="Visão Geral do Mapa de Sala">
+              <div class="w-1/3">
+                <img class="mx-auto w-[72%] group-hover:scale-125 transition-all ease-in-out duration-300" src="/assets/projects/mapa-de-sala/logo_v2.png" alt="Logo Mapa de Sala">
+              </div>
+            </a>
+            <div class="flex flex-col items-center mx-5">
+              <h3 class="text-lg font-semibold text-center">Mapa de Sala</h3>
+              <span class="text-base text-center">Experimento que exibe dados sobre minha sala de aula</span>
+              <div class="mt-2 flex flex-row gap-2">
+                <a href="https://mapadesala.enzon19.com" target="_blank" class="button">
+                  <ion-icon name="globe-outline" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">Site</span>
+                </a>
+                <a href="https://github.com/enzon19/mapa-de-sala" target="_blank" class="button">
+                  <ion-icon name="logo-github" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="container mx-auto px-6 flex flex-col gap-4">
+        <h2 class="text-2xl font-bold text-center">Outros Projetos</h2>
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-4">
+          <div class="flex flex-row gap-4 items-start p-4 bg-neutral-300 dark:bg-neutral-850 rounded-3xl">
+            <img src="/assets/projects/other/icon.svg" alt="Dever Generator Logo" class="w-1/6">
+            <div class="w-5/6">
+              <h3 class="text-lg font-semibold">Dever Generator</h3>
+              <div>Crie tarefas no Todoist com base em suas matérias escolares. Adicione automaticamente datas, rótulos, projetos e seções.</div>
+              <div class="mt-2 flex flex-row gap-2">
+                <a href="https://devergenerator.enzon19.com" target="_blank" class="button">
+                  <ion-icon name="globe-outline" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">Site</span>
+                </a>
+                <a href="https://github.com/enzon19/dever-generator" target="_blank" class="button">
+                  <ion-icon name="logo-github" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row gap-4 items-start p-4 bg-neutral-300 dark:bg-neutral-850 rounded-3xl">
+            <img src="/assets/projects/other/icon.png" alt="LookHere! Logo" class="w-1/6 rounded-xl">
+            <div class="w-5/6">
+              <h3 class="text-lg font-semibold">LookHere!</h3>
+              <div>Com esta ferramenta, você pode criar mensagens que piscam para chamar a atenção das pessoas na vida real.</div>
+              <div class="mt-2 flex flex-row gap-2">
+                <a href="https://lookhere.enzon19.com" target="_blank" class="button">
+                  <ion-icon name="globe-outline" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">Site</span>
+                </a>
+                <a href="https://github.com/enzon19/lookhere" target="_blank" class="button">
+                  <ion-icon name="logo-github" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row gap-4 items-start p-4 bg-neutral-300 dark:bg-neutral-850 rounded-3xl">
+            <img src="/assets/projects/other/icon.svg" alt="Mochila do Enzo Logo" class="w-1/6">
+            <div class="w-5/6">
+              <h3 class="text-lg font-semibold">Mochila do Enzo</h3>
+              <div>Este projeto usa tags NFC para identificar meus materiais escolares. Caso eu perca algo, possibilita um contato para recuperação.</div>
+              <div class="mt-2 flex flex-row gap-2">
+                <a href="https://mochila-do-enzo.enzon19.repl.co" target="_blank" class="button">
+                  <ion-icon name="globe-outline" class="text-xl"></ion-icon>
+                  <span class="hidden xs:inline">Site</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-    <script src="js/translation.js" async defer></script>
-    <script src="js/index.js" async defer></script>
-    <script src="js/textAnimation.js" async defer></script>
+    <footer class="text-sm p-4 mt-4 bg-neutral-300 dark:bg-neutral-800 border-t border-neutral-500">
+      <div class="container mx-auto px-6 grid md:grid-cols-3 md:grid-flow-col grid-flow-row gap-2 items-center">
+        <span class="text-center md:text-left">Feito com HTML, CSS (Tailwind) e JavaScript</span>
+        <span class="text-center">2023 • Enzo N. Barata</span>
+        <div class="flex flex-row justify-center md:justify-end gap-2">
+          <div class="flex flex-row items-center gap-2">
+            <ion-icon name="contrast"></ion-icon>
+            <select id="selectTheme" onchange="handleThemeChange(event)" class="p-1 rounded-lg cursor-pointer transition-colors hover:bg-white dark:hover:bg-neutral-600 bg-neutral-100 dark:bg-neutral-700 outline-1 outline-neutral-500">
+              <option value="light">Claro</option>
+              <option value="dark">Escuro</option>
+              <option value="system">Sistema</option>
+            </select>
+          </div>
+          <div class="flex flex-row items-center gap-2">
+            <ion-icon name="language"></ion-icon>
+            <select id="selectLanguage" onchange="handleLanguageChange(event)" class="p-1 rounded-lg cursor-pointer transition-colors hover:bg-white dark:hover:bg-neutral-600 bg-neutral-100 dark:bg-neutral-700 outline-1 outline-neutral-500">
+              <option value="eng">English</option>
+              <option value="pt">Português</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/js/darkMode.js"></script>
+    <script src="/js/writeName.js"></script>
+    <script src="/js/face.js"></script>
+    <script src="/js/i18nextify.min.js" id="i18nextify" fallbacklng="en"></script>
+    <script src="/js/translation.js"></script>
   </body>
 </html>

@@ -1,0 +1,61 @@
+body {
+  font-family: 'Inter', sans-serif;
+  color: #0f0f0f;
+  background-color: #fbfbfd;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 8px;
+  margin-bottom: 0px;
+}
+
+p {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.alignCenter {
+  text-align: center;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+.bigTitle {
+  font-size: 80px; 
+  font-weight: 800; 
+  margin-bottom: 0px;
+}
+
+.limitWidth {
+  max-width: 1200px; 
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+a.button {
+  text-decoration: none;
+  background-color: #086bce;
+  color: white;
+  border-radius: 20px;
+  padding: 8px 14px;
+  margin: 3px 3px 8px 3px;
+  display: inline-block;
+  transition: all 0.1s;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+a.button:hover {
+  background-color: rgb(10, 121, 231);
+}
+
+a.button:active {
+  background-color: rgb(12, 80, 148);
+}
+
+@media screen and (max-width: 640px) {
+  .bigTitle {
+    font-size: 58px;
+  }
+}
