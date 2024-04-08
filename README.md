@@ -26,7 +26,7 @@ Um desenvolvedor web brasileiro apaixonado por transformar problemas e desafios 
   [Site](https://quickreplymeet.enzon19.com/) • [Chrome Web Store](https://chrome.google.com/webstore/detail/quick-reply-meet/dodpcgfhomjldnenagdibjcoofheocfc) • [GitHub](https://github.com/enzon19/quick-reply-meet)
 - ### RandomTV
   Escolher um item aleatório de uma lista no Trakt<br>
-  [Site](https://randomtv.enzon19.com/) • [Chrome Web Store](https://chrome.google.com/webstore/detail/randomtv-for-trakt/pfpgceagljbjijjfbhafopadmhdifoaa) • [GitHub](https://github.com/enzon19/lookhere)
+  [Site](https://randomtv.enzon19.com/) • [Chrome Web Store](https://chrome.google.com/webstore/detail/randomtv-for-trakt/pfpgceagljbjijjfbhafopadmhdifoaa) • [GitHub](https://github.com/enzon19/randomtv)
 - ### Mapa de Sala
   Experimento que exibe dados sobre minha sala de aula<br>
-  [Use](https://lookhere.enzon19.com/) • [GitHub](https://github.com/enzon19/lookhere)
+  [Use](https://mapadesala.enzon19.com/) • [GitHub](https://github.com/enzon19/mapa-de-sala)

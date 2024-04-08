@@ -20,7 +20,7 @@ A Brazilian web developer in love with turning problems and challenges into code
   [Site](https://quickreplymeet.enzon19.com/) • [Chrome Web Store](https://chrome.google.com/webstore/detail/quick-reply-meet/dodpcgfhomjldnenagdibjcoofheocfc) • [GitHub](https://github.com/enzon19/quick-reply-meet)
 - ### RandomTV
   Choose a random item from a list on Trakt<br>
-  [Site](https://randomtv.enzon19.com/) • [Chrome Web Store](https://chrome.google.com/webstore/detail/randomtv-for-trakt/pfpgceagljbjijjfbhafopadmhdifoaa) • [GitHub](https://github.com/enzon19/lookhere)
+  [Site](https://randomtv.enzon19.com/) • [Chrome Web Store](https://chrome.google.com/webstore/detail/randomtv-for-trakt/pfpgceagljbjijjfbhafopadmhdifoaa) • [GitHub](https://github.com/enzon19/randomtv)
 - ### Mapa de Sala
   Experiment that displays data of my classroom<br>
-  [Use](https://lookhere.enzon19.com/) • [GitHub](https://github.com/enzon19/lookhere)
+  [Use](https://mapadesala.enzon19.com/) • [GitHub](hhttps://github.com/enzon19/mapa-de-sala)
