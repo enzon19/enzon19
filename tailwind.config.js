@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./*.html"],
+  content: ["./*.html", "./trakt-tools/*.html"],
   theme: {
     fontFamily: {
       'sans': ['Inter', 'sans-serif']
