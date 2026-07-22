@@ -4,5 +4,5 @@
 	"bracketSameLine": true,
 	"endOfLine": "lf",
 	"plugins": ["prettier-plugin-tailwindcss"],
-	"tailwindStylesheet": "./css/tailwind.css"
+	"tailwindStylesheet": "./css/tailwind-config.css"
 }

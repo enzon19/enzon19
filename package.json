@@ -1,13 +1,13 @@
 {
-  "name": "enzon19",
-  "version": "2.0.0",
-  "scripts": {
-    "tailwind": "bunx @tailwindcss/cli -i ./css/tailwind.css -o ./css/site.css --watch",
-    "format": "bunx prettier . --write"
-  },
-  "devDependencies": {
-    "prettier": "^3.9.6",
-    "prettier-plugin-tailwindcss": "^0.8.1",
-    "tailwindcss": "^4.3.3"
-  }
+	"name": "enzon19",
+	"version": "2.0.0",
+	"scripts": {
+		"tailwind": "bunx @tailwindcss/cli -i ./css/tailwind.css -o ./css/site.css --watch",
+		"format": "bunx prettier . --write"
+	},
+	"devDependencies": {
+		"prettier": "^3.9.6",
+		"prettier-plugin-tailwindcss": "^0.8.1",
+		"tailwindcss": "^4.3.3"
+	}
 }

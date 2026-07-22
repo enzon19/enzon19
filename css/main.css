@@ -1,0 +1,64 @@
+:root {
+	--caret-color: rgb(44, 44, 44);
+}
+
+html.dark #main {
+	background-size: 100% 100%;
+	background-position:
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px;
+	background-image:
+		radial-gradient(18% 28% at 24% 50%, #0c2969ff 1%, #073aff00 100%),
+		radial-gradient(18% 28% at 18% 71%, #071846 6%, #073aff00 100%),
+		radial-gradient(70% 53% at 36% 76%, #040e23ff 0%, #073aff00 100%),
+		radial-gradient(42% 53% at 15% 94%, #071846 7%, #073aff00 100%),
+		radial-gradient(42% 53% at 34% 72%, #071846 7%, #073aff00 100%),
+		radial-gradient(18% 28% at 35% 87%, #071846 7%, #073aff00 100%),
+		radial-gradient(31% 43% at 7% 98%, #071846 24%, #073aff00 100%),
+		radial-gradient(21% 37% at 72% 23%, #0a2e64ff 24%, #073aff00 100%),
+		radial-gradient(35% 56% at 91% 74%, #004267ff 9%, #073aff00 100%),
+		radial-gradient(74% 86% at 67% 38%, #081948 24%, #073aff00 100%),
+		linear-gradient(125deg, rgb(16, 69, 177) 1%, #030d5eff 100%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#main {
+	background-position:
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px,
+		0px 0px;
+	background-image:
+		radial-gradient(18% 28% at 24% 50%, #cefaffff 7%, #073aff00 100%),
+		radial-gradient(18% 28% at 27% 85%, #ffffff59 6%, #073aff00 100%),
+		radial-gradient(70% 53% at 36% 76%, #63a6ffff 0%, #073aff00 100%),
+		radial-gradient(42% 53% at 15% 94%, #ffffffff 7%, #073aff00 100%),
+		radial-gradient(42% 53% at 34% 72%, #ffffffff 7%, #073aff00 100%),
+		radial-gradient(18% 28% at 35% 87%, #ffffffff 7%, #073aff00 100%),
+		radial-gradient(31% 43% at 7% 98%, #ffffffff 24%, #073aff00 100%),
+		radial-gradient(21% 37% at 72% 23%, #5db1ff9c 24%, #073aff00 100%),
+		radial-gradient(35% 56% at 91% 74%, #584ffff5 0%, #073aff00 100%),
+		radial-gradient(74% 86% at 67% 38%, #9cf5ffff 24%, #073aff00 100%),
+		linear-gradient(125deg, #2586f0 0%, #010a83 100%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+}
