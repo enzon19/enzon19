@@ -5,6 +5,7 @@
     "tailwind": "bunx @tailwindcss/cli -i ./css/tailwind.css -o ./css/site.css --watch"
   },
   "devDependencies": {
+    "prettier": "^3.9.6",
     "tailwindcss": "^4.3.3"
   }
 }
