@@ -49,7 +49,44 @@
 		<link href="/css/animations.css" rel="stylesheet" />
 		<link href="/css/style.css" rel="stylesheet" />
 	</head>
-	<body></body>
+	<body
+		class="bg-neutral-100 text-neutral-800 selection:bg-enzo-sky selection:text-white dark:bg-neutral-900 dark:text-neutral-300">
+		<main class="fle flex-col gap-4">
+			<div
+				class="fixed inset-0 flex h-screen w-full items-center justify-center bg-enzo-sky bg-fixed">
+				<h1 class="hi text-6xl font-bold">hi</h1>
+			</div>
+			<div class="h-screen"></div>
+			<p class="relative h-screen bg-neutral-100">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
+				perferendis nesciunt molestias tenetur error, minima sequi consectetur
+				dolore a quos quae amet ipsam consequatur exercitationem. Rem maiores
+				accusamus similique eius.
+			</p>
+		</main>
+
+		<style>
+			main {
+				scroll-timeline: --main-timeline;
+			}
+
+			.hi {
+				animation: shrink cubic-bezier(0.39, 0.575, 0.565, 1);
+				animation-timeline: scroll(root);
+			}
+
+			@layer animations {
+				@keyframes shrink {
+					0% {
+						transform: none;
+					}
+					100% {
+						transform: translate3d(0,300px,0) scale(40%);
+					}
+				}
+			}
+		</style>
+	</body>
 </html>
 
 <!-- Eu sou o Enzo, tenho 18 anos e programo desde meus 11 anos. Comecei copiando, colando e modificando código VBA no Office. Depois, com meus 13 anos, eu estudei C de verdade em um curso oferecido na minha escola pelo meu ex-professor de Matemática. Durante 2021, eu resolvi aprender HTML/CSS/JS e, desde então, tem sido minha paixão.  -->
