@@ -2,7 +2,8 @@
   "name": "enzon19",
   "version": "2.0.0",
   "scripts": {
-    "tailwind": "bunx @tailwindcss/cli -i ./css/tailwind.css -o ./css/site.css --watch"
+    "tailwind": "bunx @tailwindcss/cli -i ./css/tailwind.css -o ./css/site.css --watch",
+    "format": "bunx prettier . --write"
   },
   "devDependencies": {
     "prettier": "^3.9.6",
