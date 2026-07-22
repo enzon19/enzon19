@@ -1,6 +1,9 @@
 {
   "name": "enzon19",
   "version": "2.0.0",
+  "scripts": {
+    "tailwind": "bunx @tailwindcss/cli -i ./css/tailwind.css -o ./css/site.css --watch"
+  },
   "devDependencies": {
     "tailwindcss": "^4.3.3"
   }
