@@ -16,7 +16,6 @@ const shaderParams = {
 	u_distortion: 0.4,
 	u_swirl: 0.15,
 	u_grainMixer: 0.1,
-	u_fit: 'contain',
 	u_scale: 1,
 	u_rotation: 0,
 	u_offsetX: 0.5,
