@@ -212,6 +212,9 @@
   .inset-0 {
     inset: 0px;
   }
+  .-z-10 {
+    z-index: calc(10 * -1);
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
