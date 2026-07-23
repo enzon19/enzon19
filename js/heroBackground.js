@@ -4,29 +4,64 @@ import {
 	getShaderColorFromString,
 } from '@paper-design/shaders';
 
-const container = document.querySelector('#hero');
-const shaderParams = {
-	u_colors: [
-		getShaderColorFromString('#28aefc'),
-		getShaderColorFromString('#286cff'),
-		getShaderColorFromString('#39aeec'),
-		getShaderColorFromString('#001c80'),
-	],
-	u_colorsCount: 4,
-	u_distortion: 0.4,
-	u_swirl: 0.15,
-	u_grainMixer: 0.1,
-	u_scale: 1,
-	u_rotation: 0,
-	u_offsetX: 0.5,
-	u_offsetY: 0,
-};
+let meshGradient;
 
-const speed = 1;
-const meshGradient = new ShaderMount(
-	container,
-	meshGradientFragmentShader,
-	shaderParams,
-	undefined,
-	speed,
+function getColorsAsShaderColors(colors) {
+	return colors.map((e) => getShaderColorFromString(e));
+}
+
+function initHeroBackground(colors) {
+	const container = document.querySelector('#hero');
+	const u_colors = getColorsAsShaderColors(colors);
+
+	const shaderParams = {
+		u_colors,
+		u_colorsCount: u_colors.length,
+		u_distortion: 0.4,
+		u_swirl: 0.15,
+		u_grainMixer: 0.1,
+		u_scale: 1,
+		u_rotation: 0,
+		u_offsetX: 0.5,
+		u_offsetY: 0,
+	};
+
+	const speed = 1;
+	meshGradient = new ShaderMount(
+		container,
+		meshGradientFragmentShader,
+		shaderParams,
+		undefined,
+		speed,
+	);
+}
+
+function changeColors(colors) {
+	if (!meshGradient) return;
+
+	const u_colors = getColorsAsShaderColors(colors);
+	meshGradient.setUniforms({
+		u_colors,
+		u_colorsCount: u_colors.length,
+	});
+}
+
+function loadHeroBackground(theme) {
+	if (theme !== 'dark' && theme !== 'light') throw 'Invalid theme';
+
+	const colors =
+		theme == 'dark'
+			? ['#ffffff', '#000000']
+			: ['#1ae4dd', '#e4d6f0', '#1884e2', '#28aefc', '#286cff'];
+
+	if (meshGradient) {
+		changeColors(colors);
+	} else {
+		initHeroBackground(colors);
+	}
+}
+loadHeroBackground(
+	document.documentElement.classList.contains('dark') ? 'dark' : 'light',
 );
+
+window.loadHeroBackground = loadHeroBackground;
