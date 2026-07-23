@@ -1,4 +1,4 @@
-const canvas = document.querySelector('#enzoFace');
+const canvas = document.querySelector('#enzo-face');
 const ctx = canvas.getContext('2d');
 
 const face = new Image();
