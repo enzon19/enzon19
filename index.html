@@ -70,6 +70,7 @@
 			nomodule
 			defer
 			src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+		<script defer src="/js/themes.js"></script>
 	</head>
 	<body
 		class="bg-neutral-100 text-neutral-800 selection:bg-enzo-sky selection:text-white dark:bg-neutral-900 dark:text-neutral-300">
@@ -85,6 +86,19 @@
 				accusamus similique eius.
 			</p>
 		</main>
+		<footer>
+			<div class="flex flex-row items-center justify-center gap-2">
+				<ion-icon name="contrast"></ion-icon>
+				<select
+					id="selectTheme"
+					onchange="handleThemeChange(event)"
+					class="cursor-pointer rounded-lg bg-neutral-100 p-1 outline-1 outline-neutral-500 transition-colors hover:bg-white dark:bg-neutral-700 dark:hover:bg-neutral-600">
+					<option value="light">Claro</option>
+					<option value="dark">Escuro</option>
+					<option value="system">Sistema</option>
+				</select>
+			</div>
+		</footer>
 	</body>
 </html>
 
