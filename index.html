@@ -62,7 +62,6 @@
 				}
 			}
 		</script>
-		<script type="module" src="/js/heroBackground.js"></script>
 		<script
 			type="module"
 			src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
@@ -70,16 +69,35 @@
 			nomodule
 			defer
 			src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
-		<script defer src="/js/themes.js"></script>
+		<script src="/js/themes.js"></script>
+		<script type="module" src="/js/heroBackground.js"></script>
 	</head>
 	<body
 		class="bg-neutral-100 text-neutral-800 selection:bg-enzo-sky selection:text-white dark:bg-neutral-900 dark:text-neutral-300">
 		<main class="fle flex-col gap-4">
-			<div class="flex h-dvh w-full items-center justify-center">
+			<div class="h-dvh w-full">
+				<div
+					class="mx-auto grid h-full w-full max-w-7xl grid-cols-2 items-center gap-18 p-4">
+					<div class="flex flex-col gap-4 p-8">
+						<h1
+							class="text-7xl font-black text-enzo-midnight dark:text-red-500">
+							Baratinha
+						</h1>
+						<p class="text-2xl font-medium text-enzo-night">
+							<strong>Oi!</strong> Eu sou o <strong>Enzo</strong>, um
+							<strong>desenvolvedor</strong> apaixonado por transformar
+							problemas e desafios em códigos,
+							<strong>criando soluções</strong> que aprimoram a vida das pessoas
+							e tornam <strong>o dia a dia mais simples e divertido</strong>.
+						</p>
+					</div>
+					<div>
+						<canvas id="enzo-face" class="mx-auto max-w-140" />
+					</div>
+				</div>
 				<div
 					id="hero"
-					class="fixed inset-0 -z-10 h-screen w-full bg-enzo-sky"></div>
-				<h1 class="text-6xl font-bold">hi</h1>
+					class="fixed inset-0 -z-10 h-screen w-full bg-enzo-sky opacity-60 dark:bg-white"></div>
 			</div>
 			<p class="relative h-screen bg-neutral-100">
 				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
@@ -93,7 +111,6 @@
 				<ion-icon name="contrast"></ion-icon>
 				<select
 					id="selectTheme"
-					onchange="handleThemeChange(event)"
 					class="cursor-pointer rounded-lg bg-neutral-100 p-1 outline-1 outline-neutral-500 transition-colors hover:bg-white dark:bg-neutral-700 dark:hover:bg-neutral-600">
 					<option value="light">Claro</option>
 					<option value="dark">Escuro</option>
