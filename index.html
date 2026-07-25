@@ -71,6 +71,7 @@
 			src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
 		<script src="/js/themes.js"></script>
 		<script type="module" src="/js/hero-background.js"></script>
+		<script defer src="/js/enzo-face.js"></script>
 	</head>
 	<body
 		class="bg-neutral-100 text-neutral-800 selection:bg-enzo-sky selection:text-white dark:bg-neutral-900 dark:text-neutral-300">
@@ -80,7 +81,8 @@
 					class="mx-auto grid h-full w-full max-w-7xl grid-cols-2 items-center gap-18 p-4">
 					<div class="flex flex-col gap-4 p-8">
 						<h1
-							class="text-7xl font-black text-enzo-midnight dark:text-red-500">
+							class="text-7xl font-black text-enzo-midnight dark:text-red-500"
+							id="name">
 							Baratinha
 						</h1>
 						<p class="text-2xl font-medium text-enzo-night">
@@ -92,12 +94,16 @@
 						</p>
 					</div>
 					<div>
-						<canvas id="enzo-face" class="mx-auto max-w-140" />
+						<canvas
+							id="enzo-face"
+							class="mx-auto h-full max-w-140"
+							width="483"
+							height="608" />
 					</div>
 				</div>
 				<div
 					id="hero"
-					class="fixed inset-0 -z-10 h-screen w-full bg-enzo-sky opacity-60 dark:bg-white"></div>
+					class="fixed inset-0 -z-10 h-screen w-full bg-enzo-sky dark:bg-white"></div>
 			</div>
 			<p class="relative h-screen bg-neutral-100">
 				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis

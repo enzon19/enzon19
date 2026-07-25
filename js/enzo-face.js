@@ -1,78 +1,105 @@
+const nameElement = document.querySelector('#name');
 const canvas = document.querySelector('#enzo-face');
 const ctx = canvas.getContext('2d');
 
-const face = new Image();
-face.src = '/assets/face/enzo.png';
-const faceWidth = 619;
-const faceHeight = 687;
+const faceImg = new Image(),
+	eyeLeftImg = new Image(),
+	eyeRightImg = new Image();
+faceImg.src = '/assets/face/face.png';
+eyeLeftImg.src = '/assets/face/eye-left.png';
+eyeRightImg.src = '/assets/face/eye-right.png';
 
-const eyeLeft = new Image();
-eyeLeft.src = '/assets/face/eyeLeft.png';
-const eyeLeftWidth = 72;
-const eyeLeftHeight = 24;
-
-const eyeRight = new Image();
-eyeRight.src = '/assets/face/eyeRight.png';
-const eyeRightWidth = 82;
-const eyeRightHeight = 28;
-
-let mouseX, mouseY;
-document.addEventListener('mousemove', handleMouseMove);
-
-let angle = Math.atan2(
-	nameElement.getBoundingClientRect().y,
-	nameElement.getBoundingClientRect().x,
-);
-
-function handleMouseMove(event) {
+let mouseX, mouseY, blinking;
+document.addEventListener('mousemove', (event) => {
 	const rect = canvas.getBoundingClientRect();
-	mouseX = event.clientX - rect.left;
-	mouseY = event.clientY - rect.top;
-	requestAnimationFrame(draw);
-}
 
-function draw() {
+	const scaleX = canvas.width / rect.width;
+	const scaleY = canvas.height / rect.height;
+	mouseX = (event.clientX - rect.left) * scaleX;
+	mouseY = (event.clientY - rect.top) * scaleY;
+
+	if (!blinking) requestAnimationFrame(() => draw(mouseX, mouseY, false));
+});
+
+const wait = (t) => new Promise((resolve, reject) => setTimeout(resolve, t));
+setInterval(async () => {
+	blinking = true;
+	requestAnimationFrame(() => draw(mouseX, mouseY, true));
+	await wait(300);
+	blinking = false;
+	requestAnimationFrame(() => draw(mouseX, mouseY, false));
+}, 6000);
+
+function draw(mouseX, mouseY, blink, love) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 	const containerX = canvas.width / 2;
 	const containerY = canvas.height / 2;
+	const { width: faceWidth, height: faceHeight } = faceImg;
+	const targetY = mouseY ?? nameElement.getBoundingClientRect().y;
+	const targetX = mouseX ?? nameElement.getBoundingClientRect().x;
 
-	if (mouseX && mouseY)
-		angle = Math.atan2(mouseY - containerY, mouseX - containerX);
+	const { width: eyeLeftWidth, height: eyeLeftHeight } = eyeLeftImg;
+	const eyeLeftWidthWithSpace = eyeLeftWidth + 9;
+	const eyeLeftX = containerX - 75;
+	const eyeLeftY = containerY - 48;
+	const eyeLeftCenterX = eyeLeftX + eyeLeftWidth / 2;
+	const eyeLeftCenterY = eyeLeftY + eyeLeftHeight / 2;
+	const eyeLeftAngle = Math.atan2(
+		targetY - eyeLeftCenterY,
+		targetX - eyeLeftCenterX,
+	);
 
-	const eyeLeftX = containerX - 173;
-	const eyeLeftY = containerY - 87;
-	const eyeRightX = containerX - 20;
-	const eyeRightY = containerY - 102;
+	const { width: eyeRightWidth, height: eyeRightHeight } = eyeRightImg;
+	const eyeRightWidthWithSpace = eyeRightWidth + 12;
+	const eyeRightX = containerX + 85;
+	const eyeRightY = containerY - 62;
+	const eyeRightCenterX = eyeRightX + eyeRightWidth / 2;
+	const eyeRightCenterY = eyeRightY + eyeRightHeight / 2;
+	const eyeRightAngle = Math.atan2(
+		targetY - eyeRightCenterY,
+		targetX - eyeRightCenterX,
+	);
 
+	console.log(((eyeRightAngle - 1) * 180) / Math.PI);
 	ctx.drawImage(
-		face,
+		faceImg,
 		containerX - faceWidth / 2,
 		containerY - faceHeight / 2,
 		faceWidth,
 		faceHeight,
 	);
 
+	if (blink) return;
+
 	ctx.save();
-	ctx.translate(eyeLeftX + eyeLeftWidth / 2, eyeLeftY + eyeLeftHeight / 2);
-	ctx.rotate(angle);
+	ctx.translate(eyeLeftCenterX, eyeLeftCenterY);
+	ctx.rotate(eyeLeftAngle);
 	ctx.drawImage(
-		eyeLeft,
-		-eyeLeftWidth / 2,
+		eyeLeftImg,
+		0,
+		0,
+		eyeLeftWidthWithSpace,
+		eyeLeftHeight,
+		eyeLeftWidthWithSpace / 2,
 		-eyeLeftHeight / 2,
-		eyeLeftWidth,
+		eyeLeftWidthWithSpace,
 		eyeLeftHeight,
 	);
 	ctx.restore();
 
 	ctx.save();
-	ctx.translate(eyeRightX + eyeRightWidth / 2, eyeRightY + eyeRightHeight / 2);
-	ctx.rotate(angle);
+	ctx.translate(eyeRightCenterX, eyeRightCenterY);
+	ctx.rotate(eyeRightAngle);
 	ctx.drawImage(
-		eyeRight,
-		-eyeRightWidth / 2,
+		eyeRightImg,
+		0,
+		0,
+		eyeRightWidthWithSpace,
+		eyeRightHeight,
+		eyeRightWidthWithSpace / 2,
 		-eyeRightHeight / 2,
-		eyeRightWidth,
+		eyeRightWidthWithSpace,
 		eyeRightHeight,
 	);
 	ctx.restore();
@@ -80,9 +107,9 @@ function draw() {
 
 (async () => {
 	Promise.all([
-		new Promise((resolve) => (face.onload = resolve)),
-		new Promise((resolve) => (eyeRight.onload = resolve)),
-		new Promise((resolve) => (eyeLeft.onload = resolve)),
+		new Promise((resolve) => (faceImg.onload = resolve)),
+		new Promise((resolve) => (eyeRightImg.onload = resolve)),
+		new Promise((resolve) => (eyeLeftImg.onload = resolve)),
 	]).then(() => {
 		draw(); // Call draw() after all images are loaded
 	});
