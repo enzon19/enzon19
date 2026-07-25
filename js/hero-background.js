@@ -51,7 +51,7 @@ function loadHeroBackground(theme) {
 
 	const colors =
 		theme == 'dark'
-			? ['#ffffff', '#000000']
+			? ['#030d5e', '#071846', '#0c2969', '#1045b1', '#004267', '#040e23']
 			: ['#1ae4dd', '#e4d6f0', '#1884e2', '#28aefc', '#286cff'];
 
 	if (meshGradient) {
