@@ -26,7 +26,7 @@ function initHeroBackground(colors) {
 		u_offsetY: 0,
 	};
 
-	const speed = 1;
+	const speed = 0.7;
 	meshGradient = new ShaderMount(
 		container,
 		meshGradientFragmentShader,
