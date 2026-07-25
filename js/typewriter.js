@@ -1,10 +1,17 @@
+// Source - https://stackoverflow.com/a/2450976
+// Posted by ChristopheD, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-07-25, License - CC BY-SA 4.0
 function shuffleArray(array) {
 	let currentIndex = array.length,
 		randomIndex;
 
+	// While there remain elements to shuffle...
 	while (currentIndex != 0) {
+		// Pick a remaining element...
 		randomIndex = Math.floor(Math.random() * currentIndex);
 		currentIndex--;
+
+		// And swap it with the current element.
 		[array[currentIndex], array[randomIndex]] = [
 			array[randomIndex],
 			array[currentIndex],
@@ -14,46 +21,71 @@ function shuffleArray(array) {
 	return array;
 }
 
-const nameElement = document.querySelector('#name');
+// Source adapted from https://css-tricks.com/snippets/css/typewriter-effect/
+export class TxtType {
+	constructor(el, toRotate, period) {
+		this.el = el;
+		this.toRotate = toRotate;
+		this.period = parseInt(period) || 2000; // waiting time until erase word
 
-async function type() {
-	if (nameElement.classList.contains('running')) return;
+		this.loopNum = 0;
+		this.txt = '';
+		this.isDeleting = false;
+		this.finished = false;
+	}
 
-	const nicknames = ['Enzão', 'Barata', 'Baratinha'];
-	let shuffledNicknames = shuffleArray(nicknames);
-	shuffledNicknames.push('Enzo', 'enzon19');
+	tick() {
+		const i = this.loopNum % this.toRotate.length;
+		const fullTxt = this.toRotate[i];
 
-	nameElement.classList.add('running');
-	for (let index = 0; index < shuffledNicknames.length; index++) {
-		const text = shuffledNicknames[index];
-		await deleteText();
-		await changeText(text);
-		if (index === shuffledNicknames.length - 1)
-			nameElement.classList.remove('running');
+		if (this.isDeleting) {
+			this.txt = fullTxt.substring(0, this.txt.length - 1);
+		} else {
+			this.txt = fullTxt.substring(0, this.txt.length + 1);
+		}
+
+		console.log(this.isDeleting, this.txt);
+
+		this.el.textContent = this.txt;
+
+		let that = this;
+		let delta = 200 - Math.random() * 100;
+
+		if (this.isDeleting) delta /= 2;
+
+		if (!this.isDeleting && this.txt === fullTxt) {
+			if (this.loopNum == this.toRotate.length - 1) {
+				this.finished = true;
+				return;
+			}
+			this.isDeleting = true;
+			delta = this.period;
+		} else if (this.isDeleting && this.txt === '') {
+			this.isDeleting = false;
+			this.loopNum++;
+			delta = 500; // waiting time until type next word
+		}
+
+		setTimeout(function () {
+			that.tick();
+		}, delta);
 	}
 }
 
-function deleteText() {
-	return new Promise((resolve) => {
-		setTimeout(() => {
-			nameElement.classList.remove('type');
-			nameElement.classList.add('delete');
+const nicknames = ['Enzão', 'Barata', 'Baratinha'];
+const shuffledNicknames = shuffleArray(nicknames);
+shuffledNicknames.push('Enzo', 'enzon19');
+shuffledNicknames.unshift('enzon19');
+const nameElement = document.querySelector('#name');
+let nameTxtType = new TxtType(nameElement, shuffledNicknames, 2000);
 
-			resolve(true);
-		}, 1700);
-	});
+export function typewriteName() {
+	if (!nameTxtType.finished) return;
+
+	nameTxtType = new TxtType(nameElement, shuffledNicknames, 2000);
+	nameTxtType.txt = nicknames[0];
+	nameTxtType.isDeleting = true;
+	nameTxtType.tick();
 }
-
-function changeText(text) {
-	return new Promise((resolve) => {
-		setTimeout(() => {
-			nameElement.querySelector('h1').innerText = text;
-			nameElement.classList.remove('delete');
-			nameElement.classList.add('type');
-
-			resolve(true);
-		}, 1000);
-	});
-}
-
-type();
+nameElement.addEventListener('click', typewriteName);
+nameTxtType.tick();
