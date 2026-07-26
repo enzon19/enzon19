@@ -44,8 +44,6 @@ export class TxtType {
 			this.txt = fullTxt.substring(0, this.txt.length + 1);
 		}
 
-		console.log(this.isDeleting, this.txt);
-
 		this.el.textContent = this.txt;
 
 		let that = this;

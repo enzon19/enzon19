@@ -61,7 +61,6 @@ function draw(mouseX, mouseY, blink, love) {
 		targetX - eyeRightCenterX,
 	);
 
-	console.log(((eyeRightAngle - 1) * 180) / Math.PI);
 	ctx.drawImage(
 		faceImg,
 		containerX - faceWidth / 2,
