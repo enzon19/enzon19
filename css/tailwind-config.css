@@ -10,8 +10,22 @@
 	--shadow-enzo-shadow-size: 0px 0px 50px -12px rgb(0 0 0 / 0.25);
 }
 
-@layer utilities {
-	.button {
-		@apply flex flex-row items-center gap-2 rounded-2xl bg-neutral-800 px-3 py-2 text-center text-base text-neutral-300 transition-all duration-200 ease-in-out hover:scale-105 hover:hover:bg-enzo-sky hover:text-white hover:shadow-enzo-shadow-size hover:shadow-enzo-sky;
+@layer components {
+	.btn {
+		@apply flex cursor-pointer flex-row items-center text-center transition-all duration-200 ease-in-out hover:scale-105;
+	}
+
+	.btn-primary {
+		@apply bg-neutral-800 text-neutral-300 hover:bg-enzo-sky hover:text-white hover:shadow-enzo-shadow-size hover:shadow-enzo-sky;
+	}
+	.btn-tertiary {
+		@apply bg-neutral-200/20 text-neutral-200 backdrop-blur-lg hover:bg-enzo-sky/80 hover:text-white hover:shadow-enzo-shadow-size hover:shadow-enzo-sky border border-neutral-200/10;
+	}
+
+	.btn-md {
+		@apply gap-2 rounded-2xl px-3 py-2 text-base;
+	}
+	.btn-lg {
+		@apply gap-3 rounded-2xl px-4 py-2.5 text-lg;
 	}
 }
