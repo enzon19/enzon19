@@ -19,7 +19,7 @@ function initHeroBackground(colors) {
 		u_colorsCount: u_colors.length,
 		u_distortion: 0.4,
 		u_swirl: 0.15,
-		u_grainMixer: 0.1,
+		u_grainMixer: 0.125,
 		u_scale: 1,
 		u_rotation: 0,
 		u_offsetX: 0.5,
@@ -51,7 +51,7 @@ function loadHeroBackground(theme) {
 
 	const colors =
 		theme == 'dark'
-			? ['#030d5e', '#071846', '#0c2969', '#1045b1', '#004267', '#040e23']
+			? ['#030b1b', '#081b44', '#0c2969', '#0e317b', '#0d3a8a']
 			: ['#1ae4dd', '#e4d6f0', '#1884e2', '#28aefc', '#286cff'];
 
 	if (meshGradient) {
