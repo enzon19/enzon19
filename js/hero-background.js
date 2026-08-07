@@ -51,8 +51,10 @@ function loadHeroBackground(theme) {
 
 	const colors =
 		theme == 'dark'
-			? ['#030b1b', '#081b44', '#0c2969', '#0e317b', '#0d3a8a']
-			: ['#1ae4dd', '#e4d6f0', '#1884e2', '#28aefc', '#286cff'];
+			? ['#09102a', '#0b1860', '#133786']
+			// : ['#1286eb', '#8ec9fc', '#2771E4'];
+			: ['#0D6FD6', '#6DB7F7', '#1553E6'] // '#2771E4'
+			// : ['#006aff', '#74b7ff', '#c2e1ff']
 
 	if (meshGradient) {
 		changeColors(colors);
