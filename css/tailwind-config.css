@@ -24,7 +24,8 @@
 		@apply bg-neutral-800 text-neutral-300 hover:bg-enzo-sky hover:text-white hover:shadow-enzo-shadow-size hover:shadow-enzo-sky;
 	}
 	.btn-tertiary {
-		@apply border border-white/10 bg-enzo-night/35 text-white backdrop-blur-lg hover:border-white hover:bg-white hover:text-enzo-night hover:shadow-enzo-shadow-size hover:shadow-white dark:bg-neutral-200/20 dark:text-neutral-200 dark:hover:shadow-white/60;
+		@apply border border-white/10 bg-enzo-night/35 text-white backdrop-blur-lg dark:bg-neutral-200/20 dark:text-neutral-200;
+		@apply hover:border-white hover:bg-white hover:text-enzo-night hover:shadow-enzo-shadow-size hover:shadow-white dark:hover:shadow-white/60;
 	}
 
 	.btn-md {
