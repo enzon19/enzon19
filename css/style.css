@@ -955,6 +955,10 @@
       line-height: var(--tw-leading, var(--text-lg--line-height));
     }
   }
+  #short-description > strong {
+    --tw-font-weight: var(--font-weight-extrabold);
+    font-weight: var(--font-weight-extrabold);
+  }
 }
 @property --tw-translate-x {
   syntax: "*";
