@@ -4,30 +4,6 @@ const containerX = canvas.width / 2;
 const containerY = canvas.height / 2;
 const ctx = canvas.getContext('2d');
 
-// ---- FOLLOW MOUSE ----
-let mouseX, mouseY;
-document.addEventListener('mousemove', (event) => {
-	const rect = canvas.getBoundingClientRect();
-
-	const scaleX = canvas.width / rect.width;
-	const scaleY = canvas.height / rect.height;
-	mouseX = (event.clientX - rect.left) * scaleX;
-	mouseY = (event.clientY - rect.top) * scaleY;
-
-	if (!blinking) requestAnimationFrame(() => draw(mouseX, mouseY, false));
-});
-
-// ---- BLINKING ----
-let blinking;
-const wait = (t) => new Promise((resolve, reject) => setTimeout(resolve, t));
-setInterval(async () => {
-	blinking = true;
-	requestAnimationFrame(() => draw(mouseX, mouseY, true));
-	await wait(300);
-	blinking = false;
-	requestAnimationFrame(() => draw(mouseX, mouseY, false));
-}, 6000);
-
 // ---- FACE ----
 const faceImg = new Image();
 faceImg.src = '/assets/face/face.png';
@@ -169,6 +145,31 @@ function drawEye(targetX, targetY, side, variant = 'default') {
 	ctx.restore();
 }
 
+// ---- FOLLOW MOUSE ----
+let mouseX, mouseY;
+document.addEventListener('mousemove', (event) => {
+	const rect = canvas.getBoundingClientRect();
+
+	const scaleX = canvas.width / rect.width;
+	const scaleY = canvas.height / rect.height;
+	mouseX = (event.clientX - rect.left) * scaleX;
+	mouseY = (event.clientY - rect.top) * scaleY;
+
+	if (!blinking) requestAnimationFrame(() => draw(mouseX, mouseY, false));
+});
+
+// ---- BLINKING ----
+let blinking;
+const wait = (t) => new Promise((resolve, reject) => setTimeout(resolve, t));
+setInterval(async () => {
+	blinking = true;
+	requestAnimationFrame(() => draw(mouseX, mouseY, true));
+	await wait(300);
+	blinking = false;
+	requestAnimationFrame(() => draw(mouseX, mouseY, false));
+}, 6000);
+
+// ---- MAIN RENDERER ----
 function draw(mouseX, mouseY, blink, love) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
