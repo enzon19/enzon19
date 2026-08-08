@@ -4,10 +4,12 @@ const ctx = canvas.getContext('2d');
 
 const faceImg = new Image(),
 	eyeLeftImg = new Image(),
-	eyeRightImg = new Image();
+	eyeRightImg = new Image(),
+	smileImg = new Image();
 faceImg.src = '/assets/face/face.png';
 eyeLeftImg.src = '/assets/face/eye-left.png';
 eyeRightImg.src = '/assets/face/eye-right.png';
+smileImg.src = '/assets/face/smile.png';
 
 let mouseX, mouseY, blinking;
 document.addEventListener('mousemove', (event) => {
@@ -68,6 +70,8 @@ function draw(mouseX, mouseY, blink, love) {
 		faceWidth,
 		faceHeight,
 	);
+
+	ctx.drawImage(smileImg, 208, 437, smileImg.width, smileImg.height);
 
 	if (blink) return;
 
