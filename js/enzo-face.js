@@ -1,17 +1,11 @@
 const nameElement = document.querySelector('#name');
 const canvas = document.querySelector('#enzo-face');
+const containerX = canvas.width / 2;
+const containerY = canvas.height / 2;
 const ctx = canvas.getContext('2d');
 
-const faceImg = new Image(),
-	eyeLeftImg = new Image(),
-	eyeRightImg = new Image(),
-	smileImg = new Image();
-faceImg.src = '/assets/face/face.png';
-eyeLeftImg.src = '/assets/face/eye-left.png';
-eyeRightImg.src = '/assets/face/eye-right.png';
-smileImg.src = '/assets/face/smile.png';
-
-let mouseX, mouseY, blinking;
+// ---- FOLLOW MOUSE ----
+let mouseX, mouseY;
 document.addEventListener('mousemove', (event) => {
 	const rect = canvas.getBoundingClientRect();
 
@@ -23,6 +17,8 @@ document.addEventListener('mousemove', (event) => {
 	if (!blinking) requestAnimationFrame(() => draw(mouseX, mouseY, false));
 });
 
+// ---- BLINKING ----
+let blinking;
 const wait = (t) => new Promise((resolve, reject) => setTimeout(resolve, t));
 setInterval(async () => {
 	blinking = true;
@@ -32,36 +28,12 @@ setInterval(async () => {
 	requestAnimationFrame(() => draw(mouseX, mouseY, false));
 }, 6000);
 
-function draw(mouseX, mouseY, blink, love) {
-	ctx.clearRect(0, 0, canvas.width, canvas.height);
+// ---- FACE ----
+const faceImg = new Image();
+faceImg.src = '/assets/face/face.png';
 
-	const containerX = canvas.width / 2;
-	const containerY = canvas.height / 2;
+function drawFace() {
 	const { width: faceWidth, height: faceHeight } = faceImg;
-	const targetY = mouseY ?? nameElement.getBoundingClientRect().y;
-	const targetX = mouseX ?? nameElement.getBoundingClientRect().x;
-
-	const { width: eyeLeftWidth, height: eyeLeftHeight } = eyeLeftImg;
-	const eyeLeftWidthWithSpace = eyeLeftWidth + 9;
-	const eyeLeftX = containerX - 75;
-	const eyeLeftY = containerY - 48;
-	const eyeLeftCenterX = eyeLeftX + eyeLeftWidth / 2;
-	const eyeLeftCenterY = eyeLeftY + eyeLeftHeight / 2;
-	const eyeLeftAngle = Math.atan2(
-		targetY - eyeLeftCenterY,
-		targetX - eyeLeftCenterX,
-	);
-
-	const { width: eyeRightWidth, height: eyeRightHeight } = eyeRightImg;
-	const eyeRightWidthWithSpace = eyeRightWidth + 12;
-	const eyeRightX = containerX + 85;
-	const eyeRightY = containerY - 62;
-	const eyeRightCenterX = eyeRightX + eyeRightWidth / 2;
-	const eyeRightCenterY = eyeRightY + eyeRightHeight / 2;
-	const eyeRightAngle = Math.atan2(
-		targetY - eyeRightCenterY,
-		targetX - eyeRightCenterX,
-	);
 
 	ctx.drawImage(
 		faceImg,
@@ -70,49 +42,154 @@ function draw(mouseX, mouseY, blink, love) {
 		faceWidth,
 		faceHeight,
 	);
+}
 
-	ctx.drawImage(smileImg, 208, 437, smileImg.width, smileImg.height);
+// ---- SMILE ----
+const smileVariants = {
+	default: {
+		x: 208,
+		y: 437,
+		img: new Image(),
+	},
+	bigSmile: {
+		x: 208,
+		y: 437,
+		img: new Image(),
+	},
+	dizzy: {
+		x: 208,
+		y: 437,
+		img: new Image(),
+	},
+	yummy: {
+		x: 208,
+		y: 437,
+		img: new Image(),
+	},
+};
+
+smileVariants.default.img.src = '/assets/face/smile.png';
+smileVariants.bigSmile.img.src = '/assets/face/big-smile.png';
+smileVariants.dizzy.img.src = '/assets/face/dizzy.png';
+smileVariants.yummy.img.src = '/assets/face/yummy.png';
+
+function drawSmile(variant = 'default') {
+	const currentVariant = smileVariants[variant];
+	if (!currentVariant) throw 'Invalid smile variant.';
+
+	ctx.drawImage(
+		currentVariant.img,
+		currentVariant.x,
+		currentVariant.y,
+		currentVariant.img.width,
+		currentVariant.img.height,
+	);
+}
+
+// ---- EYES ----
+const eyesVariants = {
+	right: {
+		default: {
+			x: containerX + 85,
+			y: containerY - 62,
+			plusWidth: 12,
+			img: new Image(),
+		},
+		love: {
+			x: 208,
+			y: 437,
+			plusWidth: 9,
+			img: new Image(),
+		},
+		dizzy: {
+			x: 208,
+			y: 437,
+			plusWidth: 9,
+			img: new Image(),
+		},
+	},
+	left: {
+		default: {
+			x: containerX - 75,
+			y: containerY - 48,
+			plusWidth: 9,
+			img: new Image(),
+		},
+		love: {
+			x: 208,
+			y: 437,
+			plusWidth: 9,
+			img: new Image(),
+		},
+		dizzy: {
+			x: 208,
+			y: 437,
+			plusWidth: 9,
+			img: new Image(),
+		},
+	},
+};
+
+eyesVariants.right.default.img.src = '/assets/face/eye-right.png';
+eyesVariants.right.love.img.src = '/assets/face/eye-right-love.png';
+eyesVariants.right.dizzy.img.src = '/assets/face/eye-right-dizzy.png';
+
+eyesVariants.left.default.img.src = '/assets/face/eye-left.png';
+eyesVariants.left.love.img.src = '/assets/face/eye-left-love.png';
+eyesVariants.left.dizzy.img.src = '/assets/face/eye-left-dizzy.png';
+
+function drawEye(targetX, targetY, side, variant = 'default') {
+	const eyeSide = eyesVariants[side];
+	if (!eyeSide) throw 'Invalid eye side.';
+	const currentVariant = eyeSide[variant];
+	if (!currentVariant) throw 'Invalid eye variant.';
+
+	const { img, x: eyeX, y: eyeY, plusWidth } = currentVariant;
+	const { width: eyeWidth, height: eyeHeight } = img;
+	const eyeWidthWithSpace = eyeWidth + plusWidth;
+
+	const eyeCenterX = eyeX + eyeWidth / 2;
+	const eyeCenterY = eyeY + eyeHeight / 2;
+	const eyeAngle = Math.atan2(targetY - eyeCenterY, targetX - eyeCenterX);
+
+	ctx.save();
+	ctx.translate(eyeCenterX, eyeCenterY);
+	ctx.rotate(eyeAngle);
+	ctx.drawImage(
+		img,
+		0,
+		0,
+		eyeWidthWithSpace,
+		eyeHeight,
+		eyeWidthWithSpace / 2,
+		-eyeHeight / 2,
+		eyeWidthWithSpace,
+		eyeHeight,
+	);
+	ctx.restore();
+}
+
+function draw(mouseX, mouseY, blink, love) {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+	const targetY = mouseY ?? nameElement.getBoundingClientRect().y;
+	const targetX = mouseX ?? nameElement.getBoundingClientRect().x;
+
+	drawFace();
+	drawSmile();
 
 	if (blink) return;
 
-	ctx.save();
-	ctx.translate(eyeLeftCenterX, eyeLeftCenterY);
-	ctx.rotate(eyeLeftAngle);
-	ctx.drawImage(
-		eyeLeftImg,
-		0,
-		0,
-		eyeLeftWidthWithSpace,
-		eyeLeftHeight,
-		eyeLeftWidthWithSpace / 2,
-		-eyeLeftHeight / 2,
-		eyeLeftWidthWithSpace,
-		eyeLeftHeight,
-	);
-	ctx.restore();
-
-	ctx.save();
-	ctx.translate(eyeRightCenterX, eyeRightCenterY);
-	ctx.rotate(eyeRightAngle);
-	ctx.drawImage(
-		eyeRightImg,
-		0,
-		0,
-		eyeRightWidthWithSpace,
-		eyeRightHeight,
-		eyeRightWidthWithSpace / 2,
-		-eyeRightHeight / 2,
-		eyeRightWidthWithSpace,
-		eyeRightHeight,
-	);
-	ctx.restore();
+	drawEye(targetX, targetY, 'left');
+	drawEye(targetX, targetY, 'right');
 }
 
 (async () => {
 	Promise.all([
 		new Promise((resolve) => (faceImg.onload = resolve)),
-		new Promise((resolve) => (eyeRightImg.onload = resolve)),
-		new Promise((resolve) => (eyeLeftImg.onload = resolve)),
+		new Promise((resolve) => (smileVariants.default.img.onload = resolve)),
+		new Promise((resolve) => (eyesVariants.right.default.img.onload = resolve)),
+		new Promise((resolve) => (eyesVariants.left.default.img.onload = resolve)),
 	]).then(() => {
 		draw(); // Call draw() after all images are loaded
 	});
