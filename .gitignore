@@ -109,3 +109,6 @@ test.js
 # Replit
 .replit
 replit.nix
+
+# OS X
+.DS_Store
