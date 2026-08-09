@@ -148,11 +148,11 @@ function drawEye(targetX, targetY, side, variant = 'default') {
 	const eyeAngle = Math.atan2(targetY - eyeCenterY, targetX - eyeCenterX);
 	const travelDistance = plusWidth / 2;
 
+	const pupilX = eyeCenterX + Math.cos(eyeAngle) * travelDistance;
+	const pupilY = eyeCenterY + Math.sin(eyeAngle) * travelDistance;
+
 	ctx.save();
-	ctx.translate(eyeCenterX, eyeCenterY);
-	ctx.rotate(eyeAngle);
-	ctx.translate(travelDistance, 0);
-	ctx.rotate(-eyeAngle);
+	ctx.translate(pupilX, pupilY);
 
 	ctx.drawImage(img, -eyeWidth / 2, -eyeHeight / 2, eyeWidth, eyeHeight);
 	ctx.restore();
