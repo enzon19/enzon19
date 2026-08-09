@@ -316,6 +316,9 @@
   .w-\[72\%\] {
     width: 72%;
   }
+  .w-fit {
+    width: fit-content;
+  }
   .w-full {
     width: 100%;
   }
