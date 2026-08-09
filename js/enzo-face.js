@@ -28,26 +28,32 @@ const smileVariants = {
 		img: new Image(),
 	},
 	bigSmile: {
-		x: 208,
-		y: 437,
+		x: (218 * containerX) / 241.5,
+		y: (427 * containerY) / 304,
+		img: new Image(),
+	},
+	love: {
+		x: (230 * containerX) / 241.5,
+		y: (427 * containerY) / 304,
 		img: new Image(),
 	},
 	dizzy: {
-		x: 208,
-		y: 437,
+		x: (180 * containerX) / 241.5,
+		y: (449 * containerY) / 304,
 		img: new Image(),
 	},
 	yummy: {
-		x: 208,
-		y: 437,
+		x: (174 * containerX) / 241.5,
+		y: (428 * containerY) / 304,
 		img: new Image(),
 	},
 };
 
 smileVariants.default.img.src = '/assets/face/smile.png';
-smileVariants.bigSmile.img.src = '/assets/face/big-smile.png';
-smileVariants.dizzy.img.src = '/assets/face/dizzy.png';
-smileVariants.yummy.img.src = '/assets/face/yummy.png';
+smileVariants.bigSmile.img.src = '/assets/face/smile-big.png';
+smileVariants.love.img.src = '/assets/face/smile-love.png';
+smileVariants.dizzy.img.src = '/assets/face/smile-dizzy.png';
+smileVariants.yummy.img.src = '/assets/face/smile-yummy.png';
 
 function drawSmile(variant = 'default') {
 	const currentVariant = smileVariants[variant];
@@ -68,39 +74,51 @@ const eyesVariants = {
 		default: {
 			x: (326.5 * containerX) / 241.5,
 			y: (242 * containerY) / 304,
-			plusWidth: 12,
+			plusWidth: (54 * containerX) / 241.5,
 			img: new Image(),
 		},
 		love: {
-			x: 208,
-			y: 437,
-			plusWidth: 9,
+			x: (299 * containerX) / 241.5,
+			y: (227 * containerY) / 304,
+			plusWidth: (18 * containerX) / 241.5,
 			img: new Image(),
 		},
 		dizzy: {
-			x: 208,
-			y: 437,
-			plusWidth: 9,
+			x: (307 * containerX) / 241.5,
+			y: (229 * containerY) / 304,
+			plusWidth: (8 * containerX) / 241.5,
+			img: new Image(),
+		},
+		yummy: {
+			x: (316 * containerX) / 241.5,
+			y: (233 * containerY) / 304,
+			plusWidth: (33 * containerX) / 241.5,
 			img: new Image(),
 		},
 	},
 	left: {
 		default: {
-			x: (166.5 * containerX) / 241.5,
+			x: (155 * containerX) / 241.5,
 			y: (256 * containerY) / 304,
-			plusWidth: 9,
+			plusWidth: (54 * containerX) / 241.5,
 			img: new Image(),
 		},
 		love: {
-			x: 208,
-			y: 437,
-			plusWidth: 9,
+			x: (122 * containerX) / 241.5,
+			y: (238 * containerY) / 304,
+			plusWidth: (16 * containerX) / 241.5,
 			img: new Image(),
 		},
 		dizzy: {
-			x: 208,
-			y: 437,
-			plusWidth: 9,
+			x: (140 * containerX) / 241.5,
+			y: (242.5 * containerY) / 304,
+			plusWidth: (8 * containerX) / 241.5,
+			img: new Image(),
+		},
+		yummy: {
+			x: (138 * containerX) / 241.5,
+			y: (248 * containerY) / 304,
+			plusWidth: (33 * containerX) / 241.5,
 			img: new Image(),
 		},
 	},
@@ -108,10 +126,12 @@ const eyesVariants = {
 
 eyesVariants.right.default.img.src = '/assets/face/eye-right.png';
 eyesVariants.right.love.img.src = '/assets/face/eye-right-love.png';
+eyesVariants.right.yummy.img.src = '/assets/face/eye-right-yummy.png';
 eyesVariants.right.dizzy.img.src = '/assets/face/eye-right-dizzy.png';
 
 eyesVariants.left.default.img.src = '/assets/face/eye-left.png';
 eyesVariants.left.love.img.src = '/assets/face/eye-left-love.png';
+eyesVariants.left.yummy.img.src = '/assets/face/eye-left-yummy.png';
 eyesVariants.left.dizzy.img.src = '/assets/face/eye-left-dizzy.png';
 
 function drawEye(targetX, targetY, side, variant = 'default') {
@@ -163,6 +183,7 @@ setInterval(async () => {
 }, 6000);
 
 // ---- MAIN RENDERER ----
+let faceVariant = 'default';
 function draw(mouseX, mouseY, blink, love) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -170,12 +191,13 @@ function draw(mouseX, mouseY, blink, love) {
 	const targetX = mouseX ?? nameElement.getBoundingClientRect().x;
 
 	drawFace();
-	drawSmile();
+	drawSmile(faceVariant);
 
 	if (blink) return;
 
-	drawEye(targetX, targetY, 'left');
-	drawEye(targetX, targetY, 'right');
+	const eyeVariant = faceVariant == 'bigSmile' ? 'default' : faceVariant;
+	drawEye(targetX, targetY, 'left', eyeVariant);
+	drawEye(targetX, targetY, 'right', eyeVariant);
 }
 
 (async () => {
