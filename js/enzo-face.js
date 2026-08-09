@@ -86,7 +86,7 @@ const eyesVariants = {
 		dizzy: {
 			x: (307 * containerX) / 241.5,
 			y: (229 * containerY) / 304,
-			plusWidth: (8 * containerX) / 241.5,
+			plusWidth: (10 * containerX) / 241.5,
 			img: new Image(),
 		},
 		yummy: {
@@ -112,7 +112,7 @@ const eyesVariants = {
 		dizzy: {
 			x: (140 * containerX) / 241.5,
 			y: (242.5 * containerY) / 304,
-			plusWidth: (8 * containerX) / 241.5,
+			plusWidth: (10 * containerX) / 241.5,
 			img: new Image(),
 		},
 		yummy: {
@@ -154,6 +154,8 @@ function drawEye(targetX, targetY, side, variant = 'default') {
 	ctx.save();
 	ctx.translate(pupilX, pupilY);
 
+	if (variant === 'dizzy') ctx.rotate(dizzyEyesAngle);
+
 	ctx.drawImage(img, -eyeWidth / 2, -eyeHeight / 2, eyeWidth, eyeHeight);
 	ctx.restore();
 }
@@ -168,8 +170,8 @@ document.addEventListener('mousemove', (event) => {
 	mouseX = (event.clientX - rect.left) * scaleX;
 	mouseY = (event.clientY - rect.top) * scaleY;
 
-	if (faceVariant != 'dizzy') checkMouseForDizzy(mouseX, mouseY);
-
+	if (faceVariant == 'dizzy') return;
+	checkMouseForDizzy(mouseX, mouseY);
 	if (!blinking) requestAnimationFrame(() => draw(mouseX, mouseY, false));
 });
 
@@ -207,8 +209,28 @@ function checkMouseForDizzy(mouseX, mouseY) {
 	lastAngleTime = new Date();
 }
 
+let dizzyEyesAngle = 0;
+let dizzyEyesSpinRAF = null;
+function startDizzySpin() {
+	if (dizzyEyesSpinRAF) return;
+
+	function spin() {
+		dizzyEyesAngle += 0.05;
+
+		if (faceVariant === 'dizzy') {
+			requestAnimationFrame(() => draw(mouseX, mouseY, false));
+			dizzyEyesSpinRAF = requestAnimationFrame(spin);
+		} else {
+			dizzyEyesSpinRAF = null; // stop spinning
+		}
+	}
+
+	dizzyEyesSpinRAF = requestAnimationFrame(spin);
+}
+
 function makeHimDizzy() {
 	faceVariant = 'dizzy';
+	startDizzySpin();
 	setTimeout(() => {
 		faceVariant = 'default';
 	}, 7000);
