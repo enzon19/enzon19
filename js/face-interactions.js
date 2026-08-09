@@ -25,10 +25,7 @@ async function setShakeListener() {
 	const shake = new Shake({ threshold: 20, timeout: 2000 });
 
 	window.addEventListener('shake', () => {
-		faceVariant = 'dizzy';
-		setTimeout(() => {
-			faceVariant = 'default';
-		}, 7000);
+		makeHimDizzy();
 	});
 
 	shake.start();

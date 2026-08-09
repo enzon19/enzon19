@@ -200,16 +200,18 @@ function checkMouseForDizzy(mouseX, mouseY) {
 			fullRotations = 0;
 			totalRotations = 0;
 		}
-		if (totalRotations > 12) {
-			faceVariant = 'dizzy';
-			setTimeout(() => {
-				faceVariant = 'default';
-			}, 7000);
-		}
+		if (totalRotations > 12) makeHimDizzy();
 	}
 
 	lastAngle = angle;
 	lastAngleTime = new Date();
+}
+
+function makeHimDizzy() {
+	faceVariant = 'dizzy';
+	setTimeout(() => {
+		faceVariant = 'default';
+	}, 7000);
 }
 
 // ---- BLINKING ----
