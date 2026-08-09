@@ -1,4 +1,4 @@
-// PROFILE-BUTTONS
+// ----- PROFILE-BUTTONS -----
 document
 	.querySelector('#profile-buttons')
 	.addEventListener('mouseover', (event) => {
@@ -18,3 +18,31 @@ document
 	.addEventListener('mouseleave', (event) => {
 		if (faceVariant != 'dizzy') faceVariant = 'default';
 	});
+
+// ----- MOBILE DIZZY -----
+import Shake from 'shake.js';
+async function setShakeListener() {
+	const shake = new Shake({ threshold: 20, timeout: 2000 });
+
+	window.addEventListener('shake', () => {
+		faceVariant = 'dizzy';
+		setTimeout(() => {
+			faceVariant = 'default';
+		}, 7000);
+	});
+
+	shake.start();
+}
+
+if (
+	typeof DeviceMotionEvent !== 'undefined' &&
+	typeof DeviceMotionEvent.requestPermission === 'function'
+) {
+	window.addEventListener('click', async () => {
+		const permission = await DeviceMotionEvent.requestPermission();
+		if (permission !== 'granted') return;
+		setShakeListener();
+	});
+} else {
+	setShakeListener();
+}

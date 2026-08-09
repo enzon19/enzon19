@@ -158,7 +158,7 @@ function drawEye(targetX, targetY, side, variant = 'default') {
 	ctx.restore();
 }
 
-// ---- FOLLOW MOUSE ----
+// ---- FOLLOW MOUSE (& DIZZY) ----
 let mouseX, mouseY;
 document.addEventListener('mousemove', (event) => {
 	const rect = canvas.getBoundingClientRect();
@@ -168,8 +168,49 @@ document.addEventListener('mousemove', (event) => {
 	mouseX = (event.clientX - rect.left) * scaleX;
 	mouseY = (event.clientY - rect.top) * scaleY;
 
+	if (faceVariant != 'dizzy') checkMouseForDizzy(mouseX, mouseY);
+
 	if (!blinking) requestAnimationFrame(() => draw(mouseX, mouseY, false));
 });
+
+let lastAngle = null;
+let lastAngleTime = new Date();
+let totalAngle = 0;
+let fullRotations = 0;
+let totalRotations = 0;
+function checkMouseForDizzy(mouseX, mouseY) {
+	const angle = Math.atan2(mouseY - containerY, mouseX - containerX);
+	if (lastAngle !== null) {
+		let delta = angle - lastAngle;
+
+		if (delta > Math.PI) delta -= 2 * Math.PI;
+		if (delta < -Math.PI) delta += 2 * Math.PI;
+
+		totalAngle += delta;
+		fullRotations = Math.abs(totalAngle) / (2 * Math.PI);
+		if (fullRotations >= 0.75) {
+			totalAngle = 0;
+			fullRotations = 0;
+			totalRotations++;
+		}
+
+		const diff = Date.now() - lastAngleTime.getTime();
+		if (diff > 300) {
+			totalAngle = 0;
+			fullRotations = 0;
+			totalRotations = 0;
+		}
+		if (totalRotations > 12) {
+			faceVariant = 'dizzy';
+			setTimeout(() => {
+				faceVariant = 'default';
+			}, 7000);
+		}
+	}
+
+	lastAngle = angle;
+	lastAngleTime = new Date();
+}
 
 // ---- BLINKING ----
 let blinking;
