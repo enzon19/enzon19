@@ -23,8 +23,8 @@ function drawFace() {
 // ---- SMILE ----
 const smileVariants = {
 	default: {
-		x: 208,
-		y: 437,
+		x: (208 * containerX) / 241.5,
+		y: (437 * containerY) / 304,
 		img: new Image(),
 	},
 	bigSmile: {
@@ -66,8 +66,8 @@ function drawSmile(variant = 'default') {
 const eyesVariants = {
 	right: {
 		default: {
-			x: containerX + 85,
-			y: containerY - 62,
+			x: (326.5 * containerX) / 241.5,
+			y: (242 * containerY) / 304,
 			plusWidth: 12,
 			img: new Image(),
 		},
@@ -86,8 +86,8 @@ const eyesVariants = {
 	},
 	left: {
 		default: {
-			x: containerX - 75,
-			y: containerY - 48,
+			x: (166.5 * containerX) / 241.5,
+			y: (256 * containerY) / 304,
 			plusWidth: 9,
 			img: new Image(),
 		},
