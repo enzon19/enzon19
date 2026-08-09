@@ -240,6 +240,11 @@ function makeHimDizzy() {
 let blinking;
 const wait = (t) => new Promise((resolve, reject) => setTimeout(resolve, t));
 setInterval(async () => {
+	if (faceVariant == 'dizzy') {
+		blinking = false;
+		return;
+	}
+
 	blinking = true;
 	requestAnimationFrame(() => draw(mouseX, mouseY, true));
 	await wait(300);
