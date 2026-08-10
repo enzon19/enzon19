@@ -6,8 +6,7 @@ document
 
 		if (
 			(target.tagName == 'a' || target.closest('a')) &&
-			faceVariant != 'bigSmile' &&
-			faceVariant != 'dizzy'
+			faceVariant == 'default'
 		) {
 			faceVariant = 'bigSmile';
 		}
@@ -16,7 +15,7 @@ document
 document
 	.querySelector('#profile-buttons')
 	.addEventListener('mouseleave', (event) => {
-		if (faceVariant != 'dizzy') faceVariant = 'default';
+		if (faceVariant == 'bigSmile') faceVariant = 'default';
 	});
 
 // ----- MOBILE DIZZY -----
