@@ -934,30 +934,6 @@
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
   }
-  .btn-lg-md {
-    gap: calc(var(--spacing) * 2.5);
-    border-radius: var(--radius-2xl);
-    padding-inline: calc(var(--spacing) * 3.5);
-    padding-block: calc(var(--spacing) * 2.5);
-    font-size: var(--text-base);
-    line-height: var(--tw-leading, var(--text-base--line-height));
-    @media (width >= 64rem) {
-      gap: calc(var(--spacing) * 3);
-    }
-    @media (width >= 64rem) {
-      border-radius: var(--radius-2xl);
-    }
-    @media (width >= 64rem) {
-      padding-inline: calc(var(--spacing) * 4);
-    }
-    @media (width >= 64rem) {
-      padding-block: calc(var(--spacing) * 2.5);
-    }
-    @media (width >= 64rem) {
-      font-size: var(--text-lg);
-      line-height: var(--tw-leading, var(--text-lg--line-height));
-    }
-  }
   #short-description > strong {
     --tw-font-weight: var(--font-weight-extrabold);
     font-weight: var(--font-weight-extrabold);

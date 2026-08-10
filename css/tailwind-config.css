@@ -34,9 +34,6 @@
 	.btn-lg {
 		@apply gap-3 rounded-2xl px-4 py-2.5 text-lg;
 	}
-	.btn-lg-md {
-		@apply gap-2.5 rounded-2xl px-3.5 py-2.5 text-base lg:gap-3 lg:rounded-2xl lg:px-4 lg:py-2.5 lg:text-lg;
-	}
 
 	#short-description > strong {
 		@apply font-extrabold;
