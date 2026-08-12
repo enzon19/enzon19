@@ -17,14 +17,17 @@
 
 /* Entrances */
 #enzo-face {
-	animation: appearFromTopShort 0.6s forwards;
+	animation: appearFromBottomShort 0.6s forwards;
 	opacity: 0;
-	animation-delay: 0.2s;
 }
 
-#name,
 #short-description {
-	animation: appearFromTopShort 0.6s forwards;
+	animation: appearFromBottomShort 0.6s forwards;
+	opacity: 0;
+}
+
+#name {
+	animation: appearFromBottomUltraIntense 0.6s forwards;
 	opacity: 0;
 }
 
@@ -81,17 +84,6 @@
 	}
 }
 
-@keyframes appearFromTopShort {
-	from {
-		opacity: 0;
-		transform: translateY(-15%);
-	}
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
 @keyframes appearFromBottomShort {
 	from {
 		opacity: 0;
@@ -107,6 +99,17 @@
 	from {
 		opacity: 0;
 		transform: translateY(-35%);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes appearFromBottomUltraIntense {
+	from {
+		opacity: 0;
+		transform: translateY(-55%);
 	}
 	to {
 		opacity: 1;
