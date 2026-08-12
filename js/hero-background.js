@@ -11,7 +11,7 @@ function getColorsAsShaderColors(colors) {
 }
 
 function initHeroBackground(colors) {
-	const container = document.querySelector('#hero');
+	const container = document.querySelector('#hero-bg');
 	const u_colors = getColorsAsShaderColors(colors);
 
 	const shaderParams = {
