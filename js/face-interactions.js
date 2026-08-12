@@ -47,7 +47,7 @@ if (
 const hasTouchscreen = 'ontouchstart' in window;
 let currentObjectCursor = null;
 if (!hasTouchscreen) {
-	const bg = document.querySelector('main > section#hero');
+	const bg = document.querySelector('section#hero');
 	const face = document.querySelector('#enzo-face');
 
 	face.parentElement.addEventListener('mouseover', (event) => {
