@@ -230,6 +230,10 @@ function startDizzySpin() {
 
 function makeHimDizzy() {
 	faceVariant = 'dizzy';
+
+	const bgHero = document.querySelector('section#hero');
+	if (bgHero) bgHero.style.cursor = 'default';
+
 	startDizzySpin();
 	setTimeout(() => {
 		faceVariant = 'default';
