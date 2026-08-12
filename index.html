@@ -74,159 +74,180 @@
 		<script defer src="/js/enzo-face.js"></script>
 		<script type="module" src="/js/face-interactions.js"></script>
 		<script type="module" src="/js/typewriter.js"></script>
+
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollSmoother.min.js"></script>
+		<script defer src="/js/animations.js"></script>
 	</head>
 	<body
 		class="bg-neutral-100 text-neutral-800 selection:bg-enzo-sky selection:text-white dark:bg-neutral-900 dark:text-neutral-300">
-		<main class="fle flex-col gap-4">
-			<section
-				class="flex min-h-dvh w-full items-center justify-center"
-				id="hero">
-				<div
-					class="mx-auto flex w-full max-w-368 flex-col-reverse items-center justify-center gap-4 p-4 lg:grid lg:grid-cols-2 lg:grid-rows-1"
-					id="hero-content">
-					<div
-						class="flex max-w-lg flex-col gap-4 p-2 md:max-w-2xl md:p-8 lg:gap-6">
-						<h1
-							class="cursor-pointer text-6xl font-black text-white text-shadow-enzo-shadow lg:text-7xl dark:text-white"
-							style="animation-delay: 0.2s"
-							id="name">
-							enzon19
-						</h1>
-						<p
-							class="text-xl font-medium text-white text-shadow-enzo-shadow lg:text-2xl dark:text-neutral-200"
-							style="animation-delay: 0.25s"
-							id="short-description">
-							<strong>Oi!</strong> Eu sou o <strong>Enzo</strong>, um
-							<strong>desenvolvedor</strong> apaixonado por transformar
-							problemas e desafios em códigos,
-							<strong>criando soluções</strong> que aprimoram a vida das pessoas
-							e tornam <strong>o dia a dia mais simples e divertido</strong>.
-						</p>
+		<div id="smooth-wrapper">
+			<div id="smooth-content" class="flex flex-col">
+				<main class="fle flex-col gap-4">
+					<section
+						class="flex min-h-dvh w-full items-center justify-center"
+						id="hero">
 						<div
-							class="flex w-fit flex-row flex-wrap gap-3 lg:gap-4"
-							id="profile-buttons">
-							<a
-								href="https://linkedin.com/in/enzon19"
-								target="_blank"
-								class="btn btn-lg btn-tertiary"
-								style="animation-delay: 0.3s">
-								<ion-icon name="logo-linkedin" class="text-xl"></ion-icon>
-								<span>Linkedin</span>
-							</a>
-							<a
-								href="https://github.com/enzon19"
-								target="_blank"
-								class="btn btn-lg btn-tertiary"
-								style="animation-delay: 0.4s">
-								<ion-icon name="logo-github" class="text-xl"></ion-icon>
-								<span>GitHub</span>
-							</a>
-							<a
-								href="mailto:contato@enzon19.com"
-								target="_blank"
-								class="btn btn-lg btn-tertiary"
-								style="animation-delay: 0.5s">
-								<ion-icon name="mail" class="text-xl"></ion-icon>
-								<span>E-mail</span>
-							</a>
+							class="mx-auto flex w-full max-w-368 flex-col-reverse items-center justify-center gap-4 p-4 lg:grid lg:grid-cols-2 lg:grid-rows-1"
+							id="hero-content">
+							<div
+								class="flex max-w-lg flex-col gap-4 p-2 md:max-w-2xl md:p-8 lg:gap-6">
+								<h1
+									class="cursor-pointer text-6xl font-black text-white text-shadow-enzo-shadow lg:text-7xl dark:text-white"
+									style="animation-delay: 0.2s"
+									id="name">
+									enzon19
+								</h1>
+								<p
+									class="text-xl font-medium text-white text-shadow-enzo-shadow lg:text-2xl dark:text-neutral-200"
+									style="animation-delay: 0.25s"
+									id="short-description">
+									<strong>Oi!</strong> Eu sou o <strong>Enzo</strong>, um
+									<strong>desenvolvedor</strong> apaixonado por transformar
+									problemas e desafios em códigos,
+									<strong>criando soluções</strong> que aprimoram a vida das
+									pessoas e tornam
+									<strong>o dia a dia mais simples e divertido</strong>.
+								</p>
+								<div
+									class="flex w-fit flex-row flex-wrap gap-3 lg:gap-4"
+									id="profile-buttons">
+									<a
+										href="https://linkedin.com/in/enzon19"
+										target="_blank"
+										class="btn btn-lg btn-tertiary"
+										style="animation-delay: 0.3s">
+										<ion-icon name="logo-linkedin" class="text-xl"></ion-icon>
+										<span>Linkedin</span>
+									</a>
+									<a
+										href="https://github.com/enzon19"
+										target="_blank"
+										class="btn btn-lg btn-tertiary"
+										style="animation-delay: 0.4s">
+										<ion-icon name="logo-github" class="text-xl"></ion-icon>
+										<span>GitHub</span>
+									</a>
+									<a
+										href="mailto:contato@enzon19.com"
+										target="_blank"
+										class="btn btn-lg btn-tertiary"
+										style="animation-delay: 0.5s">
+										<ion-icon name="mail" class="text-xl"></ion-icon>
+										<span>E-mail</span>
+									</a>
+								</div>
+							</div>
+							<div class="px-12 py-8 md:px-16 md:py-0">
+								<canvas
+									id="enzo-face"
+									class="mx-auto h-full w-full max-w-88 lg:max-w-114"
+									width="483"
+									height="608"></canvas>
+							</div>
 						</div>
+						<div
+							id="hero-bg"
+							class="absolute inset-0 -z-20 min-h-dvh w-full bg-enzo-sky dark:bg-red-600"></div>
+					</section>
+					<section
+						class="relative bg-neutral-100 dark:bg-neutral-900"
+						id="about">
+						<p class="mx-auto max-w-md py-8 text-center">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
+							perferendis nesciunt molestias tenetur error, minima sequi
+							consectetur dolore a quos quae amet ipsam consequatur
+							exercitationem. Rem maiores accusamus similique eius. Lorem ipsum
+							dolor sit amet consectetur adipisicing elit. Omnis atque esse a
+							voluptas. Inventore, temporibus rem impedit eaque labore nam dicta
+							harum cupiditate tempore unde quidem itaque minima quae ullam!
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi
+							dolorum iste impedit provident necessitatibus aperiam magnam
+							aliquid amet quis eius commodi nemo ullam distinctio, itaque
+							blanditiis pariatur quisquam accusantium accusamus! Facere itaque
+							culpa voluptatibus consectetur natus aliquid dicta explicabo ea,
+							dolore eaque, saepe laboriosam doloribus unde eveniet! Voluptas
+							iste aliquid facere dolor eaque harum numquam molestias? Pariatur
+							nihil maxime repudiandae! Id repellat, nisi, quibusdam corporis
+							eos possimus ab necessitatibus labore temporibus harum accusantium
+							eaque magnam voluptate aperiam a cum voluptas! Dolorem facere
+							voluptate non delectus officiis magnam? Voluptate, ex aliquam.
+							Iure veritatis reiciendis quod nulla, ad nesciunt sed deserunt nam
+							ex. Debitis voluptates quis accusamus autem iusto dolorem totam
+							nisi, molestiae dolore atque, ratione neque quia rem illum rerum?
+							Quo?
+						</p>
+						<p class="mx-auto max-w-md py-8 text-center">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
+							perferendis nesciunt molestias tenetur error, minima sequi
+							consectetur dolore a quos quae amet ipsam consequatur
+							exercitationem. Rem maiores accusamus similique eius. Lorem ipsum
+							dolor sit amet consectetur adipisicing elit. Omnis atque esse a
+							voluptas. Inventore, temporibus rem impedit eaque labore nam dicta
+							harum cupiditate tempore unde quidem itaque minima quae ullam!
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi
+							dolorum iste impedit provident necessitatibus aperiam magnam
+							aliquid amet quis eius commodi nemo ullam distinctio, itaque
+							blanditiis pariatur quisquam accusantium accusamus! Facere itaque
+							culpa voluptatibus consectetur natus aliquid dicta explicabo ea,
+							dolore eaque, saepe laboriosam doloribus unde eveniet! Voluptas
+							iste aliquid facere dolor eaque harum numquam molestias? Pariatur
+							nihil maxime repudiandae! Id repellat, nisi, quibusdam corporis
+							eos possimus ab necessitatibus labore temporibus harum accusantium
+							eaque magnam voluptate aperiam a cum voluptas! Dolorem facere
+							voluptate non delectus officiis magnam? Voluptate, ex aliquam.
+							Iure veritatis reiciendis quod nulla, ad nesciunt sed deserunt nam
+							ex. Debitis voluptates quis accusamus autem iusto dolorem totam
+							nisi, molestiae dolore atque, ratione neque quia rem illum rerum?
+							Quo?
+						</p>
+						<p class="mx-auto max-w-md py-8 text-center">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
+							perferendis nesciunt molestias tenetur error, minima sequi
+							consectetur dolore a quos quae amet ipsam consequatur
+							exercitationem. Rem maiores accusamus similique eius. Lorem ipsum
+							dolor sit amet consectetur adipisicing elit. Omnis atque esse a
+							voluptas. Inventore, temporibus rem impedit eaque labore nam dicta
+							harum cupiditate tempore unde quidem itaque minima quae ullam!
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi
+							dolorum iste impedit provident necessitatibus aperiam magnam
+							aliquid amet quis eius commodi nemo ullam distinctio, itaque
+							blanditiis pariatur quisquam accusantium accusamus! Facere itaque
+							culpa voluptatibus consectetur natus aliquid dicta explicabo ea,
+							dolore eaque, saepe laboriosam doloribus unde eveniet! Voluptas
+							iste aliquid facere dolor eaque harum numquam molestias? Pariatur
+							nihil maxime repudiandae! Id repellat, nisi, quibusdam corporis
+							eos possimus ab necessitatibus labore temporibus harum accusantium
+							eaque magnam voluptate aperiam a cum voluptas! Dolorem facere
+							voluptate non delectus officiis magnam? Voluptate, ex aliquam.
+							Iure veritatis reiciendis quod nulla, ad nesciunt sed deserunt nam
+							ex. Debitis voluptates quis accusamus autem iusto dolorem totam
+							nisi, molestiae dolore atque, ratione neque quia rem illum rerum?
+							Quo?
+						</p>
+					</section>
+				</main>
+				<footer>
+					<div class="flex flex-row items-center justify-center gap-2 p-4">
+						<ion-icon name="contrast"></ion-icon>
+						<select
+							id="selectTheme"
+							class="cursor-pointer rounded-lg bg-neutral-100 p-1 outline-1 outline-neutral-500 transition-colors hover:bg-white dark:bg-neutral-700 dark:hover:bg-neutral-600">
+							<option value="light">Claro</option>
+							<option value="dark">Escuro</option>
+							<option value="system">Sistema</option>
+						</select>
 					</div>
-					<div class="px-12 py-8 md:px-16 md:py-0">
-						<canvas
-							id="enzo-face"
-							class="mx-auto h-full w-full max-w-88 lg:max-w-114"
-							width="483"
-							height="608"></canvas>
-					</div>
-				</div>
-				<div
-					id="hero-bg"
-					class="absolute inset-0 -z-20 min-h-dvh w-full bg-enzo-sky dark:bg-red-600"></div>
-			</section>
-			<section class="relative bg-neutral-100 dark:bg-neutral-900" id="about">
-				<p class="mx-auto max-w-md py-8 text-center">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
-					perferendis nesciunt molestias tenetur error, minima sequi consectetur
-					dolore a quos quae amet ipsam consequatur exercitationem. Rem maiores
-					accusamus similique eius. Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Omnis atque esse a voluptas. Inventore, temporibus
-					rem impedit eaque labore nam dicta harum cupiditate tempore unde
-					quidem itaque minima quae ullam! Lorem ipsum, dolor sit amet
-					consectetur adipisicing elit. Quasi dolorum iste impedit provident
-					necessitatibus aperiam magnam aliquid amet quis eius commodi nemo
-					ullam distinctio, itaque blanditiis pariatur quisquam accusantium
-					accusamus! Facere itaque culpa voluptatibus consectetur natus aliquid
-					dicta explicabo ea, dolore eaque, saepe laboriosam doloribus unde
-					eveniet! Voluptas iste aliquid facere dolor eaque harum numquam
-					molestias? Pariatur nihil maxime repudiandae! Id repellat, nisi,
-					quibusdam corporis eos possimus ab necessitatibus labore temporibus
-					harum accusantium eaque magnam voluptate aperiam a cum voluptas!
-					Dolorem facere voluptate non delectus officiis magnam? Voluptate, ex
-					aliquam. Iure veritatis reiciendis quod nulla, ad nesciunt sed
-					deserunt nam ex. Debitis voluptates quis accusamus autem iusto dolorem
-					totam nisi, molestiae dolore atque, ratione neque quia rem illum
-					rerum? Quo?
-				</p>
-				<p class="mx-auto max-w-md py-8 text-center">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
-					perferendis nesciunt molestias tenetur error, minima sequi consectetur
-					dolore a quos quae amet ipsam consequatur exercitationem. Rem maiores
-					accusamus similique eius. Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Omnis atque esse a voluptas. Inventore, temporibus
-					rem impedit eaque labore nam dicta harum cupiditate tempore unde
-					quidem itaque minima quae ullam! Lorem ipsum, dolor sit amet
-					consectetur adipisicing elit. Quasi dolorum iste impedit provident
-					necessitatibus aperiam magnam aliquid amet quis eius commodi nemo
-					ullam distinctio, itaque blanditiis pariatur quisquam accusantium
-					accusamus! Facere itaque culpa voluptatibus consectetur natus aliquid
-					dicta explicabo ea, dolore eaque, saepe laboriosam doloribus unde
-					eveniet! Voluptas iste aliquid facere dolor eaque harum numquam
-					molestias? Pariatur nihil maxime repudiandae! Id repellat, nisi,
-					quibusdam corporis eos possimus ab necessitatibus labore temporibus
-					harum accusantium eaque magnam voluptate aperiam a cum voluptas!
-					Dolorem facere voluptate non delectus officiis magnam? Voluptate, ex
-					aliquam. Iure veritatis reiciendis quod nulla, ad nesciunt sed
-					deserunt nam ex. Debitis voluptates quis accusamus autem iusto dolorem
-					totam nisi, molestiae dolore atque, ratione neque quia rem illum
-					rerum? Quo?
-				</p>
-				<p class="mx-auto max-w-md py-8 text-center">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
-					perferendis nesciunt molestias tenetur error, minima sequi consectetur
-					dolore a quos quae amet ipsam consequatur exercitationem. Rem maiores
-					accusamus similique eius. Lorem ipsum dolor sit amet consectetur
-					adipisicing elit. Omnis atque esse a voluptas. Inventore, temporibus
-					rem impedit eaque labore nam dicta harum cupiditate tempore unde
-					quidem itaque minima quae ullam! Lorem ipsum, dolor sit amet
-					consectetur adipisicing elit. Quasi dolorum iste impedit provident
-					necessitatibus aperiam magnam aliquid amet quis eius commodi nemo
-					ullam distinctio, itaque blanditiis pariatur quisquam accusantium
-					accusamus! Facere itaque culpa voluptatibus consectetur natus aliquid
-					dicta explicabo ea, dolore eaque, saepe laboriosam doloribus unde
-					eveniet! Voluptas iste aliquid facere dolor eaque harum numquam
-					molestias? Pariatur nihil maxime repudiandae! Id repellat, nisi,
-					quibusdam corporis eos possimus ab necessitatibus labore temporibus
-					harum accusantium eaque magnam voluptate aperiam a cum voluptas!
-					Dolorem facere voluptate non delectus officiis magnam? Voluptate, ex
-					aliquam. Iure veritatis reiciendis quod nulla, ad nesciunt sed
-					deserunt nam ex. Debitis voluptates quis accusamus autem iusto dolorem
-					totam nisi, molestiae dolore atque, ratione neque quia rem illum
-					rerum? Quo?
-				</p>
-			</section>
-		</main>
-		<footer>
-			<div class="flex flex-row items-center justify-center gap-2 p-4">
-				<ion-icon name="contrast"></ion-icon>
-				<select
-					id="selectTheme"
-					class="cursor-pointer rounded-lg bg-neutral-100 p-1 outline-1 outline-neutral-500 transition-colors hover:bg-white dark:bg-neutral-700 dark:hover:bg-neutral-600">
-					<option value="light">Claro</option>
-					<option value="dark">Escuro</option>
-					<option value="system">Sistema</option>
-				</select>
+				</footer>
 			</div>
-		</footer>
+		</div>
 	</body>
 </html>
 
