@@ -39,13 +39,24 @@ gsap.to('#hero-content', {
 	},
 });
 
-const expandAboutSection = gsap.from('#about', {
-	scale: 0.975,
-	borderRadius: '1.5rem',
-	scrollTrigger: {
-		trigger: '#about',
-		start: 'center bottom',
-		end: 'bottom bottom',
-		scrub: true,
+const mm = gsap.matchMedia();
+mm.add(
+	{
+		isDesktop: '(min-width: 48rem)',
+		isMobile: '(max-width: 47.99rem)',
 	},
-});
+	(context) => {
+		let { isDesktop } = context.conditions;
+
+		gsap.from('#about', {
+			scale: isDesktop ? 0.95 : 0.925,
+			borderRadius: '1.5rem',
+			scrollTrigger: {
+				trigger: '#about',
+				start: 'center bottom',
+				end: 'bottom bottom',
+				scrub: true,
+			},
+		});
+	},
+);
