@@ -16,7 +16,17 @@ ScrollTrigger.create({
 	pinSpacing: false,
 });
 
-const reduceAndHideHeroContent = gsap.to('#hero-content', {
+gsap.to('#hero', {
+	opacity: 0,
+	scrollTrigger: {
+		trigger: '#about',
+		start: 'top center',
+		end: 'top 25%',
+		scrub: true,
+	},
+});
+
+gsap.to('#hero-content', {
 	scale: 0.75,
 	yPercent: 50,
 	immediateRender: false,
