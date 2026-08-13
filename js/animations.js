@@ -30,12 +30,11 @@ const reduceAndHideHeroContent = gsap.to('#hero-content', {
 
 const expandAboutSection = gsap.from('#about', {
 	scale: 0.975,
-	borderRadius: '2rem',
-	immediateRender: false,
+	borderRadius: '1.5rem',
 	scrollTrigger: {
 		trigger: '#about',
-		start: 'top bottom',
-		end: 'top top',
+		start: 'center bottom',
+		end: 'bottom bottom',
 		scrub: true,
 	},
 });
