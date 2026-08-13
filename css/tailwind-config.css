@@ -38,4 +38,8 @@
 	#short-description > strong {
 		@apply font-extrabold;
 	}
+
+	.highlight-strong > strong {
+		@apply text-black dark:text-white;
+	}
 }
