@@ -84,7 +84,11 @@
 		<script
 			defer
 			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollSmoother.min.js"></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/Draggable.min.js"></script>
 		<script defer src="/js/animations.js"></script>
+		<script defer src="/js/animations-stack.js"></script>
 	</head>
 	<body
 		class="bg-neutral-100 text-neutral-700 selection:bg-enzo-sky selection:text-white dark:bg-neutral-900 dark:text-neutral-300">
@@ -97,6 +101,7 @@
 						<div
 							class="mx-auto flex w-full max-w-368 flex-col-reverse items-center justify-center gap-4 p-4 lg:grid lg:grid-cols-2 lg:grid-rows-1"
 							id="hero-content">
+							<!-- px-4 py-8 md:py-4 -->
 							<div
 								class="flex max-w-lg flex-col gap-4 p-2 md:max-w-2xl md:p-8 lg:gap-6">
 								<h1
@@ -162,8 +167,9 @@
 						<section
 							class="bg-neutral-100 p-10 will-change-transform md:p-18 dark:bg-neutral-900"
 							id="about">
-							<div class="mx-auto max-w-6xl">
-								<div class="flex flex-col gap-4 md:max-w-1/2">
+							<div
+								class="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:gap-18">
+								<div class="flex flex-col gap-4">
 									<div
 										class="mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
 										<h2 class="text-2xl font-extrabold text-white md:text-3xl">
@@ -207,6 +213,31 @@
 										e aprender sobre desenvolvimento de aplicações nativas para
 										dispositivos móveis e computadores.
 									</p>
+								</div>
+								<div class="relative h-auto w-full md:min-w-42 lg:min-w-100">
+									<div
+										class="flex h-full w-full flex-row justify-center gap-3 overflow-hidden md:absolute md:inset-0">
+										<ul class="flex flex-row gap-3 md:flex-col">
+											<li
+												class="size-28 shrink-0 rounded-xl bg-red-500/50 bg-cover md:size-42 lg:size-48"></li>
+											<li
+												class="size-28 shrink-0 rounded-xl bg-red-500/50 bg-cover md:size-42 lg:size-48"></li>
+											<li
+												class="size-28 shrink-0 rounded-xl bg-red-500/50 bg-cover md:size-42 lg:size-48"></li>
+											<li
+												class="size-28 shrink-0 rounded-xl bg-red-500/50 bg-cover md:size-42 lg:size-48"></li>
+										</ul>
+										<ul class="hidden flex-col gap-3 lg:flex">
+											<li
+												class="size-48 shrink-0 rounded-xl bg-red-500/50 bg-cover"></li>
+											<li
+												class="size-48 shrink-0 rounded-xl bg-red-500/50 bg-cover"></li>
+											<li
+												class="size-48 shrink-0 rounded-xl bg-red-500/50 bg-cover"></li>
+											<li
+												class="size-48 shrink-0 rounded-xl bg-red-500/50 bg-cover"></li>
+										</ul>
+									</div>
 								</div>
 							</div>
 						</section>
