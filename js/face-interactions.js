@@ -50,11 +50,13 @@ if (!hasTouchscreen) {
 	const bg = document.querySelector('section#hero');
 	const face = document.querySelector('#enzo-face');
 
-	face.parentElement.addEventListener('mouseover', (event) => {
-		if (faceVariant != 'default') return;
-
-		const chance = Math.random();
-		if (chance > 0.03) return;
+	face.parentElement.addEventListener('click', (event) => {
+		if (faceVariant == 'dizzy') {
+			return;
+		} else if (faceVariant != 'default') {
+			resetCursor(event);
+			return;
+		}
 
 		const objectOptions = [
 			'pizza',
@@ -68,16 +70,17 @@ if (!hasTouchscreen) {
 		currentObjectCursor = objectOptions[randomObjectIndex];
 		faceVariant = randomObjectIndex >= 3 ? 'love' : 'yummy';
 		bg.style.cursor = `url(/assets/cursor/${currentObjectCursor}.png), auto`;
+		getMousePosAndDraw(event);
 	});
 
-	function resetCursor() {
+	function resetCursor(event) {
 		if (faceVariant == 'dizzy') return;
 
 		bg.style.cursor = 'default';
 		faceVariant = 'default';
 		currentObjectCursor = null;
+		getMousePosAndDraw(event);
 	}
 
 	bg.addEventListener('mouseleave', resetCursor);
-	face.addEventListener('click', resetCursor);
 }
