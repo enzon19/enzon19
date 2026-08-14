@@ -162,18 +162,7 @@ function drawEye(targetX, targetY, side, variant = 'default') {
 
 // ---- FOLLOW MOUSE (& DIZZY) ----
 let mouseX, mouseY;
-document.addEventListener('mousemove', (event) => {
-	const rect = canvas.getBoundingClientRect();
-
-	const scaleX = canvas.width / rect.width;
-	const scaleY = canvas.height / rect.height;
-	mouseX = (event.clientX - rect.left) * scaleX;
-	mouseY = (event.clientY - rect.top) * scaleY;
-
-	if (faceVariant == 'dizzy') return;
-	checkMouseForDizzy(mouseX, mouseY);
-	if (!blinking) requestAnimationFrame(() => draw(mouseX, mouseY, false));
-});
+document.addEventListener('mousemove', getMousePosAndDraw);
 
 let lastAngle = null;
 let lastAngleTime = new Date();
@@ -218,7 +207,7 @@ function startDizzySpin() {
 		dizzyEyesAngle += 0.05;
 
 		if (faceVariant === 'dizzy') {
-			requestAnimationFrame(() => draw(mouseX, mouseY, false));
+			requestAnimationFrame(() => drawWholeFace(mouseX, mouseY, false));
 			dizzyEyesSpinRAF = requestAnimationFrame(spin);
 		} else {
 			dizzyEyesSpinRAF = null; // stop spinning
@@ -250,15 +239,15 @@ setInterval(async () => {
 	}
 
 	blinking = true;
-	requestAnimationFrame(() => draw(mouseX, mouseY, true));
+	requestAnimationFrame(() => drawWholeFace(mouseX, mouseY, true));
 	await wait(300);
 	blinking = false;
-	requestAnimationFrame(() => draw(mouseX, mouseY, false));
+	requestAnimationFrame(() => drawWholeFace(mouseX, mouseY, false));
 }, 6000);
 
 // ---- MAIN RENDERER ----
 let faceVariant = 'default';
-function draw(mouseX, mouseY, blink, love) {
+function drawWholeFace(mouseX, mouseY, blink, love) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 	const targetY = mouseY ?? nameElement.getBoundingClientRect().y;
@@ -274,6 +263,20 @@ function draw(mouseX, mouseY, blink, love) {
 	drawEye(targetX, targetY, 'right', eyeVariant);
 }
 
+function getMousePosAndDraw({ clientX, clientY }) {
+	const rect = canvas.getBoundingClientRect();
+
+	const scaleX = canvas.width / rect.width;
+	const scaleY = canvas.height / rect.height;
+	mouseX = (clientX - rect.left) * scaleX;
+	mouseY = (clientY - rect.top) * scaleY;
+
+	if (faceVariant == 'dizzy') return;
+	checkMouseForDizzy(mouseX, mouseY);
+	if (!blinking)
+		requestAnimationFrame(() => drawWholeFace(mouseX, mouseY, false));
+}
+
 (async () => {
 	Promise.all([
 		new Promise((resolve) => (faceImg.onload = resolve)),
@@ -281,6 +284,6 @@ function draw(mouseX, mouseY, blink, love) {
 		new Promise((resolve) => (eyesVariants.right.default.img.onload = resolve)),
 		new Promise((resolve) => (eyesVariants.left.default.img.onload = resolve)),
 	]).then(() => {
-		draw(); // Call draw() after all images are loaded
+		drawWholeFace(); // Call draw() after all images are loaded
 	});
 })();
