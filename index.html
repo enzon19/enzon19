@@ -87,6 +87,9 @@
 		<script
 			defer
 			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/Draggable.min.js"></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/InertiaPlugin.min.js"></script>
 		<script defer src="/js/animations.js"></script>
 		<script defer src="/js/animations-stack.js"></script>
 	</head>
@@ -216,27 +219,26 @@
 								</div>
 								<div class="relative h-auto w-full md:min-w-42 lg:min-w-100">
 									<div
-										class="flex h-full w-full flex-row justify-center gap-3 overflow-hidden md:absolute md:inset-0">
-										<ul class="flex flex-row gap-3 md:flex-col">
+										class="gallery-container flex h-full w-full flex-row justify-center gap-3 overflow-hidden md:absolute md:inset-0">
+										<ul class="gallery-track flex flex-row gap-3 md:flex-col" id="stack-column">
 											<li
 												class="size-28 shrink-0 rounded-xl bg-red-500/50 bg-cover md:size-42 lg:size-48"></li>
 											<li
-												class="size-28 shrink-0 rounded-xl bg-red-500/50 bg-cover md:size-42 lg:size-48"></li>
+												class="size-28 shrink-0 rounded-xl bg-blue-500/50 bg-cover md:size-42 lg:size-48"></li>
 											<li
-												class="size-28 shrink-0 rounded-xl bg-red-500/50 bg-cover md:size-42 lg:size-48"></li>
+												class="size-28 shrink-0 rounded-xl bg-green-500/50 bg-cover md:size-42 lg:size-48"></li>
 											<li
-												class="size-28 shrink-0 rounded-xl bg-red-500/50 bg-cover md:size-42 lg:size-48"></li>
+												class="size-28 shrink-0 rounded-xl bg-yellow-500/50 bg-cover md:size-42 lg:size-48"></li>
+											<li
+												class="size-28 shrink-0 rounded-xl bg-purple-500/50 bg-cover md:size-42 lg:size-48"></li>
+											<li
+												class="size-28 shrink-0 rounded-xl bg-orange-500/50 bg-cover md:size-42 lg:size-48"></li>
+											<li
+												class="size-28 shrink-0 rounded-xl bg-cyan-500/50 bg-cover md:size-42 lg:size-48"></li>
 										</ul>
-										<ul class="hidden flex-col gap-3 lg:flex">
-											<li
-												class="size-48 shrink-0 rounded-xl bg-red-500/50 bg-cover"></li>
-											<li
-												class="size-48 shrink-0 rounded-xl bg-red-500/50 bg-cover"></li>
-											<li
-												class="size-48 shrink-0 rounded-xl bg-red-500/50 bg-cover"></li>
-											<li
-												class="size-48 shrink-0 rounded-xl bg-red-500/50 bg-cover"></li>
-										</ul>
+										<ul
+											class="gallery-track hidden flex-col gap-3 lg:flex"
+											id="additional-stack-column"></ul>
 									</div>
 								</div>
 							</div>
