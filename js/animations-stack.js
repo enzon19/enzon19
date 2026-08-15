@@ -1,42 +1,39 @@
-// Duplicate stack
-const additionalStack = document.querySelector('#additional-stack-column');
-const isAdditionalStackVisible =
-	window.getComputedStyle(additionalStack).display === 'none';
-const stack = document.querySelector('#stack-column');
-additionalStack.innerHTML = stack.innerHTML;
-
 // GSAP
 gsap.registerPlugin(Draggable, InertiaPlugin);
-
 const container = document.querySelector('.gallery-container');
 
 mm.add(
 	{
-		isDesktop: '(min-width: 48rem)',
 		isMobile: '(max-width: 47.99rem)',
+		isMd: '(min-width: 48rem) and (max-width: 63.99rem)',
+		isLg: '(min-width: 64rem)',
 	},
 	(context) => {
-		let { isDesktop } = context.conditions;
-		console.log(isDesktop);
+		let { isMobile, isMd, isLg } = context.conditions;
 
-		// Configurações do eixo atual
-		const axis = isDesktop ? 'y' : 'x';
-		const dimension = isDesktop ? 'offsetHeight' : 'offsetWidth';
+		if (isLg) {
+			const additionalStack = document.querySelector(
+				'#additional-stack-column',
+			);
+			const stack = document.querySelector('#stack-column');
+			additionalStack.innerHTML = stack.innerHTML;
+		}
+
+		const isVertical = isMd || isLg;
+		const axis = isVertical ? 'y' : 'x';
+		const dimension = isVertical ? 'offsetHeight' : 'offsetWidth';
 
 		const tracks = document.querySelectorAll('.gallery-track');
 		let activeTrackData = [];
-
-		// Criamos o proxy específico para este contexto de tela
 		const proxy = document.createElement('div');
 
 		tracks.forEach((track, index) => {
-			// Pula a coluna se ela estiver invisível no CSS (ex: 2ª coluna no mobile)
-			if (isAdditionalStackVisible) return;
+			if (isMobile || isMd) return;
 
 			const items = gsap.utils.toArray(track.children);
 			if (items.length === 0) return;
 
-			// Trava as dimensões da coluna e segura os filhos
+			// Trava as dimensões da coluna para segurar os itens absolutos
 			gsap.set(track, {
 				width: track.offsetWidth,
 				height: track.offsetHeight,
@@ -46,40 +43,36 @@ mm.add(
 			const gap = 12; // gap-3 = 12px
 			const itemSize = items[0][dimension] + gap;
 			const totalSize = itemSize * items.length;
-
 			const wrap = gsap.utils.wrap(-itemSize, totalSize - itemSize);
 
-			// Posiciona os itens em absolute
+			// Posiciona os itens no absoluto
 			gsap.set(items, {
 				position: 'absolute',
 				top: 0,
 				left: 0,
 				[axis]: (i) => i * itemSize,
-				[isDesktop ? 'x' : 'y']: 0,
+				[isVertical ? 'x' : 'y']: 0, // Zera o eixo oposto
 			});
 
-			// 🔥 O SEGREDO DA DIREÇÃO INVERTIDA:
-			// Se o index for par (0), direction é 1. Se for ímpar (1), direction é -1.
+			// Se for a 2ª coluna (index 1), inverte a direção
 			const direction = index % 2 === 0 ? 1 : -1;
 
 			activeTrackData.push({ items, itemSize, wrap, direction });
 		});
 
-		// Função central de atualização
+		// Função de atualização
 		function updateProgress() {
 			const currentPos = gsap.getProperty(proxy, axis);
 
 			activeTrackData.forEach((trackData) => {
-				// Multiplica a posição pela direção. Se for -1, ela roda ao contrário!
 				const pos = currentPos * trackData.direction;
-
 				gsap.set(trackData.items, {
 					[axis]: (i) => trackData.wrap(i * trackData.itemSize + pos),
 				});
 			});
 		}
 
-		// O GSAP MatchMedia automaticamente destrói esse Draggable quando a tela mudar
+		// Cria o Draggable. O GSAP vai matar ele sozinho se o breakpoint mudar!
 		Draggable.create(proxy, {
 			trigger: container,
 			type: axis,
@@ -88,10 +81,10 @@ mm.add(
 			onThrowUpdate: updateProgress,
 		});
 
-		// Função do Scroll
+		// Scroll do Mouse
 		function onWheelEvent(e) {
 			e.preventDefault();
-			const delta = isDesktop ? e.deltaY : e.deltaX;
+			const delta = isVertical ? e.deltaY : e.deltaX;
 			const currentPos = gsap.getProperty(proxy, axis);
 
 			gsap.to(proxy, {
@@ -104,9 +97,8 @@ mm.add(
 
 		container.addEventListener('wheel', onWheelEvent, { passive: false });
 
-		// CLEANUP DO MATCHMEDIA:
-		// Essa função roda sozinha quando o breakpoint quebra.
-		// O GSAP já limpa os gsap.set() e os Draggables sozinhos, nós só precisamos limpar o event listener nativo!
+		// Cleanup: Só precisamos mandar o JS remover o evento de wheel quando o breakpoint mudar.
+		// Todo o resto (estilos CSS injetados, Draggable, etc) o GSAP limpa sozinho!
 		return () => {
 			container.removeEventListener('wheel', onWheelEvent);
 		};
