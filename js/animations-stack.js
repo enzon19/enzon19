@@ -28,12 +28,11 @@ mm.add(
 		const proxy = document.createElement('div');
 
 		tracks.forEach((track, index) => {
-			if (isMobile || isMd) return;
+			if (window.getComputedStyle(track).display === 'none') return;
 
 			const items = gsap.utils.toArray(track.children);
 			if (items.length === 0) return;
 
-			// Trava as dimensões da coluna para segurar os itens absolutos
 			gsap.set(track, {
 				width: track.offsetWidth,
 				height: track.offsetHeight,
@@ -45,22 +44,18 @@ mm.add(
 			const totalSize = itemSize * items.length;
 			const wrap = gsap.utils.wrap(-itemSize, totalSize - itemSize);
 
-			// Posiciona os itens no absoluto
 			gsap.set(items, {
 				position: 'absolute',
 				top: 0,
 				left: 0,
 				[axis]: (i) => i * itemSize,
-				[isVertical ? 'x' : 'y']: 0, // Zera o eixo oposto
+				[isVertical ? 'x' : 'y']: 0,
 			});
 
-			// Se for a 2ª coluna (index 1), inverte a direção
 			const direction = index % 2 === 0 ? 1 : -1;
-
 			activeTrackData.push({ items, itemSize, wrap, direction });
 		});
 
-		// Função de atualização
 		function updateProgress() {
 			const currentPos = gsap.getProperty(proxy, axis);
 
@@ -72,7 +67,6 @@ mm.add(
 			});
 		}
 
-		// Cria o Draggable. O GSAP vai matar ele sozinho se o breakpoint mudar!
 		Draggable.create(proxy, {
 			trigger: container,
 			type: axis,
@@ -81,7 +75,6 @@ mm.add(
 			onThrowUpdate: updateProgress,
 		});
 
-		// Scroll do Mouse
 		function onWheelEvent(e) {
 			e.preventDefault();
 			const delta = isVertical ? e.deltaY : e.deltaX;
@@ -97,8 +90,6 @@ mm.add(
 
 		container.addEventListener('wheel', onWheelEvent, { passive: false });
 
-		// Cleanup: Só precisamos mandar o JS remover o evento de wheel quando o breakpoint mudar.
-		// Todo o resto (estilos CSS injetados, Draggable, etc) o GSAP limpa sozinho!
 		return () => {
 			container.removeEventListener('wheel', onWheelEvent);
 		};
