@@ -82,8 +82,8 @@ mm.add(
 
 			gsap.to(proxy, {
 				[axis]: currentPos - delta,
-				duration: 0.5,
-				ease: 'power2.out',
+				duration: 0.6,
+				ease: 'circ.out',
 				onUpdate: updateProgress,
 			});
 		}
