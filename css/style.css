@@ -512,6 +512,12 @@
   .justify-end {
     justify-content: flex-end;
   }
+  .gap-0 {
+    gap: 0px;
+  }
+  .gap-0\.5 {
+    gap: calc(var(--spacing) * 0.5);
+  }
   .gap-1 {
     gap: var(--spacing);
   }
@@ -529,6 +535,9 @@
   }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
+  }
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
   }
   .gap-10 {
     gap: calc(var(--spacing) * 10);
@@ -1504,6 +1513,12 @@
     .md\:mb-4 {
       margin-bottom: calc(var(--spacing) * 4);
     }
+    .md\:block {
+      display: block;
+    }
+    .md\:hidden {
+      display: none;
+    }
     .md\:inline {
       display: inline;
     }
@@ -1559,6 +1574,12 @@
     .md\:justify-end {
       justify-content: flex-end;
     }
+    .md\:gap-1 {
+      gap: var(--spacing);
+    }
+    .md\:gap-1\.5 {
+      gap: calc(var(--spacing) * 1.5);
+    }
     .md\:gap-4 {
       gap: calc(var(--spacing) * 4);
     }
@@ -1596,6 +1617,10 @@
     .md\:text-7xl {
       font-size: var(--text-7xl);
       line-height: var(--tw-leading, var(--text-7xl--line-height));
+    }
+    .md\:text-base {
+      font-size: var(--text-base);
+      line-height: var(--tw-leading, var(--text-base--line-height));
     }
     .md\:text-lg {
       font-size: var(--text-lg);
