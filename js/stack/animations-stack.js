@@ -1,4 +1,4 @@
-// GSAP
+// [IA NOTICE] MADE WITH CLAUDE AND GEMINI
 gsap.registerPlugin(Draggable, InertiaPlugin);
 const container = document.querySelector('.gallery-container');
 
@@ -67,17 +67,44 @@ mm.add(
 			});
 		}
 
-		Draggable.create(proxy, {
+		const AUTO_SPEED = 0.5; // px por frame — ajuste a velocidade aqui
+		let autoPlayActive = true;
+
+		function autoTick() {
+			if (!autoPlayActive) return;
+			const currentPos = gsap.getProperty(proxy, axis);
+			gsap.set(proxy, { [axis]: currentPos + AUTO_SPEED });
+			updateProgress();
+		}
+		gsap.ticker.add(autoTick);
+
+		container.addEventListener('mouseenter', () => {
+			autoPlayActive = false;
+		});
+		container.addEventListener('mouseleave', () => {
+			// só retoma se não estiver no meio de um drag/inércia
+			if (!draggableInstance.isDragging && !draggableInstance.isThrowing) {
+				autoPlayActive = true;
+			}
+		});
+
+		const [draggableInstance] = Draggable.create(proxy, {
 			trigger: container,
 			type: axis,
 			inertia: true,
 			onDrag: updateProgress,
 			onThrowUpdate: updateProgress,
+			onThrowComplete: () => {
+				if (!container.matches(':hover')) {
+					autoPlayActive = true;
+				}
+			},
 		});
 
 		function onWheelEvent(e) {
 			e.preventDefault();
-			const delta = isVertical ? e.deltaY : e.deltaX;
+			const delta =
+				Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
 			const currentPos = gsap.getProperty(proxy, axis);
 
 			gsap.to(proxy, {
@@ -92,6 +119,7 @@ mm.add(
 
 		return () => {
 			container.removeEventListener('wheel', onWheelEvent);
+			gsap.ticker.remove(autoTick);
 		};
 	},
 );

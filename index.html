@@ -91,10 +91,31 @@
 			defer
 			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/InertiaPlugin.min.js"></script>
 		<script defer src="/js/animations.js"></script>
-		<script defer src="/js/animations-stack.js"></script>
+
+		<script defer src="/js/stack/animations-stack.js"></script>
+		<script type="module" src="/js/stack/StackItemCard.js"></script>
 	</head>
 	<body
 		class="bg-neutral-100 text-neutral-700 selection:bg-enzo-sky selection:text-white dark:bg-neutral-900 dark:text-neutral-300">
+		<template id="stack-item-card">
+			<div
+				class="shirnk-0 relative overflow-hidden rounded-xl border border-neutral-300 bg-neutral-200 bg-cover p-4 md:aspect-square md:size-42 md:p-3 lg:size-48 dark:border-neutral-700 dark:bg-neutral-800">
+				<div
+					class="pointer-events-none absolute inset-0 bg-linear-to-br blur-2xl"></div>
+				<div
+					class="relative flex h-full flex-col items-center justify-end gap-4 md:pb-2">
+					<img
+						src="/assets/logos/JavaScript.png"
+						alt="JavaScript"
+						class="aspect-square w-full object-contain md:max-w-[50%]" />
+					<span
+						class="hidden text-center font-semibold text-black md:inline dark:text-white"
+						>JavaScript</span
+					>
+				</div>
+			</div>
+		</template>
+
 		<div id="smooth-wrapper">
 			<div id="smooth-content" class="flex flex-col">
 				<main class="fle flex-col gap-4">
@@ -218,26 +239,106 @@
 										dispositivos móveis e computadores.
 									</p>
 								</div>
-								<div class="relative h-auto w-full md:min-w-42 lg:min-w-100">
+								<div
+									class="relative -mt-4 h-auto w-full md:mt-0 md:min-w-42 lg:min-w-100">
 									<div
 										class="gallery-container flex h-full w-full flex-row justify-center gap-3 overflow-hidden md:absolute md:inset-0">
 										<ul
 											class="gallery-track flex flex-row gap-3 md:flex-col"
 											id="stack-column">
-											<li
-												class="size-28 shrink-0 rounded-xl bg-red-500/50 bg-cover md:size-42 lg:size-48"></li>
-											<li
-												class="size-28 shrink-0 rounded-xl bg-blue-500/50 bg-cover md:size-42 lg:size-48"></li>
-											<li
-												class="size-28 shrink-0 rounded-xl bg-green-500/50 bg-cover md:size-42 lg:size-48"></li>
-											<li
-												class="size-28 shrink-0 rounded-xl bg-yellow-500/50 bg-cover md:size-42 lg:size-48"></li>
-											<li
-												class="size-28 shrink-0 rounded-xl bg-purple-500/50 bg-cover md:size-42 lg:size-48"></li>
-											<li
-												class="size-28 shrink-0 rounded-xl bg-orange-500/50 bg-cover md:size-42 lg:size-48"></li>
-											<li
-												class="size-28 shrink-0 rounded-xl bg-cyan-500/50 bg-cover md:size-42 lg:size-48"></li>
+											<li class="size-20 shrink-0 md:size-42 lg:size-48">
+												<stack-item-card
+													src="/assets/logos/JavaScript.png"
+													name="JavaScript"
+													text-color="ffd112"
+													background-class="from-[#ffec55]/45 via-[#ffd94b]/20 to-[#e7be24]/35 dark:from-[#fffd9a]/55 dark:via-[#fffca9]/35 dark:to-[#ffe88d]/50"></stack-item-card>
+											</li>
+											<li class="size-20 shrink-0 md:size-42 lg:size-48">
+												<stack-item-card
+													src="/assets/logos/Photoshop.svg"
+													name="Photoshop"
+													background-class="from-[#59c2ff]/60 via-[#4caefd]/35 to-[#2e95e1]/50 dark:from-[#99e2ff]/55 dark:via-[#91cdff]/35 dark:to-[#79baf3]/50"></stack-item-card>
+											</li>
+											<li class="size-20 shrink-0 md:size-42 lg:size-48">
+												<stack-item-card
+													src="/assets/logos/Premiere.svg"
+													name="Premiere Pro"
+													background-class="from-[#b2b3ff]/60 via-[#a0a1fd]/35 to-[#8888e2]/50 dark:from-[#d5d8ff]/55 dark:via-[#c3c6ff]/35 dark:to-[#afb2f5]/50"></stack-item-card>
+											</li>
+											<li class="size-20 shrink-0 md:size-42 lg:size-48">
+												<!-- color="220c87" -->
+												<stack-item-card
+													src="/assets/logos/After Effects.svg"
+													name="After Effects"
+													background-class="from-[#31309d]/60 via-[#251e85]/35 to-[#18006b]/50 dark:from-[#4d57a6]/55 dark:via-[#404889]/35 dark:to-[#30357b]/50"></stack-item-card>
+											</li>
+											<li class="size-20 shrink-0 md:size-42 lg:size-48">
+												<!-- color="ad361f" -->
+												<!-- color="f05133" -->
+												<stack-item-card
+													src="/assets/logos/Git.svg"
+													name="Git"
+													background-class="from-[#ff7153]/60 via-[#ef6146]/35 to-[#d2472d]/50 dark:from-[#d67f6d]/55 dark:via-[#ba7262]/35 dark:to-[#aa5e4e]/50"></stack-item-card>
+											</li>
+											<li class="size-20 shrink-0 md:size-42 lg:size-48">
+												<!-- color="336791" -->
+												<stack-item-card
+													src="/assets/logos/Postgres.svg"
+													name="Postgres"
+													background-class="from-[#4d7fa8]/60 via-[#3f6d93]/35 to-[#28567a]/50 dark:from-[#789cbb]/55 dark:via-[#6b89a3]/35 dark:to-[#577793]/50"></stack-item-card>
+											</li>
+											<li class="size-20 shrink-0 md:size-42 lg:size-48">
+												<!-- color="ad361f" -->
+												<!-- color="2b2e3a" -->
+												<stack-item-card
+													src="/assets/logos/Electron.svg"
+													name="Electron"
+													background-class="from-[#40434f]/60 via-[#30333e]/35 to-[#1d1f2a]/50 dark:from-[#5c5e68]/55 dark:via-[#4c4e55]/35 dark:to-[#3b3e46]/50"></stack-item-card>
+											</li>
+											<li class="size-20 shrink-0 md:size-42 lg:size-48">
+												<!-- color="#ff3e00" -->
+												<stack-item-card
+													src="/assets/logos/Svelte.svg"
+													name="Svelte/SvelteKit"
+													background-class="from-[#ff643b]/60 via-[#fd552e]/35 to-[#e03704]/50 dark:from-[#ff9e7f]/55 dark:via-[#ff9278]/35 dark:to-[#f27b60]/50"></stack-item-card>
+											</li>
+											<li class="size-20 shrink-0 md:size-42 lg:size-48">
+												<!-- color="#3178c6" -->
+												<stack-item-card
+													src="/assets/logos/TypeScript.svg"
+													name="TypeScript"
+													background-class="from-[#4f91dd]/60 via-[#417fc5]/35 to-[#2866ab]/50 dark:from-[#80b1ea]/55 dark:via-[#759ece]/35 dark:to-[#608bbe]/50"></stack-item-card>
+											</li>
+											<li class="size-20 shrink-0 md:size-42 lg:size-48">
+												<!-- color="689437" -->
+												<!-- color="9de053" -->
+												<stack-item-card
+													src="/assets/logos/NodeJS.png"
+													name="Node.js"
+													background-class="from-[#b9fa77]/45 via-[#a8e56a]/20 to-[#8fca4f]/35 dark:from-[#a7c98a]/55 dark:via-[#98b47f]/35 dark:to-[#84a269]/50"></stack-item-card>
+											</li>
+											<li class="size-20 shrink-0 md:size-42 lg:size-48">
+												<!-- color="38bdf8" -->
+												<!-- color="2dcbff" -->
+												<stack-item-card
+													src="/assets/logos/Tailwind.svg"
+													name="TailwindCSS"
+													background-class="from-[#5ee5ff]/45 via-[#52d0ff]/20 to-[#30b6e4]/35 dark:from-[#a5f5ff]/55 dark:via-[#9de0ff]/35 dark:to-[#84cdf3]/50"></stack-item-card>
+											</li>
+											<li class="size-20 shrink-0 md:size-42 lg:size-48">
+												<!-- color="663399" -->
+												<stack-item-card
+													src="/assets/logos/CSS.svg"
+													name="CSS"
+													background-class="from-[#7c4eaf]/60 via-[#6a3e99]/35 to-[#53267f]/50 dark:from-[#9475bd]/55 dark:via-[#8066a3]/35 dark:to-[#705394]/50"></stack-item-card>
+											</li>
+											<li class="size-20 shrink-0 md:size-42 lg:size-48">
+												<!-- color="f16529" -->
+												<stack-item-card
+													src="/assets/logos/HTML5.svg"
+													name="HTML"
+													background-class="from-[#ff834e]/60 via-[#f07341]/35 to-[#d45925]/50 dark:from-[#ffb18c]/55 dark:via-[#f9a384]/35 dark:to-[#e98e6c]/50"></stack-item-card>
+											</li>
 										</ul>
 										<ul
 											class="gallery-track hidden flex-col gap-3 lg:flex"
