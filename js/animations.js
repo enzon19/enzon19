@@ -17,16 +17,6 @@ ScrollTrigger.create({
 	pinSpacing: false,
 });
 
-gsap.to('#hero', {
-	opacity: 0,
-	scrollTrigger: {
-		trigger: '#about',
-		start: 'top center',
-		end: 'top 25%',
-		scrub: true,
-	},
-});
-
 gsap.to('#hero-content', {
 	scale: 0.75,
 	yPercent: 50,
@@ -53,8 +43,18 @@ mm.add(
 			borderRadius: '1.5rem',
 			scrollTrigger: {
 				trigger: '#about',
-				start: 'center bottom',
-				end: 'bottom bottom',
+				start: isDesktop ? 'center bottom' : '30% bottom',
+				end: isDesktop ? 'bottom bottom' : 'top 35%',
+				scrub: true,
+			},
+		});
+
+		gsap.to('#hero', {
+			opacity: 0,
+			scrollTrigger: {
+				trigger: '#about',
+				start: isDesktop ? 'top center' : 'top 30%',
+				end: isDesktop ? 'top 25%' : 'top 10%',
 				scrub: true,
 			},
 		});
