@@ -1,6 +1,7 @@
 // [IA NOTICE] MADE WITH CLAUDE AND GEMINI
 gsap.registerPlugin(Draggable, InertiaPlugin);
 const container = document.querySelector('.gallery-container');
+let originalStackHTML;
 
 mm.add(
 	{
@@ -15,15 +16,24 @@ mm.add(
 			const additionalStack = document.querySelector(
 				'#additional-stack-column',
 			);
-			additionalStack.innerHTML = '';
-
 			const stack = document.querySelector('#stack-column');
 			const items = Array.from(stack.children);
-			const shuffledItems = [...items].sort(() => Math.random() - 0.5);
+			const halfIndex = Math.floor(items.length / 2);
 
-			shuffledItems.forEach((item) => {
-				additionalStack.appendChild(item.cloneNode(true));
+			if (!originalStackHTML) {
+				originalStackHTML = stack.innerHTML;
+				additionalStack.innerHTML = '';
+				items.slice(0, halfIndex).forEach((item) => {
+					additionalStack.appendChild(item.cloneNode(true));
+				});
+			}
+
+			stack.innerHTML = '';
+			items.slice(halfIndex, items.length).forEach((item) => {
+				stack.appendChild(item.cloneNode(true));
 			});
+		} else if (originalStackHTML) {
+			document.querySelector('#stack-column').innerHTML = originalStackHTML;
 		}
 
 		const isVertical = isMd || isLg;
