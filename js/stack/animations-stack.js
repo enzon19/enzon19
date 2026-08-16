@@ -15,8 +15,15 @@ mm.add(
 			const additionalStack = document.querySelector(
 				'#additional-stack-column',
 			);
+			additionalStack.innerHTML = '';
+
 			const stack = document.querySelector('#stack-column');
-			additionalStack.innerHTML = stack.innerHTML;
+			const items = Array.from(stack.children);
+			const shuffledItems = [...items].sort(() => Math.random() - 0.5);
+
+			shuffledItems.forEach((item) => {
+				additionalStack.appendChild(item.cloneNode(true));
+			});
 		}
 
 		const isVertical = isMd || isLg;
