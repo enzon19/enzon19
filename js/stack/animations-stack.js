@@ -74,7 +74,7 @@ mm.add(
 			});
 		}
 
-		const AUTO_SPEED = 0.5; // px por frame — ajuste a velocidade aqui
+		const AUTO_SPEED = 0.5;
 		let autoPlayActive = true;
 
 		function autoTick() {
@@ -85,15 +85,18 @@ mm.add(
 		}
 		gsap.ticker.add(autoTick);
 
-		container.addEventListener('mouseenter', () => {
+		function onMouseEnter() {
 			autoPlayActive = false;
-		});
-		container.addEventListener('mouseleave', () => {
-			// só retoma se não estiver no meio de um drag/inércia
+		}
+
+		function onMouseLeave() {
 			if (!draggableInstance.isDragging && !draggableInstance.isThrowing) {
 				autoPlayActive = true;
 			}
-		});
+		}
+
+		container.addEventListener('mouseenter', onMouseEnter);
+		container.addEventListener('mouseleave', onMouseLeave);
 
 		const [draggableInstance] = Draggable.create(proxy, {
 			trigger: container,
@@ -126,6 +129,8 @@ mm.add(
 
 		return () => {
 			container.removeEventListener('wheel', onWheelEvent);
+			container.removeEventListener('mouseenter', onMouseEnter);
+			container.removeEventListener('mouseleave', onMouseLeave);
 			gsap.ticker.remove(autoTick);
 		};
 	},
