@@ -74,7 +74,7 @@ mm.add(
 			},
 		});
 
-		if (isMobile) {
+		if (isMobile && 'ontouchstart' in window) {
 			const projectCards = gsap.utils.toArray(
 				'#main-projects a.group, #other-projects a.group',
 			);
