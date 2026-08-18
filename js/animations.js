@@ -36,7 +36,7 @@ mm.add(
 		isMobile: '(max-width: 47.99rem)',
 	},
 	(context) => {
-		let { isDesktop } = context.conditions;
+		let { isDesktop, isMobile } = context.conditions;
 
 		gsap.from('#about', {
 			scale: isDesktop ? 0.95 : 0.925,
@@ -58,5 +58,20 @@ mm.add(
 				scrub: true,
 			},
 		});
+
+		if (isMobile) {
+			const projectCards = gsap.utils.toArray(
+				'#main-projects a.group, #other-projects a.group',
+			);
+
+			projectCards.forEach((card) => {
+				ScrollTrigger.create({
+					trigger: card,
+					start: 'top 60%',
+					end: '50% 40%',
+					toggleClass: 'is-active',
+				});
+			});
+		}
 	},
 );
