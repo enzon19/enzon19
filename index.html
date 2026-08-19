@@ -115,7 +115,42 @@
 				</div>
 			</div>
 		</template>
-
+		<header class="fixed z-50 w-full scale-x-0 p-4 md:p-6">
+			<div
+				class="mx-auto flex items-center justify-between gap-6 rounded-full border border-neutral-200/40 bg-neutral-300/60 px-6 py-2 backdrop-blur-2xl sm:max-w-fit md:px-8 md:py-4 dark:border-neutral-500/40 dark:bg-neutral-600/60">
+				<a
+					href="/"
+					class="group flex items-center gap-3 text-black dark:text-white">
+					<img
+						src="https://pudim.com.br/pudim.jpg"
+						alt="Enzo Face"
+						class="hidden size-8 grayscale-100 group-hover:block" />
+					<img
+						src="https://pudim.com.br/pudim.jpg"
+						alt="Enzo Face"
+						class="block size-8 group-hover:hidden" />
+					<h1 class="text-lg font-bold">pudim</h1>
+				</a>
+				<a
+					class="hidden transition-colors hover:text-black sm:inline dark:hover:text-white"
+					href="/about"
+					>Sobre</a
+				>
+				<a
+					class="hidden transition-colors hover:text-black sm:inline dark:hover:text-white"
+					href="/projects"
+					>Projetos</a
+				>
+				<a
+					class="hidden transition-colors hover:text-black sm:inline dark:hover:text-white"
+					href="/projects"
+					>Contato</a
+				>
+				<button class="flex flex-col items-center sm:hidden">
+					<ion-icon name="menu" class="size-6"></ion-icon>
+				</button>
+			</div>
+		</header>
 		<div id="smooth-wrapper">
 			<div id="smooth-content" class="flex flex-col">
 				<main class="fle flex-col gap-4">
