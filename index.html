@@ -121,15 +121,18 @@
 				<a
 					href="/"
 					class="group flex items-center gap-3 text-black dark:text-white">
-					<img
-						src="https://pudim.com.br/pudim.jpg"
-						alt="Enzo Face"
-						class="hidden size-8 grayscale-100 group-hover:block" />
-					<img
-						src="https://pudim.com.br/pudim.jpg"
-						alt="Enzo Face"
-						class="block size-8 group-hover:hidden" />
-					<h1 class="text-lg font-bold">pudim</h1>
+					<div
+						class="relative size-8 duration-300 md:transition-all md:group-hover:scale-125">
+						<img
+							src="/assets/face/happy-enzo.png"
+							alt="Enzo Face"
+							class="absolute inset-0 hidden size-8 object-contain transition-all group-hover:block" />
+						<img
+							src="/assets/face/normal-enzo.png"
+							alt="Enzo Face"
+							class="absolute inset-0 block size-8 object-contain group-hover:hidden" />
+					</div>
+					<h1 class="text-lg font-bold">enzon19</h1>
 				</a>
 				<a
 					class="hidden transition-colors hover:text-black sm:inline dark:hover:text-white"
