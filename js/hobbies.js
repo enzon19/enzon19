@@ -54,9 +54,7 @@ function addHobby(template, imageURL, text, last = false) {
 	const span = hobbyCard.querySelector('span');
 	span.innerText = text;
 
-	if (last) {
-		hobbyCard.classList.remove('md:hover:mr-26');
-	}
+	if (last) hobbyCard.classList.remove('md:hover:mr-26');
 
 	template.parentNode.appendChild(hobbyCard);
 	hobbyRotationSign *= -1;
