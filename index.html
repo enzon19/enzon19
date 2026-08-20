@@ -94,6 +94,8 @@
 
 		<script defer src="/js/stack/animations-stack.js"></script>
 		<script type="module" src="/js/stack/StackItemCard.js"></script>
+
+		<script type="module" src="/js/hobbies.js"></script>
 	</head>
 	<body
 		class="bg-neutral-100 text-neutral-700 selection:bg-enzo-sky selection:text-white dark:bg-neutral-900 dark:text-neutral-300">
@@ -664,35 +666,40 @@
 											</p>
 										</div>
 									</div>
-									<div class="group/stack flex">
+									<div
+										class="group/stack flex w-full snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:max-w-none md:snap-none md:justify-center md:gap-0 md:overflow-visible md:pb-0">
 										<div
-											class="group/card relative z-20 size-44 transition-all duration-300 group-has-[>*:hover]/stack:scale-90 hover:mr-26 hover:scale-100!">
+											style="--card-rotate: 4deg"
+											class="group/card relative z-20 size-44 shrink-0 snap-start transition-all duration-300 md:group-has-[>*:hover]/stack:scale-90 md:hover:mr-26 md:hover:scale-100!">
 											<div
-												class="absolute inset-0 rotate-4 rounded-lg bg-red-500 shadow-lg transition-all duration-300 group-hover/card:-translate-y-10 group-hover/card:rotate-0"></div>
+												class="absolute inset-0 rotate-0 overflow-hidden rounded-lg bg-cover bg-center shadow-lg transition-all duration-300 md:rotate-(--card-rotate) md:group-hover/card:-translate-y-10 md:group-hover/card:rotate-0!"
+												style="
+													background-image: url('/assets/hobbies/burger.jpg');
+												">
+												<div
+													class="absolute inset-0 flex items-end rounded-lg bg-linear-to-t from-black/80 via-black/10 to-transparent p-3 opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover/card:opacity-100">
+													<span class="text-sm font-semibold text-white"
+														>Hambúrgueres</span
+													>
+												</div>
+											</div>
 										</div>
-
 										<div
-											class="group/card relative z-20 -ml-24 size-44 transition-all duration-300 group-has-[>*:hover]/stack:scale-90 hover:mr-26 hover:scale-100!">
+											id="hobby-reference"
+											style="--card-rotate: -5deg"
+											class="group/card relative z-20 size-44 shrink-0 snap-start transition-all duration-300 md:-ml-24 md:group-has-[>*:hover]/stack:scale-90 md:hover:mr-26 md:hover:scale-100!">
 											<div
-												class="absolute inset-0 -rotate-5 rounded-lg bg-green-500 shadow-lg transition-all duration-300 group-hover/card:-translate-y-10 group-hover/card:rotate-0"></div>
-										</div>
-
-										<div
-											class="group/card relative z-20 -ml-24 size-44 transition-all duration-300 group-has-[>*:hover]/stack:scale-90 hover:mr-26 hover:scale-100!">
-											<div
-												class="absolute inset-0 rotate-2 rounded-lg bg-blue-500 shadow-lg transition-all duration-300 group-hover/card:-translate-y-10 group-hover/card:rotate-0"></div>
-										</div>
-
-										<div
-											class="group/card relative z-20 -ml-24 size-44 transition-all duration-300 group-has-[>*:hover]/stack:scale-90 hover:mr-26 hover:scale-100!">
-											<div
-												class="absolute inset-0 -rotate-3 rounded-lg bg-orange-500 shadow-lg transition-all duration-300 group-hover/card:-translate-y-10 group-hover/card:rotate-0"></div>
-										</div>
-
-										<div
-											class="group/card relative z-20 -ml-24 size-44 transition-all duration-300 group-has-[>*:hover]/stack:scale-90 hover:mr-26 hover:scale-100!">
-											<div
-												class="absolute inset-0 rotate-5 rounded-lg bg-purple-500 shadow-lg transition-all duration-300 group-hover/card:-translate-y-10 group-hover/card:rotate-0"></div>
+												class="absolute inset-0 rotate-0 overflow-hidden rounded-lg bg-cover bg-center shadow-lg transition-all duration-300 md:rotate-(--card-rotate) md:group-hover/card:-translate-y-10 md:group-hover/card:rotate-0!"
+												style="
+													background-image: url('/assets/hobbies/gaming.jpg');
+												">
+												<div
+													class="absolute inset-0 flex items-end rounded-lg bg-linear-to-t from-black/80 via-black/10 to-transparent p-3 opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover/card:opacity-100">
+													<span class="text-sm font-semibold text-white"
+														>Videogames</span
+													>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
