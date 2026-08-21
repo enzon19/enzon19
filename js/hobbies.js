@@ -80,7 +80,7 @@ const template = document.querySelector('#hobby-reference');
 	await addAlbumsToHobbies(template);
 	addHobby(
 		template,
-		'/assets/hobbies/trip-' + randomIntFromInterval(1, 5),
+		'/assets/hobbies/trip-' + randomIntFromInterval(1, 6) + '.jpg',
 		'Viajar',
 		true,
 	);
