@@ -709,16 +709,88 @@
 						</section>
 					</div>
 				</main>
-				<footer class="z-10 bg-neutral-100 dark:bg-neutral-900">
-					<div class="flex flex-row items-center justify-center gap-2 p-4">
-						<ion-icon name="contrast"></ion-icon>
-						<select
-							id="selectTheme"
-							class="cursor-pointer rounded-lg bg-neutral-100 p-1 outline-1 outline-neutral-500 transition-colors hover:bg-white dark:bg-neutral-700 dark:hover:bg-neutral-600">
-							<option value="light">Claro</option>
-							<option value="dark">Escuro</option>
-							<option value="system">Sistema</option>
-						</select>
+				<footer
+					class="z-10 mt-8 bg-neutral-100 p-6 md:mt-18 dark:bg-neutral-800">
+					<div
+						class="mx-auto flex max-w-6xl flex-col gap-4 md:flex-row md:justify-between">
+						<div class="flex flex-col gap-1">
+							<h5 class="text-xl font-bold">Enzo Neves Barata</h5>
+							<p class="text-sm">2026. Desde 2021 criando para a web.</p>
+							<p class="text-sm">
+								Site feito com HTML, CSS (Tailwind) e JavaScript (Vanilla).
+							</p>
+						</div>
+						<div
+							class="flex flex-row items-center justify-between gap-3 md:justify-normal">
+							<div class="flex items-center justify-between md:justify-normal">
+								<div
+									class="flex flex-row items-center gap-1 rounded-full bg-neutral-700 p-1">
+									<a
+										href="/v1"
+										title="v1"
+										class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
+										v1
+									</a>
+
+									<a
+										href="/v2"
+										title="v2"
+										class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
+										v2
+									</a>
+
+									<a
+										href="#"
+										title="v3"
+										aria-current="page"
+										class="flex cursor-pointer items-center justify-center rounded-full bg-white px-3 py-1.75 text-xs text-neutral-800 transition-colors dark:bg-neutral-500/65 dark:text-white">
+										v3
+									</a>
+								</div>
+							</div>
+							<div
+								class="flex flex-row items-center gap-1 rounded-full bg-neutral-700 p-1">
+								<input
+									type="radio"
+									name="theme"
+									id="theme-system"
+									value="system"
+									checked
+									class="peer/system sr-only" />
+								<label
+									for="theme-system"
+									title="Sistema"
+									class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/system:bg-white peer-checked/system:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/system:hover:bg-white peer-checked/system:hover:text-neutral-800 dark:peer-checked/system:bg-neutral-500/65 dark:peer-checked/system:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/system:hover:bg-neutral-500/65 dark:peer-checked/system:hover:text-white">
+									<ion-icon name="desktop" class="text-lg"></ion-icon>
+								</label>
+
+								<input
+									type="radio"
+									name="theme"
+									id="theme-light"
+									value="light"
+									class="peer/light sr-only" />
+								<label
+									for="theme-light"
+									title="Claro"
+									class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/light:bg-white peer-checked/light:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/light:hover:bg-white peer-checked/light:hover:text-neutral-800 dark:peer-checked/light:bg-neutral-500/65 dark:peer-checked/light:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/light:hover:bg-neutral-500/65 dark:peer-checked/light:hover:text-white">
+									<ion-icon name="sunny" class="text-lg"></ion-icon>
+								</label>
+
+								<input
+									type="radio"
+									name="theme"
+									id="theme-dark"
+									value="dark"
+									class="peer/dark sr-only" />
+								<label
+									for="theme-dark"
+									title="Escuro"
+									class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/dark:bg-white peer-checked/dark:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/dark:hover:bg-white peer-checked/dark:hover:text-neutral-800 dark:peer-checked/dark:bg-neutral-500/65 dark:peer-checked/dark:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/dark:hover:bg-neutral-500/65 dark:peer-checked/dark:hover:text-white">
+									<ion-icon name="moon" class="text-lg"></ion-icon>
+								</label>
+							</div>
+						</div>
 					</div>
 				</footer>
 			</div>
