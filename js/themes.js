@@ -1,5 +1,5 @@
-function handleThemeChange(selectThemeElement) {
-	if (selectThemeElement?.value === 'system') {
+function handleThemeChange(themeValue) {
+	if (themeValue === 'system') {
 		// Whenever the user explicitly chooses to respect the OS preference
 		localStorage.removeItem('theme');
 		loadTheme();
@@ -7,7 +7,7 @@ function handleThemeChange(selectThemeElement) {
 	}
 
 	// Whenever the user explicitly chooses light or dark mode
-	localStorage.theme = selectThemeElement?.value;
+	localStorage.theme = themeValue;
 	loadTheme();
 }
 
@@ -35,19 +35,24 @@ function applyTheme(theme) {
 		throw 'Invalid theme';
 	} else if (theme === 'dark') {
 		documentElement.classList.add('dark');
-		documentElement.style.setProperty('--caret-color', 'rgb(225, 225, 225)');
 		window.loadHeroBackground?.('dark');
 	} else {
 		documentElement.classList.remove('dark');
-		documentElement.style.setProperty('--caret-color', 'rgb(44, 44, 44)');
 		window.loadHeroBackground?.('light');
 	}
 }
 
 loadTheme();
 document.addEventListener('DOMContentLoaded', () => {
-	const selectThemeElement = document.querySelector('#selectTheme');
-	selectThemeElement?.addEventListener('change', () =>
-		handleThemeChange(selectThemeElement),
-	);
+	const themeRadios = document.querySelectorAll('input[name="theme"]');
+	const currentTheme = 'theme' in localStorage ? localStorage.theme : 'system';
+	document.querySelector('#theme-' + currentTheme).checked = true;
+
+	themeRadios.forEach((radio) => {
+		radio.addEventListener('change', () => {
+			if (radio.checked) {
+				handleThemeChange(radio.value);
+			}
+		});
+	});
 });
