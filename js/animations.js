@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const isDesktop = window.matchMedia('(min-width: 64rem)').matches;
 
 	const tl = gsap.timeline({
-		defaults: { duration: 0.6, ease: 'power1.out' },
+		defaults: { duration: 0.6, ease: 'power2.out' },
 	});
 
 	tl.fromTo(
@@ -148,7 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
 					gsap.set('#profile-buttons > a', { transition: 'none' });
 				},
 				onComplete: () => {
-					gsap.set('#profile-buttons > a', { clearProps: 'transition' });
+					gsap.set('#profile-buttons > a', {
+						clearProps: 'transition,transform',
+					});
 				},
 			},
 			0.5,
