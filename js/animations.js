@@ -110,3 +110,47 @@ mm.add(
 		}
 	},
 );
+
+document.addEventListener('DOMContentLoaded', () => {
+	const isDesktop = window.matchMedia('(min-width: 64rem)').matches;
+
+	const tl = gsap.timeline({
+		defaults: { duration: 0.6, ease: 'power1.out' },
+	});
+
+	tl.fromTo(
+		'#enzo-face',
+		{ opacity: 0, x: isDesktop ? '15%' : 0, y: isDesktop ? 0 : '-15%' },
+		{ opacity: 1, x: 0, y: 0 },
+		0.3,
+	)
+		.fromTo(
+			'#name',
+			{ opacity: 0, x: isDesktop ? '-15%' : 0, y: isDesktop ? 0 : '-55%' },
+			{ opacity: 1, x: 0, y: 0 },
+			0.3,
+		)
+		.fromTo(
+			'#short-description',
+			{ opacity: 0, x: isDesktop ? '-15%' : 0, y: isDesktop ? 0 : '-15%' },
+			{ opacity: 1, x: 0, y: 0 },
+			0.4,
+		)
+		.fromTo(
+			'#profile-buttons > a',
+			{ opacity: 0, x: isDesktop ? '-35%' : 0, y: isDesktop ? 0 : '-35%' },
+			{
+				opacity: 1,
+				x: 0,
+				y: 0,
+				stagger: 0.1,
+				onStart: () => {
+					gsap.set('#profile-buttons > a', { transition: 'none' });
+				},
+				onComplete: () => {
+					gsap.set('#profile-buttons > a', { clearProps: 'transition' });
+				},
+			},
+			0.5,
+		);
+});
