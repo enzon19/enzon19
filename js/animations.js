@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const isDesktop = window.matchMedia('(min-width: 64rem)').matches;
 
 	const tl = gsap.timeline({
-		defaults: { duration: 0.6, ease: 'power2.out' },
+		defaults: { duration: 0.6, ease: 'back.out(2)' },
 	});
 
 	tl.fromTo(
