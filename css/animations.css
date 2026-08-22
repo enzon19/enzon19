@@ -17,102 +17,58 @@
 
 /* Entrances */
 #enzo-face {
-	animation: appearFromBottomShort 0.6s forwards;
+	--tx: 0;
+	--ty: -15%;
+	animation: appearFrom 0.6s forwards;
 	opacity: 0;
 }
 
 #short-description {
-	animation: appearFromBottomShort 0.6s forwards;
+	--tx: 0;
+	--ty: -15%;
+	animation: appearFrom 0.6s forwards;
 	opacity: 0;
 }
 
 #name {
-	animation: appearFromBottomUltraIntense 0.6s forwards;
+	--tx: 0;
+	--ty: -55%;
+	animation: appearFrom 0.6s forwards;
 	opacity: 0;
 }
 
 #profile-buttons > a {
-	animation: appearFromBottomIntense 0.6s forwards;
+	--tx: 0;
+	--ty: -35%;
+	animation: appearFrom 0.6s forwards;
 	opacity: 0;
 }
 
 @media (width >= 64rem) {
 	#enzo-face {
-		animation: appearFromLeftShort 0.6s forwards;
+		--tx: 15%;
+		--ty: 0;
 	}
 
 	#name,
 	#short-description {
-		animation: appearFromRightShort 0.6s forwards;
+		--tx: -15%;
+		--ty: 0;
 	}
 
 	#profile-buttons > a {
-		animation: appearFromRightIntense 0.6s forwards;
+		--tx: -35%;
+		--ty: 0;
 	}
 }
 
-@keyframes appearFromLeftShort {
+@keyframes appearFrom {
 	from {
 		opacity: 0;
-		transform: translateX(15%);
+		transform: translate(var(--tx), var(--ty));
 	}
 	to {
 		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
-@keyframes appearFromRightIntense {
-	from {
-		opacity: 0;
-		transform: translateX(-35%);
-	}
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
-@keyframes appearFromRightShort {
-	from {
-		opacity: 0;
-		transform: translateX(-15%);
-	}
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
-@keyframes appearFromBottomShort {
-	from {
-		opacity: 0;
-		transform: translateY(-15%);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes appearFromBottomIntense {
-	from {
-		opacity: 0;
-		transform: translateY(-35%);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes appearFromBottomUltraIntense {
-	from {
-		opacity: 0;
-		transform: translateY(-55%);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
+		transform: translate(0, 0);
 	}
 }
