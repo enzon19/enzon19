@@ -16,47 +16,43 @@
 }
 
 /* Entrances */
-#enzo-face {
+.no-js #enzo-face {
 	--tx: 0;
 	--ty: -15%;
 	animation: appearFrom 0.6s forwards;
-	opacity: 0;
 }
 
-#short-description {
+.no-js #short-description {
 	--tx: 0;
 	--ty: -15%;
 	animation: appearFrom 0.6s forwards;
-	opacity: 0;
 }
 
-#name {
+.no-js #name {
 	--tx: 0;
 	--ty: -55%;
 	animation: appearFrom 0.6s forwards;
-	opacity: 0;
 }
 
-#profile-buttons > a {
+.no-js #profile-buttons > a {
 	--tx: 0;
 	--ty: -35%;
 	animation: appearFrom 0.6s forwards;
-	opacity: 0;
 }
 
 @media (width >= 64rem) {
-	#enzo-face {
+	.no-js #enzo-face {
 		--tx: 15%;
 		--ty: 0;
 	}
 
-	#name,
-	#short-description {
+	.no-js #name,
+	.no-js #short-description {
 		--tx: -15%;
 		--ty: 0;
 	}
 
-	#profile-buttons > a {
+	.no-js #profile-buttons > a {
 		--tx: -35%;
 		--ty: 0;
 	}
@@ -71,4 +67,11 @@
 		opacity: 1;
 		transform: translate(0, 0);
 	}
+}
+
+#enzo-face,
+#short-description,
+#name,
+#profile-buttons > a {
+	opacity: 0;
 }
