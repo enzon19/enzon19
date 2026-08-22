@@ -5,6 +5,7 @@ import {
 } from '@paper-design/shaders';
 
 let meshGradient;
+const defaultSpeed = 0.7;
 
 function getColorsAsShaderColors(colors) {
 	return colors.map((e) => getShaderColorFromString(e));
@@ -26,13 +27,12 @@ function initHeroBackground(colors) {
 		u_offsetY: 0,
 	};
 
-	const speed = 0.7;
 	meshGradient = new ShaderMount(
 		container,
 		meshGradientFragmentShader,
 		shaderParams,
 		undefined,
-		speed,
+		defaultSpeed,
 	);
 }
 
@@ -52,9 +52,9 @@ function loadHeroBackground(theme) {
 	const colors =
 		theme == 'dark'
 			? ['#09102a', '#0b1860', '#133786']
-			// : ['#1286eb', '#8ec9fc', '#2771E4'];
-			: ['#0D6FD6', '#6DB7F7', '#1553E6'] // '#2771E4'
-			// : ['#006aff', '#74b7ff', '#c2e1ff']
+			: // : ['#1286eb', '#8ec9fc', '#2771E4'];
+				['#0D6FD6', '#6DB7F7', '#1553E6']; // '#2771E4'
+	// : ['#006aff', '#74b7ff', '#c2e1ff']
 
 	if (meshGradient) {
 		changeColors(colors);
@@ -62,8 +62,23 @@ function loadHeroBackground(theme) {
 		initHeroBackground(colors);
 	}
 }
+
+let resumeTimeoutId = null;
+function pauseHeroBackground() {
+	clearTimeout(resumeTimeoutId);
+	meshGradient?.setSpeed(0);
+}
+function resumeHeroBackground() {
+	clearTimeout(resumeTimeoutId);
+	resumeTimeoutId = setTimeout(() => {
+		meshGradient?.setSpeed(defaultSpeed);
+	}, 1000);
+}
+
 loadHeroBackground(
 	document.documentElement.classList.contains('dark') ? 'dark' : 'light',
 );
 
 window.loadHeroBackground = loadHeroBackground;
+window.pauseHeroBackground = pauseHeroBackground;
+window.resumeHeroBackground = resumeHeroBackground;

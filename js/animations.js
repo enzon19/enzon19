@@ -15,6 +15,8 @@ ScrollTrigger.create({
 	end: 'bottom top',
 	pin: true,
 	pinSpacing: false,
+	onLeave: () => window.pauseHeroBackground?.(),
+	onEnterBack: () => window.resumeHeroBackground?.(),
 });
 
 gsap.to('#hero-content', {
