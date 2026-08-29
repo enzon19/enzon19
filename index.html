@@ -121,41 +121,75 @@
 		</template>
 		<header class="pointer-events-none fixed z-50 w-full scale-x-0 p-4 md:p-6">
 			<div
-				class="pointer-events-auto mx-auto flex items-center justify-between gap-6 rounded-full border border-neutral-200/40 bg-neutral-300/60 px-6 py-2 backdrop-blur-2xl sm:max-w-fit md:px-8 md:py-4 dark:border-neutral-500/40 dark:bg-neutral-600/60">
-				<a
-					href="#"
-					class="group flex items-center gap-3 text-black dark:text-white">
-					<div
-						class="relative size-8 duration-300 md:transition-all md:group-hover:scale-125">
-						<img
-							src="/assets/face/happy-enzo.png"
-							alt="Enzo Face"
-							class="absolute inset-0 hidden size-8 object-contain transition-all group-hover:block" />
-						<img
-							src="/assets/face/normal-enzo.png"
-							alt="Enzo Face"
-							class="absolute inset-0 block size-8 object-contain group-hover:hidden" />
-					</div>
-					<h1 class="text-lg font-bold">enzon19</h1>
-				</a>
-				<a
-					class="hidden transition-colors hover:text-black sm:inline dark:hover:text-white"
-					href="/about"
-					>Sobre</a
-				>
-				<a
-					class="hidden transition-colors hover:text-black sm:inline dark:hover:text-white"
-					href="/projects"
-					>Projetos</a
-				>
-				<a
-					class="hidden transition-colors hover:text-black sm:inline dark:hover:text-white"
-					href="/contact"
-					>Contato</a
-				>
-				<button class="flex flex-col items-center sm:hidden">
-					<ion-icon name="menu" class="size-6"></ion-icon>
-				</button>
+				class="pointer-events-auto mx-auto flex max-w-fit flex-col overflow-hidden rounded-full border border-neutral-200/40 bg-neutral-300/60 backdrop-blur-2xl dark:border-neutral-500/40 dark:bg-neutral-600/60">
+				<div
+					class="flex items-center justify-between gap-6 px-6 py-3 md:px-8 md:py-4">
+					<a
+						href="#"
+						class="group flex items-center gap-3 text-black dark:text-white">
+						<div
+							class="relative size-8 duration-300 md:transition-all md:group-hover:scale-125">
+							<img
+								src="/assets/face/happy-enzo.png"
+								alt="Enzo Face"
+								class="absolute inset-0 hidden size-8 object-contain transition-all group-hover:block" />
+							<img
+								src="/assets/face/normal-enzo.png"
+								alt="Enzo Face"
+								class="absolute inset-0 block size-8 object-contain group-hover:hidden" />
+						</div>
+						<h1 class="text-lg font-bold">enzon19</h1>
+					</a>
+					<a
+						class="hidden transition-colors hover:text-black sm:inline dark:hover:text-white"
+						href="/about">
+						Sobre
+					</a>
+					<a
+						class="hidden transition-colors hover:text-black sm:inline dark:hover:text-white"
+						href="/projects">
+						Projetos
+					</a>
+					<a
+						class="hidden transition-colors hover:text-black sm:inline dark:hover:text-white"
+						href="/contact">
+						Contato
+					</a>
+					<button
+						class="relative flex size-6 flex-col items-center justify-center sm:hidden"
+						id="mobile-header-menu">
+						<ion-icon
+							name="menu"
+							class="absolute inset-0 size-6"
+							id="icon-menu"></ion-icon>
+						<ion-icon
+							name="close"
+							class="absolute inset-0 size-6 opacity-0"
+							id="icon-close"></ion-icon>
+					</button>
+				</div>
+				<div
+					id="mobile-menu-wrapper"
+					class="overflow-hidden sm:hidden"
+					style="height: 0">
+					<nav class="flex flex-col items-center gap-1 px-6 pt-2 pb-5">
+						<a
+							href="/about"
+							class="w-full py-2 text-center transition-colors hover:text-black dark:hover:text-white">
+							Sobre
+						</a>
+						<a
+							href="/projects"
+							class="w-full py-2 text-center transition-colors hover:text-black dark:hover:text-white">
+							Projetos
+						</a>
+						<a
+							href="/contact"
+							class="w-full py-2 text-center transition-colors hover:text-black dark:hover:text-white">
+							Contato
+						</a>
+					</nav>
+				</div>
 			</div>
 		</header>
 		<div id="smooth-wrapper">
