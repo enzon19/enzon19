@@ -76,26 +76,6 @@ mm.add(
 			},
 		});
 
-		gsap.fromTo(
-			'header',
-			{
-				yPercent: -150,
-			},
-			{
-				yPercent: 0,
-				scaleX: 1,
-				duration: 0.8,
-				ease: 'back.out(1)',
-				immediateRender: true,
-				scrollTrigger: {
-					trigger: '#about',
-					start: isDesktop ? 'top 30%' : 'top 20%',
-					end: isDesktop ? 'top 10%' : 'top 10%',
-					toggleActions: 'play play none reverse',
-				},
-			},
-		);
-
 		if (isMobile && 'ontouchstart' in window) {
 			const projectCards = gsap.utils.toArray(
 				'#main-projects a.group, #other-projects a.group',
