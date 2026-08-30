@@ -1,4 +1,4 @@
-const attributes = ['color', 'name', 'src', 'background-class', 'text-color'];
+const ATTRIBUTES = ['color', 'name', 'src', 'background-class', 'text-color'];
 
 export default class StackItemCard extends HTMLElement {
 	#src;
@@ -69,7 +69,7 @@ export default class StackItemCard extends HTMLElement {
 	}
 
 	static get observedAttributes() {
-		return attributes;
+		return ATTRIBUTES;
 	}
 	constructor() {
 		super();
@@ -79,7 +79,7 @@ export default class StackItemCard extends HTMLElement {
 	}
 	attributeChangedCallback(name, oldValue, newValue) {
 		if (oldValue === newValue) return;
-		if (!attributes.includes(name)) return;
+		if (!ATTRIBUTES.includes(name)) return;
 
 		if (name.includes('-color')) name = name.replace('-color', 'Color');
 		if (name.includes('-class')) name = name.replace('-class', 'Class');
