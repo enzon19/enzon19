@@ -32,14 +32,14 @@ gsap.to('#hero-content', {
 });
 
 const flyUpElements = gsap.utils.toArray('.gsap-fly-up');
-flyUpElements.forEach((elemento) => {
-	gsap.from(elemento, {
+flyUpElements.forEach((e) => {
+	gsap.from(e, {
 		y: 50,
 		opacity: 0,
 		duration: 0.8,
 		ease: 'power3.out',
 		scrollTrigger: {
-			trigger: elemento,
+			trigger: e,
 			start: 'top 96.7%',
 			toggleActions: 'play play none reverse', // [START] [QUICK START] [END TO START] [END]
 		},
