@@ -59,7 +59,9 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --color-enzo-morning: #4f9bf2;
     --color-enzo-sky: #2276d6;
+    --color-enzo-almost-night: #03295b;
     --color-enzo-night: #031245;
   }
 }
@@ -232,17 +234,20 @@
   .absolute {
     position: absolute;
   }
-  .fixed {
-    position: fixed;
-  }
   .relative {
     position: relative;
   }
   .static {
     position: static;
   }
+  .sticky {
+    position: sticky;
+  }
   .inset-0 {
     inset: 0px;
+  }
+  .top-0 {
+    top: 0px;
   }
   .-z-20 {
     z-index: calc(20 * -1);
@@ -2166,6 +2171,30 @@
     &:is(.dark *) {
       color: var(--color-white);
     }
+  }
+  body ::selection {
+    background-color: var(--color-enzo-sky);
+  }
+  body::selection {
+    background-color: var(--color-enzo-sky);
+  }
+  body ::selection {
+    color: var(--color-white);
+  }
+  body::selection {
+    color: var(--color-white);
+  }
+  body:is(.dark *) ::selection {
+    background-color: var(--color-enzo-morning);
+  }
+  body:is(.dark *)::selection {
+    background-color: var(--color-enzo-morning);
+  }
+  body:is(.dark *) ::selection {
+    color: var(--color-enzo-almost-night);
+  }
+  body:is(.dark *)::selection {
+    color: var(--color-enzo-almost-night);
   }
 }
 @property --tw-translate-x {
