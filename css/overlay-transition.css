@@ -1,0 +1,36 @@
+::view-transition-group(overlay) {
+	z-index: 60;
+}
+
+::view-transition-old(overlay) {
+	animation: none;
+}
+
+:root {
+	--overlay-color: #2276d6;
+}
+
+:root.dark {
+	--overlay-color: #0c1b4f;
+}
+
+::view-transition-new(overlay) {
+	background: var(--overlay-color);
+	animation: overlay-flash 1.2s cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+::view-transition-image-pair(overlay) {
+	isolation: isolate;
+}
+
+@keyframes overlay-flash {
+	0% {
+		clip-path: inset(100% 0 0 0);
+	}
+	45% {
+		clip-path: inset(0 0 0 0);
+	}
+	100% {
+		clip-path: inset(0 0 100% 0);
+	}
+}

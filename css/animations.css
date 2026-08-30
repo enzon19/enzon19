@@ -75,3 +75,32 @@
 #profile-buttons > a {
 	opacity: 0;
 }
+
+/* View Transitions */
+@view-transition {
+	navigation: auto;
+}
+
+::view-transition-old(root) {
+	animation: none;
+}
+
+::view-transition-new(root) {
+	animation: page-in 800ms cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+@keyframes page-in {
+	from {
+		clip-path: inset(100% 0 0 0);
+	}
+	to {
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+#vt-overlay {
+	position: fixed;
+	inset: 0;
+	view-transition-name: overlay;
+	pointer-events: none;
+}
