@@ -1,27 +1,55 @@
-const attributes = ['page', 'triggered'];
+const ATTRIBUTES = ['page', 'triggered'];
+const NAV_LINKS = [
+	{ href: '/about', label: 'Sobre' },
+	{ href: '/projects', label: 'Projetos' },
+	{ href: '/contact', label: 'Contato' },
+];
 
 export default class EnzoHeader extends HTMLElement {
 	#page;
+
+	#header;
+	#headerPill;
+	#headerMenuButton;
+	#navWrapper;
+	#iconMenu;
+	#iconClose;
+
+	#isMenuOpen = false;
+	#closedRadius = 0;
+	#headerMM = null;
+	#ownsMatchMedia = false;
+
+	#onMenuButtonClick = () => this.#toggleMenu();
+
 	get page() {
 		return this.#page;
 	}
 	set page(value) {
 		this.#page = value;
-		if (this.isConnected) this.#render();
+		this.#updatePage();
 	}
 
 	get triggered() {
 		return this.hasAttribute('triggered');
 	}
 	set triggered(value) {
-		if (this.isConnected) this.#render();
+		this.#updateTriggered();
 	}
 
-	#render() {
+	#build() {
 		const header = document.createElement('header');
 
 		header.className = 'pointer-events-none fixed z-50 w-full p-4 md:p-6';
-		if (this.triggered) header.classList.add('scale-x-0');
+
+		const navLinksHtml = NAV_LINKS.map(
+			({ href, label }) => `
+						<a
+							href="${href}"
+							class="w-full text-center transition-colors hover:text-black sm:w-auto dark:hover:text-white"
+							>${label}</a
+						>`,
+		).join('');
 
 		header.innerHTML = `<div
 			class="pointer-events-auto mx-auto flex max-w-fit flex-col overflow-hidden border border-neutral-200/40 bg-neutral-300/60 backdrop-blur-2xl sm:rounded-full dark:border-neutral-500/40 dark:bg-neutral-600/60">
@@ -46,7 +74,10 @@ export default class EnzoHeader extends HTMLElement {
 					</a>
 					<button
 						class="relative flex size-6 cursor-pointer flex-col items-center justify-center sm:hidden"
-						id="mobile-header-button-menu">
+						id="mobile-header-button-menu"
+						aria-label="Open menu"
+						aria-expanded="false"
+						aria-controls="nav-wrapper">
 						<ion-icon name="menu" class="absolute inset-0 size-6"></ion-icon>
 						<ion-icon
 							name="close"
@@ -55,22 +86,7 @@ export default class EnzoHeader extends HTMLElement {
 				</div>
 				<div id="nav-wrapper" class="h-0 overflow-hidden sm:h-auto">
 					<nav
-						class="flex flex-col items-center gap-4 pt-6 pb-4 sm:flex-row sm:gap-6 sm:p-0">
-						<a
-							href="/about"
-							class="w-full text-center transition-colors hover:text-black sm:w-auto dark:hover:text-white"
-							>Sobre</a
-						>
-						<a
-							href="/projects"
-							class="w-full text-center transition-colors hover:text-black sm:w-auto dark:hover:text-white"
-							>Projetos</a
-						>
-						<a
-							href="/contact"
-							class="w-full text-center transition-colors hover:text-black sm:w-auto dark:hover:text-white"
-							>Contato</a
-						>
+						class="flex flex-col items-center gap-4 pt-6 pb-4 sm:flex-row sm:gap-6 sm:p-0">${navLinksHtml}
 					</nav>
 				</div>
 			</div>
@@ -80,25 +96,49 @@ export default class EnzoHeader extends HTMLElement {
 		this.innerHTML = '';
 		this.append(header);
 
-		if (this.page) {
-			const currentPage = this.querySelector(`a[href="/${this.page}"]`);
-			currentPage.classList.add('font-bold', 'text-black', 'dark:text-white');
-		}
-
-		const headerPill = this.querySelector('header > div');
-		const headerMenuButton = this.querySelector('#mobile-header-button-menu');
-		const navWrapper = this.querySelector('#nav-wrapper');
-		const iconMenu = this.querySelector(
+		this.#header = header;
+		this.#headerPill = header.querySelector(':scope > div');
+		this.#headerMenuButton = header.querySelector('#mobile-header-button-menu');
+		this.#navWrapper = header.querySelector('#nav-wrapper');
+		this.#iconMenu = header.querySelector(
 			'#mobile-header-button-menu > ion-icon[name="menu"]',
 		);
-		const iconClose = this.querySelector(
+		this.#iconClose = header.querySelector(
 			'#mobile-header-button-menu > ion-icon[name="close"]',
 		);
 
-		let isHeaderMenuOpen = false;
-		let closedRadius = 0;
+		this.#updatePage();
+		this.#updateTriggered();
+		this.#setupResponsiveBehavior();
 
+		this.#headerMenuButton.addEventListener('click', this.#onMenuButtonClick);
+	}
+
+	#updatePage() {
+		if (!this.#header) return;
+
+		this.#header
+			.querySelectorAll('nav a.font-bold')
+			.forEach((a) =>
+				a.classList.remove('font-bold', 'text-black', 'dark:text-white'),
+			);
+
+		if (this.page) {
+			const currentPage = this.#header.querySelector(`a[href="/${this.page}"]`);
+			currentPage.classList.add('font-bold', 'text-black', 'dark:text-white');
+		}
+	}
+
+	#updateTriggered() {
+		if (!this.#header) return;
+		this.#header.classList.toggle('scale-x-0', this.triggered);
+	}
+
+	#setupResponsiveBehavior() {
+		this.#ownsMatchMedia = !window?.mm;
 		const headerMM = window?.mm ? window.mm : gsap.matchMedia();
+		this.#headerMM = headerMM;
+
 		headerMM.add(
 			{
 				isMobile: '(max-width: 39.99rem)',
@@ -106,11 +146,11 @@ export default class EnzoHeader extends HTMLElement {
 				isMd: '(min-width: 48rem)',
 			},
 			(context) => {
-				let { isMd, isMobile } = context.conditions;
+				const { isMd, isMobile } = context.conditions;
 
 				if (this.triggered) {
 					gsap.fromTo(
-						header,
+						this.#header,
 						{
 							yPercent: -150,
 						},
@@ -131,92 +171,116 @@ export default class EnzoHeader extends HTMLElement {
 				}
 
 				if (isMobile) {
-					gsap.set(navWrapper, { height: 0 });
-					gsap.set(iconMenu, { opacity: 1, rotate: 0 });
-					gsap.set(iconClose, { opacity: 0, rotate: -90 });
-					isHeaderMenuOpen = false;
+					gsap.set(this.#navWrapper, { height: 0 });
+					gsap.set(this.#iconMenu, { opacity: 1, rotate: 0 });
+					gsap.set(this.#iconClose, { opacity: 0, rotate: -90 });
+					this.#isMenuOpen = false;
 
-					closedRadius = headerPill.getBoundingClientRect().height / 2;
-					gsap.set(headerPill, { borderRadius: closedRadius });
+					this.#closedRadius =
+						this.#headerPill.getBoundingClientRect().height / 2;
+					gsap.set(this.#headerPill, { borderRadius: this.#closedRadius });
 				}
 			},
 		);
+	}
 
-		headerMenuButton.addEventListener('click', () => {
-			isHeaderMenuOpen = !isHeaderMenuOpen;
-			const tl = gsap.timeline();
+	#toggleMenu() {
+		this.#isMenuOpen = !this.#isMenuOpen;
+		const tl = gsap.timeline();
 
-			if (isHeaderMenuOpen) {
-				tl.to(
-					headerPill,
-					{ borderRadius: 29, duration: 0.35, ease: 'power2.out' },
+		if (this.#isMenuOpen) {
+			tl.to(
+				this.#headerPill,
+				{ borderRadius: 29, duration: 0.35, ease: 'power2.out' },
+				0,
+			)
+				.to(
+					this.#navWrapper,
+					{ height: 'auto', duration: 0.5, ease: 'back.out(1.4)' },
 					0,
 				)
-					.to(
-						navWrapper,
-						{ height: 'auto', duration: 0.5, ease: 'back.out(1.4)' },
-						0,
-					)
-					.to(
-						iconMenu,
-						{ opacity: 0, rotate: 90, duration: 0.2, ease: 'power2.in' },
-						0,
-					)
-					.to(
-						iconClose,
-						{ opacity: 1, rotate: 0, duration: 0.4, ease: 'back.out(1.5)' },
-						0.1,
-					);
-			} else {
-				tl.to(
-					navWrapper,
-					{ height: 0, duration: 0.6, ease: 'back.in(1.25)' },
+				.to(
+					this.#iconMenu,
+					{ opacity: 0, rotate: 90, duration: 0.2, ease: 'power2.in' },
 					0,
 				)
-					.to(
-						headerPill,
-						{ borderRadius: closedRadius, duration: 0.3, ease: 'power2.in' },
-						0.1,
-					)
-					.to(header, {
-						yPercent: -3.75,
+				.to(
+					this.#iconClose,
+					{ opacity: 1, rotate: 0, duration: 0.4, ease: 'back.out(1.5)' },
+					0.1,
+				);
+		} else {
+			tl.to(
+				this.#navWrapper,
+				{ height: 0, duration: 0.6, ease: 'back.in(1.25)' },
+				0,
+			)
+				.to(
+					this.#headerPill,
+					{
+						borderRadius: this.#closedRadius,
+						duration: 0.3,
+						ease: 'power2.in',
+					},
+					0.1,
+				)
+				.to(this.#header, {
+					yPercent: -3.75,
+					duration: 0.2,
+				})
+				.to(
+					this.#iconClose,
+					{ opacity: 0, rotate: -90, duration: 0.2, ease: 'power2.in' },
+					0,
+				)
+				.to(
+					this.#iconMenu,
+					{ opacity: 1, rotate: 0, duration: 0.4, ease: 'back.out(1.5)' },
+					0.1,
+				)
+				.to(
+					this.#header,
+					{
+						yPercent: 0,
 						duration: 0.2,
-					})
-					.to(
-						iconClose,
-						{ opacity: 0, rotate: -90, duration: 0.2, ease: 'power2.in' },
-						0,
-					)
-					.to(
-						iconMenu,
-						{ opacity: 1, rotate: 0, duration: 0.4, ease: 'back.out(1.5)' },
-						0.1,
-					)
-					.to(
-						header,
-						{
-							yPercent: 0,
-							duration: 0.2,
-							ease: 'power2.out',
-						},
-						0.8,
-					);
-			}
-		});
+						ease: 'power2.out',
+					},
+					0.8,
+				);
+		}
+
+		this.#headerMenuButton.setAttribute(
+			'aria-expanded',
+			String(this.#isMenuOpen),
+		);
+		this.#headerMenuButton.setAttribute(
+			'aria-label',
+			this.#isMenuOpen ? 'Close menu' : 'Open menu',
+		);
 	}
 
 	static get observedAttributes() {
-		return attributes;
+		return ATTRIBUTES;
 	}
 	constructor() {
 		super();
 	}
 	connectedCallback() {
-		this.#render();
+		this.#build();
 	}
+	disconnectedCallback() {
+		if (this.#ownsMatchMedia) {
+			this.#headerMM?.revert();
+		}
+		this.#headerMenuButton?.removeEventListener(
+			'click',
+			this.#onMenuButtonClick,
+		);
+	}
+
 	attributeChangedCallback(name, oldValue, newValue) {
 		if (oldValue === newValue) return;
-		if (!attributes.includes(name)) return;
+		if (!ATTRIBUTES.includes(name)) return;
 		this[name] = newValue;
 	}
 }
