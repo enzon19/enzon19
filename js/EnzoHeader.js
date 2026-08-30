@@ -126,6 +126,12 @@ export default class EnzoHeader extends HTMLElement {
 		if (this.page) {
 			const currentPage = this.#header.querySelector(`a[href="/${this.page}"]`);
 			currentPage.classList.add('font-bold', 'text-black', 'dark:text-white');
+
+			const homepageAnchor = this.#header.querySelector('a[href="#"]');
+			homepageAnchor.href = '/';
+		} else {
+			const homepageAnchor = this.#header.querySelector('a[href="/"]');
+			if (homepageAnchor) homepageAnchor.href = '#';
 		}
 	}
 
