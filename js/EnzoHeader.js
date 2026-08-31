@@ -40,7 +40,8 @@ export default class EnzoHeader extends HTMLElement {
 	#build() {
 		const header = document.createElement('header');
 
-		header.className = 'pointer-events-none sticky top-0 z-50 w-full p-4 md:p-6';
+		header.className =
+			'pointer-events-none sticky top-0 z-50 w-full p-4 md:p-6';
 
 		const navLinksHtml = NAV_LINKS.map(
 			({ href, label }) => `
