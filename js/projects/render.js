@@ -30,16 +30,20 @@ function getCard({ id, name, logo, color, tags, period, urls }) {
 	}
 
 	const urlsElement = projectCard.querySelector('.urls');
-	for (const url of urls) {
-		const urlType = anchors[url.type];
+	if (urls.length > 0) {
+		for (const url of urls) {
+			const urlType = anchors[url.type];
 
-		const aElement = document.createElement('a');
-		aElement.className = 'btn btn-sm btn-tertiary';
-		aElement.target = '_blank';
-		aElement.href = url.href;
-		aElement.innerHTML = `<ion-icon ${urlType.field}="${urlType.value}" class="text-base"></ion-icon>${url.type}`; // i18n
+			const aElement = document.createElement('a');
+			aElement.className = 'btn btn-sm btn-tertiary';
+			aElement.target = '_blank';
+			aElement.href = url.href;
+			aElement.innerHTML = `<ion-icon ${urlType.field}="${urlType.value}" class="text-base"></ion-icon>${url.type}`; // i18n
 
-		urlsElement.appendChild(aElement);
+			urlsElement.appendChild(aElement);
+		}
+	} else {
+		urlsElement.remove();
 	}
 
 	return projectCard;
