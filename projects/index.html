@@ -1,12 +1,387 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Sobre</title>
+
+		<title>Projetos - enzon19</title>
+		<meta name="title" content="enzon19" />
+		<meta
+			name="description"
+			content="Todos os projetos que o Enzo construiu desde que se tornou um desenvolvedor web em 2021, incluindo projetos independentes e para clientes." />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://enzon19.com/projects" />
+		<meta property="og:title" content="enzon19" />
+		<meta
+			property="og:description"
+			content="Todos os projetos que o Enzo construiu desde que se tornou um desenvolvedor web em 2021, incluindo projetos independentes e para clientes." />
+		<meta property="og:image" content="/assets/cover.png" />
+
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://enzon19.com/projects" />
+		<meta property="twitter:title" content="enzon19" />
+		<meta
+			property="twitter:description"
+			content="Todos os projetos que o Enzo construiu desde que se tornou um desenvolvedor web em 2021, incluindo projetos independentes e para clientes." />
+		<meta property="twitter:image" content="/assets/cover.png" />
+
+		<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/assets/favicon/apple-touch-icon.png" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/assets/favicon/favicon-32x32.png" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/assets/favicon/favicon-16x16.png" />
+		<link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+			rel="stylesheet" />
+
+		<link href="/css/animations.css" rel="stylesheet" />
+		<link href="/css/overlay-transition.css" rel="stylesheet" />
 		<link href="/css/style.css" rel="stylesheet" />
+
+		<script type="importmap">
+			{
+				"imports": {
+					"@paper-design/shaders": "https://esm.sh/@paper-design/shaders@0.0.77",
+					"shake.js": "https://esm.sh/shake.js@1.2.2"
+				}
+			}
+		</script>
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+		<script
+			nomodule
+			defer
+			src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+		<script src="/js/themes.js"></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollSmoother.min.js"></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/Draggable.min.js"></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/InertiaPlugin.min.js"></script>
+		<script defer src="/js/animations/core.js"></script>
+
+		<script type="module" src="/js/EnzoHeader.js"></script>
+		<script type="module" src="/js/projects/render.js"></script>
 	</head>
-	<body class="p-2">
-		<p>Página em construção.</p>
+	<body
+		class="bg-neutral-100 text-neutral-700 selection:bg-enzo-sky selection:text-white dark:bg-neutral-900 dark:text-neutral-300">
+		<div id="vt-overlay" aria-hidden="true"></div>
+		<div id="smooth-wrapper">
+			<enzo-header page="projects"></enzo-header>
+			<div id="smooth-content" class="flex flex-col">
+				<main class="fle flex-col gap-4">
+					<div class="relative z-10">
+						<header class="bg-neutral-100 p-8 md:p-18 dark:bg-neutral-900">
+							<div class="gsap-fly-up mx-auto flex max-w-6xl flex-col gap-4">
+								<div
+									class="mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
+									<h2
+										class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
+										Projetos
+									</h2>
+								</div>
+								<p class="max-w-2xl md:text-lg">
+									Todos os projetos que eu construí desde que tornei
+									desenvolvedor web em 2021, incluindo projetos independentes e
+									para clientes.
+								</p>
+							</div>
+						</header>
+						<section
+							class="relative z-10 bg-neutral-100 p-8 py-0 md:p-18 md:py-0 dark:bg-neutral-900"
+							id="main-projects">
+							<div class="mx-auto max-w-6xl">
+								<div class="flex flex-col gap-4">
+									<div
+										class="gsap-fly-up mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
+										<div class="flex flex-row gap-1.5 md:gap-2">
+											<div
+												class="rounded-lg bg-neutral-700 px-3 py-2 text-sm text-white">
+												Todos (10)
+											</div>
+											<div
+												class="rounded-lg border border-neutral-700 px-3 py-2 text-sm">
+												Websites (8)
+											</div>
+											<div
+												class="rounded-lg border border-neutral-700 px-3 py-2 text-sm">
+												Extensões (2)
+											</div>
+										</div>
+									</div>
+									<div
+										class="gsap-fly-up grid grid-flow-row grid-cols-1 gap-6 md:grid-cols-[repeat(auto-fit,minmax(385px,1fr))] md:gap-8"
+										id="projects-grid">
+										<template id="project-card">
+											<div
+												class="group relative flex flex-col justify-between gap-5 overflow-hidden rounded-2xl border border-neutral-200 bg-white/40 p-6 transition-all duration-300 hover:scale-101 dark:border-neutral-800 dark:bg-neutral-800/30 [&.is-active]:scale-101"
+												style="--accent: 239 68 68">
+												<div
+													class="pointer-events-none absolute inset-0 opacity-0 blur-xl brightness-60 contrast-200 transition-opacity duration-500 group-hover:opacity-40 group-[.is-active]:opacity-40 dark:brightness-100 dark:contrast-100 dark:group-hover:opacity-100 dark:group-[.is-active]:opacity-100"
+													style="
+														background: radial-gradient(
+															circle at 5% 15%,
+															rgb(var(--accent) / 0.2) 0%,
+															rgb(var(--accent) / 0.12) 35%,
+															rgb(var(--accent) / 0.04) 65%,
+															transparent 100%
+														);
+													"></div>
+												<div class="z-10 flex flex-col gap-6">
+													<div
+														class="flex flex-col-reverse gap-6 sm:flex-row sm:justify-between">
+														<div class="flex items-center gap-4">
+															<img
+																class="size-12 shrink-0 rounded-xl object-cover transition-transform duration-300 group-hover:scale-110 group-[.is-active]:scale-110 md:size-14"
+																src="/assets/projects/dicionario-bot/logo502.png"
+																alt="Logo Dicionário Bot" />
+															<div class="flex flex-col gap-1">
+																<h3
+																	class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
+																	Dicionário Bot
+																</h3>
+																<span
+																	class="period text-xs text-neutral-400 dark:text-neutral-500">
+																	2021 - presente
+																</span>
+															</div>
+														</div>
+														<div
+															class="tags flex flex-wrap items-start gap-1.5"></div>
+													</div>
+													<p
+														class="text-base text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
+														Um dicionário da língua portuguesa brasileira no
+														Telegram.
+													</p>
+													<div class="links mt-2 flex gap-3">
+														<a
+															class="btn btn-sm btn-tertiary"
+															target="_blank"
+															href="https://dicionariobot.enzon19.com">
+															<ion-icon
+																name="globe-outline"
+																class="text-base"></ion-icon>
+															Site
+														</a>
+														<a
+															class="btn btn-sm btn-tertiary"
+															target="_blank"
+															href="https://t.me/dicionariobot">
+															<ion-icon
+																src="/assets/icons/"
+																class="text-base"></ion-icon>
+															Telegram
+														</a>
+														<a
+															class="btn btn-sm btn-tertiary"
+															target="_blank"
+															href="https://github.com/enzon19/dicionariobot">
+															<ion-icon
+																name="logo-github"
+																class="text-base"></ion-icon>
+															GitHub
+														</a>
+													</div>
+												</div>
+											</div>
+										</template>
+
+										<div
+											class="group relative flex flex-col justify-between gap-5 overflow-hidden rounded-2xl border border-neutral-200 bg-white/40 p-6 transition-all duration-300 hover:scale-101 dark:border-neutral-800 dark:bg-neutral-800/30 [&.is-active]:scale-101"
+											style="--accent: 239 68 68">
+											<div
+												class="pointer-events-none absolute inset-0 opacity-0 blur-xl brightness-60 contrast-200 transition-opacity duration-500 group-hover:opacity-40 group-[.is-active]:opacity-40 dark:brightness-100 dark:contrast-100 dark:group-hover:opacity-100 dark:group-[.is-active]:opacity-100"
+												style="
+													background: radial-gradient(
+														circle at 5% 15%,
+														rgb(var(--accent) / 0.2) 0%,
+														rgb(var(--accent) / 0.12) 35%,
+														rgb(var(--accent) / 0.04) 65%,
+														transparent 100%
+													);
+												"></div>
+
+											<div class="z-10 flex flex-col gap-6">
+												<div
+													class="flex flex-col-reverse gap-6 sm:flex-row sm:justify-between">
+													<div class="flex items-center gap-4">
+														<img
+															class="size-12 shrink-0 rounded-xl object-cover transition-transform duration-300 group-hover:scale-110 group-[.is-active]:scale-110 md:size-14"
+															src="/assets/projects/dicionario-bot/logo502.png"
+															alt="Logo Dicionário Bot" />
+														<div class="flex flex-col gap-1">
+															<h3
+																class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
+																Dicionário Bot
+															</h3>
+															<span
+																class="text-xs text-neutral-400 dark:text-neutral-500">
+																2021 - presente
+															</span>
+														</div>
+													</div>
+													<div class="flex flex-wrap items-start gap-1.5">
+														<span
+															class="rounded-full bg-neutral-200 px-3 py-1.5 text-xs font-medium whitespace-nowrap text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400">
+															Bot
+														</span>
+													</div>
+												</div>
+												<p
+													class="text-base text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
+													Um dicionário da língua portuguesa brasileira no
+													Telegram.
+												</p>
+												<div class="mt-2 flex gap-3">
+													<a
+														class="btn btn-sm btn-tertiary"
+														target="_blank"
+														href="https://dicionariobot.enzon19.com">
+														<ion-icon
+															name="globe-outline"
+															class="text-base"></ion-icon>
+														Site
+													</a>
+													<a
+														class="btn btn-sm btn-tertiary"
+														target="_blank"
+														href="https://t.me/dicionariobot">
+														<ion-icon
+															src="/assets/icons/"
+															class="text-base"></ion-icon>
+														Telegram
+													</a>
+													<a
+														class="btn btn-sm btn-tertiary"
+														target="_blank"
+														href="https://github.com/enzon19/dicionariobot">
+														<ion-icon
+															name="logo-github"
+															class="text-base"></ion-icon>
+														GitHub
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</main>
+				<footer
+					class="z-10 mt-8 bg-neutral-200 p-6 md:mt-18 dark:bg-neutral-800">
+					<div
+						class="mx-auto flex max-w-6xl flex-col gap-4 md:flex-row md:justify-between">
+						<div class="flex flex-col gap-1">
+							<h5 class="text-xl font-bold text-black dark:text-white">
+								Enzo Neves Barata
+							</h5>
+							<p class="text-sm">2026. Desde 2021 criando para a web.</p>
+							<p class="text-sm">
+								Site feito com HTML, CSS (Tailwind) e JavaScript (Vanilla).
+							</p>
+						</div>
+						<div
+							class="flex flex-row items-center justify-between gap-3 md:justify-normal">
+							<div class="flex items-center justify-between md:justify-normal">
+								<div
+									class="flex flex-row items-center gap-1 rounded-full bg-neutral-300 p-1 dark:bg-neutral-700">
+									<a
+										href="/v1"
+										title="v1"
+										class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
+										v1
+									</a>
+
+									<a
+										href="/v2"
+										title="v2"
+										class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
+										v2
+									</a>
+
+									<a
+										href="#"
+										title="v3"
+										aria-current="page"
+										class="flex cursor-pointer items-center justify-center rounded-full bg-white px-3 py-1.75 text-xs text-neutral-800 transition-colors dark:bg-neutral-500/65 dark:text-white">
+										v3
+									</a>
+								</div>
+							</div>
+							<div
+								class="flex flex-row items-center gap-1 rounded-full bg-neutral-300 p-1 dark:bg-neutral-700">
+								<input
+									type="radio"
+									name="theme"
+									id="theme-system"
+									value="system"
+									class="peer/system sr-only" />
+								<label
+									for="theme-system"
+									title="Sistema"
+									class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/system:bg-white peer-checked/system:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/system:hover:bg-white peer-checked/system:hover:text-neutral-800 dark:peer-checked/system:bg-neutral-500/65 dark:peer-checked/system:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/system:hover:bg-neutral-500/65 dark:peer-checked/system:hover:text-white">
+									<ion-icon name="desktop" class="text-lg"></ion-icon>
+								</label>
+
+								<input
+									type="radio"
+									name="theme"
+									id="theme-light"
+									value="light"
+									class="peer/light sr-only" />
+								<label
+									for="theme-light"
+									title="Claro"
+									class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/light:bg-white peer-checked/light:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/light:hover:bg-white peer-checked/light:hover:text-neutral-800 dark:peer-checked/light:bg-neutral-500/65 dark:peer-checked/light:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/light:hover:bg-neutral-500/65 dark:peer-checked/light:hover:text-white">
+									<ion-icon name="sunny" class="text-lg"></ion-icon>
+								</label>
+
+								<input
+									type="radio"
+									name="theme"
+									id="theme-dark"
+									value="dark"
+									class="peer/dark sr-only" />
+								<label
+									for="theme-dark"
+									title="Escuro"
+									class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/dark:bg-white peer-checked/dark:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/dark:hover:bg-white peer-checked/dark:hover:text-neutral-800 dark:peer-checked/dark:bg-neutral-500/65 dark:peer-checked/dark:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/dark:hover:bg-neutral-500/65 dark:peer-checked/dark:hover:text-white">
+									<ion-icon name="moon" class="text-lg"></ion-icon>
+								</label>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
 	</body>
 </html>
