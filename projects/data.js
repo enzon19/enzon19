@@ -1,9 +1,9 @@
 export const tags = [
-	'bot',
-	'extension',
 	'website',
-	'tool',
+	'extension',
+	'bot',
 	'platform',
+	'tool',
 	'client',
 ];
 
