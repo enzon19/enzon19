@@ -2,10 +2,11 @@ import { projects, anchors, tags } from '../../projects/data.js';
 
 function getCard({ id, name, logo, color, tags, period, urls }) {
 	const template = document.querySelector('template#project-card').content;
-	const projectCard = template.cloneNode(true);
+	const projectCard = template.cloneNode(true).firstElementChild;
 
 	projectCard.querySelector('h3').textContent = name;
 	projectCard.querySelector('p').textContent = 'description.' + id; // i18n
+	projectCard.id = 'project-' + id;
 
 	const presentIndex = period.indexOf('present');
 	if (presentIndex > -1) {
@@ -89,28 +90,38 @@ function changeFilter(newFilter) {
 	currentFilter = newFilter;
 	toggleFilterButton(currentFilter);
 
-	renderProjectsFiltered(currentFilter);
+	filterProjects(currentFilter);
 }
 
-function renderProjectsFiltered(filter) {
+function renderAllProjects() {
 	const projectsGrid = document.querySelector('#projects-grid');
 	projectsGrid.innerHTML = '';
 
 	for (const project of projects) {
-		if (filter == 'all' || project.tags.includes(filter)) {
-			projectsGrid.appendChild(getCard(project));
-		}
+		projectsGrid.appendChild(getCard(project));
 	}
+}
+
+function filterProjects(filter) {
+	for (const project of projects) {
+		const card = document.querySelector(`#project-${project.id}`);
+		const shouldShow = filter === 'all' || project.tags.includes(filter);
+		card.classList.toggle('hidden', !shouldShow);
+	}
+}
+
+function initializeAllProjectsButton() {
+	const allProjectsButton = document.querySelector('#tags-filter-all');
+	allProjectsButton.textContent = `all (${projects.length})`; // i18n
+	allProjectsButton.addEventListener('click', () => changeFilter('all'));
 }
 
 function main() {
 	renderTagsFilter();
-	renderProjectsFiltered(currentFilter);
-
-	const allProjectsButton = document.querySelector('#tags-filter-all');
-	allProjectsButton.textContent = `all (${projects.length})`; // i18n
-	allProjectsButton.addEventListener('click', () => changeFilter('all'));
-	toggleFilterButton('all');
+	renderAllProjects();
+	initializeAllProjectsButton();
+	filterProjects(currentFilter);
+	toggleFilterButton(currentFilter);
 }
 
 main();
