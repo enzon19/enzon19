@@ -1,4 +1,4 @@
-import { projects, anchors } from '../../projects/data.js';
+import { projects, anchors, tags } from '../../projects/data.js';
 
 function getCard({ id, name, logo, color, tags, period, urls }) {
 	const template = document.querySelector('template#project-card').content;
@@ -49,11 +49,68 @@ function getCard({ id, name, logo, color, tags, period, urls }) {
 	return projectCard;
 }
 
-function main() {
-	const projectsGrid = document.querySelector('#projects-grid');
-	for (const project of projects) {
-		projectsGrid.appendChild(getCard(project));
+let currentFilter = 'all';
+function renderTagsFilter() {
+	const tagsFilter = document.querySelector('#tags-filter');
+
+	for (const tag of tags) {
+		const projectsTaggedCount = projects.reduce(
+			(acc, currentValue) => acc + Number(currentValue.tags.includes(tag)),
+			0,
+		);
+		if (projectsTaggedCount == 0) continue;
+
+		const buttonElement = document.createElement('button');
+		buttonElement.className =
+			'rounded-lg border border-neutral-300 dark:border-neutral-700 px-3 py-2 text-sm cursor-pointer hover:bg-neutral-200/50 dark:hover:bg-neutral-800 transition-colors duration-300';
+		buttonElement.id = 'tags-filter-' + tag; // i18n
+		buttonElement.textContent = `${tag} (${projectsTaggedCount})`;
+		buttonElement.addEventListener('click', () => changeFilter(tag));
+
+		tagsFilter.appendChild(buttonElement);
 	}
+}
+
+function toggleFilterButton(tag) {
+	const oldTagButton = document.querySelector('#tags-filter-' + tag);
+	oldTagButton.classList.toggle('dark:bg-neutral-700');
+	oldTagButton.classList.toggle('bg-neutral-300');
+	oldTagButton.classList.toggle('hover:bg-neutral-200/50');
+	oldTagButton.classList.toggle('dark:hover:bg-neutral-800');
+	oldTagButton.classList.toggle('text-black');
+	oldTagButton.classList.toggle('dark:text-white');
+	oldTagButton.classList.toggle('font-medium');
+}
+
+function changeFilter(newFilter) {
+	if (currentFilter == newFilter) return;
+
+	toggleFilterButton(currentFilter);
+	currentFilter = newFilter;
+	toggleFilterButton(currentFilter);
+
+	renderProjectsFiltered(currentFilter);
+}
+
+function renderProjectsFiltered(filter) {
+	const projectsGrid = document.querySelector('#projects-grid');
+	projectsGrid.innerHTML = '';
+
+	for (const project of projects) {
+		if (filter == 'all' || project.tags.includes(filter)) {
+			projectsGrid.appendChild(getCard(project));
+		}
+	}
+}
+
+function main() {
+	renderTagsFilter();
+	renderProjectsFiltered(currentFilter);
+
+	const allProjectsButton = document.querySelector('#tags-filter-all');
+	allProjectsButton.textContent = `all (${projects.length})`; // i18n
+	allProjectsButton.addEventListener('click', () => changeFilter('all'));
+	toggleFilterButton('all');
 }
 
 main();

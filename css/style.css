@@ -620,9 +620,6 @@
   .border-\[--caret-color\] {
     border-color: --caret-color;
   }
-  .border-neutral-100 {
-    border-color: var(--color-neutral-100);
-  }
   .border-neutral-200 {
     border-color: var(--color-neutral-200);
   }
@@ -691,6 +688,9 @@
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-neutral-300) 60%, transparent);
     }
+  }
+  .bg-neutral-400 {
+    background-color: var(--color-neutral-400);
   }
   .bg-neutral-700 {
     background-color: var(--color-neutral-700);
@@ -1162,14 +1162,6 @@
     --tw-blur: blur(var(--blur-xl));
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
-  .brightness-60 {
-    --tw-brightness: brightness(60%);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
-  .contrast-200 {
-    --tw-contrast: contrast(200%);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
@@ -1289,12 +1281,6 @@
     .group-hover\:opacity-0:is(:where(.group):hover *) {
       opacity: 0%;
     }
-    .group-hover\:opacity-40:is(:where(.group):hover *) {
-      opacity: 40%;
-    }
-    .group-hover\:opacity-90:is(:where(.group):hover *) {
-      opacity: 90%;
-    }
     .group-hover\:opacity-100:is(:where(.group):hover *) {
       opacity: 100%;
     }
@@ -1325,9 +1311,6 @@
   }
   .group-\[\.is-active\]\:bg-\[\#ff4133\]:is(:where(.group):is(.is-active) *) {
     background-color: #ff4133;
-  }
-  .group-\[\.is-active\]\:opacity-40:is(:where(.group):is(.is-active) *) {
-    opacity: 40%;
   }
   .group-\[\.is-active\]\:opacity-100:is(:where(.group):is(.is-active) *) {
     opacity: 100%;
@@ -1372,6 +1355,13 @@
     .hover\:scale-\[1\.02\]:hover {
       scale: 1.02;
     }
+    .hover\:border:hover {
+      border-style: var(--tw-border-style);
+      border-width: 1px;
+    }
+    .hover\:border-neutral-400:hover {
+      border-color: var(--color-neutral-400);
+    }
     .hover\:bg-\[\#0c101f\]:hover {
       background-color: #0c101f;
     }
@@ -1389,6 +1379,14 @@
     }
     .hover\:bg-neutral-200:hover {
       background-color: var(--color-neutral-200);
+    }
+    .hover\:bg-neutral-200\/50:hover {
+      background-color: color-mix(in srgb, oklch(92.2% 0 none) 50%, transparent);
+    }
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-neutral-200\/50:hover {
+        background-color: color-mix(in oklab, var(--color-neutral-200) 50%, transparent);
+      }
     }
     .hover\:bg-neutral-400:hover {
       background-color: var(--color-neutral-400);
@@ -1807,6 +1805,9 @@
       background-color: color-mix(in oklab, var(--color-neutral-500) 65%, transparent);
     }
   }
+  .dark\:bg-neutral-600:is(.dark *) {
+    background-color: var(--color-neutral-600);
+  }
   .dark\:bg-neutral-600\/60:is(.dark *) {
     background-color: color-mix(in srgb, oklch(43.9% 0 none) 60%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -1827,6 +1828,9 @@
   }
   .dark\:bg-neutral-900:is(.dark *) {
     background-color: var(--color-neutral-900);
+  }
+  .dark\:bg-white:is(.dark *) {
+    background-color: var(--color-white);
   }
   .dark\:bg-\[url\(\'\/assets\/fallback\/hero-dark\.png\'\)\]:is(.dark *) {
     background-image: url('/assets/fallback/hero-dark.png');
@@ -2056,14 +2060,6 @@
       --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-neutral-900) 50%, transparent) var(--tw-shadow-alpha), transparent);
     }
   }
-  .dark\:brightness-100:is(.dark *) {
-    --tw-brightness: brightness(100%);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
-  .dark\:contrast-100:is(.dark *) {
-    --tw-contrast: contrast(100%);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
   @media (hover: hover) {
     .dark\:group-hover\:bg-\[\#0f766c\]:is(.dark *):is(:where(.group):hover *) {
       background-color: #0f766c;
@@ -2083,9 +2079,6 @@
     .dark\:group-hover\:bg-\[700\]:is(.dark *):is(:where(.group):hover *) {
       background-color: 700;
     }
-    .dark\:group-hover\:opacity-100:is(.dark *):is(:where(.group):hover *) {
-      opacity: 100%;
-    }
   }
   .dark\:group-\[\.is-active\]\:bg-\[\#0f766c\]:is(.dark *):is(:where(.group):is(.is-active) *) {
     background-color: #0f766c;
@@ -2101,9 +2094,6 @@
   }
   .dark\:group-\[\.is-active\]\:bg-\[\#c81a0d\]:is(.dark *):is(:where(.group):is(.is-active) *) {
     background-color: #c81a0d;
-  }
-  .dark\:group-\[\.is-active\]\:opacity-100:is(.dark *):is(:where(.group):is(.is-active) *) {
-    opacity: 100%;
   }
   .dark\:peer-checked\/dark\:bg-neutral-500\/65:is(.dark *):is(:where(.peer\/dark):checked ~ *) {
     background-color: color-mix(in srgb, oklch(55.6% 0 none) 65%, transparent);
@@ -2143,6 +2133,9 @@
       .dark\:hover\:bg-neutral-700\/50:is(.dark *):hover {
         background-color: color-mix(in oklab, var(--color-neutral-700) 50%, transparent);
       }
+    }
+    .dark\:hover\:bg-neutral-800:is(.dark *):hover {
+      background-color: var(--color-neutral-800);
     }
     .dark\:hover\:text-white:is(.dark *):hover {
       color: var(--color-white);
