@@ -92,6 +92,50 @@
 	<body
 		class="bg-neutral-100 text-neutral-700 selection:bg-enzo-sky selection:text-white dark:bg-neutral-900 dark:text-neutral-300">
 		<div id="vt-overlay" aria-hidden="true"></div>
+		<template id="project-card">
+			<div
+				class="group relative flex flex-col justify-between gap-5 overflow-hidden rounded-2xl border border-neutral-200 bg-white/40 p-6 transition-all duration-300 hover:scale-101 dark:border-neutral-800 dark:bg-neutral-800/30 [&.is-active]:scale-101"
+				style="--accent: 239 68 68">
+				<div
+					class="pointer-events-none absolute inset-0 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100 group-[.is-active]:opacity-100"
+					style="
+						background: radial-gradient(
+							circle at 5% 15%,
+							rgb(var(--accent) / 0.2) 0%,
+							rgb(var(--accent) / 0.12) 35%,
+							rgb(var(--accent) / 0.04) 65%,
+							transparent 100%
+						);
+					"></div>
+				<div class="z-10 flex flex-col gap-6">
+					<div
+						class="flex flex-col-reverse gap-6 sm:flex-row sm:justify-between">
+						<div class="flex items-center gap-4">
+							<img
+								class="size-12 shrink-0 rounded-xl object-cover transition-transform duration-300 group-hover:scale-110 group-[.is-active]:scale-110 md:size-14"
+								src="/assets/projects/dicionario-bot/logo502.png"
+								alt="Logo Dicionário Bot" />
+							<div class="flex flex-col gap-1">
+								<h3
+									class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
+									Dicionário Bot
+								</h3>
+								<span
+									class="period text-xs text-neutral-400 dark:text-neutral-500">
+									2021 - presente
+								</span>
+							</div>
+						</div>
+						<div class="tags flex flex-wrap items-start gap-1.5"></div>
+					</div>
+					<p
+						class="text-base text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
+						Um dicionário da língua portuguesa brasileira no Telegram.
+					</p>
+					<div class="urls mt-2 flex flex-wrap gap-3"></div>
+				</div>
+			</div>
+		</template>
 		<div id="smooth-wrapper">
 			<enzo-header page="projects"></enzo-header>
 			<div id="smooth-content" class="flex flex-col">
@@ -120,71 +164,19 @@
 								<div class="flex flex-col gap-4">
 									<div
 										class="gsap-fly-up mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
-										<div class="flex flex-row gap-1.5 md:gap-2">
+										<div
+											class="flex flex-row flex-wrap gap-1.5 md:gap-2"
+											id="tags-filter">
 											<div
-												class="rounded-lg bg-neutral-700 px-3 py-2 text-sm text-white">
+												class="cursor-pointer rounded-lg border border-neutral-300 px-3 py-2 text-sm transition-colors duration-300 hover:bg-neutral-200/50 dark:border-neutral-700 dark:hover:bg-neutral-800"
+												id="tags-filter-all">
 												Todos (10)
-											</div>
-											<div
-												class="rounded-lg border border-neutral-700 px-3 py-2 text-sm">
-												Websites (8)
-											</div>
-											<div
-												class="rounded-lg border border-neutral-700 px-3 py-2 text-sm">
-												Extensões (2)
 											</div>
 										</div>
 									</div>
 									<div
 										class="gsap-fly-up grid grid-flow-row grid-cols-1 gap-6 md:grid-cols-[repeat(auto-fit,minmax(385px,1fr))] md:gap-8"
-										id="projects-grid">
-										<template id="project-card">
-											<div
-												class="group relative flex flex-col justify-between gap-5 overflow-hidden rounded-2xl border border-neutral-200 bg-white/40 p-6 transition-all duration-300 hover:scale-101 dark:border-neutral-800 dark:bg-neutral-800/30 [&.is-active]:scale-101"
-												style="--accent: 239 68 68">
-												<div
-													class="pointer-events-none absolute inset-0 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100 group-[.is-active]:opacity-100"
-													style="
-														background: radial-gradient(
-															circle at 5% 15%,
-															rgb(var(--accent) / 0.2) 0%,
-															rgb(var(--accent) / 0.12) 35%,
-															rgb(var(--accent) / 0.04) 65%,
-															transparent 100%
-														);
-													"></div>
-												<div class="z-10 flex flex-col gap-6">
-													<div
-														class="flex flex-col-reverse gap-6 sm:flex-row sm:justify-between">
-														<div class="flex items-center gap-4">
-															<img
-																class="size-12 shrink-0 rounded-xl object-cover transition-transform duration-300 group-hover:scale-110 group-[.is-active]:scale-110 md:size-14"
-																src="/assets/projects/dicionario-bot/logo502.png"
-																alt="Logo Dicionário Bot" />
-															<div class="flex flex-col gap-1">
-																<h3
-																	class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
-																	Dicionário Bot
-																</h3>
-																<span
-																	class="period text-xs text-neutral-400 dark:text-neutral-500">
-																	2021 - presente
-																</span>
-															</div>
-														</div>
-														<div
-															class="tags flex flex-wrap items-start gap-1.5"></div>
-													</div>
-													<p
-														class="text-base text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
-														Um dicionário da língua portuguesa brasileira no
-														Telegram.
-													</p>
-													<div class="urls mt-2 flex flex-wrap gap-3"></div>
-												</div>
-											</div>
-										</template>
-									</div>
+										id="projects-grid"></div>
 								</div>
 							</div>
 						</section>
