@@ -19,7 +19,7 @@
 
 @layer components {
 	.btn {
-		@apply flex cursor-pointer flex-row items-center text-center transition-all duration-300 ease-in-out hover:scale-105;
+		@apply flex cursor-pointer flex-row items-center text-center transition-all duration-300 ease-in-out hover:scale-105 active:scale-95;
 	}
 
 	.btn-primary {
