@@ -23,7 +23,12 @@
 	}
 
 	.btn-primary {
-		@apply bg-neutral-800 text-neutral-300 hover:bg-enzo-sky hover:text-white hover:shadow-enzo-big hover:shadow-enzo-sky;
+		@apply border border-neutral-600 bg-neutral-800 text-neutral-200 dark:border-neutral-400 dark:bg-neutral-100 dark:text-neutral-800;
+		@apply hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-black;
+	}
+	.btn-secondary {
+		@apply border border-neutral-400/20 bg-neutral-400/30 text-neutral-800 backdrop-blur-lg dark:border-neutral-500/20 dark:bg-neutral-400/20 dark:text-neutral-200;
+		@apply hover:bg-neutral-500/30 hover:text-black hover:dark:bg-neutral-300/20 hover:dark:text-white;
 	}
 	.btn-tertiary {
 		@apply border border-white/10 bg-enzo-night/35 text-white backdrop-blur-lg dark:bg-neutral-200/20 dark:text-neutral-200;
