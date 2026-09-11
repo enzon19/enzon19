@@ -35,8 +35,11 @@
 		@apply hover:border-white hover:bg-white hover:text-enzo-night hover:shadow-enzo-big hover:shadow-white dark:hover:shadow-white/60;
 	}
 
+	.btn-sm {
+		@apply gap-1.75 rounded-xl px-3 py-1.75 text-sm;
+	}
 	.btn-md {
-		@apply gap-2 rounded-2xl px-3 py-2 text-base;
+		@apply gap-2 rounded-xl px-3 py-2 text-base;
 	}
 	.btn-lg {
 		@apply gap-3 rounded-2xl px-4 py-2.5 text-lg;
