@@ -32,16 +32,19 @@ function getCard({ id, name, logo, color, tags, period, urls }) {
 
 	const urlsElement = projectCard.querySelector('.urls');
 	if (urls.length > 0) {
+		let firstURL = true;
+
 		for (const url of urls) {
 			const urlType = anchors[url.type];
 
 			const aElement = document.createElement('a');
-			aElement.className = 'btn btn-sm btn-tertiary';
+			aElement.className = `btn btn-sm ${firstURL ? 'btn-primary' : 'btn-secondary'}`;
 			aElement.target = '_blank';
 			aElement.href = url.href;
 			aElement.innerHTML = `<ion-icon ${urlType.field}="${urlType.value}" class="text-base"></ion-icon>${url.type}`; // i18n
 
 			urlsElement.appendChild(aElement);
+			firstURL = false;
 		}
 	} else {
 		urlsElement.remove();
@@ -80,7 +83,6 @@ function toggleFilterButton(tag) {
 	oldTagButton.classList.toggle('dark:hover:bg-neutral-800');
 	oldTagButton.classList.toggle('text-black');
 	oldTagButton.classList.toggle('dark:text-white');
-	oldTagButton.classList.toggle('font-medium');
 }
 
 function changeFilter(newFilter) {
