@@ -35,8 +35,8 @@ export const projects = [
 		tags: ['bot'],
 		period: ['2021', 'present'],
 		urls: [
-			{ type: 'website', href: 'https://dicionariobot.enzon19.com' },
 			{ type: 'telegram', href: 'https://t.me/dicionariobot' },
+			{ type: 'website', href: 'https://dicionariobot.enzon19.com' },
 			{ type: 'github', href: 'https://github.com/enzon19/dicionariobot' },
 		],
 	},
