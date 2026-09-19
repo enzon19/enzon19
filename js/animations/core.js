@@ -1,11 +1,11 @@
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger);
 
-ScrollSmoother.create({
-	wrapper: '#smooth-wrapper',
-	content: '#smooth-content',
-	smooth: 1.5, // how long (in seconds) it takes to "catch up" to the native scroll position
-	smoothTouch: 0.2, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+const lenis = new Lenis({ anchors: true });
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add((time) => {
+	lenis.raf(time * 1000);
 });
+gsap.ticker.lagSmoothing(0);
 
 const flyUpElements = gsap.utils.toArray('.gsap-fly-up');
 flyUpElements.forEach((e) => {

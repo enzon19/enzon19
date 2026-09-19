@@ -75,12 +75,13 @@
 		<script
 			defer
 			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+		<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/lenis@1.3.26/dist/lenis.css" />
 		<script
 			defer
 			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
-		<script
-			defer
-			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollSmoother.min.js"></script>
 		<script
 			defer
 			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/Draggable.min.js"></script>
@@ -122,643 +123,633 @@
 			</div>
 		</template>
 		<enzo-header triggered></enzo-header>
-		<div id="smooth-wrapper">
-			<div id="smooth-content" class="flex flex-col">
-				<main class="fle flex-col gap-4">
-					<section
-						class="flex min-h-dvh w-full items-center justify-center"
-						id="hero">
-						<div
-							class="mx-auto flex w-full max-w-368 flex-col-reverse items-center justify-center gap-4 p-4 lg:grid lg:w-fit lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-8 xl:gap-12"
-							id="hero-content">
-							<!-- px-4 py-8 md:py-4 -->
-							<div
-								class="flex max-w-lg flex-col gap-4 p-2 md:max-w-2xl md:p-8 lg:gap-6">
-								<h1
-									class="cursor-pointer text-6xl font-black text-white text-shadow-enzo lg:text-7xl dark:text-white"
-									style="animation-delay: 0.3s"
-									id="name">
-									enzon19
-								</h1>
-								<p
-									class="text-xl font-medium text-neutral-100 text-shadow-enzo lg:text-2xl"
-									style="animation-delay: 0.4s"
-									id="short-description">
-									<strong>Oi!</strong>Eu sou o <strong>Enzo</strong>, um
-									<strong>desenvolvedor</strong> apaixonado por transformar
-									problemas e desafios em códigos,
-									<strong>criando soluções</strong> que aprimoram a vida das
-									pessoas e tornam
-									<strong>o dia a dia mais simples e divertido</strong>.
-								</p>
-								<div
-									class="flex w-fit flex-row flex-wrap gap-3 lg:gap-4"
-									id="profile-buttons">
-									<a
-										href="https://linkedin.com/in/enzon19"
-										target="_blank"
-										class="btn btn-lg btn-alternative"
-										style="animation-delay: 0.5s">
-										<ion-icon name="logo-linkedin" class="text-xl"></ion-icon>
-										<span>Linkedin</span>
-									</a>
-									<a
-										href="https://github.com/enzon19"
-										target="_blank"
-										class="btn btn-lg btn-alternative"
-										style="animation-delay: 0.6s">
-										<ion-icon name="logo-github" class="text-xl"></ion-icon>
-										<span>GitHub</span>
-									</a>
-									<a
-										href="mailto:contato@enzon19.com"
-										target="_blank"
-										class="btn btn-lg btn-alternative"
-										style="animation-delay: 0.7s">
-										<ion-icon name="mail" class="text-xl"></ion-icon>
-										<span>E-mail</span>
-									</a>
-								</div>
-							</div>
-							<div class="px-12 py-8 md:px-16">
-								<canvas
-									id="enzo-face"
-									style="animation-delay: 0.3s"
-									class="mx-auto h-auto max-h-[50dvh] w-auto max-w-full lg:max-h-[min(70dvh,42vw)]"
-									width="483"
-									height="608"></canvas>
-							</div>
-						</div>
-						<div
-							id="hero-bg"
-							class="absolute inset-0 -z-20 min-h-dvh w-full bg-enzo-sky bg-[url('/assets/fallback/hero.png')] bg-cover dark:bg-[#0c1b4f] dark:bg-[url('/assets/fallback/hero-dark.png')]"></div>
-					</section>
-					<div class="relative z-10">
-						<section
-							class="bg-neutral-100 p-8 will-change-transform md:p-18 dark:bg-neutral-900"
-							id="about">
-							<div
-								class="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:gap-18">
-								<div class="gsap-fly-up flex flex-col gap-4">
-									<div
-										class="mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
-										<h2
-											class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
-											Sobre
-										</h2>
-										<a
-											href="/about"
-											class="group flex flex-row items-center gap-2 hover:text-black dark:hover:text-white">
-											<span
-												class="hidden translate-x-3 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100 md:inline">
-												Saiba mais
-											</span>
-											<div class="relative size-8">
-												<ion-icon
-													name="arrow-forward-circle-outline"
-													class="absolute size-8 scale-100 opacity-100 transition-all group-hover:scale-115 group-hover:opacity-0"></ion-icon>
-												<ion-icon
-													name="arrow-forward-circle"
-													class="absolute size-8 scale-0 transition-all group-hover:scale-115"></ion-icon>
-											</div>
-										</a>
-									</div>
-									<p class="highlight-strong md:text-lg">
-										Meu nome é Enzo, sou
-										<strong>desenvolvedor web full-stack</strong> e
-										<strong>estudante de Ciência da Computação</strong> na UFJF.
-										Eu moro em Juiz de Fora, onde eu crio
-										<strong
-											>sites, plataformas e ferramentas online, bots para
-											aplicativos de mensagem, extensões de navegador e
-											aplicações desktop</strong
-										>. Além disso, tenho experiência com
-										<strong>edição de imagens e vídeos.</strong>
-									</p>
-									<p class="highlight-strong md:text-lg">
-										Comecei a programar aos 11 anos e, sem dúvida,
-										<strong> programar é minha paixão!</strong> Não me vejo
-										fazendo outra coisa que não isso. Atualmente, tenho muito
-										interesse em me aprofundar mais ainda no desenvolvimento web
-										e aprender sobre desenvolvimento de aplicações nativas para
-										dispositivos móveis e computadores.
-									</p>
-								</div>
-								<div
-									class="gsap-fly-up relative -mt-4 h-auto w-full md:mt-0 md:min-w-42 lg:min-w-100">
-									<div
-										class="gallery-container flex h-full w-full flex-row justify-center gap-3 overflow-hidden md:absolute md:inset-0">
-										<ul
-											class="gallery-track flex flex-row gap-3 md:flex-col"
-											id="stack-column">
-											<li class="size-20 shrink-0 md:size-42 lg:size-48">
-												<stack-item-card
-													src="/assets/logos/Photoshop.svg"
-													name="Photoshop"
-													background-class="from-[#59c2ff]/60 via-[#4caefd]/35 to-[#2e95e1]/50 dark:from-[#99e2ff]/55 dark:via-[#91cdff]/35 dark:to-[#79baf3]/50"></stack-item-card>
-											</li>
-											<li class="size-20 shrink-0 md:size-42 lg:size-48">
-												<stack-item-card
-													src="/assets/logos/Premiere.svg"
-													name="Premiere Pro"
-													background-class="from-[#b2b3ff]/60 via-[#a0a1fd]/35 to-[#8888e2]/50 dark:from-[#d5d8ff]/55 dark:via-[#c3c6ff]/35 dark:to-[#afb2f5]/50"></stack-item-card>
-											</li>
-											<li class="size-20 shrink-0 md:size-42 lg:size-48">
-												<!-- color="220c87" -->
-												<stack-item-card
-													src="/assets/logos/After Effects.svg"
-													name="After Effects"
-													background-class="from-[#31309d]/60 via-[#251e85]/35 to-[#18006b]/50 dark:from-[#4d57a6]/55 dark:via-[#404889]/35 dark:to-[#30357b]/50"></stack-item-card>
-											</li>
-											<li class="size-20 shrink-0 md:size-42 lg:size-48">
-												<!-- color="ad361f" -->
-												<!-- color="f05133" -->
-												<stack-item-card
-													src="/assets/logos/Git.svg"
-													name="Git"
-													background-class="from-[#ff7153]/60 via-[#ef6146]/35 to-[#d2472d]/50 dark:from-[#d67f6d]/55 dark:via-[#ba7262]/35 dark:to-[#aa5e4e]/50"></stack-item-card>
-											</li>
-											<li class="size-20 shrink-0 md:size-42 lg:size-48">
-												<!-- color="336791" -->
-												<stack-item-card
-													src="/assets/logos/Postgres.svg"
-													name="Postgres"
-													background-class="from-[#4d7fa8]/60 via-[#3f6d93]/35 to-[#28567a]/50 dark:from-[#789cbb]/55 dark:via-[#6b89a3]/35 dark:to-[#577793]/50"></stack-item-card>
-											</li>
-											<li class="size-20 shrink-0 md:size-42 lg:size-48">
-												<!-- color="ad361f" -->
-												<!-- color="2b2e3a" -->
-												<stack-item-card
-													src="/assets/logos/Electron.svg"
-													name="Electron"
-													background-class="from-[#40434f]/60 via-[#30333e]/35 to-[#1d1f2a]/50 dark:from-[#5c5e68]/55 dark:via-[#4c4e55]/35 dark:to-[#3b3e46]/50"></stack-item-card>
-											</li>
-											<li class="size-20 shrink-0 md:size-42 lg:size-48">
-												<!-- color="#ff3e00" -->
-												<stack-item-card
-													src="/assets/logos/Svelte.svg"
-													name="Svelte/SvelteKit"
-													background-class="from-[#ff643b]/60 via-[#fd552e]/35 to-[#e03704]/50 dark:from-[#ff9e7f]/55 dark:via-[#ff9278]/35 dark:to-[#f27b60]/50"></stack-item-card>
-											</li>
-											<li class="size-20 shrink-0 md:size-42 lg:size-48">
-												<!-- color="#3178c6" -->
-												<stack-item-card
-													src="/assets/logos/TypeScript.svg"
-													name="TypeScript"
-													background-class="from-[#4f91dd]/60 via-[#417fc5]/35 to-[#2866ab]/50 dark:from-[#80b1ea]/55 dark:via-[#759ece]/35 dark:to-[#608bbe]/50"></stack-item-card>
-											</li>
-											<li class="size-20 shrink-0 md:size-42 lg:size-48">
-												<!-- color="689437" -->
-												<!-- color="9de053" -->
-												<stack-item-card
-													src="/assets/logos/NodeJS.png"
-													name="Node.js"
-													background-class="from-[#b9fa77]/45 via-[#a8e56a]/20 to-[#8fca4f]/35 dark:from-[#a7c98a]/55 dark:via-[#98b47f]/35 dark:to-[#84a269]/50"></stack-item-card>
-											</li>
-											<li class="size-20 shrink-0 md:size-42 lg:size-48">
-												<!-- color="38bdf8" -->
-												<!-- color="2dcbff" -->
-												<stack-item-card
-													src="/assets/logos/Tailwind.svg"
-													name="TailwindCSS"
-													background-class="from-[#5ee5ff]/45 via-[#52d0ff]/20 to-[#30b6e4]/35 dark:from-[#a5f5ff]/55 dark:via-[#9de0ff]/35 dark:to-[#84cdf3]/50"></stack-item-card>
-											</li>
-											<li class="size-20 shrink-0 md:size-42 lg:size-48">
-												<!-- color="663399" -->
-												<stack-item-card
-													src="/assets/logos/CSS.svg"
-													name="CSS"
-													background-class="from-[#7c4eaf]/60 via-[#6a3e99]/35 to-[#53267f]/50 dark:from-[#9475bd]/55 dark:via-[#8066a3]/35 dark:to-[#705394]/50"></stack-item-card>
-											</li>
-											<li class="size-20 shrink-0 md:size-42 lg:size-48">
-												<!-- color="f16529" -->
-												<stack-item-card
-													src="/assets/logos/HTML5.svg"
-													name="HTML"
-													background-class="from-[#ff834e]/60 via-[#f07341]/35 to-[#d45925]/50 dark:from-[#ffb18c]/55 dark:via-[#f9a384]/35 dark:to-[#e98e6c]/50"></stack-item-card>
-											</li>
-											<li class="size-20 shrink-0 md:size-42 lg:size-48">
-												<stack-item-card
-													src="/assets/logos/JavaScript.png"
-													name="JavaScript"
-													text-color="ffd112"
-													background-class="from-[#ffec55]/45 via-[#ffd94b]/20 to-[#e7be24]/35 dark:from-[#fffd9a]/55 dark:via-[#fffca9]/35 dark:to-[#ffe88d]/50"></stack-item-card>
-											</li>
-										</ul>
-										<ul
-											class="gallery-track hidden flex-col gap-3 lg:flex"
-											id="additional-stack-column"></ul>
-									</div>
-								</div>
-							</div>
-						</section>
-						<section
-							class="relative z-10 bg-neutral-100 p-8 shadow-[0px_-8px_0px_#f5f5f5] md:p-18 md:shadow-[0px_-18px_0px_#f5f5f5] dark:bg-neutral-900 dark:shadow-[0px_-8px_0px_#171717] md:dark:shadow-[0px_-18px_0px_#171717]"
-							id="main-projects">
-							<div class="mx-auto max-w-6xl">
-								<div class="flex flex-col gap-4">
-									<div
-										class="gsap-fly-up mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
-										<div class="flex flex-col gap-1.5 md:gap-2">
-											<h2
-												class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
-												Principais Projetos
-											</h2>
-											<p class="text-sm md:text-base">
-												Trabalhos recentes que mais me orgulham
-											</p>
-										</div>
-									</div>
-									<div
-										class="gsap-fly-up grid grid-flow-row grid-cols-1 gap-6 md:grid-cols-[repeat(auto-fit,minmax(360px,1fr))] md:gap-8">
-										<!-- DICIONÁRIO BOT -->
-										<a
-											id="dicionario-bot"
-											href="https://dicionariobot.enzon19.com"
-											target="_blank"
-											class="group flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-neutral-400/50 transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-enzo-big md:gap-6 md:p-6 dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:bg-neutral-700/50 [&.is-active]:scale-[1.02] [&.is-active]:bg-white [&.is-active]:shadow-enzo-big dark:[&.is-active]:bg-neutral-700/50">
-											<div
-												class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#EE291A] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#ff4133] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#ff4133] md:h-84 dark:bg-[#a51a0f] dark:group-hover:bg-[#c81a0d] dark:group-[.is-active]:bg-[#c81a0d]">
-												<img
-													class="mt-8 w-full max-w-42 object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
-													src="/assets/projects/dicionario-bot/hero_phone_screenshot.png"
-													alt="Hero Dicionário Bot" />
-											</div>
-											<div class="flex flex-row items-center gap-3">
-												<img
-													class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
-													src="/assets/projects/dicionario-bot/logo502.png"
-													alt="Logo Dicionário Bot" />
-												<div class="flex flex-col gap-1">
-													<h3
-														class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
-														Dicionário Bot
-													</h3>
-													<p
-														class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
-														Um dicionário da língua portuguesa brasileira no
-														Telegram.
-													</p>
-												</div>
-											</div>
-										</a>
-
-										<!-- QUICK REPLY MEET -->
-										<a
-											id="quick-reply-meet"
-											href="https://quickreplymeet.enzon19.com"
-											target="_blank"
-											class="group flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-neutral-400/50 transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-enzo-big md:gap-6 md:p-6 dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:bg-neutral-700/50 [&.is-active]:scale-[1.02] [&.is-active]:bg-white [&.is-active]:shadow-enzo-big dark:[&.is-active]:bg-neutral-700/50">
-											<!-- div -> relative /// bg-[600] dark:bg-[800] group-hover:bg-[500] dark:group-hover:bg-[700] -->
-											<div
-												class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#0d8f81] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#15b7a2] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#15b7a2] md:h-84 dark:bg-[#115e58] dark:group-hover:bg-[#0f766c] dark:group-[.is-active]:bg-[#0f766c]">
-												<!-- <div
-      class="pointer-events-none absolute inset-0 z-0 bg-linear-to-br from-[#40857e]/45 via-[#32736c]/20 to-[#165c56]/35 blur-2xl dark:from-[#70a09a]/55 dark:via-[#648c87]/35 dark:to-[#507b76]/50"></div> -->
-
-												<!-- img -> relative z-10 -->
-												<img
-													class="mt-8 w-full max-w-42 object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
-													src="/assets/projects/quick-reply-meet/chat_screenshot.png"
-													alt="Hero Quick Reply Meet" />
-											</div>
-											<div class="flex flex-row items-center gap-3">
-												<img
-													class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
-													src="/assets/projects/quick-reply-meet/logo512.png"
-													alt="Logo Quick Reply Meet" />
-												<div class="flex flex-col gap-1">
-													<h3
-														class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
-														Quick Reply Meet
-													</h3>
-													<p
-														class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
-														Envie mensagens no chat do Google Meet™ sem precisar
-														digitar.
-													</p>
-												</div>
-											</div>
-										</a>
-
-										<!-- REVERSETV -->
-										<a
-											id="reversetv"
-											href="https://reversetv.enzon19.com"
-											target="_blank"
-											class="group flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-neutral-400/50 transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-enzo-big md:gap-6 md:p-6 dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:bg-neutral-700/50 [&.is-active]:scale-[1.02] [&.is-active]:bg-white [&.is-active]:shadow-enzo-big dark:[&.is-active]:bg-neutral-700/50">
-											<div
-												class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#d93a3d] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#ea494c] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#ea494c] md:h-84 dark:bg-[#951f21] dark:group-hover:bg-[#b42124] dark:group-[.is-active]:bg-[#b42124]">
-												<img
-													class="mt-8 w-full max-w-42 rounded-md object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
-													src="/assets/projects/trakt-tools/reversetv/page_screenshot.png"
-													alt="Hero ReverseTV" />
-											</div>
-											<div class="flex flex-row items-center gap-3">
-												<img
-													class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
-													src="/assets/projects/trakt-tools/reversetv/logo512.png"
-													alt="Logo ReverseTV" />
-												<div class="flex flex-col gap-1">
-													<h3
-														class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
-														ReverseTV
-													</h3>
-													<p
-														class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
-														Descubra outros papéis de cada ator com base no seu
-														histórico do Trakt.
-													</p>
-												</div>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</section>
-						<section
-							class="bg-neutral-100 p-8 md:p-18 dark:bg-neutral-900"
-							id="other-projects">
-							<div class="mx-auto max-w-6xl">
-								<div class="flex flex-col gap-4">
-									<div
-										class="gsap-fly-up mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
-										<div class="flex flex-col gap-1.5 md:gap-2">
-											<h2
-												class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
-												Outros Projetos
-											</h2>
-											<p class="hidden md:block md:text-base">
-												Criações menores, anteriores ou experimentais
-											</p>
-											<p class="block text-sm md:hidden">
-												Criações anteriores ou experimentais
-											</p>
-										</div>
-										<a
-											href="/projects"
-											class="group flex flex-row items-center gap-2 hover:text-black dark:hover:text-white">
-											<span
-												class="hidden translate-x-3 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100 md:inline">
-												Ver mais
-											</span>
-											<div class="relative size-8">
-												<ion-icon
-													name="arrow-forward-circle-outline"
-													class="absolute size-8 scale-100 opacity-100 transition-all group-hover:scale-115 group-hover:opacity-0"></ion-icon>
-												<ion-icon
-													name="arrow-forward-circle"
-													class="absolute size-8 scale-0 transition-all group-hover:scale-115"></ion-icon>
-											</div>
-										</a>
-									</div>
-
-									<div
-										class="gsap-fly-up grid grid-flow-row grid-cols-1 gap-6 md:grid-cols-[repeat(auto-fit,minmax(360px,1fr))] md:gap-8">
-										<!-- MAPA DE SALA -->
-										<a
-											id="mapa-de-sala"
-											href="https://mapadesala.enzon19.com"
-											target="_blank"
-											class="group flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-neutral-400/50 transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-enzo-big md:gap-6 md:p-6 dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:bg-neutral-700/50 [&.is-active]:scale-[1.02] [&.is-active]:bg-white [&.is-active]:shadow-enzo-big dark:[&.is-active]:bg-neutral-700/50">
-											<div
-												class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#3174df] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#4690eb] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#4690eb] md:h-84 dark:bg-[#2952af] dark:group-hover:bg-[#285fcd] dark:group-[.is-active]:bg-[#285fcd]">
-												<img
-													class="mt-8 w-full max-w-42 object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
-													src="/assets/projects/mapa-de-sala/page_screenshot.png"
-													alt="Hero Mapa de Sala" />
-											</div>
-											<div class="flex flex-row items-center gap-3">
-												<img
-													class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
-													src="/assets/projects/mapa-de-sala/logo563.png"
-													alt="Logo Mapa de Sala" />
-												<div class="flex flex-col gap-1">
-													<h3
-														class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
-														Mapa de Sala
-													</h3>
-													<p
-														class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
-														Um experimento que exibia dados de cada aluno na
-														sala de aula.
-													</p>
-												</div>
-											</div>
-										</a>
-
-										<!-- LookHere! -->
-										<a
-											id="lookhere"
-											href="https://lookhere.enzon19.com"
-											target="_blank"
-											class="group flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-neutral-400/50 transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-enzo-big md:gap-6 md:p-6 dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:bg-neutral-700/50 [&.is-active]:scale-[1.02] [&.is-active]:bg-white [&.is-active]:shadow-enzo-big dark:[&.is-active]:bg-neutral-700/50">
-											<div
-												class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#00a476] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#00ca8d] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#00ca8d] md:h-84 dark:bg-[#00684e] dark:group-hover:bg-[#008361] dark:group-[.is-active]:bg-[#008361]">
-												<img
-													class="mt-8 w-full max-w-42 rounded-md object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
-													src="/assets/projects/look-here/mockup.png"
-													alt="Hero LookHere!" />
-											</div>
-											<div class="flex flex-row items-center gap-3">
-												<img
-													class="size-12 shrink-0 rounded-md transition-all duration-300 ease-in-out md:size-14"
-													src="/assets/projects/look-here/logo512.png"
-													alt="Logo LookHere!" />
-												<div class="flex flex-col gap-1">
-													<h3
-														class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
-														LookHere!
-													</h3>
-													<p
-														class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
-														Crie mensagens que piscam para chamar a atenção das
-														pessoas.
-													</p>
-												</div>
-											</div>
-										</a>
-
-										<!-- RANDOMTV -->
-										<a
-											id="randomtv"
-											href="https://randomtv.enzon19.com"
-											target="_blank"
-											class="group flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-neutral-400/50 transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-enzo-big md:gap-6 md:p-6 dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:bg-neutral-700/50 [&.is-active]:scale-[1.02] [&.is-active]:bg-white [&.is-active]:shadow-enzo-big dark:[&.is-active]:bg-neutral-700/50">
-											<div
-												class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#d93a3d] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#ea494c] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#ea494c] md:h-84 dark:bg-[#951f21] dark:group-hover:bg-[#b42124] dark:group-[.is-active]:bg-[#b42124]">
-												<img
-													class="mt-8 w-full max-w-42 rounded-md object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
-													src="/assets/projects/trakt-tools/randomtv/extension_screenshot.png"
-													alt="Hero RandomTV" />
-											</div>
-											<div class="flex flex-row items-center gap-3">
-												<img
-													class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
-													src="/assets/projects/trakt-tools/randomtv/logo512.png"
-													alt="Logo RandomTV" />
-												<div class="flex flex-col gap-1">
-													<h3
-														class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
-														RandomTV
-													</h3>
-													<p
-														class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
-														Uma extensão para selecionar um item aleatório de
-														uma lista no Trakt.
-													</p>
-												</div>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</section>
-						<section
-							class="bg-neutral-100 p-8 md:p-18 dark:bg-neutral-900"
-							id="hobbies">
-							<div class="mx-auto max-w-6xl">
-								<div class="flex flex-col gap-4">
-									<div
-										class="mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
-										<div class="gsap-fly-up flex flex-col gap-1.5 md:gap-2">
-											<h2
-												class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
-												Fora do Terminal
-											</h2>
-											<p class="text-sm md:text-base">
-												Outros interesses além da programação
-											</p>
-										</div>
-									</div>
-									<div
-										class="gsap-fly-up group/stack flex w-full snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:max-w-none md:snap-none md:justify-center md:gap-0 md:overflow-visible md:pb-0">
-										<div
-											style="--card-rotate: 4deg"
-											class="group/card relative z-20 size-36 shrink-0 snap-start transition-all duration-300 md:group-has-[>*:hover]/stack:scale-90 md:hover:mr-26 md:hover:scale-100! lg:size-40 xl:size-44">
-											<div
-												class="absolute inset-0 rotate-0 overflow-hidden rounded-xl bg-cover bg-center transition-all duration-300 md:rotate-(--card-rotate) md:shadow-lg md:group-hover/card:-translate-y-10 md:group-hover/card:rotate-0!"
-												style="
-													background-image: url('/assets/hobbies/burger.jpg');
-												">
-												<div
-													class="absolute inset-0 flex items-end rounded-xl bg-linear-to-t from-white/80 via-white/10 to-transparent p-3 opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover/card:opacity-100 dark:from-black/80 dark:via-black/10">
-													<span
-														class="text-sm font-semibold text-black text-shadow-enzo dark:text-white">
-														Hambúrgueres
-													</span>
-												</div>
-											</div>
-										</div>
-										<div
-											id="hobby-reference"
-											style="--card-rotate: -5deg"
-											class="group/card relative z-20 size-36 shrink-0 snap-start transition-all duration-300 md:-ml-24 md:group-has-[>*:hover]/stack:scale-90 md:hover:mr-26 md:hover:scale-100! lg:size-40 xl:size-44">
-											<div
-												class="absolute inset-0 rotate-0 overflow-hidden rounded-xl bg-cover bg-center transition-all duration-300 md:rotate-(--card-rotate) md:shadow-lg md:group-hover/card:-translate-y-10 md:group-hover/card:rotate-0!"
-												style="
-													background-image: url('/assets/hobbies/gaming.jpg');
-												">
-												<div
-													class="absolute inset-0 flex items-end rounded-xl bg-linear-to-t from-white/80 via-white/10 to-transparent p-3 opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover/card:opacity-100 dark:from-black/80 dark:via-black/10">
-													<span
-														class="text-sm font-semibold text-black text-shadow-enzo dark:text-white">
-														Videogames
-													</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-					</div>
-				</main>
-				<footer
-					class="z-10 mt-8 bg-neutral-200 p-6 md:mt-18 dark:bg-neutral-800">
+		<main>
+			<section
+				class="flex min-h-dvh w-full items-center justify-center"
+				id="hero">
+				<div
+					class="mx-auto flex w-full max-w-368 flex-col-reverse items-center justify-center gap-4 p-4 lg:grid lg:w-fit lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-8 xl:gap-12"
+					id="hero-content">
+					<!-- px-4 py-8 md:py-4 -->
 					<div
-						class="mx-auto flex max-w-6xl flex-col gap-4 md:flex-row md:justify-between">
-						<div class="flex flex-col gap-1">
-							<h5 class="text-xl font-bold text-black dark:text-white">
-								Enzo Neves Barata
-							</h5>
-							<p class="text-sm">2026. Desde 2021 criando para a web.</p>
-							<p class="text-sm">
-								Site feito com HTML, CSS (Tailwind) e JavaScript (Vanilla).
+						class="flex max-w-lg flex-col gap-4 p-2 md:max-w-2xl md:p-8 lg:gap-6">
+						<h1
+							class="cursor-pointer text-6xl font-black text-white text-shadow-enzo lg:text-7xl dark:text-white"
+							style="animation-delay: 0.3s"
+							id="name">
+							enzon19
+						</h1>
+						<p
+							class="text-xl font-medium text-neutral-100 text-shadow-enzo lg:text-2xl"
+							style="animation-delay: 0.4s"
+							id="short-description">
+							<strong>Oi!</strong> Eu sou o <strong>Enzo</strong>, um
+							<strong>desenvolvedor</strong> apaixonado por transformar
+							problemas e desafios em códigos,
+							<strong>criando soluções</strong> que aprimoram a vida das pessoas
+							e tornam <strong>o dia a dia mais simples e divertido</strong>.
+						</p>
+						<div
+							class="flex w-fit flex-row flex-wrap gap-3 lg:gap-4"
+							id="profile-buttons">
+							<a
+								href="https://linkedin.com/in/enzon19"
+								target="_blank"
+								class="btn btn-lg btn-alternative"
+								style="animation-delay: 0.5s">
+								<ion-icon name="logo-linkedin" class="text-xl"></ion-icon>
+								<span>Linkedin</span>
+							</a>
+							<a
+								href="https://github.com/enzon19"
+								target="_blank"
+								class="btn btn-lg btn-alternative"
+								style="animation-delay: 0.6s">
+								<ion-icon name="logo-github" class="text-xl"></ion-icon>
+								<span>GitHub</span>
+							</a>
+							<a
+								href="mailto:contato@enzon19.com"
+								target="_blank"
+								class="btn btn-lg btn-alternative"
+								style="animation-delay: 0.7s">
+								<ion-icon name="mail" class="text-xl"></ion-icon>
+								<span>E-mail</span>
+							</a>
+						</div>
+					</div>
+					<div class="px-12 py-8 md:px-16">
+						<canvas
+							id="enzo-face"
+							style="animation-delay: 0.3s"
+							class="mx-auto h-auto max-h-[50dvh] w-auto max-w-full lg:max-h-[min(70dvh,42vw)]"
+							width="483"
+							height="608"></canvas>
+					</div>
+				</div>
+				<div
+					id="hero-bg"
+					class="absolute inset-0 -z-20 min-h-dvh w-full bg-enzo-sky bg-[url('/assets/fallback/hero.png')] bg-cover dark:bg-[#0c1b4f] dark:bg-[url('/assets/fallback/hero-dark.png')]"></div>
+			</section>
+			<div class="relative z-10">
+				<section
+					class="bg-neutral-100 p-8 will-change-transform md:p-18 dark:bg-neutral-900"
+					id="about">
+					<div
+						class="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:gap-18">
+						<div class="gsap-fly-up flex flex-col gap-4">
+							<div
+								class="mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
+								<h2
+									class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
+									Sobre
+								</h2>
+								<a
+									href="/about"
+									class="group flex flex-row items-center gap-2 hover:text-black dark:hover:text-white">
+									<span
+										class="hidden translate-x-3 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100 md:inline">
+										Saiba mais
+									</span>
+									<div class="relative size-8">
+										<ion-icon
+											name="arrow-forward-circle-outline"
+											class="absolute size-8 scale-100 opacity-100 transition-all group-hover:scale-115 group-hover:opacity-0"></ion-icon>
+										<ion-icon
+											name="arrow-forward-circle"
+											class="absolute size-8 scale-0 transition-all group-hover:scale-115"></ion-icon>
+									</div>
+								</a>
+							</div>
+							<p class="highlight-strong md:text-lg">
+								Meu nome é Enzo, sou
+								<strong>desenvolvedor web full-stack</strong> e
+								<strong>estudante de Ciência da Computação</strong> na UFJF. Eu
+								moro em Juiz de Fora, onde eu crio
+								<strong
+									>sites, plataformas e ferramentas online, bots para
+									aplicativos de mensagem, extensões de navegador e aplicações
+									desktop</strong
+								>. Além disso, tenho experiência com
+								<strong>edição de imagens e vídeos.</strong>
+							</p>
+							<p class="highlight-strong md:text-lg">
+								Comecei a programar aos 11 anos e, sem dúvida,
+								<strong> programar é minha paixão!</strong> Não me vejo fazendo
+								outra coisa que não isso. Atualmente, tenho muito interesse em
+								me aprofundar mais ainda no desenvolvimento web e aprender sobre
+								desenvolvimento de aplicações nativas para dispositivos móveis e
+								computadores.
 							</p>
 						</div>
 						<div
-							class="flex flex-row items-center justify-between gap-3 md:justify-normal">
-							<div class="flex items-center justify-between md:justify-normal">
-								<div
-									class="flex flex-row items-center gap-1 rounded-full bg-neutral-300 p-1 dark:bg-neutral-700">
-									<a
-										href="/v1"
-										title="v1"
-										class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
-										v1
-									</a>
-
-									<a
-										href="/v2"
-										title="v2"
-										class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
-										v2
-									</a>
-
-									<a
-										href="#"
-										title="v3"
-										aria-current="page"
-										class="flex cursor-pointer items-center justify-center rounded-full bg-white px-3 py-1.75 text-xs text-neutral-800 transition-colors dark:bg-neutral-500/65 dark:text-white">
-										v3
-									</a>
-								</div>
-							</div>
+							class="gsap-fly-up relative -mt-4 h-auto w-full md:mt-0 md:min-w-42 lg:min-w-100">
 							<div
-								class="flex flex-row items-center gap-1 rounded-full bg-neutral-300 p-1 dark:bg-neutral-700">
-								<input
-									type="radio"
-									name="theme"
-									id="theme-system"
-									value="system"
-									class="peer/system sr-only" />
-								<label
-									for="theme-system"
-									title="Sistema"
-									class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/system:bg-white peer-checked/system:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/system:hover:bg-white peer-checked/system:hover:text-neutral-800 dark:peer-checked/system:bg-neutral-500/65 dark:peer-checked/system:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/system:hover:bg-neutral-500/65 dark:peer-checked/system:hover:text-white">
-									<ion-icon name="desktop" class="text-lg"></ion-icon>
-								</label>
-
-								<input
-									type="radio"
-									name="theme"
-									id="theme-light"
-									value="light"
-									class="peer/light sr-only" />
-								<label
-									for="theme-light"
-									title="Claro"
-									class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/light:bg-white peer-checked/light:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/light:hover:bg-white peer-checked/light:hover:text-neutral-800 dark:peer-checked/light:bg-neutral-500/65 dark:peer-checked/light:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/light:hover:bg-neutral-500/65 dark:peer-checked/light:hover:text-white">
-									<ion-icon name="sunny" class="text-lg"></ion-icon>
-								</label>
-
-								<input
-									type="radio"
-									name="theme"
-									id="theme-dark"
-									value="dark"
-									class="peer/dark sr-only" />
-								<label
-									for="theme-dark"
-									title="Escuro"
-									class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/dark:bg-white peer-checked/dark:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/dark:hover:bg-white peer-checked/dark:hover:text-neutral-800 dark:peer-checked/dark:bg-neutral-500/65 dark:peer-checked/dark:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/dark:hover:bg-neutral-500/65 dark:peer-checked/dark:hover:text-white">
-									<ion-icon name="moon" class="text-lg"></ion-icon>
-								</label>
+								class="gallery-container flex h-full w-full flex-row justify-center gap-3 overflow-hidden md:absolute md:inset-0">
+								<ul
+									class="gallery-track flex flex-row gap-3 md:flex-col"
+									id="stack-column">
+									<li class="size-20 shrink-0 md:size-42 lg:size-48">
+										<stack-item-card
+											src="/assets/logos/Photoshop.svg"
+											name="Photoshop"
+											background-class="from-[#59c2ff]/60 via-[#4caefd]/35 to-[#2e95e1]/50 dark:from-[#99e2ff]/55 dark:via-[#91cdff]/35 dark:to-[#79baf3]/50"></stack-item-card>
+									</li>
+									<li class="size-20 shrink-0 md:size-42 lg:size-48">
+										<stack-item-card
+											src="/assets/logos/Premiere.svg"
+											name="Premiere Pro"
+											background-class="from-[#b2b3ff]/60 via-[#a0a1fd]/35 to-[#8888e2]/50 dark:from-[#d5d8ff]/55 dark:via-[#c3c6ff]/35 dark:to-[#afb2f5]/50"></stack-item-card>
+									</li>
+									<li class="size-20 shrink-0 md:size-42 lg:size-48">
+										<!-- color="220c87" -->
+										<stack-item-card
+											src="/assets/logos/After Effects.svg"
+											name="After Effects"
+											background-class="from-[#31309d]/60 via-[#251e85]/35 to-[#18006b]/50 dark:from-[#4d57a6]/55 dark:via-[#404889]/35 dark:to-[#30357b]/50"></stack-item-card>
+									</li>
+									<li class="size-20 shrink-0 md:size-42 lg:size-48">
+										<!-- color="ad361f" -->
+										<!-- color="f05133" -->
+										<stack-item-card
+											src="/assets/logos/Git.svg"
+											name="Git"
+											background-class="from-[#ff7153]/60 via-[#ef6146]/35 to-[#d2472d]/50 dark:from-[#d67f6d]/55 dark:via-[#ba7262]/35 dark:to-[#aa5e4e]/50"></stack-item-card>
+									</li>
+									<li class="size-20 shrink-0 md:size-42 lg:size-48">
+										<!-- color="336791" -->
+										<stack-item-card
+											src="/assets/logos/Postgres.svg"
+											name="Postgres"
+											background-class="from-[#4d7fa8]/60 via-[#3f6d93]/35 to-[#28567a]/50 dark:from-[#789cbb]/55 dark:via-[#6b89a3]/35 dark:to-[#577793]/50"></stack-item-card>
+									</li>
+									<li class="size-20 shrink-0 md:size-42 lg:size-48">
+										<!-- color="ad361f" -->
+										<!-- color="2b2e3a" -->
+										<stack-item-card
+											src="/assets/logos/Electron.svg"
+											name="Electron"
+											background-class="from-[#40434f]/60 via-[#30333e]/35 to-[#1d1f2a]/50 dark:from-[#5c5e68]/55 dark:via-[#4c4e55]/35 dark:to-[#3b3e46]/50"></stack-item-card>
+									</li>
+									<li class="size-20 shrink-0 md:size-42 lg:size-48">
+										<!-- color="#ff3e00" -->
+										<stack-item-card
+											src="/assets/logos/Svelte.svg"
+											name="Svelte/SvelteKit"
+											background-class="from-[#ff643b]/60 via-[#fd552e]/35 to-[#e03704]/50 dark:from-[#ff9e7f]/55 dark:via-[#ff9278]/35 dark:to-[#f27b60]/50"></stack-item-card>
+									</li>
+									<li class="size-20 shrink-0 md:size-42 lg:size-48">
+										<!-- color="#3178c6" -->
+										<stack-item-card
+											src="/assets/logos/TypeScript.svg"
+											name="TypeScript"
+											background-class="from-[#4f91dd]/60 via-[#417fc5]/35 to-[#2866ab]/50 dark:from-[#80b1ea]/55 dark:via-[#759ece]/35 dark:to-[#608bbe]/50"></stack-item-card>
+									</li>
+									<li class="size-20 shrink-0 md:size-42 lg:size-48">
+										<!-- color="689437" -->
+										<!-- color="9de053" -->
+										<stack-item-card
+											src="/assets/logos/NodeJS.png"
+											name="Node.js"
+											background-class="from-[#b9fa77]/45 via-[#a8e56a]/20 to-[#8fca4f]/35 dark:from-[#a7c98a]/55 dark:via-[#98b47f]/35 dark:to-[#84a269]/50"></stack-item-card>
+									</li>
+									<li class="size-20 shrink-0 md:size-42 lg:size-48">
+										<!-- color="38bdf8" -->
+										<!-- color="2dcbff" -->
+										<stack-item-card
+											src="/assets/logos/Tailwind.svg"
+											name="TailwindCSS"
+											background-class="from-[#5ee5ff]/45 via-[#52d0ff]/20 to-[#30b6e4]/35 dark:from-[#a5f5ff]/55 dark:via-[#9de0ff]/35 dark:to-[#84cdf3]/50"></stack-item-card>
+									</li>
+									<li class="size-20 shrink-0 md:size-42 lg:size-48">
+										<!-- color="663399" -->
+										<stack-item-card
+											src="/assets/logos/CSS.svg"
+											name="CSS"
+											background-class="from-[#7c4eaf]/60 via-[#6a3e99]/35 to-[#53267f]/50 dark:from-[#9475bd]/55 dark:via-[#8066a3]/35 dark:to-[#705394]/50"></stack-item-card>
+									</li>
+									<li class="size-20 shrink-0 md:size-42 lg:size-48">
+										<!-- color="f16529" -->
+										<stack-item-card
+											src="/assets/logos/HTML5.svg"
+											name="HTML"
+											background-class="from-[#ff834e]/60 via-[#f07341]/35 to-[#d45925]/50 dark:from-[#ffb18c]/55 dark:via-[#f9a384]/35 dark:to-[#e98e6c]/50"></stack-item-card>
+									</li>
+									<li class="size-20 shrink-0 md:size-42 lg:size-48">
+										<stack-item-card
+											src="/assets/logos/JavaScript.png"
+											name="JavaScript"
+											text-color="ffd112"
+											background-class="from-[#ffec55]/45 via-[#ffd94b]/20 to-[#e7be24]/35 dark:from-[#fffd9a]/55 dark:via-[#fffca9]/35 dark:to-[#ffe88d]/50"></stack-item-card>
+									</li>
+								</ul>
+								<ul
+									class="gallery-track hidden flex-col gap-3 lg:flex"
+									id="additional-stack-column"></ul>
 							</div>
 						</div>
 					</div>
-				</footer>
+				</section>
+				<section
+					class="relative z-10 bg-neutral-100 p-8 shadow-[0px_-8px_0px_#f5f5f5] md:p-18 md:shadow-[0px_-18px_0px_#f5f5f5] dark:bg-neutral-900 dark:shadow-[0px_-8px_0px_#171717] md:dark:shadow-[0px_-18px_0px_#171717]"
+					id="main-projects">
+					<div class="mx-auto max-w-6xl">
+						<div class="flex flex-col gap-4">
+							<div
+								class="gsap-fly-up mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
+								<div class="flex flex-col gap-1.5 md:gap-2">
+									<h2
+										class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
+										Principais Projetos
+									</h2>
+									<p class="text-sm md:text-base">
+										Trabalhos recentes que mais me orgulham
+									</p>
+								</div>
+							</div>
+							<div
+								class="gsap-fly-up grid grid-flow-row grid-cols-1 gap-6 md:grid-cols-[repeat(auto-fit,minmax(360px,1fr))] md:gap-8">
+								<!-- DICIONÁRIO BOT -->
+								<a
+									id="dicionario-bot"
+									href="https://dicionariobot.enzon19.com"
+									target="_blank"
+									class="group flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-neutral-400/50 transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-enzo-big md:gap-6 md:p-6 dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:bg-neutral-700/50 [&.is-active]:scale-[1.02] [&.is-active]:bg-white [&.is-active]:shadow-enzo-big dark:[&.is-active]:bg-neutral-700/50">
+									<div
+										class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#EE291A] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#ff4133] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#ff4133] md:h-84 dark:bg-[#a51a0f] dark:group-hover:bg-[#c81a0d] dark:group-[.is-active]:bg-[#c81a0d]">
+										<img
+											class="mt-8 w-full max-w-42 object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
+											src="/assets/projects/dicionario-bot/hero_phone_screenshot.png"
+											alt="Hero Dicionário Bot" />
+									</div>
+									<div class="flex flex-row items-center gap-3">
+										<img
+											class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
+											src="/assets/projects/dicionario-bot/logo502.png"
+											alt="Logo Dicionário Bot" />
+										<div class="flex flex-col gap-1">
+											<h3
+												class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
+												Dicionário Bot
+											</h3>
+											<p
+												class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
+												Um dicionário da língua portuguesa brasileira no
+												Telegram.
+											</p>
+										</div>
+									</div>
+								</a>
+
+								<!-- QUICK REPLY MEET -->
+								<a
+									id="quick-reply-meet"
+									href="https://quickreplymeet.enzon19.com"
+									target="_blank"
+									class="group flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-neutral-400/50 transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-enzo-big md:gap-6 md:p-6 dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:bg-neutral-700/50 [&.is-active]:scale-[1.02] [&.is-active]:bg-white [&.is-active]:shadow-enzo-big dark:[&.is-active]:bg-neutral-700/50">
+									<!-- div -> relative /// bg-[600] dark:bg-[800] group-hover:bg-[500] dark:group-hover:bg-[700] -->
+									<div
+										class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#0d8f81] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#15b7a2] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#15b7a2] md:h-84 dark:bg-[#115e58] dark:group-hover:bg-[#0f766c] dark:group-[.is-active]:bg-[#0f766c]">
+										<!-- <div
+      class="pointer-events-none absolute inset-0 z-0 bg-linear-to-br from-[#40857e]/45 via-[#32736c]/20 to-[#165c56]/35 blur-2xl dark:from-[#70a09a]/55 dark:via-[#648c87]/35 dark:to-[#507b76]/50"></div> -->
+
+										<!-- img -> relative z-10 -->
+										<img
+											class="mt-8 w-full max-w-42 object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
+											src="/assets/projects/quick-reply-meet/chat_screenshot.png"
+											alt="Hero Quick Reply Meet" />
+									</div>
+									<div class="flex flex-row items-center gap-3">
+										<img
+											class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
+											src="/assets/projects/quick-reply-meet/logo512.png"
+											alt="Logo Quick Reply Meet" />
+										<div class="flex flex-col gap-1">
+											<h3
+												class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
+												Quick Reply Meet
+											</h3>
+											<p
+												class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
+												Envie mensagens no chat do Google Meet™ sem precisar
+												digitar.
+											</p>
+										</div>
+									</div>
+								</a>
+
+								<!-- REVERSETV -->
+								<a
+									id="reversetv"
+									href="https://reversetv.enzon19.com"
+									target="_blank"
+									class="group flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-neutral-400/50 transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-enzo-big md:gap-6 md:p-6 dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:bg-neutral-700/50 [&.is-active]:scale-[1.02] [&.is-active]:bg-white [&.is-active]:shadow-enzo-big dark:[&.is-active]:bg-neutral-700/50">
+									<div
+										class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#d93a3d] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#ea494c] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#ea494c] md:h-84 dark:bg-[#951f21] dark:group-hover:bg-[#b42124] dark:group-[.is-active]:bg-[#b42124]">
+										<img
+											class="mt-8 w-full max-w-42 rounded-md object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
+											src="/assets/projects/trakt-tools/reversetv/page_screenshot.png"
+											alt="Hero ReverseTV" />
+									</div>
+									<div class="flex flex-row items-center gap-3">
+										<img
+											class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
+											src="/assets/projects/trakt-tools/reversetv/logo512.png"
+											alt="Logo ReverseTV" />
+										<div class="flex flex-col gap-1">
+											<h3
+												class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
+												ReverseTV
+											</h3>
+											<p
+												class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
+												Descubra outros papéis de cada ator com base no seu
+												histórico do Trakt.
+											</p>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section
+					class="bg-neutral-100 p-8 md:p-18 dark:bg-neutral-900"
+					id="other-projects">
+					<div class="mx-auto max-w-6xl">
+						<div class="flex flex-col gap-4">
+							<div
+								class="gsap-fly-up mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
+								<div class="flex flex-col gap-1.5 md:gap-2">
+									<h2
+										class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
+										Outros Projetos
+									</h2>
+									<p class="hidden md:block md:text-base">
+										Criações menores, anteriores ou experimentais
+									</p>
+									<p class="block text-sm md:hidden">
+										Criações anteriores ou experimentais
+									</p>
+								</div>
+								<a
+									href="/projects"
+									class="group flex flex-row items-center gap-2 hover:text-black dark:hover:text-white">
+									<span
+										class="hidden translate-x-3 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100 md:inline">
+										Ver mais
+									</span>
+									<div class="relative size-8">
+										<ion-icon
+											name="arrow-forward-circle-outline"
+											class="absolute size-8 scale-100 opacity-100 transition-all group-hover:scale-115 group-hover:opacity-0"></ion-icon>
+										<ion-icon
+											name="arrow-forward-circle"
+											class="absolute size-8 scale-0 transition-all group-hover:scale-115"></ion-icon>
+									</div>
+								</a>
+							</div>
+
+							<div
+								class="gsap-fly-up grid grid-flow-row grid-cols-1 gap-6 md:grid-cols-[repeat(auto-fit,minmax(360px,1fr))] md:gap-8">
+								<!-- MAPA DE SALA -->
+								<a
+									id="mapa-de-sala"
+									href="https://mapadesala.enzon19.com"
+									target="_blank"
+									class="group flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-neutral-400/50 transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-enzo-big md:gap-6 md:p-6 dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:bg-neutral-700/50 [&.is-active]:scale-[1.02] [&.is-active]:bg-white [&.is-active]:shadow-enzo-big dark:[&.is-active]:bg-neutral-700/50">
+									<div
+										class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#3174df] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#4690eb] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#4690eb] md:h-84 dark:bg-[#2952af] dark:group-hover:bg-[#285fcd] dark:group-[.is-active]:bg-[#285fcd]">
+										<img
+											class="mt-8 w-full max-w-42 object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
+											src="/assets/projects/mapa-de-sala/page_screenshot.png"
+											alt="Hero Mapa de Sala" />
+									</div>
+									<div class="flex flex-row items-center gap-3">
+										<img
+											class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
+											src="/assets/projects/mapa-de-sala/logo563.png"
+											alt="Logo Mapa de Sala" />
+										<div class="flex flex-col gap-1">
+											<h3
+												class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
+												Mapa de Sala
+											</h3>
+											<p
+												class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
+												Um experimento que exibia dados de cada aluno na sala de
+												aula.
+											</p>
+										</div>
+									</div>
+								</a>
+
+								<!-- LookHere! -->
+								<a
+									id="lookhere"
+									href="https://lookhere.enzon19.com"
+									target="_blank"
+									class="group flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-neutral-400/50 transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-enzo-big md:gap-6 md:p-6 dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:bg-neutral-700/50 [&.is-active]:scale-[1.02] [&.is-active]:bg-white [&.is-active]:shadow-enzo-big dark:[&.is-active]:bg-neutral-700/50">
+									<div
+										class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#00a476] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#00ca8d] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#00ca8d] md:h-84 dark:bg-[#00684e] dark:group-hover:bg-[#008361] dark:group-[.is-active]:bg-[#008361]">
+										<img
+											class="mt-8 w-full max-w-42 rounded-md object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
+											src="/assets/projects/look-here/mockup.png"
+											alt="Hero LookHere!" />
+									</div>
+									<div class="flex flex-row items-center gap-3">
+										<img
+											class="size-12 shrink-0 rounded-md transition-all duration-300 ease-in-out md:size-14"
+											src="/assets/projects/look-here/logo512.png"
+											alt="Logo LookHere!" />
+										<div class="flex flex-col gap-1">
+											<h3
+												class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
+												LookHere!
+											</h3>
+											<p
+												class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
+												Crie mensagens que piscam para chamar a atenção das
+												pessoas.
+											</p>
+										</div>
+									</div>
+								</a>
+
+								<!-- RANDOMTV -->
+								<a
+									id="randomtv"
+									href="https://randomtv.enzon19.com"
+									target="_blank"
+									class="group flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-5 shadow-neutral-400/50 transition-all duration-300 hover:scale-[1.02] hover:bg-white hover:shadow-enzo-big md:gap-6 md:p-6 dark:border-neutral-700 dark:bg-neutral-800 dark:shadow-neutral-900/50 dark:hover:bg-neutral-700/50 [&.is-active]:scale-[1.02] [&.is-active]:bg-white [&.is-active]:shadow-enzo-big dark:[&.is-active]:bg-neutral-700/50">
+									<div
+										class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#d93a3d] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#ea494c] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#ea494c] md:h-84 dark:bg-[#951f21] dark:group-hover:bg-[#b42124] dark:group-[.is-active]:bg-[#b42124]">
+										<img
+											class="mt-8 w-full max-w-42 rounded-md object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
+											src="/assets/projects/trakt-tools/randomtv/extension_screenshot.png"
+											alt="Hero RandomTV" />
+									</div>
+									<div class="flex flex-row items-center gap-3">
+										<img
+											class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
+											src="/assets/projects/trakt-tools/randomtv/logo512.png"
+											alt="Logo RandomTV" />
+										<div class="flex flex-col gap-1">
+											<h3
+												class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
+												RandomTV
+											</h3>
+											<p
+												class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
+												Uma extensão para selecionar um item aleatório de uma
+												lista no Trakt.
+											</p>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section
+					class="bg-neutral-100 p-8 md:p-18 dark:bg-neutral-900"
+					id="hobbies">
+					<div class="mx-auto max-w-6xl">
+						<div class="flex flex-col gap-4">
+							<div
+								class="mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
+								<div class="gsap-fly-up flex flex-col gap-1.5 md:gap-2">
+									<h2
+										class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
+										Fora do Terminal
+									</h2>
+									<p class="text-sm md:text-base">
+										Outros interesses além da programação
+									</p>
+								</div>
+							</div>
+							<div
+								class="gsap-fly-up group/stack flex w-full snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:max-w-none md:snap-none md:justify-center md:gap-0 md:overflow-visible md:pb-0">
+								<div
+									style="--card-rotate: 4deg"
+									class="group/card relative z-20 size-36 shrink-0 snap-start transition-all duration-300 md:group-has-[>*:hover]/stack:scale-90 md:hover:mr-26 md:hover:scale-100! lg:size-40 xl:size-44">
+									<div
+										class="absolute inset-0 rotate-0 overflow-hidden rounded-xl bg-cover bg-center transition-all duration-300 md:rotate-(--card-rotate) md:shadow-lg md:group-hover/card:-translate-y-10 md:group-hover/card:rotate-0!"
+										style="background-image: url('/assets/hobbies/burger.jpg')">
+										<div
+											class="absolute inset-0 flex items-end rounded-xl bg-linear-to-t from-white/80 via-white/10 to-transparent p-3 opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover/card:opacity-100 dark:from-black/80 dark:via-black/10">
+											<span
+												class="text-sm font-semibold text-black text-shadow-enzo dark:text-white">
+												Hambúrgueres
+											</span>
+										</div>
+									</div>
+								</div>
+								<div
+									id="hobby-reference"
+									style="--card-rotate: -5deg"
+									class="group/card relative z-20 size-36 shrink-0 snap-start transition-all duration-300 md:-ml-24 md:group-has-[>*:hover]/stack:scale-90 md:hover:mr-26 md:hover:scale-100! lg:size-40 xl:size-44">
+									<div
+										class="absolute inset-0 rotate-0 overflow-hidden rounded-xl bg-cover bg-center transition-all duration-300 md:rotate-(--card-rotate) md:shadow-lg md:group-hover/card:-translate-y-10 md:group-hover/card:rotate-0!"
+										style="background-image: url('/assets/hobbies/gaming.jpg')">
+										<div
+											class="absolute inset-0 flex items-end rounded-xl bg-linear-to-t from-white/80 via-white/10 to-transparent p-3 opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover/card:opacity-100 dark:from-black/80 dark:via-black/10">
+											<span
+												class="text-sm font-semibold text-black text-shadow-enzo dark:text-white">
+												Videogames
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 			</div>
-		</div>
+		</main>
+		<footer class="z-10 mt-8 bg-neutral-200 p-6 md:mt-18 dark:bg-neutral-800">
+			<div
+				class="mx-auto flex max-w-6xl flex-col gap-4 md:flex-row md:justify-between">
+				<div class="flex flex-col gap-1">
+					<h5 class="text-xl font-bold text-black dark:text-white">
+						Enzo Neves Barata
+					</h5>
+					<p class="text-sm">2026. Desde 2021 criando para a web.</p>
+					<p class="text-sm">
+						Site feito com HTML, CSS (Tailwind) e JavaScript (Vanilla).
+					</p>
+				</div>
+				<div
+					class="flex flex-row items-center justify-between gap-3 md:justify-normal">
+					<div class="flex items-center justify-between md:justify-normal">
+						<div
+							class="flex flex-row items-center gap-1 rounded-full bg-neutral-300 p-1 dark:bg-neutral-700">
+							<a
+								href="/v1"
+								title="v1"
+								class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
+								v1
+							</a>
+
+							<a
+								href="/v2"
+								title="v2"
+								class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
+								v2
+							</a>
+
+							<a
+								href="#"
+								title="v3"
+								aria-current="page"
+								class="flex cursor-pointer items-center justify-center rounded-full bg-white px-3 py-1.75 text-xs text-neutral-800 transition-colors dark:bg-neutral-500/65 dark:text-white">
+								v3
+							</a>
+						</div>
+					</div>
+					<div
+						class="flex flex-row items-center gap-1 rounded-full bg-neutral-300 p-1 dark:bg-neutral-700">
+						<input
+							type="radio"
+							name="theme"
+							id="theme-system"
+							value="system"
+							class="peer/system sr-only" />
+						<label
+							for="theme-system"
+							title="Sistema"
+							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/system:bg-white peer-checked/system:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/system:hover:bg-white peer-checked/system:hover:text-neutral-800 dark:peer-checked/system:bg-neutral-500/65 dark:peer-checked/system:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/system:hover:bg-neutral-500/65 dark:peer-checked/system:hover:text-white">
+							<ion-icon name="desktop" class="text-lg"></ion-icon>
+						</label>
+
+						<input
+							type="radio"
+							name="theme"
+							id="theme-light"
+							value="light"
+							class="peer/light sr-only" />
+						<label
+							for="theme-light"
+							title="Claro"
+							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/light:bg-white peer-checked/light:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/light:hover:bg-white peer-checked/light:hover:text-neutral-800 dark:peer-checked/light:bg-neutral-500/65 dark:peer-checked/light:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/light:hover:bg-neutral-500/65 dark:peer-checked/light:hover:text-white">
+							<ion-icon name="sunny" class="text-lg"></ion-icon>
+						</label>
+
+						<input
+							type="radio"
+							name="theme"
+							id="theme-dark"
+							value="dark"
+							class="peer/dark sr-only" />
+						<label
+							for="theme-dark"
+							title="Escuro"
+							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/dark:bg-white peer-checked/dark:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/dark:hover:bg-white peer-checked/dark:hover:text-neutral-800 dark:peer-checked/dark:bg-neutral-500/65 dark:peer-checked/dark:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/dark:hover:bg-neutral-500/65 dark:peer-checked/dark:hover:text-white">
+							<ion-icon name="moon" class="text-lg"></ion-icon>
+						</label>
+					</div>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>
