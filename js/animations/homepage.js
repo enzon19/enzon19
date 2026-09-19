@@ -10,18 +10,6 @@ ScrollTrigger.create({
 	onEnterBack: () => window.resumeHeroBackground?.(),
 });
 
-gsap.to('#hero-content', {
-	scale: 0.75,
-	yPercent: 50,
-	immediateRender: false,
-	scrollTrigger: {
-		trigger: '#about',
-		start: 'top bottom',
-		end: 'top top',
-		scrub: true,
-	},
-});
-
 const mm = gsap.matchMedia();
 mm.add(
 	{
@@ -30,6 +18,18 @@ mm.add(
 	},
 	(context) => {
 		let { isDesktop, isMobile } = context.conditions;
+
+		gsap.to('#hero-content', {
+			scale: 0.75,
+			yPercent: isDesktop ? 50 : 15,
+			immediateRender: false,
+			scrollTrigger: {
+				trigger: '#about',
+				start: 'top bottom',
+				end: 'top top',
+				scrub: true,
+			},
+		});
 
 		gsap.from('#about', {
 			scale: isDesktop ? 0.95 : 0.925,
