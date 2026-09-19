@@ -2,7 +2,6 @@
 	"useTabs": true,
 	"singleQuote": true,
 	"bracketSameLine": true,
-	"htmlWhitespaceSensitivity": "ignore",
 	"endOfLine": "lf",
 	"plugins": ["prettier-plugin-tailwindcss"],
 	"tailwindStylesheet": "./css/tailwind-config.css"
