@@ -129,7 +129,7 @@
 						class="flex min-h-dvh w-full items-center justify-center"
 						id="hero">
 						<div
-							class="mx-auto flex w-full max-w-368 flex-col-reverse items-center justify-center gap-4 p-4 lg:grid lg:grid-cols-2 lg:grid-rows-1 lg:items-center"
+							class="mx-auto flex w-full max-w-368 flex-col-reverse items-center justify-center gap-4 p-4 lg:grid lg:w-fit lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-8 xl:gap-12"
 							id="hero-content">
 							<!-- px-4 py-8 md:py-4 -->
 							<div
@@ -184,11 +184,11 @@
 									</a>
 								</div>
 							</div>
-							<div class="min-w-0 px-12 py-8 md:px-16">
+							<div class="px-12 py-8 md:px-16">
 								<canvas
 									id="enzo-face"
 									style="animation-delay: 0.3s"
-									class="mx-auto h-auto max-h-[50dvh] w-auto max-w-full lg:max-h-[70dvh]"
+									class="mx-auto h-auto max-h-[50dvh] w-auto max-w-full lg:max-h-[min(70dvh,42vw)]"
 									width="483"
 									height="608"></canvas>
 							</div>
