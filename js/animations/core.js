@@ -13,6 +13,7 @@ flyUpElements.forEach((e) => {
 		y: 50,
 		opacity: 0,
 		duration: 0.8,
+		filter: 'blur(0.5rem)',
 		ease: 'power3.out',
 		scrollTrigger: {
 			trigger: e,
