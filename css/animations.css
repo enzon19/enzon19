@@ -76,6 +76,13 @@
 	opacity: 0;
 }
 
+/* Fly-up */
+html:not(.no-js) .gsap-fly-up {
+	opacity: 0;
+	transform: translateY(50px);
+	filter: blur(0.4rem);
+}
+
 /* View Transitions */
 @view-transition {
 	navigation: auto;
