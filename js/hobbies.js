@@ -1,6 +1,10 @@
 async function loadTopAlbumsFromPeriod(period) {
 	try {
-		const res = await fetch('/data/' + period + '.json');
+		const res = await fetch(
+			'https://gist.githubusercontent.com/enzon19/66e4659e3ddae3ea4428706f1d11100b/raw/' +
+				period +
+				'.json',
+		);
 		const data = await res.json();
 		return data?.topalbums?.album;
 	} catch (err) {
