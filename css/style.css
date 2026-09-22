@@ -1371,6 +1371,12 @@
       color: var(--color-neutral-800);
     }
   }
+  .active\:scale-95:active {
+    --tw-scale-x: 95%;
+    --tw-scale-y: 95%;
+    --tw-scale-z: 95%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
+  }
   @media (width >= 40rem) {
     .sm\:hidden {
       display: none;

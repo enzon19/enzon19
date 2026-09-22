@@ -66,7 +66,7 @@ function renderTagsFilter() {
 
 		const buttonElement = document.createElement('button');
 		buttonElement.className =
-			'rounded-xl border border-neutral-300 dark:border-neutral-700 px-3 py-2 text-sm cursor-pointer hover:bg-neutral-200/50 dark:hover:bg-neutral-800 transition-colors duration-300';
+			'cursor-pointer rounded-xl border border-neutral-300 px-3 py-2 text-sm transition-all duration-300 ease-in-out hover:bg-neutral-200/50 active:scale-95 dark:border-neutral-700 dark:hover:bg-neutral-800';
 		buttonElement.id = 'tags-filter-' + tag; // i18n
 		buttonElement.textContent = `${tag} (${projectsTaggedCount})`;
 		buttonElement.addEventListener('click', () => changeFilter(tag));
