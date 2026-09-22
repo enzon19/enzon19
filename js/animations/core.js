@@ -8,7 +8,7 @@ gsap.ticker.add((time) => {
 gsap.ticker.lagSmoothing(0);
 
 ScrollTrigger.batch('.gsap-fly-up', {
-	start: 'top 96.7%',
+	start: 'top bottom',
 	interval: 0.3,
 	onEnter: (batch) =>
 		gsap.to(batch, {
@@ -16,7 +16,6 @@ ScrollTrigger.batch('.gsap-fly-up', {
 			opacity: 1,
 			filter: 'blur(0rem)',
 			duration: 1.2,
-			delay: 0.05,
 			stagger: 0.2,
 			ease: 'power3.out',
 		}),
