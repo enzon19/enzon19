@@ -1,0 +1,29 @@
+name: Atualizar dados vindo das APIs
+
+on:
+  schedule:
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+
+jobs:
+  fetch-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Buscar dados da API (7 dias)
+        env:
+          LASTFM_TOKEN: ${{ secrets.LASTFM_TOKEN }}
+        run: |
+          curl -sf "https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=enzon19&limit=3&period=7day&api_key=$LASTFM_TOKEN&format=json" -o data.json
+          jq -e '.topalbums' data.json > /dev/null   # falha o step se não tiver essa chave
+
+      - name: Atualizar Gist (7 dias)
+        env:
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          GIST_ID: 66e4659e3ddae3ea4428706f1d11100b
+        run: |
+          CONTENT=$(cat data.json | jq -Rs .)
+          curl -s -X PATCH \
+            -H "Authorization: token $GIST_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -d "{\"files\":{\"data.json\":{\"content\":$CONTENT}}}" \
+            "https://api.github.com/gists/$GIST_ID"
