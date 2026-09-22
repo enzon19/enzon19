@@ -375,8 +375,14 @@
   .h-full {
     height: 100%;
   }
+  .max-h-\[50dvh\] {
+    max-height: 50dvh;
+  }
   .max-h-\[50svh\] {
     max-height: 50svh;
+  }
+  .min-h-dvh {
+    min-height: 100dvh;
   }
   .min-h-screen {
     min-height: 100vh;
@@ -1672,6 +1678,9 @@
     .lg\:size-48 {
       width: calc(var(--spacing) * 48);
       height: calc(var(--spacing) * 48);
+    }
+    .lg\:max-h-\[min\(70dvh\,42vw\)\] {
+      max-height: min(70dvh, 42vw);
     }
     .lg\:max-h-\[min\(70svh\,42vw\)\] {
       max-height: min(70svh, 42vw);
