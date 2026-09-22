@@ -1,15 +1,5 @@
 // [ELEMENT] [SCREEN]
 
-ScrollTrigger.create({
-	trigger: '#hero',
-	start: 'bottom bottom',
-	end: 'bottom top',
-	pin: true,
-	pinSpacing: false,
-	onLeave: () => window.pauseHeroBackground?.(),
-	onEnterBack: () => window.resumeHeroBackground?.(),
-});
-
 const mm = gsap.matchMedia();
 mm.add(
 	{
@@ -19,6 +9,18 @@ mm.add(
 	(context) => {
 		let { isDesktop, isMobile } = context.conditions;
 
+		if (isDesktop) {
+			ScrollTrigger.create({
+				trigger: '#hero',
+				start: () => `bottom bottom`,
+				end: 'bottom top',
+				pin: true,
+				pinSpacing: false,
+				onLeave: () => window.pauseHeroBackground?.(),
+				onEnterBack: () => window.resumeHeroBackground?.(),
+			});
+		}
+
 		gsap.to('#hero-content', {
 			scale: 0.75,
 			yPercent: isDesktop ? -50 : -5,
@@ -27,7 +29,7 @@ mm.add(
 			immediateRender: false,
 			scrollTrigger: {
 				trigger: '#about',
-				start: 'top bottom',
+				start: () => (isDesktop ? 'top bottom' : `top ${window.innerHeight}px`),
 				end: 'top top',
 				scrub: true,
 			},
@@ -48,7 +50,8 @@ mm.add(
 			opacity: 0,
 			scrollTrigger: {
 				trigger: '#about',
-				start: isDesktop ? 'top center' : 'top 30%',
+				start: () =>
+					isDesktop ? 'center bottom' : `30% ${window.innerHeight}px`,
 				end: isDesktop ? 'top 25%' : 'top 10%',
 				scrub: true,
 			},
