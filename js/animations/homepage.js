@@ -21,7 +21,9 @@ mm.add(
 
 		gsap.to('#hero-content', {
 			scale: 0.75,
-			yPercent: isDesktop ? 50 : 15,
+			yPercent: isDesktop ? -50 : -5,
+			opacity: 0.5,
+			filter: 'blur(0.2rem)',
 			immediateRender: false,
 			scrollTrigger: {
 				trigger: '#about',
