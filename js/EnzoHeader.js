@@ -57,8 +57,8 @@ export default class EnzoHeader extends HTMLElement {
 				class="flex flex-col items-center justify-between px-6 py-3 sm:flex-row sm:gap-6 md:px-8 md:py-4">
 				<div class="flex items-center justify-between gap-6">
 					<a
-						href="#"
-						class="group flex items-center gap-3 text-black dark:text-white">
+						id="homepage"
+						class="group flex items-center gap-3 text-black dark:text-white cursor-pointer">
 						<div
 							class="relative size-8 duration-300 md:transition-all md:group-hover:scale-125">
 							<img
@@ -127,11 +127,14 @@ export default class EnzoHeader extends HTMLElement {
 			const currentPage = this.#header.querySelector(`a[href="/${this.page}"]`);
 			currentPage.classList.add('font-bold', 'text-black', 'dark:text-white');
 
-			const homepageAnchor = this.#header.querySelector('a[href="#"]');
+			const homepageAnchor = this.#header.querySelector('#homepage');
 			homepageAnchor.href = '/';
 		} else {
-			const homepageAnchor = this.#header.querySelector('a[href="/"]');
-			if (homepageAnchor) homepageAnchor.href = '#';
+			const homepageAnchor = this.#header.querySelector('#homepage');
+			homepageAnchor.addEventListener('click', (e) => {
+				e.preventDefault();
+				lenis.scrollTo(0);
+			});
 		}
 	}
 
