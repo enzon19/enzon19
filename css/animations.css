@@ -11,25 +11,48 @@ html:not(.no-js) .gsap-fly-up {
 }
 
 ::view-transition-old(root) {
-	animation: none;
+	animation: evaporate 1.2s cubic-bezier(0.76, 0, 0.24, 1) both;
 }
 
 ::view-transition-new(root) {
-	animation: page-in 800ms cubic-bezier(0.76, 0, 0.24, 1) both;
+	animation: condense 1.2s 1s cubic-bezier(0.76, 0, 0.24, 1) both;
 }
 
-@keyframes page-in {
+::view-transition-image-pair(root) {
+	isolation: isolate;
+}
+
+@keyframes fade {
 	from {
-		clip-path: inset(100% 0 0 0);
+		opacity: 1;
 	}
 	to {
-		clip-path: inset(0 0 0 0);
+		opacity: 0;
 	}
 }
 
-#vt-overlay {
-	position: fixed;
-	inset: 0;
-	view-transition-name: overlay;
-	pointer-events: none;
+@keyframes evaporate {
+	from {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+		filter: blur(0rem);
+	}
+	to {
+		opacity: 0;
+		transform: scale(1.05) translateY(-4rem);
+		filter: blur(0.7rem);
+	}
+}
+
+@keyframes condense {
+	from {
+		opacity: 0;
+		transform: scale(0.95) translateY(4rem);
+		filter: blur(0.7rem);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+		filter: blur(0rem);
+	}
 }
