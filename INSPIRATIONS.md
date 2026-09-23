@@ -16,3 +16,5 @@ To build the last version of my website, I drew inspiration from several persona
 - https://doce.sh - about (merged with now and uses) page
 - https://launchfolio.framer.website - animations, footer and header
 - https://majd-portfolio.framer.website - animations, footer and header
+- https://marijanapav.com - contact page
+- https://artem.vyraz.studio - transition
