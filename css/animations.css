@@ -22,15 +22,6 @@ html:not(.no-js) .gsap-fly-up {
 	isolation: isolate;
 }
 
-@keyframes fade {
-	from {
-		opacity: 1;
-	}
-	to {
-		opacity: 0;
-	}
-}
-
 @keyframes evaporate {
 	from {
 		opacity: 1;
