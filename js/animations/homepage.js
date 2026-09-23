@@ -32,6 +32,11 @@ mm.add(
 				start: () => (isDesktop ? 'top bottom' : `top ${window.innerHeight}px`),
 				end: 'top top',
 				scrub: true,
+				onUpdate: (self) => {
+					document
+						.querySelector('#hero-content')
+						.classList.toggle('pointer-events-none', self.progress >= 0.5);
+				},
 			},
 		});
 
@@ -47,7 +52,7 @@ mm.add(
 		});
 
 		gsap.to('#hero', {
-			opacity: 0,
+			autoAlpha: 0,
 			scrollTrigger: {
 				trigger: '#about',
 				start: () =>
