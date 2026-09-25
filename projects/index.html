@@ -128,40 +128,39 @@
 		</template>
 		<enzo-header page="projects"></enzo-header>
 		<main>
-				<header class="p-8 md:p-18">
-					<div class="gsap-fly-up mx-auto flex max-w-6xl flex-col gap-4">
-						<h2
-							class="mb-2 text-3xl font-extrabold text-black md:mb-4 md:text-4xl dark:text-white">
-							Projetos
-						</h2>
-						<p class="max-w-2xl md:text-lg">
-							Todos os projetos que eu construí desde que tornei desenvolvedor
-							web em 2021, incluindo projetos independentes e para clientes.
-						</p>
-					</div>
-				</header>
-				<section
-					class="p-8 py-0 md:p-18 md:py-0">
-					<div class="mx-auto max-w-6xl">
-						<div class="flex flex-col gap-4">
+			<header class="p-8 md:p-18">
+				<div class="gsap-fly-up mx-auto flex max-w-6xl flex-col gap-4">
+					<h2
+						class="mb-2 text-3xl font-extrabold text-black md:mb-4 md:text-4xl dark:text-white">
+						Projetos
+					</h2>
+					<p class="max-w-2xl md:text-lg">
+						Todos os projetos que eu construí desde que tornei desenvolvedor web
+						em 2021, incluindo projetos independentes e para clientes.
+					</p>
+				</div>
+			</header>
+			<section class="p-8 py-0 md:p-18 md:py-0">
+				<div class="mx-auto max-w-6xl">
+					<div class="flex flex-col gap-4">
+						<div
+							class="gsap-fly-up mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
 							<div
-								class="gsap-fly-up mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
+								class="flex flex-row flex-wrap gap-1.5 md:gap-2"
+								id="tags-filter">
 								<div
-									class="flex flex-row flex-wrap gap-1.5 md:gap-2"
-									id="tags-filter">
-									<div
-										class="cursor-pointer rounded-xl border border-neutral-300 px-3 py-2 text-sm transition-all duration-300 ease-in-out hover:bg-neutral-200/50 active:scale-95 dark:border-neutral-700 dark:hover:bg-neutral-800"
-										id="tags-filter-all">
-										Todos (10)
-									</div>
+									class="cursor-pointer rounded-xl border border-neutral-300 px-3 py-2 text-sm transition-all duration-300 ease-in-out hover:bg-neutral-200/50 active:scale-95 dark:border-neutral-700 dark:hover:bg-neutral-800"
+									id="tags-filter-all">
+									Todos (10)
 								</div>
 							</div>
-							<div
-								class="gsap-fly-up grid grid-flow-row grid-cols-1 gap-6 md:grid-cols-[repeat(auto-fit,minmax(385px,1fr))] md:gap-8"
-								id="projects-grid"></div>
 						</div>
+						<div
+							class="gsap-fly-up grid grid-flow-row grid-cols-1 gap-6 md:grid-cols-[repeat(auto-fit,minmax(385px,1fr))] md:gap-8"
+							id="projects-grid"></div>
 					</div>
-				</section>
+				</div>
+			</section>
 		</main>
 		<footer class="z-10 mt-8 bg-neutral-200 p-6 md:mt-18 dark:bg-neutral-800">
 			<div
