@@ -70,7 +70,7 @@ export default class EnzoHeader extends HTMLElement {
 								alt="Enzo Face"
 								class="absolute inset-0 block size-8 object-contain group-hover:hidden" />
 						</div>
-						<h1 class="text-lg font-bold">enzon19</h1>
+						<span class="text-lg font-bold">enzon19</span>
 					</a>
 					<button
 						class="relative flex size-6 cursor-pointer flex-col items-center justify-center sm:hidden"
