@@ -1,4 +1,4 @@
-import { projects, anchors, tags } from '../../projects/data.js';
+import { projects, anchors, tags } from './data.js';
 
 function getCard({ id, name, logo, color, tags, period, urls }) {
 	const template = document.querySelector('template#project-card').content;
