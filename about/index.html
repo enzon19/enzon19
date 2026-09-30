@@ -87,8 +87,8 @@
 				<div class="gsap-fly-up flex max-w-3xl flex-col gap-4">
 					<header class="mb-1 flex flex-col gap-4 md:mb-2">
 						<img
-							src="https://pudim.com.br/pudim.jpg"
-							class="mb-2 aspect-square size-28 rounded-full md:hidden" />
+							src="/assets/photos/avatar.png"
+							class="mb-2 aspect-square size-28 rounded-full border border-neutral-200 bg-white sm:size-36 md:hidden dark:border-neutral-700 dark:bg-neutral-800" />
 						<h1
 							class="mb-2 text-3xl font-extrabold text-black md:mb-4 md:text-4xl dark:text-white">
 							Enzo N. Barata
@@ -158,8 +158,20 @@
 					</section>
 				</div>
 				<div class="gsap-fly-up hidden md:block">
-					<div class="min-w-56 lg:min-w-72">
-						<img src="https://pudim.com.br/pudim.jpg" alt="" />
+					<div
+						class="group relative aspect-4/5 min-w-56 -rotate-3 rounded-3xl bg-white lg:min-w-72 dark:bg-neutral-800"
+						style="clip-path: inset(-50% 0 0 0 round 0 0 1.5rem 1.5rem)">
+						<div
+							class="absolute inset-0 h-[calc(100%+3rem)] -translate-y-4 scale-105 rotate-3 transition-transform duration-400 ease-out group-hover:-translate-y-12">
+							<img
+								src="/assets/photos/social_smile.png"
+								alt=""
+								class="absolute inset-0 h-full w-full object-cover object-top group-hover:opacity-0" />
+							<img
+								src="/assets/photos/social_happy.png"
+								alt=""
+								class="absolute inset-0 h-full w-full object-cover object-top opacity-0 group-hover:opacity-100" />
+						</div>
 					</div>
 				</div>
 			</div>
