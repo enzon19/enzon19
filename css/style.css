@@ -751,6 +751,9 @@
   .bg-\[\#ACDAEB\]\/65 {
     background-color: color-mix(in oklab, #ACDAEB 65%, transparent);
   }
+  .bg-\[\#BEDBF8\] {
+    background-color: #BEDBF8;
+  }
   .bg-\[\#EE291A\] {
     background-color: #EE291A;
   }
@@ -2020,6 +2023,9 @@
   }
   .dark\:bg-\[\#2952af\]:is(.dark *) {
     background-color: #2952af;
+  }
+  .dark\:bg-\[\#445668\]:is(.dark *) {
+    background-color: #445668;
   }
   .dark\:bg-\[\#a51a0f\]:is(.dark *) {
     background-color: #a51a0f;
