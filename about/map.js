@@ -7,7 +7,7 @@ async function main() {
 	const userCoordinates = L.latLng(latitude, longitude);
 
 	renderMap(userCoordinates);
-	changeMapLabel('cityName', userCoordinates);
+	changeMapLabel(cityName, userCoordinates);
 }
 main();
 
