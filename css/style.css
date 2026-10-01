@@ -745,8 +745,17 @@
   .bg-\[\#832519\] {
     background-color: #832519;
   }
+  .bg-\[\#ACDAEB\] {
+    background-color: #ACDAEB;
+  }
+  .bg-\[\#ACDAEB\]\/65 {
+    background-color: color-mix(in oklab, #ACDAEB 65%, transparent);
+  }
   .bg-\[\#EE291A\] {
     background-color: #EE291A;
+  }
+  .bg-\[\#\] {
+    background-color: #;
   }
   .bg-\[\#d93a3d\] {
     background-color: #d93a3d;

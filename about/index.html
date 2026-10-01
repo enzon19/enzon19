@@ -84,6 +84,25 @@
 		<script type="module" src="/js/EnzoHeader.js"></script>
 
 		<script type="module" src="map.js"></script>
+		<style>
+			#map-card {
+				--accent: 1 128 183;
+			}
+
+			#map-card:is(.dark *) {
+				--accent: 80 140 200;
+			}
+
+			#map .leaflet-tile-pane {
+				filter: grayscale(100%) sepia(60%) hue-rotate(170deg) saturate(130%)
+					brightness(90%) contrast(115%);
+			}
+
+			#map:is(.dark *) .leaflet-tile-pane {
+				filter: invert(100%) grayscale(100%) sepia(100%) hue-rotate(170deg)
+					saturate(150%) brightness(95%) contrast(90%);
+			}
+		</style>
 
 		<script
 			data-goatcounter="https://enzon19.goatcounter.com/count"
@@ -189,8 +208,8 @@
 			<section
 				class="gsap-fly-up mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:grid-rows-[1fr_0.75fr]">
 				<div
-					class="group relative flex flex-col justify-between gap-5 overflow-hidden rounded-2xl border border-neutral-200 bg-white/40 p-6 transition-colors duration-300 lg:col-span-2 lg:row-span-2 dark:border-neutral-800 dark:bg-neutral-800/30"
-					style="--accent: 239 68 68">
+					id="map-card"
+					class="group relative flex flex-col justify-between gap-5 overflow-hidden rounded-2xl border border-neutral-200 bg-white/40 p-6 transition-colors duration-300 lg:col-span-2 lg:row-span-2 dark:border-neutral-800 dark:bg-neutral-800/30">
 					<div
 						class="pointer-events-none absolute inset-0 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100 group-[.is-active]:opacity-100"
 						style="
