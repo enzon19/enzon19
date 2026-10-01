@@ -52,9 +52,29 @@ function renderMap(userCoordinates) {
 	});
 	L.marker(userCoordinates, { icon: userMarker }).addTo(map);
 
-	map.flyToBounds(bounds, {
-		duration: 1.5,
-	});
+	flyToBoundsWhenVisible(map, bounds);
+}
+
+function flyToBoundsWhenVisible(map, bounds) {
+	const mapElement = map.getContainer();
+
+	const observer = new IntersectionObserver(
+		([entry]) => {
+			if (!entry.isIntersecting) return;
+
+			observer.disconnect();
+
+			map.invalidateSize();
+			setTimeout(() => {
+				map.flyToBounds(bounds, {
+					duration: 1.5,
+				});
+			}, 1000);
+		},
+		{ threshold: 0.25 },
+	);
+
+	observer.observe(mapElement);
 }
 
 function changeMapLabel(cityName, userCoordinates) {
