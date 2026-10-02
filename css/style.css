@@ -222,6 +222,9 @@
   .pointer-events-none {
     pointer-events: none;
   }
+  .visible {
+    visibility: visible;
+  }
   .sr-only {
     position: absolute;
     width: 1px;
@@ -561,6 +564,9 @@
   .cursor-pointer {
     cursor: pointer;
   }
+  .resize {
+    resize: both;
+  }
   .snap-x {
     scroll-snap-type: x var(--tw-scroll-snap-strictness);
   }
@@ -745,20 +751,11 @@
   .bg-\[\#832519\] {
     background-color: #832519;
   }
-  .bg-\[\#ACDAEB\] {
-    background-color: #ACDAEB;
-  }
-  .bg-\[\#ACDAEB\]\/65 {
-    background-color: color-mix(in oklab, #ACDAEB 65%, transparent);
-  }
   .bg-\[\#BEDBF8\] {
     background-color: #BEDBF8;
   }
   .bg-\[\#EE291A\] {
     background-color: #EE291A;
-  }
-  .bg-\[\#\] {
-    background-color: #;
   }
   .bg-\[\#d93a3d\] {
     background-color: #d93a3d;
@@ -1469,30 +1466,6 @@
     color: var(--color-white);
   }
   @media (hover: hover) {
-    .hover\:scale-90:hover {
-      --tw-scale-x: 90%;
-      --tw-scale-y: 90%;
-      --tw-scale-z: 90%;
-      scale: var(--tw-scale-x) var(--tw-scale-y);
-    }
-    .hover\:scale-98:hover {
-      --tw-scale-x: 98%;
-      --tw-scale-y: 98%;
-      --tw-scale-z: 98%;
-      scale: var(--tw-scale-x) var(--tw-scale-y);
-    }
-    .hover\:scale-99:hover {
-      --tw-scale-x: 99%;
-      --tw-scale-y: 99%;
-      --tw-scale-z: 99%;
-      scale: var(--tw-scale-x) var(--tw-scale-y);
-    }
-    .hover\:scale-100:hover {
-      --tw-scale-x: 100%;
-      --tw-scale-y: 100%;
-      --tw-scale-z: 100%;
-      scale: var(--tw-scale-x) var(--tw-scale-y);
-    }
     .hover\:scale-101:hover {
       --tw-scale-x: 101%;
       --tw-scale-y: 101%;
@@ -2032,9 +2005,6 @@
   }
   .dark\:bg-\[800\]:is(.dark *) {
     background-color: 800;
-  }
-  .dark\:bg-black:is(.dark *) {
-    background-color: var(--color-black);
   }
   .dark\:bg-neutral-300:is(.dark *) {
     background-color: var(--color-neutral-300);
