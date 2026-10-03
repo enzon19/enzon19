@@ -68,6 +68,7 @@ function flyToBoundsWhenVisible(map, bounds) {
 			setTimeout(() => {
 				map.flyToBounds(bounds, {
 					duration: 1.5,
+					padding: [25, 25],
 				});
 			}, 1000);
 		},
