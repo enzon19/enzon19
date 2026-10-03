@@ -1797,6 +1797,12 @@
     .md\:gap-2 {
       gap: calc(var(--spacing) * 2);
     }
+    .md\:gap-2\.5 {
+      gap: calc(var(--spacing) * 2.5);
+    }
+    .md\:gap-3 {
+      gap: calc(var(--spacing) * 3);
+    }
     .md\:gap-4 {
       gap: calc(var(--spacing) * 4);
     }
@@ -1808,6 +1814,9 @@
     }
     .md\:gap-9 {
       gap: calc(var(--spacing) * 9);
+    }
+    .md\:gap-10 {
+      gap: calc(var(--spacing) * 10);
     }
     .md\:gap-12 {
       gap: calc(var(--spacing) * 12);
