@@ -1830,6 +1830,9 @@
     .md\:gap-18 {
       gap: calc(var(--spacing) * 18);
     }
+    .md\:gap-26 {
+      gap: calc(var(--spacing) * 26);
+    }
     .md\:gap-36 {
       gap: calc(var(--spacing) * 36);
     }
