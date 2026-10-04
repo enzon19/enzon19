@@ -1,13 +1,21 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en-GB" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
+		<script
+			defer
+			src="https://unpkg.com/i18next@26.4.2/dist/umd/i18next.min.js"></script>
+		<script defer src="/js/translation.js"></script>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>Donate to enzon19</title>
-		<meta name="title" content="Donate to enzon19" />
+		<title data-i18n="donate.metaTitle">Donate to enzon19</title>
 		<meta
+			data-i18n-content="donate.metaTitle"
+			name="title"
+			content="Donate to enzon19" />
+		<meta
+			data-i18n-content="donate.metaDescription"
 			name="description"
 			content="I'm an indie developer with a lot of cool projects!" />
 
@@ -36,9 +44,15 @@
 		<div class="flex flex-col items-center gap-1 text-center">
 			<div class="flex flex-col items-center">
 				<a href="https://enzon19.com"
-					><img src="/assets/face/love.png" alt="enzon19" class="h-20"
+					><img
+						data-i18n-alt="common.siteName"
+						src="/assets/face/love.png"
+						alt="enzon19"
+						class="h-20"
 				/></a>
-				<h1 class="text-4xl font-extrabold text-neutral-800 dark:text-white">
+				<h1
+					data-i18n="donate.title"
+					class="text-4xl font-extrabold text-neutral-800 dark:text-white">
 					Donate
 				</h1>
 			</div>
@@ -48,37 +62,46 @@
 				class="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-3xl bg-neutral-100 px-10 py-6 text-center shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:bg-neutral-800"
 				href="https://buymeacoffee.com/enzon19"
 				target="_blank">
-				<img src="/assets/donate/bmac.png" alt="Buy Me a Coffee" class="h-12" />
+				<img
+					data-i18n-alt="donate.buyMeACoffee"
+					src="/assets/donate/bmac.png"
+					alt="Buy Me a Coffee"
+					class="h-12" />
 				<div>
-					<h3 class="text-lg font-bold">Buy Me a Coffee</h3>
+					<h3 data-i18n="donate.buyMeACoffee" class="text-lg font-bold">
+						Buy Me a Coffee
+					</h3>
 				</div>
 			</a>
 			<a
 				class="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-3xl bg-neutral-100 px-10 py-6 text-center shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:bg-neutral-800"
 				href="https://ko-fi.com/enzon19"
 				target="_blank">
-				<img src="/assets/donate/kofi.png" alt="Ko-Fi" class="h-12" />
+				<img
+					data-i18n-alt="donate.koFi"
+					src="/assets/donate/kofi.png"
+					alt="Ko-Fi"
+					class="h-12" />
 				<div>
-					<h3 class="text-lg font-bold">Ko-Fi</h3>
+					<h3 data-i18n="donate.koFi" class="text-lg font-bold">Ko-Fi</h3>
 				</div>
 			</a>
 			<div
 				class="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-3xl bg-neutral-100 px-10 py-6 text-center shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:bg-neutral-800"
 				onclick="navigator.clipboard.writeText('enzonbarata@outlook.com')"
 				target="_blank">
-				<img src="/assets/donate/pix.png" alt="Ko-Fi" class="h-12" />
+				<img
+					data-i18n-alt="donate.koFi"
+					src="/assets/donate/pix.png"
+					alt="Ko-Fi"
+					class="h-12" />
 				<div>
-					<h3 class="text-lg font-bold">PIX</h3>
-					<span>enzonbarata@outlook.com</span>
+					<h3 data-i18n="donate.pix" class="text-lg font-bold">PIX</h3>
+					<span data-i18n="donate.pixKey">enzonbarata@outlook.com</span>
 				</div>
 			</div>
 		</div>
 
 		<script src="/js/themes.js"></script>
-		<script
-			src="/js/i18nextify.min.js"
-			id="i18nextify"
-			fallbacklng="en"></script>
-		<script src="/js/translation.js"></script>
 	</body>
 </html>

@@ -8,24 +8,36 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>Sobre - enzon19</title>
-		<meta name="title" content="Sobre - enzon19" />
+		<title data-i18n="about.metaTitle">Sobre - enzon19</title>
 		<meta
+			data-i18n-content="about.metaTitle"
+			name="title"
+			content="Sobre - enzon19" />
+		<meta
+			data-i18n-content="about.metaDescription"
 			name="description"
 			content="Eu sou o Enzo, um desenvolvedor web full-stack. Saiba mais sobre minha trajetória na programação." />
 
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://enzon19.com/about" />
-		<meta property="og:title" content="Sobre - enzon19" />
 		<meta
+			data-i18n-content="about.metaTitle"
+			property="og:title"
+			content="Sobre - enzon19" />
+		<meta
+			data-i18n-content="about.metaDescription"
 			property="og:description"
 			content="Eu sou o Enzo, um desenvolvedor web full-stack. Saiba mais sobre minha trajetória na programação." />
 		<meta property="og:image" content="/assets/cover.png" />
 
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content="https://enzon19.com/about" />
-		<meta property="twitter:title" content="Sobre - enzon19" />
 		<meta
+			data-i18n-content="about.metaTitle"
+			property="twitter:title"
+			content="Sobre - enzon19" />
+		<meta
+			data-i18n-content="about.metaDescription"
 			property="twitter:description"
 			content="Eu sou o Enzo, um desenvolvedor web full-stack. Saiba mais sobre minha trajetória na programação." />
 		<meta property="twitter:image" content="/assets/cover.png" />
@@ -57,6 +69,10 @@
 		<link href="/css/style.css" rel="stylesheet" />
 
 		<script src="/js/themes.js"></script>
+		<script
+			defer
+			src="https://unpkg.com/i18next@26.4.2/dist/umd/i18next.min.js"></script>
+		<script defer src="/js/translation.js"></script>
 		<script
 			type="module"
 			src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
@@ -143,16 +159,17 @@
 							src="/assets/photos/avatar.png"
 							class="mb-2 aspect-square size-28 rounded-full border border-neutral-200 bg-white sm:size-36 md:hidden dark:border-neutral-700 dark:bg-neutral-800" />
 						<h1
+							data-i18n="about.name"
 							class="mb-2 text-3xl font-extrabold text-black md:mb-4 md:text-4xl dark:text-white">
 							Enzo N. Barata
 						</h1>
-						<p class="max-w-2xl md:text-lg">
+						<p data-i18n="about.headline" class="max-w-2xl md:text-lg">
 							Desenvolvedor web full-stack · Estudante de Ciência da Computação
 							(UFJF)
 						</p>
 					</header>
 					<section class="flex flex-col gap-4">
-						<p class="highlight-strong">
+						<p data-i18n-html="about.intro" class="highlight-strong">
 							Meu nome é <strong>Enzo</strong>, tenho 20 anos e eu nasci e moro
 							em Juiz de Fora (MG). Programo por paixão e por trabalho, mas
 							<strong>eu gosto de criar coisas</strong> desde pequeno. Quando eu
@@ -166,7 +183,7 @@
 								de software</strong
 							>.
 						</p>
-						<p class="highlight-strong">
+						<p data-i18n-html="about.earlyProgramming" class="highlight-strong">
 							Comecei a programar quando eu
 							<strong>criava joguinhos usando PowerPoint e VBA</strong> aos meus
 							11 anos, em 2017. Naquela época, eu apenas copiava e colava
@@ -179,7 +196,7 @@
 							linha de comando, voltei ao Office e ao VBA, dessa vez com muito
 							mais experiência em programação.
 						</p>
-						<p class="highlight-strong">
+						<p data-i18n-html="about.webDevelopment" class="highlight-strong">
 							Durante a quarentena, com todos meus amigos se reunindo no Discord
 							para jogar, tive a vontade de criar bots. Foi assim que fui
 							forçado a estudar <strong>JavaScript e Node.js</strong> por conta
@@ -194,7 +211,7 @@
 							<strong>mantenho com muito orgulho</strong> e que
 							<strong> impactam milhares </strong> de pessoas.
 						</p>
-						<p class="highlight-strong">
+						<p data-i18n-html="about.currentInterests" class="highlight-strong">
 							Atualmente, meu projeto de maior sucesso é o
 							<strong>Dicionário Bot</strong>, que já foi utilizado por mais de
 							1500 usuários diferentes. Além de continuar desenvolvendo meus
@@ -249,10 +266,11 @@
 							id="map"
 							class="h-48 overflow-hidden rounded-xl bg-[#BEDBF8] lg:grow dark:bg-[#445668]"></div>
 						<p
+							data-i18n-html="about.location"
 							class="highlight-strong text-center text-base text-neutral-600 md:line-clamp-2 dark:text-neutral-400"
 							id="juiz-de-fora-label">
 							Eu moro em <strong>Juiz de Fora</strong>, a uns
-							<strong id="distance">0m</strong> de você!
+							<strong id="distance" data-i18n-preserve>0m</strong> de você!
 						</p>
 					</div>
 				</div>
@@ -272,11 +290,13 @@
 						"></div>
 					<div class="z-10 flex flex-col gap-6 lg:flex-1">
 						<img
+							data-i18n-alt="about.petsPhotoAlt"
 							class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl object-cover transition-transform active:scale-95 lg:grow"
 							src="/assets/photos/tutti_lolla.jpeg"
 							alt="Tutti & Lolla"
 							id="tutti-lolla" />
 						<p
+							data-i18n-html="about.pets"
 							class="highlight-strong text-center text-base text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
 							Eu tenho dois salsichinhas: <strong>Tutti e Lolla</strong>
 						</p>
@@ -298,10 +318,12 @@
 						"></div>
 					<div class="z-10 flex flex-col gap-6 lg:flex-1">
 						<img
+							data-i18n-alt="about.birthdayPhotoAlt"
 							class="flex h-48 flex-col items-center justify-start overflow-hidden rounded-xl object-cover object-bottom lg:grow"
 							src="/assets/photos/birthday20.jpg"
 							alt="Aniversário" />
 						<p
+							data-i18n-html="about.birthday"
 							class="highlight-strong text-center text-base text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
 							Completei <strong>20 anos</strong> no
 							<br class="hidden xl:inline" />
@@ -328,6 +350,7 @@
 							id="cockroach-preview"
 							class="relative h-48 overflow-hidden rounded-xl lg:h-24 lg:grow"></div>
 						<p
+							data-i18n-html="about.surname"
 							class="highlight-strong text-center text-base text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
 							Meu <strong>sobrenome</strong> realmente é
 							<strong>Neves Barata</strong>
@@ -338,6 +361,7 @@
 			<section
 				class="gsap-fly-up mx-auto flex w-full max-w-6xl flex-col gap-8 md:gap-13.5">
 				<h1
+					data-i18n="about.timelineTitle"
 					class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
 					Linha do Tempo
 				</h1>
@@ -346,20 +370,23 @@
 					<ul class="flex flex-col gap-6 md:gap-12">
 						<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 							<span
+								data-i18n="dates.202609"
 								class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 								>Setembro de 2026</span
 							>
 							<div class="col-span-3 flex flex-col gap-3">
 								<img
+									data-i18n-alt="about.timeline.siteLogoAlt"
 									src="/assets/face/normal-enzo.png"
 									alt="enzon19 favicon"
 									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2 md:size-14 dark:bg-neutral-800" />
 								<div class="flex flex-col gap-1">
 									<h2
+										data-i18n="about.timeline.siteV3.title"
 										class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 										enzon19.com v3
 									</h2>
-									<p>
+									<p data-i18n="about.timeline.siteV3.description">
 										Refiz meu site do zero mais uma vez, com design melhorado e
 										amadurecido, mais riqueza de detalhes e animações. Tive a
 										oportunidade de usar GSAP e Web Components pela primeira
@@ -370,20 +397,23 @@
 						</li>
 						<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 							<span
+								data-i18n="dates.202603"
 								class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 								>Março de 2026</span
 							>
 							<div class="col-span-3 flex flex-col gap-3">
 								<img
+									data-i18n-alt="about.timeline.dictionaryLogoAlt"
 									src="/assets/projects/dicionario-bot/logo502.png"
 									alt="Dicionário Bot logo"
 									class="aspect-square size-12 rounded-xl bg-[#832519] object-contain object-center p-2 md:size-14" />
 								<div class="flex flex-col gap-1">
 									<h2
+										data-i18n="about.timeline.dictionaryV4.title"
 										class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 										Dicionário Bot v4.0
 									</h2>
-									<p>
+									<p data-i18n="about.timeline.dictionaryV4.description">
 										Refatoração completa usando TypeScript e com comandos
 										reimaginados.
 									</p>
@@ -392,20 +422,23 @@
 						</li>
 						<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 							<span
+								data-i18n="dates.202601"
 								class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 								>Janeiro de 2026</span
 							>
 							<div class="col-span-3 flex flex-col gap-3">
 								<img
+									data-i18n-alt="about.timeline.quickReplyLogoAlt"
 									src="/assets/projects/quick-reply-meet/logo512.png"
 									alt="Quick Reply Meet logo"
 									class="aspect-square size-12 rounded-xl bg-[#15b7a2] object-contain object-center p-2 md:size-14 dark:bg-[#0f766c]" />
 								<div class="flex flex-col gap-1">
 									<h2
+										data-i18n="about.timeline.quickReplyV2.title"
 										class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 										Quick Reply Meet v2.0
 									</h2>
-									<p>
+									<p data-i18n="about.timeline.quickReplyV2.description">
 										Novos recursos, nova interface, correção de bugs e refeito
 										do zero com TypeScript e Svelte.
 									</p>
@@ -414,39 +447,47 @@
 						</li>
 						<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 							<span
+								data-i18n="dates.202509"
 								class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 								>Setembro de 2025</span
 							>
 							<div class="col-span-3 flex flex-col gap-3">
 								<img
+									data-i18n-alt="about.timeline.universityLogoAlt"
 									src="/assets/logos/ufjf.png"
 									alt="UFJF logo"
 									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2 md:size-14 dark:bg-neutral-800" />
 								<div class="flex flex-col gap-1">
 									<h2
+										data-i18n="about.timeline.university.title"
 										class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 										Universidade Federal de Juiz de Fora
 									</h2>
-									<p>Início da minha graduação em Ciência da Computação.</p>
+									<p data-i18n="about.timeline.university.description">
+										Início da minha graduação em Ciência da Computação.
+									</p>
 								</div>
 							</div>
 						</li>
 						<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 							<span
+								data-i18n="dates.202506"
 								class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 								>Junho de 2025</span
 							>
 							<div class="col-span-3 flex flex-col gap-3">
 								<img
+									data-i18n-alt="tools.typescript.logoAlt"
 									src="/assets/logos/TypeScript.svg"
 									alt="TypeScript logo"
 									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
 								<div class="flex flex-col gap-1">
 									<h2
+										data-i18n="tools.typescript.name"
 										class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 										TypeScript
 									</h2>
-									<p>
+									<p data-i18n="about.timeline.typescript.description">
 										Comecei a estudar TypeScript, que substituirá o JavaScript
 										em muitos projetos meus.
 									</p>
@@ -462,20 +503,23 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202404"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Abril de 2024</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<img
+												data-i18n-alt="about.timeline.reverseTVLogoAlt"
 												src="/assets/projects/trakt-tools/reversetv/logo512.png"
 												alt="ReverseTV logo"
 												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2 md:size-14 dark:bg-neutral-800" />
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="home.projects.reverseTV.name"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													ReverseTV
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.reverseTV.description">
 													Descubra outras participações de cada ator em um filme
 													ou série em outras produções com base no seu histórico
 													do Trakt.
@@ -486,20 +530,23 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202308"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Agosto de 2023</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<img
+												data-i18n-alt="about.timeline.siteLogoAlt"
 												src="/assets/face/normal-enzo.png"
 												alt="enzon19 favicon"
 												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2 md:size-14 dark:bg-neutral-800" />
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="about.timeline.siteV2.title"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													enzon19.com v2
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.siteV2.description">
 													Refiz meu site do zero, com design muito melhor, dark
 													mode e mais coesão.
 												</p>
@@ -509,20 +556,23 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202302"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Fevereiro de 2023</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<img
+												data-i18n-alt="about.timeline.classroomLogoAlt"
 												src="/assets/projects/mapa-de-sala/logo563.png"
 												alt="Mapa de Sala logo"
 												class="aspect-square size-12 rounded-xl bg-[#78a5ff] object-contain object-center p-2 md:size-14 dark:bg-[#001a49]" />
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="home.projects.classroom.name"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													Mapa de Sala
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.classroom.description">
 													Um dos meus projetos favoritos: um experimento com o
 													objetivo de reunir dados sobre a posição de cada aluno
 													da minha sala de aula do Ensino Médio. Como bônus,
@@ -536,20 +586,23 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202301"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Janeiro de 2023</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<img
+												data-i18n-alt="about.timeline.dictionaryLogoAlt"
 												src="/assets/projects/dicionario-bot/logo502.png"
 												alt="Dicionário Bot logo"
 												class="aspect-square size-12 rounded-xl bg-[#832519] object-contain object-center p-2 md:size-14" />
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="about.timeline.dictionaryV3.title"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													Dicionário Bot v3.0
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.dictionaryV3.description">
 													O bot recebeu diversos comandos novos, melhorias e
 													teve seu código do bot foi completamente refeito. Além
 													disso, ganhou um site, que me permitiu praticar
@@ -561,20 +614,23 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202301"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:invisible md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Janeiro de 2023</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<img
+												data-i18n-alt="tools.tailwind.logoAlt"
 												src="/assets/logos/Tailwind.svg"
 												alt="Tailwind logo"
 												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="tools.tailwind.name"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													Tailwind
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.tailwind.description">
 													Depois de ter aprendido Tailwind, nunca mais consegui
 													usar CSS puro novamente.
 												</p>
@@ -584,20 +640,23 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202212"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Dezembro de 2022</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<img
+												data-i18n-alt="tools.svelte.logoAlt"
 												src="/assets/logos/Svelte.svg"
 												alt="Svelte logo"
 												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="tools.svelte.name"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													Svelte
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.svelte.description">
 													Comecei a estudar Svelte, que se tornou meu framework
 													preferido.
 												</p>
@@ -607,20 +666,23 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202207"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Julho de 2022</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<img
+												data-i18n-alt="about.timeline.randomTVLogoAlt"
 												src="/assets/projects/trakt-tools/randomtv/logo512.png"
 												alt="RandomTV logo"
 												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2 md:size-14 dark:bg-neutral-800" />
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="home.projects.randomTV.name"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													RandomTV
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.randomTV.description">
 													Minha segunda extensão: ela escolhia um item aleatório
 													de uma lista no Trakt.
 												</p>
@@ -630,20 +692,23 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202206"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Junho de 2022</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<img
+												data-i18n-alt="about.timeline.quickReplyLogoAlt"
 												src="/assets/projects/quick-reply-meet/logo512.png"
 												alt="Quick Reply Meet logo"
 												class="aspect-square size-12 rounded-xl bg-[#15b7a2] object-contain object-center p-2 md:size-14 dark:bg-[#0f766c]" />
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="home.projects.quickReply.name"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													Quick Reply Meet
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.quickReply.description">
 													Minha primeira extensão para navegadores! Envie
 													mensagens no chat do Google Meet sem precisar digitar.
 												</p>
@@ -653,40 +718,48 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202205"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:invisible md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Maio de 2022</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<img
+												data-i18n-alt="about.timeline.siteLogoAlt"
 												src="/assets/face/normal-enzo.png"
 												alt="enzon19 favicon"
 												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2 md:size-14 dark:bg-neutral-800" />
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="about.timeline.siteV1.title"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													enzon19.com
 												</h2>
-												<p>Primeira versão do meu site pessoal!</p>
+												<p data-i18n="about.timeline.siteV1.description">
+													Primeira versão do meu site pessoal!
+												</p>
 											</div>
 										</div>
 									</li>
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202204"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Abril de 2022</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<img
+												data-i18n-alt="about.timeline.lookHereLogoAlt"
 												src="/assets/projects/look-here/logo512.png"
 												alt="LookHere! logo"
 												class="aspect-square size-12 rounded-xl md:size-14" />
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="home.projects.lookHere.name"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													LookHere!
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.lookHere.description">
 													Crie mensagens que piscam para chamar a atenção das
 													pessoas. É um projeto muito simples, mas que eu guardo
 													com carinho.
@@ -697,20 +770,23 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202202"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Fevereiro de 2022</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<img
+												data-i18n-alt="about.timeline.backpackLogoAlt"
 												src="/assets/projects/other/mochila.svg"
 												alt="Mochila do Enzo logo"
 												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2.5 md:size-14 dark:bg-neutral-800" />
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="about.timeline.backpack.title"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													Mochila do Enzo
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.backpack.description">
 													Este projeto utilizava etiquetas NFC para identificar
 													meu material escolar. Foi meu primeiro site público,
 													criado para praticar HTML e CSS ainda mais.
@@ -721,20 +797,23 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202109"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Setembro de 2021</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<img
+												data-i18n-alt="about.timeline.dictionaryLogoAlt"
 												src="/assets/projects/dicionario-bot/logo502.png"
 												alt="Dicionário Bot logo"
 												class="aspect-square size-12 rounded-xl bg-[#832519] object-contain object-center p-2 md:size-14" />
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="home.projects.dictionary.name"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													Dicionário Bot
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.dictionary.description">
 													Um dicionário da língua portuguesa brasileira no
 													Telegram. O começo de um dos meus projetos de maior
 													sucesso e que me proporcionou muito aprendizado ao
@@ -746,26 +825,30 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202103"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Março de 2021</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<div class="flex flex-row gap-3">
 												<img
+													data-i18n-alt="tools.html.logoAlt"
 													src="/assets/logos/HTML5.svg"
 													alt="HTML logo"
 													class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
 												<img
+													data-i18n-alt="tools.css.logoAlt"
 													src="/assets/logos/CSS.svg"
 													alt="CSS logo"
 													class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
 											</div>
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="about.timeline.htmlCss.title"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													HTML e CSS
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.htmlCss.description">
 													Comecei a estudar essas linguagens sozinho durante a
 													pandemia.
 												</p>
@@ -775,26 +858,30 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.202010"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Outubro de 2020</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<div class="flex flex-row gap-3">
 												<img
+													data-i18n-alt="tools.javascript.logoAlt"
 													src="/assets/logos/JavaScript.png"
 													alt="JavaScript logo"
 													class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
 												<img
+													data-i18n-alt="tools.nodejs.logoAlt"
 													src="/assets/logos/NodeJS.png"
 													alt="Node.js logo"
 													class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
 											</div>
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="about.timeline.javascript.title"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													JavaScript e Node.js
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.javascript.description">
 													Eu fico muito feliz de ter escolhido JavaScript ao
 													invés de Python para criar meus primeiros bots de
 													Discord.
@@ -805,22 +892,25 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.201908"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Agosto de 2019</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<div class="flex flex-row gap-3">
 												<img
+													data-i18n-alt="tools.c.logoAlt"
 													src="/assets/logos/C.png"
 													alt="C logo"
 													class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
 											</div>
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="tools.c.name"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													C
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.c.description">
 													Graças a um ex-professor de Matemática que ministrou
 													um curso de C na minha antiga escola, desenvolvi
 													lógica de programação com essa linguagem.
@@ -831,22 +921,25 @@
 									<li
 										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 										<span
+											data-i18n="dates.201701"
 											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
 											>Janeiro de 2017</span
 										>
 										<div class="col-span-3 flex flex-col gap-3">
 											<div class="flex flex-row gap-3">
 												<img
+													data-i18n-alt="tools.vba.logoAlt"
 													src="/assets/logos/vba.png"
 													alt="VBA logo"
 													class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-1.5 md:size-14 dark:bg-neutral-800" />
 											</div>
 											<div class="flex flex-col gap-1">
 												<h2
+													data-i18n="tools.vba.name"
 													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
 													VBA
 												</h2>
-												<p>
+												<p data-i18n="about.timeline.vba.description">
 													Copiando e colando códigos da internet, eu criava
 													joguinhos e programas nas aplicações Office usando
 													VBA.
@@ -857,6 +950,7 @@
 								</ul>
 							</div>
 							<label
+								data-i18n-html="about.timeline.toggle"
 								for="full-timeline"
 								class="btn btn-md btn-secondary mx-auto mt-2 w-fit peer-checked:mt-8 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 md:peer-checked:mt-14 [&_.label-less]:hidden peer-checked:[&_.label-less]:inline peer-checked:[&_.label-more]:hidden">
 								<ion-icon
@@ -881,12 +975,14 @@
 			<section
 				class="gsap-fly-up mx-auto flex w-full max-w-6xl flex-col gap-8 md:gap-13.5">
 				<h1
+					data-i18n="about.toolsTitle"
 					class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
 					Ferramentas Favoritas
 				</h1>
 				<ul class="flex flex-col gap-6 md:gap-12">
 					<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 						<span
+							data-i18n="about.tools.programming"
 							class="text-sm text-neutral-500 dark:border-neutral-700 dark:text-neutral-500"
 							>Programação</span
 						>
@@ -894,68 +990,81 @@
 							class="col-span-3 grid grid-cols-3 gap-4 md:gap-8 lg:grid-cols-5">
 							<li class="flex flex-col items-center gap-3">
 								<img
+									data-i18n-alt="tools.vscode.logoAlt"
 									src="/assets/logos/VSCode.svg"
 									alt="VS Code logo"
 									class="aspect-square size-12 rounded-xl bg-white object-contain object-center p-2 md:size-14" />
-								<p class="text-center">VS Code</p>
+								<p data-i18n="tools.vscode.name" class="text-center">VS Code</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<div class="size-12 overflow-hidden rounded-xl md:size-14">
 									<img
+										data-i18n-alt="tools.intellij.logoAlt"
 										src="/assets/logos/IntelliJIDEA.png"
 										alt="IntelliJ IDEA logo"
 										class="size-full scale-125 object-contain object-center" />
 								</div>
-								<p class="text-center">IntelliJ IDEA</p>
+								<p data-i18n="tools.intellij.name" class="text-center">
+									IntelliJ IDEA
+								</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<div class="size-12 overflow-hidden rounded-xl md:size-14">
 									<img
+										data-i18n-alt="tools.xcode.logoAlt"
 										src="/assets/logos/Xcode.png"
 										alt="Xcode logo"
 										class="size-full scale-125 object-contain object-center" />
 								</div>
-								<p class="text-center">Xcode</p>
+								<p data-i18n="tools.xcode.name" class="text-center">Xcode</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<img
+									data-i18n-alt="tools.dbgate.logoAlt"
 									src="/assets/logos/DBGate.png"
 									alt="DBGate logo"
 									class="aspect-square size-12 rounded-xl bg-[#1C8DAB] object-contain object-center p-1.5 md:size-14" />
-								<p class="text-center">DBGate</p>
+								<p data-i18n="tools.dbgate.name" class="text-center">DBGate</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<img
+									data-i18n-alt="tools.bun.logoAlt"
 									src="/assets/logos/Bun.svg"
 									alt="Bun logo"
 									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2.5 md:size-14 dark:bg-neutral-800" />
-								<p class="text-center">Bun</p>
+								<p data-i18n="tools.bun.name" class="text-center">Bun</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<img
+									data-i18n-alt="tools.svelte.logoAlt"
 									src="/assets/logos/Svelte.svg"
 									alt="Svelte logo"
 									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2.5 md:size-14 dark:bg-neutral-800" />
-								<p class="text-center">Svelte</p>
+								<p data-i18n="tools.svelte.name" class="text-center">Svelte</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<img
+									data-i18n-alt="tools.tailwind.logoAlt"
 									src="/assets/logos/Tailwind.svg"
 									alt="Tailwind logo"
 									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2.5 md:size-14 dark:bg-neutral-800" />
-								<p class="text-center">Tailwind</p>
+								<p data-i18n="tools.tailwind.name" class="text-center">
+									Tailwind
+								</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<img
+									data-i18n-alt="tools.vercel.logoAlt"
 									src="/assets/logos/Vercel.svg"
 									alt="Vercel logo"
 									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2.5 md:size-14 dark:bg-neutral-800" />
-								<p class="text-center">Vercel</p>
+								<p data-i18n="tools.vercel.name" class="text-center">Vercel</p>
 							</li>
 						</ul>
 					</li>
 					<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 						<span
+							data-i18n="about.tools.everyday"
 							class="text-sm text-neutral-500 dark:border-neutral-700 dark:text-neutral-500"
 							>Dia a Dia</span
 						>
@@ -964,76 +1073,97 @@
 							<li class="flex flex-col items-center gap-3">
 								<div class="size-12 overflow-hidden rounded-xl md:size-14">
 									<img
+										data-i18n-alt="tools.vivaldi.logoAlt"
 										src="/assets/logos/Vivaldi.webp"
 										alt="Vivaldi logo"
 										class="size-full scale-105 object-contain object-center" />
 								</div>
-								<p class="text-center">Vivaldi</p>
+								<p data-i18n="tools.vivaldi.name" class="text-center">
+									Vivaldi
+								</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<div class="size-12 overflow-hidden rounded-xl md:size-14">
 									<img
+										data-i18n-alt="tools.syncthing.logoAlt"
 										src="/assets/logos/Syncthing.png"
 										alt="Syncthing logo"
 										class="size-full scale-125 object-contain object-center" />
 								</div>
-								<p class="text-center">Syncthing</p>
+								<p data-i18n="tools.syncthing.name" class="text-center">
+									Syncthing
+								</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<div
 									class="size-12 overflow-hidden rounded-xl bg-white md:size-14 dark:bg-neutral-800">
 									<img
+										data-i18n-alt="tools.sharex.logoAlt"
 										src="/assets/logos/ShareX.png"
 										alt="ShareX logo"
 										class="size-full scale-125 object-contain object-center" />
 								</div>
-								<p class="text-center">ShareX</p>
+								<p data-i18n="tools.sharex.name" class="text-center">ShareX</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<div class="size-12 overflow-hidden rounded-xl md:size-14">
 									<img
+										data-i18n-alt="tools.macshot.logoAlt"
 										src="/assets/logos/macshot.svg"
 										alt="macshot logo"
 										class="size-full scale-140 object-contain object-center" />
 								</div>
-								<p class="text-center">macshot</p>
+								<p data-i18n="tools.macshot.name" class="text-center">
+									macshot
+								</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<img
+									data-i18n-alt="tools.bitwarden.logoAlt"
 									src="/assets/logos/Bitwarden.svg"
 									alt="Bitwarden logo"
 									class="aspect-square size-12 rounded-xl bg-[#165DDC] p-2 md:size-14" />
-								<p class="text-center">Bitwarden</p>
+								<p data-i18n="tools.bitwarden.name" class="text-center">
+									Bitwarden
+								</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<div class="size-12 overflow-hidden rounded-xl md:size-14">
 									<img
+										data-i18n-alt="tools.anki.logoAlt"
 										src="/assets/logos/Anki.png"
 										alt="Anki logo"
 										class="size-full scale-125 object-contain object-center" />
 								</div>
-								<p class="text-center">Anki</p>
+								<p data-i18n="tools.anki.name" class="text-center">Anki</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<img
+									data-i18n-alt="tools.photomath.logoAlt"
 									src="/assets/logos/Photomath.png"
 									alt="Photomath logo"
 									class="aspect-square size-12 rounded-xl object-contain md:size-14" />
-								<p class="text-center">Photomath</p>
+								<p data-i18n="tools.photomath.name" class="text-center">
+									Photomath
+								</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<div class="size-12 overflow-hidden rounded-xl md:size-14">
 									<img
+										data-i18n-alt="tools.lookaway.logoAlt"
 										src="/assets/logos/LookAway.png"
 										alt="LookAway logo"
 										class="size-full scale-125 object-contain object-center" />
 								</div>
-								<p class="text-center">LookAway</p>
+								<p data-i18n="tools.lookaway.name" class="text-center">
+									LookAway
+								</p>
 							</li>
 						</ul>
 					</li>
 					<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 						<span
+							data-i18n="about.tools.productivity"
 							class="text-sm text-neutral-500 dark:border-neutral-700 dark:text-neutral-500"
 							>Produtividade</span
 						>
@@ -1042,30 +1172,38 @@
 							<li class="flex flex-col items-center gap-3">
 								<div class="size-12 overflow-hidden rounded-xl md:size-14">
 									<img
+										data-i18n-alt="tools.obsidian.logoAlt"
 										src="/assets/logos/Obsidian.png"
 										alt="Obsidian logo"
 										class="size-full scale-123 object-contain object-center" />
 								</div>
-								<p class="text-center">Obsidian</p>
+								<p data-i18n="tools.obsidian.name" class="text-center">
+									Obsidian
+								</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<img
+									data-i18n-alt="tools.notion.logoAlt"
 									src="/assets/logos/Notion.svg"
 									alt="Notion logo"
 									class="aspect-square size-12 rounded-xl bg-white object-contain object-center p-2 md:size-14" />
-								<p class="text-center">Notion</p>
+								<p data-i18n="tools.notion.name" class="text-center">Notion</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<img
+									data-i18n-alt="tools.todoist.logoAlt"
 									src="/assets/logos/Todoist.png"
 									alt="Todoist logo"
 									class="aspect-square size-12 rounded-xl md:size-14" />
-								<p class="text-center">Todoist</p>
+								<p data-i18n="tools.todoist.name" class="text-center">
+									Todoist
+								</p>
 							</li>
 						</ul>
 					</li>
 					<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
 						<span
+							data-i18n="about.tools.media"
 							class="text-sm text-neutral-500 dark:border-neutral-700 dark:text-neutral-500"
 							>Foto & Vídeo</span
 						>
@@ -1073,24 +1211,33 @@
 							class="col-span-3 grid grid-cols-3 gap-4 md:gap-8 lg:grid-cols-5">
 							<li class="flex flex-col items-center gap-3">
 								<img
+									data-i18n-alt="tools.photoshop.logoAlt"
 									src="/assets/logos/Photoshop.svg"
 									alt="Photoshop logo"
 									class="aspect-square size-12 rounded-xl md:size-14" />
-								<p class="text-center">Photoshop</p>
+								<p data-i18n="tools.photoshop.name" class="text-center">
+									Photoshop
+								</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<img
+									data-i18n-alt="tools.premiere.logoAlt"
 									src="/assets/logos/Premiere.svg"
 									alt="Premiere Pro logo"
 									class="aspect-square size-12 rounded-xl md:size-14" />
-								<p class="text-center">Premiere Pro</p>
+								<p data-i18n="tools.premiere.name" class="text-center">
+									Premiere Pro
+								</p>
 							</li>
 							<li class="flex flex-col items-center gap-3">
 								<img
+									data-i18n-alt="tools.afterEffects.logoAlt"
 									src="/assets/logos/After Effects.svg"
 									alt="After Effects logo"
 									class="aspect-square size-12 rounded-xl md:size-14" />
-								<p class="text-center">After Effects</p>
+								<p data-i18n="tools.afterEffects.name" class="text-center">
+									After Effects
+								</p>
 							</li>
 						</ul>
 					</li>
@@ -1104,17 +1251,29 @@
 					<h5 class="text-xl font-bold text-black dark:text-white">
 						Enzo Neves Barata
 					</h5>
-					<p class="text-sm">2026. Desde 2021 criando para a web.</p>
-					<p class="text-sm">
+					<p data-i18n="footer.copyright" class="text-sm">
+						2026. Desde 2021 criando para a web.
+					</p>
+					<p data-i18n="footer.credits" class="text-sm">
 						Site feito com HTML, CSS (Tailwind) e JavaScript (Vanilla).
 					</p>
 				</div>
 				<div
-					class="flex flex-row items-center justify-between gap-3 md:justify-normal">
+					class="flex flex-row flex-wrap items-center justify-between gap-3 md:justify-normal">
+					<select
+						data-language-select
+						data-i18n-aria-label="common.language"
+						aria-label="Idioma"
+						class="cursor-pointer rounded-full border border-neutral-400 bg-transparent px-3 py-2 text-sm">
+						<option value="pt-BR">Português</option>
+						<option value="en-GB">English</option>
+					</select>
 					<div class="flex items-center justify-between md:justify-normal">
 						<div
 							class="flex flex-row items-center gap-1 rounded-full bg-neutral-300 p-1 dark:bg-neutral-700">
 							<a
+								data-i18n-title="footer.version1"
+								data-i18n="footer.version1"
 								href="/v1"
 								title="v1"
 								class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
@@ -1122,6 +1281,8 @@
 							</a>
 
 							<a
+								data-i18n-title="footer.version2"
+								data-i18n="footer.version2"
 								href="/v2"
 								title="v2"
 								class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
@@ -1129,6 +1290,8 @@
 							</a>
 
 							<a
+								data-i18n-title="footer.version3"
+								data-i18n="footer.version3"
 								href="#"
 								title="v3"
 								aria-current="page"
@@ -1146,6 +1309,7 @@
 							value="system"
 							class="peer/system sr-only" />
 						<label
+							data-i18n-title="theme.system"
 							for="theme-system"
 							title="Sistema"
 							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/system:bg-white peer-checked/system:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/system:hover:bg-white peer-checked/system:hover:text-neutral-800 dark:peer-checked/system:bg-neutral-500/65 dark:peer-checked/system:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/system:hover:bg-neutral-500/65 dark:peer-checked/system:hover:text-white">
@@ -1159,6 +1323,7 @@
 							value="light"
 							class="peer/light sr-only" />
 						<label
+							data-i18n-title="theme.light"
 							for="theme-light"
 							title="Claro"
 							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/light:bg-white peer-checked/light:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/light:hover:bg-white peer-checked/light:hover:text-neutral-800 dark:peer-checked/light:bg-neutral-500/65 dark:peer-checked/light:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/light:hover:bg-neutral-500/65 dark:peer-checked/light:hover:text-white">
@@ -1172,6 +1337,7 @@
 							value="dark"
 							class="peer/dark sr-only" />
 						<label
+							data-i18n-title="theme.dark"
 							for="theme-dark"
 							title="Escuro"
 							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/dark:bg-white peer-checked/dark:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/dark:hover:bg-white peer-checked/dark:hover:text-neutral-800 dark:peer-checked/dark:bg-neutral-500/65 dark:peer-checked/dark:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/dark:hover:bg-neutral-500/65 dark:peer-checked/dark:hover:text-white">

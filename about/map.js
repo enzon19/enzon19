@@ -3,6 +3,7 @@ const lngJF = -43.351041;
 const jfCoordinates = L.latLng(latJF, lngJF);
 
 async function main() {
+	await window.siteI18n.ready;
 	const { cityName, latitude, longitude } = await getUserLocation();
 	const userCoordinates = L.latLng(latitude, longitude);
 
@@ -80,8 +81,9 @@ function flyToBoundsWhenVisible(map, bounds) {
 
 function changeMapLabel(cityName, userCoordinates) {
 	if (cityName == 'Juiz de Fora') {
-		document.querySelector('#juiz-de-fora-label').innerHTML =
-			'Assim como você, eu também moro em <strong>Juiz de Fora</strong>!';
+		const label = document.querySelector('#juiz-de-fora-label');
+		label.dataset.i18nHtml = 'about.sameCity';
+		label.innerHTML = i18next.t('about.sameCity');
 		return;
 	}
 

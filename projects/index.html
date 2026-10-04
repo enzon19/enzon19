@@ -8,24 +8,36 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>Projetos - enzon19</title>
-		<meta name="title" content="Projetos - enzon19" />
+		<title data-i18n="projects.metaTitle">Projetos - enzon19</title>
 		<meta
+			data-i18n-content="projects.metaTitle"
+			name="title"
+			content="Projetos - enzon19" />
+		<meta
+			data-i18n-content="projects.metaDescription"
 			name="description"
 			content="Todos os projetos que o Enzo construiu desde que se tornou um desenvolvedor web em 2021, incluindo projetos independentes e para clientes." />
 
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://enzon19.com/projects" />
-		<meta property="og:title" content="Projetos - enzon19" />
 		<meta
+			data-i18n-content="projects.metaTitle"
+			property="og:title"
+			content="Projetos - enzon19" />
+		<meta
+			data-i18n-content="projects.metaDescription"
 			property="og:description"
 			content="Todos os projetos que o Enzo construiu desde que se tornou um desenvolvedor web em 2021, incluindo projetos independentes e para clientes." />
 		<meta property="og:image" content="/assets/cover.png" />
 
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content="https://enzon19.com/projects" />
-		<meta property="twitter:title" content="Projetos - enzon19" />
 		<meta
+			data-i18n-content="projects.metaTitle"
+			property="twitter:title"
+			content="Projetos - enzon19" />
+		<meta
+			data-i18n-content="projects.metaDescription"
 			property="twitter:description"
 			content="Todos os projetos que o Enzo construiu desde que se tornou um desenvolvedor web em 2021, incluindo projetos independentes e para clientes." />
 		<meta property="twitter:image" content="/assets/cover.png" />
@@ -57,6 +69,10 @@
 		<link href="/css/style.css" rel="stylesheet" />
 
 		<script src="/js/themes.js"></script>
+		<script
+			defer
+			src="https://unpkg.com/i18next@26.4.2/dist/umd/i18next.min.js"></script>
+		<script defer src="/js/translation.js"></script>
 		<script
 			type="module"
 			src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
@@ -133,10 +149,11 @@
 		<main class="flex flex-col gap-8 p-8 md:gap-13.5 md:p-18">
 			<header class="gsap-fly-up mx-auto flex w-full max-w-6xl flex-col gap-4">
 				<h2
+					data-i18n="projects.title"
 					class="mb-2 text-3xl font-extrabold text-black md:mb-4 md:text-4xl dark:text-white">
 					Projetos
 				</h2>
-				<p class="max-w-2xl md:text-lg">
+				<p data-i18n="projects.intro" class="max-w-2xl md:text-lg">
 					Todos os projetos que eu construí desde que tornei desenvolvedor web
 					em 2021, incluindo projetos independentes e para clientes.
 				</p>
@@ -166,17 +183,29 @@
 					<h5 class="text-xl font-bold text-black dark:text-white">
 						Enzo Neves Barata
 					</h5>
-					<p class="text-sm">2026. Desde 2021 criando para a web.</p>
-					<p class="text-sm">
+					<p data-i18n="footer.copyright" class="text-sm">
+						2026. Desde 2021 criando para a web.
+					</p>
+					<p data-i18n="footer.credits" class="text-sm">
 						Site feito com HTML, CSS (Tailwind) e JavaScript (Vanilla).
 					</p>
 				</div>
 				<div
-					class="flex flex-row items-center justify-between gap-3 md:justify-normal">
+					class="flex flex-row flex-wrap items-center justify-between gap-3 md:justify-normal">
+					<select
+						data-language-select
+						data-i18n-aria-label="common.language"
+						aria-label="Idioma"
+						class="cursor-pointer rounded-full border border-neutral-400 bg-transparent px-3 py-2 text-sm">
+						<option value="pt-BR">Português</option>
+						<option value="en-GB">English</option>
+					</select>
 					<div class="flex items-center justify-between md:justify-normal">
 						<div
 							class="flex flex-row items-center gap-1 rounded-full bg-neutral-300 p-1 dark:bg-neutral-700">
 							<a
+								data-i18n-title="footer.version1"
+								data-i18n="footer.version1"
 								href="/v1"
 								title="v1"
 								class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
@@ -184,6 +213,8 @@
 							</a>
 
 							<a
+								data-i18n-title="footer.version2"
+								data-i18n="footer.version2"
 								href="/v2"
 								title="v2"
 								class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
@@ -191,6 +222,8 @@
 							</a>
 
 							<a
+								data-i18n-title="footer.version3"
+								data-i18n="footer.version3"
 								href="#"
 								title="v3"
 								aria-current="page"
@@ -208,6 +241,7 @@
 							value="system"
 							class="peer/system sr-only" />
 						<label
+							data-i18n-title="theme.system"
 							for="theme-system"
 							title="Sistema"
 							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/system:bg-white peer-checked/system:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/system:hover:bg-white peer-checked/system:hover:text-neutral-800 dark:peer-checked/system:bg-neutral-500/65 dark:peer-checked/system:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/system:hover:bg-neutral-500/65 dark:peer-checked/system:hover:text-white">
@@ -221,6 +255,7 @@
 							value="light"
 							class="peer/light sr-only" />
 						<label
+							data-i18n-title="theme.light"
 							for="theme-light"
 							title="Claro"
 							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/light:bg-white peer-checked/light:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/light:hover:bg-white peer-checked/light:hover:text-neutral-800 dark:peer-checked/light:bg-neutral-500/65 dark:peer-checked/light:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/light:hover:bg-neutral-500/65 dark:peer-checked/light:hover:text-white">
@@ -234,6 +269,7 @@
 							value="dark"
 							class="peer/dark sr-only" />
 						<label
+							data-i18n-title="theme.dark"
 							for="theme-dark"
 							title="Escuro"
 							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/dark:bg-white peer-checked/dark:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/dark:hover:bg-white peer-checked/dark:hover:text-neutral-800 dark:peer-checked/dark:bg-neutral-500/65 dark:peer-checked/dark:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/dark:hover:bg-neutral-500/65 dark:peer-checked/dark:hover:text-white">

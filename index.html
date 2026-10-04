@@ -8,24 +8,33 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>enzon19</title>
-		<meta name="title" content="enzon19" />
+		<title data-i18n="common.siteName">enzon19</title>
+		<meta data-i18n-content="common.siteName" name="title" content="enzon19" />
 		<meta
+			data-i18n-content="home.metaDescription"
 			name="description"
 			content="Eu sou o Enzo, um desenvolvedor apaixonado por transformar problemas e desafios em códigos, criando soluções que aprimoram a vida das pessoas e tornam o dia a dia mais simples e divertido." />
 
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://enzon19.com/" />
-		<meta property="og:title" content="enzon19" />
 		<meta
+			data-i18n-content="common.siteName"
+			property="og:title"
+			content="enzon19" />
+		<meta
+			data-i18n-content="home.metaDescription"
 			property="og:description"
 			content="Eu sou o Enzo, um desenvolvedor apaixonado por transformar problemas e desafios em códigos, criando soluções que aprimoram a vida das pessoas e tornam o dia a dia mais simples e divertido." />
 		<meta property="og:image" content="/assets/cover.png" />
 
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content="https://enzon19.com/" />
-		<meta property="twitter:title" content="enzon19" />
 		<meta
+			data-i18n-content="common.siteName"
+			property="twitter:title"
+			content="enzon19" />
+		<meta
+			data-i18n-content="home.metaDescription"
 			property="twitter:description"
 			content="Eu sou o Enzo, um desenvolvedor apaixonado por transformar problemas e desafios em códigos, criando soluções que aprimoram a vida das pessoas e tornam o dia a dia mais simples e divertido." />
 		<meta property="twitter:image" content="/assets/cover.png" />
@@ -58,6 +67,10 @@
 		<link href="/css/style.css" rel="stylesheet" />
 
 		<script src="/js/themes.js"></script>
+		<script
+			defer
+			src="https://unpkg.com/i18next@26.4.2/dist/umd/i18next.min.js"></script>
+		<script defer src="/js/translation.js"></script>
 		<script
 			type="module"
 			src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
@@ -144,6 +157,7 @@
 							enzon19
 						</h1>
 						<p
+							data-i18n-html="home.headline"
 							class="text-xl font-medium text-neutral-100 text-shadow-enzo lg:text-2xl"
 							style="animation-delay: 0.4s"
 							id="short-description">
@@ -157,6 +171,7 @@
 							class="flex w-fit flex-row flex-wrap gap-3 lg:gap-4"
 							id="profile-buttons">
 							<a
+								data-i18n-html="social.linkedin"
 								href="https://linkedin.com/in/enzon19"
 								target="_blank"
 								class="btn btn-lg btn-alternative"
@@ -165,6 +180,7 @@
 								<span>Linkedin</span>
 							</a>
 							<a
+								data-i18n-html="social.github"
 								href="https://github.com/enzon19"
 								target="_blank"
 								class="btn btn-lg btn-alternative"
@@ -173,6 +189,7 @@
 								<span>GitHub</span>
 							</a>
 							<a
+								data-i18n-html="social.email"
 								href="mailto:contato@enzon19.com"
 								target="_blank"
 								class="btn btn-lg btn-alternative"
@@ -204,6 +221,7 @@
 						<div
 							class="mb-2 flex flex-row items-center justify-between gap-4 md:mb-4">
 							<h2
+								data-i18n="home.aboutTitle"
 								class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
 								Sobre
 							</h2>
@@ -211,6 +229,7 @@
 								href="/about"
 								class="group flex flex-row items-center gap-2 hover:text-black dark:hover:text-white">
 								<span
+									data-i18n="home.aboutLink"
 									class="hidden translate-x-3 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100 md:inline">
 									Saiba mais
 								</span>
@@ -224,7 +243,9 @@
 								</div>
 							</a>
 						</div>
-						<p class="highlight-strong md:text-lg">
+						<p
+							data-i18n-html="home.aboutIntro"
+							class="highlight-strong md:text-lg">
 							Meu nome é Enzo, sou
 							<strong>desenvolvedor web full-stack</strong> e
 							<strong>estudante de Ciência da Computação</strong> na UFJF. Eu
@@ -235,7 +256,9 @@
 							>. Além disso, tenho experiência com
 							<strong>edição de imagens e vídeos.</strong>
 						</p>
-						<p class="highlight-strong md:text-lg">
+						<p
+							data-i18n-html="home.aboutInterests"
+							class="highlight-strong md:text-lg">
 							Comecei a programar aos 11 anos e, sem dúvida,
 							<strong> programar é minha paixão!</strong> Não me vejo fazendo
 							outra coisa que não isso. Atualmente, tenho muito interesse em me
@@ -363,10 +386,11 @@
 						class="gsap-fly-up flex flex-row items-center justify-between gap-4">
 						<div class="flex flex-col gap-3 md:gap-4">
 							<h2
+								data-i18n="home.featuredTitle"
 								class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
 								Principais Projetos
 							</h2>
-							<p class="text-sm md:text-base">
+							<p data-i18n="home.featuredSubtitle" class="text-sm md:text-base">
 								Trabalhos recentes que mais me orgulham
 							</p>
 						</div>
@@ -382,21 +406,25 @@
 							<div
 								class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#EE291A] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#ff4133] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#ff4133] md:h-84 dark:bg-[#a51a0f] dark:group-hover:bg-[#c81a0d] dark:group-[.is-active]:bg-[#c81a0d]">
 								<img
+									data-i18n-alt="home.projects.dictionary.previewAlt"
 									class="mt-8 w-full max-w-42 object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
 									src="/assets/projects/dicionario-bot/hero_phone_screenshot.png"
 									alt="Hero Dicionário Bot" />
 							</div>
 							<div class="flex flex-row items-center gap-3">
 								<img
+									data-i18n-alt="home.projects.dictionary.logoAlt"
 									class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
 									src="/assets/projects/dicionario-bot/logo502.png"
 									alt="Logo Dicionário Bot" />
 								<div class="flex flex-col gap-1">
 									<h3
+										data-i18n="home.projects.dictionary.name"
 										class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
 										Dicionário Bot
 									</h3>
 									<p
+										data-i18n="home.projects.dictionary.description"
 										class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
 										Um dicionário da língua portuguesa brasileira no Telegram.
 									</p>
@@ -416,21 +444,25 @@
 							class="pointer-events-none absolute inset-0 z-0 bg-linear-to-br from-[#40857e]/45 via-[#32736c]/20 to-[#165c56]/35 blur-2xl dark:from-[#70a09a]/55 dark:via-[#648c87]/35 dark:to-[#507b76]/50"></div> -->
 								<!-- img -> relative z-10 -->
 								<img
+									data-i18n-alt="home.projects.quickReply.previewAlt"
 									class="mt-8 w-full max-w-42 object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
 									src="/assets/projects/quick-reply-meet/chat_screenshot.png"
 									alt="Hero Quick Reply Meet" />
 							</div>
 							<div class="flex flex-row items-center gap-3">
 								<img
+									data-i18n-alt="home.projects.quickReply.logoAlt"
 									class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
 									src="/assets/projects/quick-reply-meet/logo512.png"
 									alt="Logo Quick Reply Meet" />
 								<div class="flex flex-col gap-1">
 									<h3
+										data-i18n="home.projects.quickReply.name"
 										class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
 										Quick Reply Meet
 									</h3>
 									<p
+										data-i18n="home.projects.quickReply.description"
 										class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
 										Envie mensagens no chat do Google Meet™ sem precisar
 										digitar.
@@ -447,21 +479,25 @@
 							<div
 								class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#d93a3d] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#ea494c] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#ea494c] md:h-84 dark:bg-[#951f21] dark:group-hover:bg-[#b42124] dark:group-[.is-active]:bg-[#b42124]">
 								<img
+									data-i18n-alt="home.projects.reverseTV.previewAlt"
 									class="mt-8 w-full max-w-42 rounded-md object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
 									src="/assets/projects/trakt-tools/reversetv/page_screenshot.png"
 									alt="Hero ReverseTV" />
 							</div>
 							<div class="flex flex-row items-center gap-3">
 								<img
+									data-i18n-alt="home.projects.reverseTV.logoAlt"
 									class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
 									src="/assets/projects/trakt-tools/reversetv/logo512.png"
 									alt="Logo ReverseTV" />
 								<div class="flex flex-col gap-1">
 									<h3
+										data-i18n="home.projects.reverseTV.name"
 										class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
 										ReverseTV
 									</h3>
 									<p
+										data-i18n="home.projects.reverseTV.description"
 										class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
 										Descubra outros papéis de cada ator com base no seu
 										histórico do Trakt.
@@ -478,13 +514,18 @@
 						class="gsap-fly-up flex flex-row items-center justify-between gap-4">
 						<div class="flex flex-col gap-3 md:gap-4">
 							<h2
+								data-i18n="home.otherProjectsTitle"
 								class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
 								Outros Projetos
 							</h2>
-							<p class="hidden md:block md:text-base">
+							<p
+								data-i18n="home.otherProjectsSubtitle"
+								class="hidden md:block md:text-base">
 								Criações menores, anteriores ou experimentais
 							</p>
-							<p class="block text-sm md:hidden">
+							<p
+								data-i18n="home.otherProjectsMobileSubtitle"
+								class="block text-sm md:hidden">
 								Criações anteriores ou experimentais
 							</p>
 						</div>
@@ -492,6 +533,7 @@
 							href="/projects"
 							class="group flex flex-row items-center gap-2 hover:text-black dark:hover:text-white">
 							<span
+								data-i18n="home.projectsLink"
 								class="hidden translate-x-3 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100 md:inline">
 								Ver mais
 							</span>
@@ -516,21 +558,25 @@
 							<div
 								class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#3174df] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#4690eb] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#4690eb] md:h-84 dark:bg-[#2952af] dark:group-hover:bg-[#285fcd] dark:group-[.is-active]:bg-[#285fcd]">
 								<img
+									data-i18n-alt="home.projects.classroom.previewAlt"
 									class="mt-8 w-full max-w-42 object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
 									src="/assets/projects/mapa-de-sala/page_screenshot.png"
 									alt="Hero Mapa de Sala" />
 							</div>
 							<div class="flex flex-row items-center gap-3">
 								<img
+									data-i18n-alt="home.projects.classroom.logoAlt"
 									class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
 									src="/assets/projects/mapa-de-sala/logo563.png"
 									alt="Logo Mapa de Sala" />
 								<div class="flex flex-col gap-1">
 									<h3
+										data-i18n="home.projects.classroom.name"
 										class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
 										Mapa de Sala
 									</h3>
 									<p
+										data-i18n="home.projects.classroom.description"
 										class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
 										Um experimento que exibia dados de cada aluno na sala de
 										aula.
@@ -547,21 +593,25 @@
 							<div
 								class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#00a476] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#00ca8d] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#00ca8d] md:h-84 dark:bg-[#00684e] dark:group-hover:bg-[#008361] dark:group-[.is-active]:bg-[#008361]">
 								<img
+									data-i18n-alt="home.projects.lookHere.previewAlt"
 									class="mt-8 w-full max-w-42 rounded-md object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
 									src="/assets/projects/look-here/mockup.png"
 									alt="Hero LookHere!" />
 							</div>
 							<div class="flex flex-row items-center gap-3">
 								<img
+									data-i18n-alt="home.projects.lookHere.logoAlt"
 									class="size-12 shrink-0 rounded-xl transition-all duration-300 ease-in-out md:size-14"
 									src="/assets/projects/look-here/logo512.png"
 									alt="Logo LookHere!" />
 								<div class="flex flex-col gap-1">
 									<h3
+										data-i18n="home.projects.lookHere.name"
 										class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
 										LookHere!
 									</h3>
 									<p
+										data-i18n="home.projects.lookHere.description"
 										class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
 										Crie mensagens que piscam para chamar a atenção das pessoas.
 									</p>
@@ -577,21 +627,25 @@
 							<div
 								class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl bg-[#d93a3d] px-6 transition-all duration-300 group-hover:scale-[1.04] group-hover:bg-[#ea494c] group-[.is-active]:scale-[1.04] group-[.is-active]:bg-[#ea494c] md:h-84 dark:bg-[#951f21] dark:group-hover:bg-[#b42124] dark:group-[.is-active]:bg-[#b42124]">
 								<img
+									data-i18n-alt="home.projects.randomTV.previewAlt"
 									class="mt-8 w-full max-w-42 rounded-md object-contain transition-all duration-300 ease-in-out group-hover:mt-4 group-[.is-active]:mt-4 md:mt-14 md:max-w-72 md:group-hover:mt-6 md:group-[.is-active]:mt-6"
 									src="/assets/projects/trakt-tools/randomtv/extension_screenshot.png"
 									alt="Hero RandomTV" />
 							</div>
 							<div class="flex flex-row items-center gap-3">
 								<img
+									data-i18n-alt="home.projects.randomTV.logoAlt"
 									class="size-12 shrink-0 transition-all duration-300 ease-in-out md:size-14"
 									src="/assets/projects/trakt-tools/randomtv/logo512.png"
 									alt="Logo RandomTV" />
 								<div class="flex flex-col gap-1">
 									<h3
+										data-i18n="home.projects.randomTV.name"
 										class="text-lg font-semibold text-neutral-800 md:text-xl dark:text-neutral-100">
 										RandomTV
 									</h3>
 									<p
+										data-i18n="home.projects.randomTV.description"
 										class="text-sm text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
 										Uma extensão para selecionar um item aleatório de uma lista
 										no Trakt.
@@ -608,10 +662,11 @@
 						class="gsap-fly-up flex flex-row items-center justify-between gap-4 md:mb-2">
 						<div class="flex flex-col gap-3 md:gap-4">
 							<h2
+								data-i18n="home.hobbiesTitle"
 								class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
 								Fora do Terminal
 							</h2>
-							<p class="text-sm md:text-base">
+							<p data-i18n="home.hobbiesSubtitle" class="text-sm md:text-base">
 								Outros interesses além da programação
 							</p>
 						</div>
@@ -627,6 +682,7 @@
 								<div
 									class="absolute inset-0 flex items-end rounded-xl bg-linear-to-t from-white/80 via-white/10 to-transparent p-3 opacity-100 transition-opacity duration-300 md:opacity-0 md:group-hover/card:opacity-100 dark:from-black/80 dark:via-black/10">
 									<span
+										data-i18n="hobbies.burgers"
 										class="text-sm font-semibold text-black text-shadow-enzo dark:text-white">
 										Hambúrgueres
 									</span>
@@ -660,17 +716,29 @@
 					<h5 class="text-xl font-bold text-black dark:text-white">
 						Enzo Neves Barata
 					</h5>
-					<p class="text-sm">2026. Desde 2021 criando para a web.</p>
-					<p class="text-sm">
+					<p data-i18n="footer.copyright" class="text-sm">
+						2026. Desde 2021 criando para a web.
+					</p>
+					<p data-i18n="footer.credits" class="text-sm">
 						Site feito com HTML, CSS (Tailwind) e JavaScript (Vanilla).
 					</p>
 				</div>
 				<div
-					class="flex flex-row items-center justify-between gap-3 md:justify-normal">
+					class="flex flex-row flex-wrap items-center justify-between gap-3 md:justify-normal">
+					<select
+						data-language-select
+						data-i18n-aria-label="common.language"
+						aria-label="Idioma"
+						class="cursor-pointer rounded-full border border-neutral-400 bg-transparent px-3 py-2 text-sm">
+						<option value="pt-BR">Português</option>
+						<option value="en-GB">English</option>
+					</select>
 					<div class="flex items-center justify-between md:justify-normal">
 						<div
 							class="flex flex-row items-center gap-1 rounded-full bg-neutral-300 p-1 dark:bg-neutral-700">
 							<a
+								data-i18n-title="footer.version1"
+								data-i18n="footer.version1"
 								href="/v1"
 								title="v1"
 								class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
@@ -678,6 +746,8 @@
 							</a>
 
 							<a
+								data-i18n-title="footer.version2"
+								data-i18n="footer.version2"
 								href="/v2"
 								title="v2"
 								class="flex cursor-pointer items-center justify-center rounded-full px-3 py-1.75 text-xs text-neutral-500 transition-colors hover:bg-white hover:text-neutral-800 dark:hover:bg-neutral-600 dark:hover:text-white">
@@ -685,6 +755,8 @@
 							</a>
 
 							<a
+								data-i18n-title="footer.version3"
+								data-i18n="footer.version3"
 								href="#"
 								title="v3"
 								aria-current="page"
@@ -702,6 +774,7 @@
 							value="system"
 							class="peer/system sr-only" />
 						<label
+							data-i18n-title="theme.system"
 							for="theme-system"
 							title="Sistema"
 							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/system:bg-white peer-checked/system:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/system:hover:bg-white peer-checked/system:hover:text-neutral-800 dark:peer-checked/system:bg-neutral-500/65 dark:peer-checked/system:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/system:hover:bg-neutral-500/65 dark:peer-checked/system:hover:text-white">
@@ -715,6 +788,7 @@
 							value="light"
 							class="peer/light sr-only" />
 						<label
+							data-i18n-title="theme.light"
 							for="theme-light"
 							title="Claro"
 							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/light:bg-white peer-checked/light:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/light:hover:bg-white peer-checked/light:hover:text-neutral-800 dark:peer-checked/light:bg-neutral-500/65 dark:peer-checked/light:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/light:hover:bg-neutral-500/65 dark:peer-checked/light:hover:text-white">
@@ -728,6 +802,7 @@
 							value="dark"
 							class="peer/dark sr-only" />
 						<label
+							data-i18n-title="theme.dark"
 							for="theme-dark"
 							title="Escuro"
 							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/dark:bg-white peer-checked/dark:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/dark:hover:bg-white peer-checked/dark:hover:text-neutral-800 dark:peer-checked/dark:bg-neutral-500/65 dark:peer-checked/dark:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/dark:hover:bg-neutral-500/65 dark:peer-checked/dark:hover:text-white">

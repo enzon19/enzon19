@@ -1,8 +1,8 @@
 const ATTRIBUTES = ['page', 'triggered'];
 const NAV_LINKS = [
-	{ href: '/about', label: 'Sobre' },
-	{ href: '/projects', label: 'Projetos' },
-	{ href: '/contact', label: 'Contato' },
+	{ href: '/about', label: 'Sobre', key: 'nav.about' },
+	{ href: '/projects', label: 'Projetos', key: 'nav.projects' },
+	{ href: '/contact', label: 'Contato', key: 'nav.contact' },
 ];
 
 export default class EnzoHeader extends HTMLElement {
@@ -43,9 +43,9 @@ export default class EnzoHeader extends HTMLElement {
 		header.className = `pointer-events-none ${this.triggered ? 'fixed' : 'sticky'} top-0 z-50 w-full p-4 md:p-6`;
 
 		const navLinksHtml = NAV_LINKS.map(
-			({ href, label }) => `
+			({ href, label, key }) => `
 						<a
-							href="${href}"
+							href="${href}" data-i18n="${key}"
 							class="w-full text-center transition-colors hover:text-black sm:w-auto dark:hover:text-white"
 							>${label}</a
 						>`,
@@ -75,7 +75,7 @@ export default class EnzoHeader extends HTMLElement {
 					<button
 						class="relative flex size-6 cursor-pointer flex-col items-center justify-center sm:hidden"
 						id="mobile-header-button-menu"
-						aria-label="Open menu"
+						aria-label="Abrir menu" data-i18n-aria-label="nav.openMenu"
 						aria-expanded="false"
 						aria-controls="nav-wrapper">
 						<ion-icon name="menu" class="absolute inset-0 size-6"></ion-icon>
@@ -262,9 +262,15 @@ export default class EnzoHeader extends HTMLElement {
 			'aria-expanded',
 			String(this.#isMenuOpen),
 		);
+		const menuKey = this.#isMenuOpen ? 'nav.closeMenu' : 'nav.openMenu';
+		this.#headerMenuButton.setAttribute('data-i18n-aria-label', menuKey);
 		this.#headerMenuButton.setAttribute(
 			'aria-label',
-			this.#isMenuOpen ? 'Close menu' : 'Open menu',
+			window.i18next?.isInitialized
+				? window.i18next.t(menuKey)
+				: this.#isMenuOpen
+					? 'Fechar menu'
+					: 'Abrir menu',
 		);
 	}
 

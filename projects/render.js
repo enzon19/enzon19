@@ -5,14 +5,20 @@ function getCard({ id, name, logo, color, tags, period, urls }) {
 	const projectCard = template.cloneNode(true).firstElementChild;
 
 	projectCard.querySelector('h3').textContent = name;
-	projectCard.querySelector('p').textContent = 'description.' + id; // i18n
+	projectCard.querySelector('p').dataset.i18n = 'description.' + id;
+	projectCard.querySelector('p').textContent = i18next.t('description.' + id);
 	projectCard.id = 'project-' + id;
 
-	const presentIndex = period.indexOf('present');
-	if (presentIndex > -1) {
-		period[presentIndex] = 'presente'; // i18n
-	}
-	projectCard.querySelector('.period').textContent = period.join(' - ');
+	const periodElement = projectCard.querySelector('.period');
+	periodElement.replaceChildren();
+	period.forEach((value, index) => {
+		if (index) periodElement.append(' - ');
+		const span = document.createElement('span');
+		if (value === 'present') span.dataset.i18n = 'projects.present';
+		span.textContent =
+			value === 'present' ? i18next.t('projects.present') : value;
+		periodElement.append(span);
+	});
 
 	const img = projectCard.querySelector('img');
 	img.src = logo;
@@ -23,9 +29,11 @@ function getCard({ id, name, logo, color, tags, period, urls }) {
 	const tagsElement = projectCard.querySelector('.tags');
 	for (const tag of tags) {
 		const tagElement = document.createElement('span');
+
 		tagElement.className =
 			'rounded-full bg-neutral-200 px-3 py-1.5 text-xs font-medium whitespace-nowrap text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400';
-		tagElement.textContent = tag; // i18n
+		tagElement.dataset.i18n = 'tags.' + tag;
+		tagElement.textContent = i18next.t('tags.' + tag);
 
 		tagsElement.appendChild(tagElement);
 	}
@@ -41,7 +49,7 @@ function getCard({ id, name, logo, color, tags, period, urls }) {
 			aElement.className = `btn btn-sm ${firstURL ? 'btn-primary' : 'btn-secondary'}`;
 			aElement.target = '_blank';
 			aElement.href = url.href;
-			aElement.innerHTML = `<ion-icon ${urlType.field}="${urlType.value}" class="text-base"></ion-icon>${url.type}`; // i18n
+			aElement.innerHTML = `<ion-icon ${urlType.field}="${urlType.value}" class="text-base"></ion-icon><span data-i18n="anchors.${url.type}">${i18next.t('anchors.' + url.type)}</span>`;
 
 			urlsElement.appendChild(aElement);
 			firstURL = false;
@@ -67,8 +75,11 @@ function renderTagsFilter() {
 		const buttonElement = document.createElement('button');
 		buttonElement.className =
 			'cursor-pointer rounded-xl border border-neutral-300 px-3 py-2 text-sm transition-all duration-300 ease-in-out hover:bg-neutral-200/50 active:scale-95 dark:border-neutral-700 dark:hover:bg-neutral-800';
-		buttonElement.id = 'tags-filter-' + tag; // i18n
-		buttonElement.textContent = `${tag} (${projectsTaggedCount})`;
+		buttonElement.id = 'tags-filter-' + tag;
+		const label = document.createElement('span');
+		label.dataset.i18n = 'tags.' + tag;
+		label.textContent = i18next.t('tags.' + tag);
+		buttonElement.append(label, ` (${projectsTaggedCount})`);
 		buttonElement.addEventListener('click', () => changeFilter(tag));
 
 		tagsFilter.appendChild(buttonElement);
@@ -114,7 +125,13 @@ function filterProjects(filter) {
 
 function initializeAllProjectsButton() {
 	const allProjectsButton = document.querySelector('#tags-filter-all');
-	allProjectsButton.textContent = `all (${projects.length})`; // i18n
+	allProjectsButton.dataset.i18n = 'projects.all';
+	allProjectsButton.dataset.i18nOptions = JSON.stringify({
+		count: projects.length,
+	});
+	allProjectsButton.textContent = i18next.t('projects.all', {
+		count: projects.length,
+	});
 	allProjectsButton.addEventListener('click', () => changeFilter('all'));
 }
 
@@ -126,4 +143,4 @@ function main() {
 	toggleFilterButton(currentFilter);
 }
 
-main();
+window.siteI18n.ready.then(main);
