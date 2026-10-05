@@ -101,8 +101,7 @@ test('all three dictionaries cover every static and project description key', ()
 			),
 		].map((match) => match[1]);
 		for (const key of keys)
-			for (const lng of languages)
-				expect(resources[lng][key]).toBeString();
+			for (const lng of languages) expect(resources[lng][key]).toBeString();
 	}
 	for (const project of projects)
 		for (const lng of languages)
@@ -287,7 +286,9 @@ test('URL overrides stored language and regional browser languages are normalize
 test('footer language radios switch languages and reflect the active language', async () => {
 	const window = await setup('index.html');
 	try {
-		const radios = [...window.document.querySelectorAll('[data-language-radio]')];
+		const radios = [
+			...window.document.querySelectorAll('[data-language-radio]'),
+		];
 		expect(radios).toHaveLength(3);
 		expect(radios.find((radio) => radio.checked).value).toBe('en-GB');
 		const spanish = radios.find((radio) => radio.value === 'es');
@@ -295,7 +296,10 @@ test('footer language radios switch languages and reflect the active language', 
 		spanish.dispatchEvent(new window.Event('change', { bubbles: true }));
 		await new Promise((resolve) => setTimeout(resolve, 10));
 		expect(window.document.documentElement.lang).toBe('es');
-		expect(window.document.querySelector('[data-i18n="home.aboutTitle"]').textContent).toBe('Sobre mí');
+		expect(
+			window.document.querySelector('[data-i18n="home.aboutTitle"]')
+				.textContent,
+		).toBe('Sobre mí');
 		expect(window.localStorage.getItem('i18nextLng')).toBe('es');
 		await window.siteI18n.changeLanguage('pt-BR');
 		expect(radios.find((radio) => radio.checked).value).toBe('pt-BR');
