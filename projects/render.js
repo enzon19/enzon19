@@ -121,6 +121,8 @@ function filterProjects(filter) {
 		const shouldShow = filter === 'all' || project.tags.includes(filter);
 		card.classList.toggle('hidden', !shouldShow);
 	}
+
+	if ('ScrollTrigger' in window) ScrollTrigger.refresh(true);
 }
 
 function initializeAllProjectsButton() {
