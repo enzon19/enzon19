@@ -21,13 +21,13 @@ document
 // ----- MOBILE DIZZY -----
 import Shake from 'shake.js';
 async function setShakeListener() {
-	const shake = new Shake({ threshold: 20, timeout: 2000 });
+	const shake = new Shake({ threshold: 18, timeout: 2000 });
+
+	shake.start();
 
 	window.addEventListener('shake', () => {
 		makeHimDizzy();
 	});
-
-	shake.start();
 }
 
 if (
