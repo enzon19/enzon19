@@ -208,7 +208,7 @@ export default class EnzoFooter extends HTMLElement {
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 994.64 171.2"
-					class="block w-full fill-neutral-300 dark:fill-neutral-700">
+					class="block w-full fill-neutral-300 dark:fill-neutral-900">
 					<title>enzon19</title>
 					<path
 						d="M147.54,163.22H104.65a21.18,21.18,0,0,1-5.16,8h46A54,54,0,0,0,147.54,163.22Z" />
