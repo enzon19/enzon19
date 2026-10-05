@@ -66,6 +66,17 @@
 		<link href="/css/animations.css" rel="stylesheet" />
 		<link href="/css/style.css" rel="stylesheet" />
 
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+					"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/",
+					"@paper-design/shaders": "https://esm.sh/@paper-design/shaders@0.0.77",
+					"shake.js": "https://esm.sh/shake.js@1.2.2"
+				}
+			}
+		</script>
+
 		<script src="/js/themes.js"></script>
 		<script
 			defer
@@ -106,16 +117,6 @@
 		<script defer src="/js/home/stack/animations-stack.js"></script>
 		<script type="module" src="/js/home/stack/StackItemCard.js"></script>
 
-		<script type="importmap">
-			{
-				"imports": {
-					"three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
-					"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/",
-					"@paper-design/shaders": "https://esm.sh/@paper-design/shaders@0.0.77",
-					"shake.js": "https://esm.sh/shake.js@1.2.2"
-				}
-			}
-		</script>
 		<script type="module" src="/js/home/hero/shader-background.js"></script>
 		<script defer src="/js/home/hero/enzo-face.js"></script>
 		<script type="module" src="/js/home/hero/face-interactions.js"></script>

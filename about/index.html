@@ -68,6 +68,15 @@
 		<link href="/css/animations.css" rel="stylesheet" />
 		<link href="/css/style.css" rel="stylesheet" />
 
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+					"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+				}
+			}
+		</script>
+
 		<script src="/js/themes.js"></script>
 		<script
 			defer
@@ -138,14 +147,6 @@
 			}
 		</style>
 
-		<script type="importmap">
-			{
-				"imports": {
-					"three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
-					"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
-				}
-			}
-		</script>
 		<script type="module" src="cockroach.js"></script>
 	</head>
 	<body
