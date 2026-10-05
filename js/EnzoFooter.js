@@ -1,14 +1,16 @@
 gsap.fromTo(
 	'footer',
 	{
-		backgroundColor: document.documentElement.classList.contains('dark')
-			? '#525252'
-			: '#a1a1a1',
+		backgroundColor: () =>
+			document.documentElement.classList.contains('dark')
+				? '#525252'
+				: '#a1a1a1',
 	},
 	{
-		backgroundColor: document.documentElement.classList.contains('dark')
-			? '#1b1b1b'
-			: '#ededed',
+		backgroundColor: () =>
+			document.documentElement.classList.contains('dark')
+				? '#1b1b1b'
+				: '#ededed',
 		scrollTrigger: {
 			trigger: 'footer',
 			start: 'top bottom',
