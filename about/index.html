@@ -1,12 +1,1250 @@
 <!doctype html>
-<html lang="en">
+<html class="no-js" lang="pt-BR">
 	<head>
+		<script>
+			document.documentElement.classList.remove('no-js');
+		</script>
+
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Sobre</title>
+
+		<title data-i18n="about.metaTitle">Sobre - enzon19</title>
+		<meta
+			data-i18n-content="about.metaTitle"
+			name="title"
+			content="Sobre - enzon19" />
+		<meta
+			data-i18n-content="about.metaDescription"
+			name="description"
+			content="Eu sou o Enzo, um desenvolvedor web full-stack. Saiba mais sobre minha trajetória na programação." />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://enzon19.com/about" />
+		<meta
+			data-i18n-content="about.metaTitle"
+			property="og:title"
+			content="Sobre - enzon19" />
+		<meta
+			data-i18n-content="about.metaDescription"
+			property="og:description"
+			content="Eu sou o Enzo, um desenvolvedor web full-stack. Saiba mais sobre minha trajetória na programação." />
+		<meta property="og:image" content="/assets/cover.png" />
+
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content="https://enzon19.com/about" />
+		<meta
+			data-i18n-content="about.metaTitle"
+			property="twitter:title"
+			content="Sobre - enzon19" />
+		<meta
+			data-i18n-content="about.metaDescription"
+			property="twitter:description"
+			content="Eu sou o Enzo, um desenvolvedor web full-stack. Saiba mais sobre minha trajetória na programação." />
+		<meta property="twitter:image" content="/assets/cover.png" />
+
+		<link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/assets/favicon/apple-touch-icon.png" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/assets/favicon/favicon-32x32.png" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/assets/favicon/favicon-16x16.png" />
+		<link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+			rel="stylesheet" />
+
+		<link href="/css/animations.css" rel="stylesheet" />
 		<link href="/css/style.css" rel="stylesheet" />
+
+		<script src="/js/themes.js"></script>
+		<script
+			defer
+			src="https://unpkg.com/i18next@26.4.2/dist/umd/i18next.min.js"></script>
+		<script defer src="/js/translation.js"></script>
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+		<script
+			nomodule
+			defer
+			src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+		<script
+			data-goatcounter="https://enzon19.goatcounter.com/count"
+			async
+			src="//gc.zgo.at/count.js"></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+		<script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/lenis@1.3.26/dist/lenis.css" />
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+		<script defer src="/js/animations/core.js"></script>
+		<script type="module" src="/js/EnzoHeader.js"></script>
+		<script type="module" src="/js/EnzoFooter.js"></script>
+
+		<script type="module" src="bark.js"></script>
+
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+			crossorigin="" />
+		<script
+			src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+			crossorigin=""></script>
+		<script type="module" src="map.js"></script>
+		<style>
+			#map-card {
+				--accent: 1 128 183;
+			}
+
+			#map-card:is(.dark *) {
+				--accent: 80 140 200;
+			}
+
+			#cockroach-card {
+				--accent: 1 128 183;
+			}
+
+			#cockroach-card:is(.dark *) {
+				--accent: 255 255 255;
+			}
+
+			#map .leaflet-tile-pane {
+				filter: grayscale(100%) sepia(60%) hue-rotate(170deg) saturate(130%)
+					brightness(90%) contrast(115%);
+			}
+
+			#map:is(.dark *) .leaflet-tile-pane {
+				filter: invert(100%) grayscale(100%) sepia(100%) hue-rotate(170deg)
+					saturate(150%) brightness(95%) contrast(90%);
+			}
+		</style>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+					"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+				}
+			}
+		</script>
+		<script type="module" src="cockroach.js"></script>
 	</head>
-	<body class="p-2">
-		<p>Página em construção.</p>
+	<body
+		class="bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">
+		<enzo-header page="about"></enzo-header>
+		<main class="flex flex-col gap-16 p-8 md:gap-36 md:p-18">
+			<div
+				class="mx-auto w-full max-w-6xl flex-row justify-between gap-12 md:flex">
+				<div class="gsap-fly-up flex max-w-3xl flex-col gap-4">
+					<header class="mb-1 flex flex-col gap-4 md:mb-2">
+						<img
+							src="/assets/photos/avatar.png"
+							class="mb-2 aspect-square size-28 rounded-full border border-neutral-200 bg-white sm:size-36 md:hidden dark:border-neutral-700 dark:bg-neutral-800" />
+						<h1
+							data-i18n="about.name"
+							class="mb-2 text-3xl font-extrabold text-black md:mb-4 md:text-4xl dark:text-white">
+							Enzo N. Barata
+						</h1>
+						<p data-i18n="about.headline" class="max-w-2xl md:text-lg">
+							Desenvolvedor web full-stack · Estudante de Ciência da Computação
+							(UFJF)
+						</p>
+					</header>
+					<section class="flex flex-col gap-4">
+						<p data-i18n-html="about.intro" class="highlight-strong">
+							Meu nome é <strong>Enzo</strong>, tenho 20 anos e eu nasci e moro
+							em Juiz de Fora (MG). Programo por paixão e por trabalho, mas
+							<strong>eu gosto de criar coisas</strong> desde pequeno. Quando eu
+							era menor, usava papelão, papel e desenhos para inventar, então
+							sempre fui de usar a imaginação e a criatividade. Com o tempo,
+							desenvolvi uma fascinação pelo <strong>mundo audiovisual</strong>,
+							o que me levou a explorar a criação e a edição de fotos e vídeos.
+							Embora ainda goste dessa área, eu concluí que
+							<strong>
+								o que eu realmente gosto é de criar através do desenvolvimento
+								de software</strong
+							>.
+						</p>
+						<p data-i18n-html="about.earlyProgramming" class="highlight-strong">
+							Comecei a programar quando eu
+							<strong>criava joguinhos usando PowerPoint e VBA</strong> aos meus
+							11 anos, em 2017. Naquela época, eu apenas copiava e colava
+							códigos, sem entender muito bem o que eu estava fazendo. Dois anos
+							depois, em 2019, meu ex-professor de Matemática ofereceu um
+							<strong>curso de C</strong> na minha escola. Foi assim que
+							realmente desenvolvi lógica de programação e criei meus próprios
+							programinhas com meus códigos.
+							<strong>Indignado por ser limitado</strong> pelo terminal e a
+							linha de comando, voltei ao Office e ao VBA, dessa vez com muito
+							mais experiência em programação.
+						</p>
+						<p data-i18n-html="about.webDevelopment" class="highlight-strong">
+							Durante a quarentena, com todos meus amigos se reunindo no Discord
+							para jogar, tive a vontade de criar bots. Foi assim que fui
+							forçado a estudar <strong>JavaScript e Node.js</strong> por conta
+							própria. Já que eu tinha aprendido JavaScript, resolvi estudar
+							<strong>HTML e CSS</strong> também. Desde então,
+							<strong>eu amo a web</strong> e é por causa dela que eu crio meus
+							<strong
+								>sites, plataformas, ferramentas, bots, extensões e
+								aplicações</strong
+							>. Ao longo desses <strong>5 anos</strong> como desenvolver web,
+							já publiquei diversos projetos que eu
+							<strong>mantenho com muito orgulho</strong> e que
+							<strong> impactam milhares </strong> de pessoas.
+						</p>
+						<p data-i18n-html="about.currentInterests" class="highlight-strong">
+							Atualmente, meu projeto de maior sucesso é o
+							<strong>Dicionário Bot</strong>, que já foi utilizado por mais de
+							1500 usuários diferentes. Além de continuar desenvolvendo meus
+							próprios projetos, também busco expandir meus conhecimentos na
+							área, explorando ainda mais o desenvolvimento web e
+							<strong>
+								aprendendo sobre desenvolvimento de aplicações nativas
+							</strong>
+							para dispositivos móveis e desktop. Fora isso, quando não estou
+							programando ou estudando para a próxima prova da faculdade, estou
+							conversando com amigos, assistindo filmes ou séries, jogando
+							videogame ou ouvindo música.
+						</p>
+					</section>
+				</div>
+				<div class="gsap-fly-up hidden md:block">
+					<div
+						class="group relative aspect-4/5 min-w-56 -rotate-3 rounded-3xl bg-white lg:min-w-72 dark:bg-neutral-800"
+						style="clip-path: inset(-50% 0 0 0 round 0 0 1.5rem 1.5rem)">
+						<div
+							class="absolute inset-0 h-[calc(100%+3rem)] -translate-y-4 scale-105 rotate-3 transition-transform duration-400 ease-out group-hover:-translate-y-12">
+							<img
+								src="/assets/photos/social_smile.png"
+								alt=""
+								class="absolute inset-0 h-full w-full object-cover object-top group-hover:opacity-0" />
+							<img
+								src="/assets/photos/social_happy.png"
+								alt=""
+								class="absolute inset-0 h-full w-full object-cover object-top opacity-0 group-hover:opacity-100" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<section
+				class="gsap-fly-up mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:grid-rows-[1fr_0.75fr]">
+				<div
+					id="map-card"
+					class="group relative flex flex-col justify-between gap-5 overflow-hidden rounded-2xl border border-neutral-200 bg-white/40 p-6 transition-colors duration-300 lg:col-span-2 lg:row-span-2 dark:border-neutral-800 dark:bg-neutral-800/30">
+					<div
+						class="pointer-events-none absolute inset-0 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100 group-[.is-active]:opacity-100"
+						style="
+							background: radial-gradient(
+								circle at 5% 15%,
+								rgb(var(--accent) / 0.2) 0%,
+								rgb(var(--accent) / 0.12) 35%,
+								rgb(var(--accent) / 0.04) 65%,
+								transparent 100%
+							);
+						"></div>
+					<div class="z-10 flex flex-col gap-6 lg:flex-1">
+						<div
+							id="map"
+							class="h-48 overflow-hidden rounded-xl bg-[#BEDBF8] lg:grow dark:bg-[#445668]"></div>
+						<p
+							data-i18n-html="about.location"
+							class="highlight-strong text-center text-base text-neutral-600 md:line-clamp-2 dark:text-neutral-400"
+							id="juiz-de-fora-label">
+							Eu moro em <strong>Juiz de Fora</strong>, a uns
+							<strong id="distance" data-i18n-preserve>0m</strong> de você!
+						</p>
+					</div>
+				</div>
+				<div
+					class="group relative flex flex-col justify-between gap-5 overflow-hidden rounded-2xl border border-neutral-200 bg-white/40 p-6 transition-all duration-300 hover:scale-101 dark:border-neutral-800 dark:bg-neutral-800/30 [&.is-active]:scale-101"
+					style="--accent: 194 161 123">
+					<div
+						class="pointer-events-none absolute inset-0 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100 group-[.is-active]:opacity-100"
+						style="
+							background: radial-gradient(
+								circle at 5% 15%,
+								rgb(var(--accent) / 0.2) 0%,
+								rgb(var(--accent) / 0.12) 35%,
+								rgb(var(--accent) / 0.04) 65%,
+								transparent 100%
+							);
+						"></div>
+					<div class="z-10 flex flex-col gap-6 lg:flex-1">
+						<img
+							data-i18n-alt="about.petsPhotoAlt"
+							class="flex h-48 cursor-pointer flex-col items-center justify-start overflow-hidden rounded-xl object-cover transition-transform active:scale-95 lg:grow"
+							src="/assets/photos/tutti_lolla.jpeg"
+							alt="Tutti & Lolla"
+							id="tutti-lolla" />
+						<p
+							data-i18n-html="about.pets"
+							class="highlight-strong text-center text-base text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
+							Eu tenho dois salsichinhas: <strong>Tutti e Lolla</strong>
+						</p>
+					</div>
+				</div>
+				<div
+					class="group relative flex flex-col justify-between gap-5 overflow-hidden rounded-2xl border border-neutral-200 bg-white/40 p-6 transition-all duration-300 hover:scale-101 dark:border-neutral-800 dark:bg-neutral-800/30 [&.is-active]:scale-101"
+					style="--accent: 190 211 223">
+					<div
+						class="pointer-events-none absolute inset-0 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100 group-[.is-active]:opacity-100"
+						style="
+							background: radial-gradient(
+								circle at 5% 15%,
+								rgb(var(--accent) / 0.2) 0%,
+								rgb(var(--accent) / 0.12) 35%,
+								rgb(var(--accent) / 0.04) 65%,
+								transparent 100%
+							);
+						"></div>
+					<div class="z-10 flex flex-col gap-6 lg:flex-1">
+						<img
+							data-i18n-alt="about.birthdayPhotoAlt"
+							class="flex h-48 flex-col items-center justify-start overflow-hidden rounded-xl object-cover object-bottom lg:grow"
+							src="/assets/photos/birthday20.jpg"
+							alt="Aniversário" />
+						<p
+							data-i18n-html="about.birthday"
+							class="highlight-strong text-center text-base text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
+							Completei <strong>20 anos</strong> no
+							<br class="hidden xl:inline" />
+							dia 19 de agosto
+						</p>
+					</div>
+				</div>
+				<div
+					class="group relative flex flex-col justify-between gap-5 overflow-hidden rounded-2xl border border-neutral-200 bg-white/40 p-6 transition-all duration-300 hover:scale-101 lg:col-span-2 dark:border-neutral-800 dark:bg-neutral-800/30 [&.is-active]:scale-101"
+					id="cockroach-card">
+					<div
+						class="pointer-events-none absolute inset-0 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100 group-[.is-active]:opacity-100"
+						style="
+							background: radial-gradient(
+								circle at 5% 15%,
+								rgb(var(--accent) / 0.2) 0%,
+								rgb(var(--accent) / 0.12) 35%,
+								rgb(var(--accent) / 0.04) 65%,
+								transparent 100%
+							);
+						"></div>
+					<div class="z-10 flex flex-col gap-6 lg:flex-1">
+						<div
+							id="cockroach-preview"
+							class="relative h-48 overflow-hidden rounded-xl lg:h-24 lg:grow"></div>
+						<p
+							data-i18n-html="about.surname"
+							class="highlight-strong text-center text-base text-neutral-600 md:line-clamp-2 dark:text-neutral-400">
+							Meu <strong>sobrenome</strong> realmente é
+							<strong>Neves Barata</strong>
+						</p>
+					</div>
+				</div>
+			</section>
+			<section
+				class="gsap-fly-up mx-auto flex w-full max-w-6xl flex-col gap-8 md:gap-13.5">
+				<h1
+					data-i18n="about.timelineTitle"
+					class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
+					Linha do Tempo
+				</h1>
+				<div
+					class="border-neutral-300 md:border-l md:pl-8 dark:border-neutral-700">
+					<ul class="flex flex-col gap-6 md:gap-12">
+						<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+							<span
+								data-i18n="dates.202609"
+								class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+								>Setembro de 2026</span
+							>
+							<div class="col-span-3 flex flex-col gap-3">
+								<img
+									data-i18n-alt="about.timeline.siteLogoAlt"
+									src="/assets/face/normal-enzo.png"
+									alt="enzon19 favicon"
+									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2 md:size-14 dark:bg-neutral-800" />
+								<div class="flex flex-col gap-1">
+									<h2
+										data-i18n="about.timeline.siteV3.title"
+										class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+										enzon19.com v3
+									</h2>
+									<p data-i18n="about.timeline.siteV3.description">
+										Refiz meu site do zero mais uma vez, com design melhorado e
+										amadurecido, mais riqueza de detalhes e animações. Tive a
+										oportunidade de usar GSAP e Web Components pela primeira
+										vez.
+									</p>
+								</div>
+							</div>
+						</li>
+						<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+							<span
+								data-i18n="dates.202603"
+								class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+								>Março de 2026</span
+							>
+							<div class="col-span-3 flex flex-col gap-3">
+								<img
+									data-i18n-alt="about.timeline.dictionaryLogoAlt"
+									src="/assets/projects/dicionario-bot/logo502.png"
+									alt="Dicionário Bot logo"
+									class="aspect-square size-12 rounded-xl bg-[#832519] object-contain object-center p-2 md:size-14" />
+								<div class="flex flex-col gap-1">
+									<h2
+										data-i18n="about.timeline.dictionaryV4.title"
+										class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+										Dicionário Bot v4.0
+									</h2>
+									<p data-i18n="about.timeline.dictionaryV4.description">
+										Refatoração completa usando TypeScript e com comandos
+										reimaginados.
+									</p>
+								</div>
+							</div>
+						</li>
+						<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+							<span
+								data-i18n="dates.202601"
+								class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+								>Janeiro de 2026</span
+							>
+							<div class="col-span-3 flex flex-col gap-3">
+								<img
+									data-i18n-alt="about.timeline.quickReplyLogoAlt"
+									src="/assets/projects/quick-reply-meet/logo512.png"
+									alt="Quick Reply Meet logo"
+									class="aspect-square size-12 rounded-xl bg-[#15b7a2] object-contain object-center p-2 md:size-14 dark:bg-[#0f766c]" />
+								<div class="flex flex-col gap-1">
+									<h2
+										data-i18n="about.timeline.quickReplyV2.title"
+										class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+										Quick Reply Meet v2.0
+									</h2>
+									<p data-i18n="about.timeline.quickReplyV2.description">
+										Novos recursos, nova interface, correção de bugs e refeito
+										do zero com TypeScript e Svelte.
+									</p>
+								</div>
+							</div>
+						</li>
+						<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+							<span
+								data-i18n="dates.202509"
+								class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+								>Setembro de 2025</span
+							>
+							<div class="col-span-3 flex flex-col gap-3">
+								<img
+									data-i18n-alt="about.timeline.universityLogoAlt"
+									src="/assets/logos/ufjf.png"
+									alt="UFJF logo"
+									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2 md:size-14 dark:bg-neutral-800" />
+								<div class="flex flex-col gap-1">
+									<h2
+										data-i18n="about.timeline.university.title"
+										class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+										Universidade Federal de Juiz de Fora
+									</h2>
+									<p data-i18n="about.timeline.university.description">
+										Início da minha graduação em Ciência da Computação.
+									</p>
+								</div>
+							</div>
+						</li>
+						<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+							<span
+								data-i18n="dates.202506"
+								class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+								>Junho de 2025</span
+							>
+							<div class="col-span-3 flex flex-col gap-3">
+								<img
+									data-i18n-alt="tools.typescript.logoAlt"
+									src="/assets/logos/TypeScript.svg"
+									alt="TypeScript logo"
+									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
+								<div class="flex flex-col gap-1">
+									<h2
+										data-i18n="tools.typescript.name"
+										class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+										TypeScript
+									</h2>
+									<p data-i18n="about.timeline.typescript.description">
+										Comecei a estudar TypeScript, que substituirá o JavaScript
+										em muitos projetos meus.
+									</p>
+								</div>
+							</div>
+						</li>
+						<li class="container flex flex-col items-center">
+							<input type="checkbox" id="full-timeline" class="peer sr-only" />
+							<div
+								class="grid w-full grid-rows-[0fr] transition-[grid-template-rows] duration-600 peer-checked:grid-rows-[1fr]">
+								<ul
+									class="flex min-h-0 flex-col gap-6 overflow-hidden md:gap-12">
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202404"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Abril de 2024</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<img
+												data-i18n-alt="about.timeline.reverseTVLogoAlt"
+												src="/assets/projects/trakt-tools/reversetv/logo512.png"
+												alt="ReverseTV logo"
+												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2 md:size-14 dark:bg-neutral-800" />
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="home.projects.reverseTV.name"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													ReverseTV
+												</h2>
+												<p data-i18n="about.timeline.reverseTV.description">
+													Descubra outras participações de cada ator em um filme
+													ou série em outras produções com base no seu histórico
+													do Trakt.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202308"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Agosto de 2023</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<img
+												data-i18n-alt="about.timeline.siteLogoAlt"
+												src="/assets/face/normal-enzo.png"
+												alt="enzon19 favicon"
+												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2 md:size-14 dark:bg-neutral-800" />
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="about.timeline.siteV2.title"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													enzon19.com v2
+												</h2>
+												<p data-i18n="about.timeline.siteV2.description">
+													Refiz meu site do zero, com design muito melhor, dark
+													mode e mais coesão.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202302"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Fevereiro de 2023</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<img
+												data-i18n-alt="about.timeline.classroomLogoAlt"
+												src="/assets/projects/mapa-de-sala/logo563.png"
+												alt="Mapa de Sala logo"
+												class="aspect-square size-12 rounded-xl bg-[#78a5ff] object-contain object-center p-2 md:size-14 dark:bg-[#001a49]" />
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="home.projects.classroom.name"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													Mapa de Sala
+												</h2>
+												<p data-i18n="about.timeline.classroom.description">
+													Um dos meus projetos favoritos: um experimento com o
+													objetivo de reunir dados sobre a posição de cada aluno
+													da minha sala de aula do Ensino Médio. Como bônus,
+													muitas estatísticas puderem ser obtidas. Foi meu
+													primeiro grande projeto com Svelte/SvelteKit e obtive
+													um pouco de contato com SQL.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202301"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Janeiro de 2023</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<img
+												data-i18n-alt="about.timeline.dictionaryLogoAlt"
+												src="/assets/projects/dicionario-bot/logo502.png"
+												alt="Dicionário Bot logo"
+												class="aspect-square size-12 rounded-xl bg-[#832519] object-contain object-center p-2 md:size-14" />
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="about.timeline.dictionaryV3.title"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													Dicionário Bot v3.0
+												</h2>
+												<p data-i18n="about.timeline.dictionaryV3.description">
+													O bot recebeu diversos comandos novos, melhorias e
+													teve seu código do bot foi completamente refeito. Além
+													disso, ganhou um site, que me permitiu praticar
+													bastante Tailwind.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202301"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:invisible md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Janeiro de 2023</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<img
+												data-i18n-alt="tools.tailwind.logoAlt"
+												src="/assets/logos/Tailwind.svg"
+												alt="Tailwind logo"
+												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="tools.tailwind.name"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													Tailwind
+												</h2>
+												<p data-i18n="about.timeline.tailwind.description">
+													Depois de ter aprendido Tailwind, nunca mais consegui
+													usar CSS puro novamente.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202212"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Dezembro de 2022</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<img
+												data-i18n-alt="tools.svelte.logoAlt"
+												src="/assets/logos/Svelte.svg"
+												alt="Svelte logo"
+												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="tools.svelte.name"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													Svelte
+												</h2>
+												<p data-i18n="about.timeline.svelte.description">
+													Comecei a estudar Svelte, que se tornou meu framework
+													preferido.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202207"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Julho de 2022</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<img
+												data-i18n-alt="about.timeline.randomTVLogoAlt"
+												src="/assets/projects/trakt-tools/randomtv/logo512.png"
+												alt="RandomTV logo"
+												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2 md:size-14 dark:bg-neutral-800" />
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="home.projects.randomTV.name"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													RandomTV
+												</h2>
+												<p data-i18n="about.timeline.randomTV.description">
+													Minha segunda extensão: ela escolhia um item aleatório
+													de uma lista no Trakt.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202206"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Junho de 2022</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<img
+												data-i18n-alt="about.timeline.quickReplyLogoAlt"
+												src="/assets/projects/quick-reply-meet/logo512.png"
+												alt="Quick Reply Meet logo"
+												class="aspect-square size-12 rounded-xl bg-[#15b7a2] object-contain object-center p-2 md:size-14 dark:bg-[#0f766c]" />
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="home.projects.quickReply.name"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													Quick Reply Meet
+												</h2>
+												<p data-i18n="about.timeline.quickReply.description">
+													Minha primeira extensão para navegadores! Envie
+													mensagens no chat do Google Meet sem precisar digitar.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202205"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:invisible md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Maio de 2022</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<img
+												data-i18n-alt="about.timeline.siteLogoAlt"
+												src="/assets/face/normal-enzo.png"
+												alt="enzon19 favicon"
+												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2 md:size-14 dark:bg-neutral-800" />
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="about.timeline.siteV1.title"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													enzon19.com
+												</h2>
+												<p data-i18n="about.timeline.siteV1.description">
+													Primeira versão do meu site pessoal!
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202204"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Abril de 2022</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<img
+												data-i18n-alt="about.timeline.lookHereLogoAlt"
+												src="/assets/projects/look-here/logo512.png"
+												alt="LookHere! logo"
+												class="aspect-square size-12 rounded-xl md:size-14" />
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="home.projects.lookHere.name"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													LookHere!
+												</h2>
+												<p data-i18n="about.timeline.lookHere.description">
+													Crie mensagens que piscam para chamar a atenção das
+													pessoas. É um projeto muito simples, mas que eu guardo
+													com carinho.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202202"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Fevereiro de 2022</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<img
+												data-i18n-alt="about.timeline.backpackLogoAlt"
+												src="/assets/projects/other/mochila.svg"
+												alt="Mochila do Enzo logo"
+												class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2.5 md:size-14 dark:bg-neutral-800" />
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="about.timeline.backpack.title"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													Mochila do Enzo
+												</h2>
+												<p data-i18n="about.timeline.backpack.description">
+													Este projeto utilizava etiquetas NFC para identificar
+													meu material escolar. Foi meu primeiro site público,
+													criado para praticar HTML e CSS ainda mais.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202109"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Setembro de 2021</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<img
+												data-i18n-alt="about.timeline.dictionaryLogoAlt"
+												src="/assets/projects/dicionario-bot/logo502.png"
+												alt="Dicionário Bot logo"
+												class="aspect-square size-12 rounded-xl bg-[#832519] object-contain object-center p-2 md:size-14" />
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="home.projects.dictionary.name"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													Dicionário Bot
+												</h2>
+												<p data-i18n="about.timeline.dictionary.description">
+													Um dicionário da língua portuguesa brasileira no
+													Telegram. O começo de um dos meus projetos de maior
+													sucesso e que me proporcionou muito aprendizado ao
+													longo dos anos.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202103"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Março de 2021</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<div class="flex flex-row gap-3">
+												<img
+													data-i18n-alt="tools.html.logoAlt"
+													src="/assets/logos/HTML5.svg"
+													alt="HTML logo"
+													class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
+												<img
+													data-i18n-alt="tools.css.logoAlt"
+													src="/assets/logos/CSS.svg"
+													alt="CSS logo"
+													class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
+											</div>
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="about.timeline.htmlCss.title"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													HTML e CSS
+												</h2>
+												<p data-i18n="about.timeline.htmlCss.description">
+													Comecei a estudar essas linguagens sozinho durante a
+													pandemia.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.202010"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Outubro de 2020</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<div class="flex flex-row gap-3">
+												<img
+													data-i18n-alt="tools.javascript.logoAlt"
+													src="/assets/logos/JavaScript.png"
+													alt="JavaScript logo"
+													class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
+												<img
+													data-i18n-alt="tools.nodejs.logoAlt"
+													src="/assets/logos/NodeJS.png"
+													alt="Node.js logo"
+													class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
+											</div>
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="about.timeline.javascript.title"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													JavaScript e Node.js
+												</h2>
+												<p data-i18n="about.timeline.javascript.description">
+													Eu fico muito feliz de ter escolhido JavaScript ao
+													invés de Python para criar meus primeiros bots de
+													Discord.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.201908"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Agosto de 2019</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<div class="flex flex-row gap-3">
+												<img
+													data-i18n-alt="tools.c.logoAlt"
+													src="/assets/logos/C.png"
+													alt="C logo"
+													class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-3 md:size-14 dark:bg-neutral-800" />
+											</div>
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="tools.c.name"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													C
+												</h2>
+												<p data-i18n="about.timeline.c.description">
+													Graças a um ex-professor de Matemática que ministrou
+													um curso de C na minha antiga escola, desenvolvi
+													lógica de programação com essa linguagem.
+												</p>
+											</div>
+										</div>
+									</li>
+									<li
+										class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+										<span
+											data-i18n="dates.201701"
+											class="border-l-2 border-neutral-300 pl-4 text-sm text-neutral-500 md:border-0 md:pl-0 dark:border-neutral-700 dark:text-neutral-500"
+											>Janeiro de 2017</span
+										>
+										<div class="col-span-3 flex flex-col gap-3">
+											<div class="flex flex-row gap-3">
+												<img
+													data-i18n-alt="tools.vba.logoAlt"
+													src="/assets/logos/vba.png"
+													alt="VBA logo"
+													class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-1.5 md:size-14 dark:bg-neutral-800" />
+											</div>
+											<div class="flex flex-col gap-1">
+												<h2
+													data-i18n="tools.vba.name"
+													class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+													VBA
+												</h2>
+												<p data-i18n="about.timeline.vba.description">
+													Copiando e colando códigos da internet, eu criava
+													joguinhos e programas nas aplicações Office usando
+													VBA.
+												</p>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<label
+								data-i18n-html="about.timeline.toggle"
+								for="full-timeline"
+								class="btn btn-md btn-secondary mx-auto mt-2 w-fit peer-checked:mt-8 peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 md:peer-checked:mt-14 [&_.label-less]:hidden peer-checked:[&_.label-less]:inline peer-checked:[&_.label-more]:hidden">
+								<ion-icon
+									name="add-circle-outline"
+									class="label-more text-xl"></ion-icon>
+								<ion-icon
+									name="remove-circle-outline"
+									class="label-less text-xl"></ion-icon>
+								<span class="label-more">Mostrar mais</span>
+								<span class="label-less">Mostrar menos</span>
+							</label>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<!-- <section class="gsap-fly-up mx-auto flex w-full max-w-6xl flex-col gap-4">
+				<h1
+					class="mb-2 text-3xl font-extrabold text-black md:mb-4 md:text-4xl dark:text-white">
+					Setup
+				</h1>
+			</section> -->
+			<section
+				class="gsap-fly-up mx-auto flex w-full max-w-6xl flex-col gap-8 md:gap-13.5">
+				<h1
+					data-i18n="about.toolsTitle"
+					class="text-3xl font-extrabold text-black md:text-4xl dark:text-white">
+					Ferramentas Favoritas
+				</h1>
+				<ul class="flex flex-col gap-6 md:gap-12">
+					<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+						<span
+							data-i18n="about.tools.programming"
+							class="text-sm text-neutral-500 dark:border-neutral-700 dark:text-neutral-500"
+							>Programação</span
+						>
+						<ul
+							class="col-span-3 grid grid-cols-3 gap-4 md:gap-8 lg:grid-cols-5">
+							<li class="flex flex-col items-center gap-3">
+								<img
+									data-i18n-alt="tools.vscode.logoAlt"
+									src="/assets/logos/VSCode.svg"
+									alt="VS Code logo"
+									class="aspect-square size-12 rounded-xl bg-white object-contain object-center p-2 md:size-14" />
+								<p data-i18n="tools.vscode.name" class="text-center">VS Code</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<div class="size-12 overflow-hidden rounded-xl md:size-14">
+									<img
+										data-i18n-alt="tools.intellij.logoAlt"
+										src="/assets/logos/IntelliJIDEA.png"
+										alt="IntelliJ IDEA logo"
+										class="size-full scale-125 object-contain object-center" />
+								</div>
+								<p data-i18n="tools.intellij.name" class="text-center">
+									IntelliJ IDEA
+								</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<div class="size-12 overflow-hidden rounded-xl md:size-14">
+									<img
+										data-i18n-alt="tools.xcode.logoAlt"
+										src="/assets/logos/Xcode.png"
+										alt="Xcode logo"
+										class="size-full scale-125 object-contain object-center" />
+								</div>
+								<p data-i18n="tools.xcode.name" class="text-center">Xcode</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<img
+									data-i18n-alt="tools.dbgate.logoAlt"
+									src="/assets/logos/DBGate.png"
+									alt="DBGate logo"
+									class="aspect-square size-12 rounded-xl bg-[#1C8DAB] object-contain object-center p-1.5 md:size-14" />
+								<p data-i18n="tools.dbgate.name" class="text-center">DBGate</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<img
+									data-i18n-alt="tools.bun.logoAlt"
+									src="/assets/logos/Bun.svg"
+									alt="Bun logo"
+									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2.5 md:size-14 dark:bg-neutral-800" />
+								<p data-i18n="tools.bun.name" class="text-center">Bun</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<img
+									data-i18n-alt="tools.svelte.logoAlt"
+									src="/assets/logos/Svelte.svg"
+									alt="Svelte logo"
+									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2.5 md:size-14 dark:bg-neutral-800" />
+								<p data-i18n="tools.svelte.name" class="text-center">Svelte</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<img
+									data-i18n-alt="tools.tailwind.logoAlt"
+									src="/assets/logos/Tailwind.svg"
+									alt="Tailwind logo"
+									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2.5 md:size-14 dark:bg-neutral-800" />
+								<p data-i18n="tools.tailwind.name" class="text-center">
+									Tailwind
+								</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<img
+									data-i18n-alt="tools.vercel.logoAlt"
+									src="/assets/logos/Vercel.svg"
+									alt="Vercel logo"
+									class="aspect-square size-12 rounded-xl bg-neutral-200 object-contain object-center p-2.5 md:size-14 dark:bg-neutral-800" />
+								<p data-i18n="tools.vercel.name" class="text-center">Vercel</p>
+							</li>
+						</ul>
+					</li>
+					<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+						<span
+							data-i18n="about.tools.everyday"
+							class="text-sm text-neutral-500 dark:border-neutral-700 dark:text-neutral-500"
+							>Dia a Dia</span
+						>
+						<ul
+							class="col-span-3 grid grid-cols-3 gap-4 md:gap-8 lg:grid-cols-5">
+							<li class="flex flex-col items-center gap-3">
+								<div class="size-12 overflow-hidden rounded-xl md:size-14">
+									<img
+										data-i18n-alt="tools.vivaldi.logoAlt"
+										src="/assets/logos/Vivaldi.webp"
+										alt="Vivaldi logo"
+										class="size-full scale-105 object-contain object-center" />
+								</div>
+								<p data-i18n="tools.vivaldi.name" class="text-center">
+									Vivaldi
+								</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<div class="size-12 overflow-hidden rounded-xl md:size-14">
+									<img
+										data-i18n-alt="tools.syncthing.logoAlt"
+										src="/assets/logos/Syncthing.png"
+										alt="Syncthing logo"
+										class="size-full scale-125 object-contain object-center" />
+								</div>
+								<p data-i18n="tools.syncthing.name" class="text-center">
+									Syncthing
+								</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<div
+									class="size-12 overflow-hidden rounded-xl bg-white md:size-14 dark:bg-neutral-800">
+									<img
+										data-i18n-alt="tools.sharex.logoAlt"
+										src="/assets/logos/ShareX.png"
+										alt="ShareX logo"
+										class="size-full scale-125 object-contain object-center" />
+								</div>
+								<p data-i18n="tools.sharex.name" class="text-center">ShareX</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<div class="size-12 overflow-hidden rounded-xl md:size-14">
+									<img
+										data-i18n-alt="tools.macshot.logoAlt"
+										src="/assets/logos/macshot.svg"
+										alt="macshot logo"
+										class="size-full scale-140 object-contain object-center" />
+								</div>
+								<p data-i18n="tools.macshot.name" class="text-center">
+									macshot
+								</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<img
+									data-i18n-alt="tools.bitwarden.logoAlt"
+									src="/assets/logos/Bitwarden.svg"
+									alt="Bitwarden logo"
+									class="aspect-square size-12 rounded-xl bg-[#165DDC] p-2 md:size-14" />
+								<p data-i18n="tools.bitwarden.name" class="text-center">
+									Bitwarden
+								</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<div class="size-12 overflow-hidden rounded-xl md:size-14">
+									<img
+										data-i18n-alt="tools.anki.logoAlt"
+										src="/assets/logos/Anki.png"
+										alt="Anki logo"
+										class="size-full scale-125 object-contain object-center" />
+								</div>
+								<p data-i18n="tools.anki.name" class="text-center">Anki</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<img
+									data-i18n-alt="tools.photomath.logoAlt"
+									src="/assets/logos/Photomath.png"
+									alt="Photomath logo"
+									class="aspect-square size-12 rounded-xl object-contain md:size-14" />
+								<p data-i18n="tools.photomath.name" class="text-center">
+									Photomath
+								</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<div class="size-12 overflow-hidden rounded-xl md:size-14">
+									<img
+										data-i18n-alt="tools.lookaway.logoAlt"
+										src="/assets/logos/LookAway.png"
+										alt="LookAway logo"
+										class="size-full scale-125 object-contain object-center" />
+								</div>
+								<p data-i18n="tools.lookaway.name" class="text-center">
+									LookAway
+								</p>
+							</li>
+						</ul>
+					</li>
+					<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+						<span
+							data-i18n="about.tools.productivity"
+							class="text-sm text-neutral-500 dark:border-neutral-700 dark:text-neutral-500"
+							>Produtividade</span
+						>
+						<ul
+							class="col-span-3 grid grid-cols-3 gap-4 md:gap-8 lg:grid-cols-5">
+							<li class="flex flex-col items-center gap-3">
+								<div class="size-12 overflow-hidden rounded-xl md:size-14">
+									<img
+										data-i18n-alt="tools.obsidian.logoAlt"
+										src="/assets/logos/Obsidian.png"
+										alt="Obsidian logo"
+										class="size-full scale-123 object-contain object-center" />
+								</div>
+								<p data-i18n="tools.obsidian.name" class="text-center">
+									Obsidian
+								</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<img
+									data-i18n-alt="tools.notion.logoAlt"
+									src="/assets/logos/Notion.svg"
+									alt="Notion logo"
+									class="aspect-square size-12 rounded-xl bg-white object-contain object-center p-2 md:size-14" />
+								<p data-i18n="tools.notion.name" class="text-center">Notion</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<img
+									data-i18n-alt="tools.todoist.logoAlt"
+									src="/assets/logos/Todoist.png"
+									alt="Todoist logo"
+									class="aspect-square size-12 rounded-xl md:size-14" />
+								<p data-i18n="tools.todoist.name" class="text-center">
+									Todoist
+								</p>
+							</li>
+						</ul>
+					</li>
+					<li class="flex flex-col gap-6 md:grid md:grid-cols-4 md:gap-8">
+						<span
+							data-i18n="about.tools.media"
+							class="text-sm text-neutral-500 dark:border-neutral-700 dark:text-neutral-500"
+							>Foto & Vídeo</span
+						>
+						<ul
+							class="col-span-3 grid grid-cols-3 gap-4 md:gap-8 lg:grid-cols-5">
+							<li class="flex flex-col items-center gap-3">
+								<img
+									data-i18n-alt="tools.photoshop.logoAlt"
+									src="/assets/logos/Photoshop.svg"
+									alt="Photoshop logo"
+									class="aspect-square size-12 rounded-xl md:size-14" />
+								<p data-i18n="tools.photoshop.name" class="text-center">
+									Photoshop
+								</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<img
+									data-i18n-alt="tools.premiere.logoAlt"
+									src="/assets/logos/Premiere.svg"
+									alt="Premiere Pro logo"
+									class="aspect-square size-12 rounded-xl md:size-14" />
+								<p data-i18n="tools.premiere.name" class="text-center">
+									Premiere Pro
+								</p>
+							</li>
+							<li class="flex flex-col items-center gap-3">
+								<img
+									data-i18n-alt="tools.afterEffects.logoAlt"
+									src="/assets/logos/After Effects.svg"
+									alt="After Effects logo"
+									class="aspect-square size-12 rounded-xl md:size-14" />
+								<p data-i18n="tools.afterEffects.name" class="text-center">
+									After Effects
+								</p>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+		</main>
+		<enzo-footer></enzo-footer>
 	</body>
 </html>

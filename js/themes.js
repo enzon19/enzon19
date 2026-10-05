@@ -40,6 +40,8 @@ function applyTheme(theme) {
 		documentElement.classList.remove('dark');
 		window.loadHeroBackground?.('light');
 	}
+
+	if ('ScrollTrigger' in window) ScrollTrigger.refresh();
 }
 
 loadTheme();

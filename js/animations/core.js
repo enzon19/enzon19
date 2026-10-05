@@ -1,24 +1,31 @@
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger);
 
-ScrollSmoother.create({
-	wrapper: '#smooth-wrapper',
-	content: '#smooth-content',
-	smooth: 1.5, // how long (in seconds) it takes to "catch up" to the native scroll position
-	smoothTouch: 0.2, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+const lenis = new Lenis();
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add((time) => {
+	lenis.raf(time * 1000);
 });
+gsap.ticker.lagSmoothing(0);
 
-const flyUpElements = gsap.utils.toArray('.gsap-fly-up');
-flyUpElements.forEach((e) => {
-	gsap.from(e, {
-		y: 50,
-		opacity: 0,
-		duration: 0.8,
-		filter: 'blur(0.5rem)',
-		ease: 'power3.out',
-		scrollTrigger: {
-			trigger: e,
-			start: 'top 96.7%',
-			toggleActions: 'play play none reverse', // [START] [QUICK START] [END TO START] [END]
-		},
-	});
+ScrollTrigger.batch('.gsap-fly-up', {
+	start: 'top bottom',
+	interval: 0.3,
+	onEnter: (batch) =>
+		gsap.to(batch, {
+			y: 0,
+			opacity: 1,
+			filter: 'blur(0rem)',
+			duration: 1.2,
+			stagger: 0.2,
+			ease: 'power3.out',
+		}),
+	onLeaveBack: (batch) =>
+		gsap.to(batch, {
+			y: 50,
+			opacity: 0,
+			filter: 'blur(0.4rem)',
+			duration: 0.6,
+			stagger: 0.1,
+			ease: 'power3.out',
+		}),
 });

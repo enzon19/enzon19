@@ -1,6 +1,10 @@
 async function loadTopAlbumsFromPeriod(period) {
 	try {
-		const res = await fetch('/data/' + period + '.json');
+		const res = await fetch(
+			'https://gist.githubusercontent.com/enzon19/66e4659e3ddae3ea4428706f1d11100b/raw/' +
+				period +
+				'.json',
+		);
 		const data = await res.json();
 		return data?.topalbums?.album;
 	} catch (err) {
@@ -30,17 +34,15 @@ async function addAlbumsToHobbies(template) {
 	for (const album of albums) {
 		const image = album.image.at(-1)['#text'];
 		const rank = album['@attr'].rank;
-		const text =
-			album.source == '7days'
-				? rank + 'º Álbum mais ouvido no momento'
-				: rank + 'º Álbum mais ouvido';
+		const key =
+			album.source == '7days' ? 'hobbies.albumRecent' : 'hobbies.albumOverall';
 
-		addHobby(template, image, text);
+		addHobby(template, image, key, false, { rank });
 	}
 }
 
 let hobbyRotationSign = 1;
-function addHobby(template, imageURL, text, last = false) {
+function addHobby(template, imageURL, key, last = false, options = {}) {
 	const hobbyCard = template.cloneNode(true);
 	hobbyCard.removeAttribute('id');
 
@@ -52,7 +54,9 @@ function addHobby(template, imageURL, text, last = false) {
 	div.style.backgroundImage = "url('" + imageURL + "')";
 
 	const span = hobbyCard.querySelector('span');
-	span.innerText = text;
+	span.dataset.i18n = key;
+	span.dataset.i18nOptions = JSON.stringify(options);
+	span.textContent = i18next.t(key, options);
 
 	if (last) hobbyCard.classList.remove('md:hover:mr-26');
 
@@ -62,26 +66,19 @@ function addHobby(template, imageURL, text, last = false) {
 
 const template = document.querySelector('#hobby-reference');
 (async () => {
-	addHobby(
-		template,
-		'/assets/hobbies/last-movie.webp',
-		'Último filme assistido',
-	);
+	await window.siteI18n.ready;
+	addHobby(template, '/assets/hobbies/last-movie.webp', 'hobbies.lastMovie');
 	addHobby(
 		template,
 		'/assets/hobbies/current-show.webp',
-		'Assistindo atualmente',
+		'hobbies.currentShow',
 	);
-	addHobby(
-		template,
-		'/assets/hobbies/last-show.webp',
-		'Última série finalizada',
-	);
+	addHobby(template, '/assets/hobbies/last-show.webp', 'hobbies.lastShow');
 	await addAlbumsToHobbies(template);
 	addHobby(
 		template,
 		'/assets/hobbies/trip-' + randomIntFromInterval(1, 6) + '.jpg',
-		'Viajar',
+		'hobbies.travel',
 		true,
 	);
 })();

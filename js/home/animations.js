@@ -1,27 +1,5 @@
 // [ELEMENT] [SCREEN]
 
-ScrollTrigger.create({
-	trigger: '#hero',
-	start: 'bottom bottom',
-	end: 'bottom top',
-	pin: true,
-	pinSpacing: false,
-	onLeave: () => window.pauseHeroBackground?.(),
-	onEnterBack: () => window.resumeHeroBackground?.(),
-});
-
-gsap.to('#hero-content', {
-	scale: 0.75,
-	yPercent: 50,
-	immediateRender: false,
-	scrollTrigger: {
-		trigger: '#about',
-		start: 'top bottom',
-		end: 'top top',
-		scrub: true,
-	},
-});
-
 const mm = gsap.matchMedia();
 mm.add(
 	{
@@ -30,6 +8,37 @@ mm.add(
 	},
 	(context) => {
 		let { isDesktop, isMobile } = context.conditions;
+
+		if (isDesktop) {
+			ScrollTrigger.create({
+				trigger: '#hero',
+				start: () => `bottom bottom`,
+				end: 'bottom top',
+				pin: true,
+				pinSpacing: false,
+				onLeave: () => window.pauseHeroBackground?.(),
+				onEnterBack: () => window.resumeHeroBackground?.(),
+			});
+		}
+
+		gsap.to('#hero-content', {
+			scale: 0.75,
+			yPercent: isDesktop ? -50 : -5,
+			opacity: 0.5,
+			filter: 'blur(0.2rem)',
+			immediateRender: false,
+			scrollTrigger: {
+				trigger: '#about',
+				start: () => (isDesktop ? 'top bottom' : `top ${window.innerHeight}px`),
+				end: 'top top',
+				scrub: true,
+				onUpdate: (self) => {
+					document
+						.querySelector('#hero-content')
+						.classList.toggle('pointer-events-none', self.progress >= 0.5);
+				},
+			},
+		});
 
 		gsap.from('#about', {
 			scale: isDesktop ? 0.95 : 0.925,
@@ -43,10 +52,11 @@ mm.add(
 		});
 
 		gsap.to('#hero', {
-			opacity: 0,
+			autoAlpha: 0,
 			scrollTrigger: {
 				trigger: '#about',
-				start: isDesktop ? 'top center' : 'top 30%',
+				start: () =>
+					isDesktop ? 'center bottom' : `30% ${window.innerHeight}px`,
 				end: isDesktop ? 'top 25%' : 'top 10%',
 				scrub: true,
 			},

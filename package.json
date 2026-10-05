@@ -2,10 +2,13 @@
 	"name": "enzon19",
 	"version": "2.0.0",
 	"scripts": {
+		"test": "bun test",
 		"tailwind": "bunx @tailwindcss/cli -i ./css/tailwind-config.css -o ./css/style.css --watch",
 		"format": "bunx prettier . --write"
 	},
 	"devDependencies": {
+		"happy-dom": "^20.14.5",
+		"i18next": "26.4.2",
 		"prettier": "^3.9.6",
 		"prettier-plugin-tailwindcss": "^0.8.1",
 		"tailwindcss": "^4.3.3"

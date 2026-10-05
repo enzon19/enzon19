@@ -1,8 +1,8 @@
 const ATTRIBUTES = ['page', 'triggered'];
 const NAV_LINKS = [
-	{ href: '/about', label: 'Sobre' },
-	{ href: '/projects', label: 'Projetos' },
-	{ href: '/contact', label: 'Contato' },
+	{ href: '/about', label: 'Sobre', key: 'nav.about' },
+	{ href: '/projects', label: 'Projetos', key: 'nav.projects' },
+	{ href: '/contact', label: 'Contato', key: 'nav.contact' },
 ];
 
 export default class EnzoHeader extends HTMLElement {
@@ -40,13 +40,12 @@ export default class EnzoHeader extends HTMLElement {
 	#build() {
 		const header = document.createElement('header');
 
-		header.className =
-			'pointer-events-none sticky top-0 z-50 w-full p-4 md:p-6';
+		header.className = `pointer-events-none ${this.triggered ? 'fixed' : 'sticky'} top-0 z-50 w-full p-4 md:p-6`;
 
 		const navLinksHtml = NAV_LINKS.map(
-			({ href, label }) => `
+			({ href, label, key }) => `
 						<a
-							href="${href}"
+							href="${href}" data-i18n="${key}"
 							class="w-full text-center transition-colors hover:text-black sm:w-auto dark:hover:text-white"
 							>${label}</a
 						>`,
@@ -58,8 +57,8 @@ export default class EnzoHeader extends HTMLElement {
 				class="flex flex-col items-center justify-between px-6 py-3 sm:flex-row sm:gap-6 md:px-8 md:py-4">
 				<div class="flex items-center justify-between gap-6">
 					<a
-						href="#"
-						class="group flex items-center gap-3 text-black dark:text-white">
+						id="homepage"
+						class="group flex items-center gap-3 text-black dark:text-white cursor-pointer">
 						<div
 							class="relative size-8 duration-300 md:transition-all md:group-hover:scale-125">
 							<img
@@ -71,12 +70,12 @@ export default class EnzoHeader extends HTMLElement {
 								alt="Enzo Face"
 								class="absolute inset-0 block size-8 object-contain group-hover:hidden" />
 						</div>
-						<h1 class="text-lg font-bold">enzon19</h1>
+						<span class="text-lg font-bold">enzon19</span>
 					</a>
 					<button
 						class="relative flex size-6 cursor-pointer flex-col items-center justify-center sm:hidden"
 						id="mobile-header-button-menu"
-						aria-label="Open menu"
+						aria-label="Abrir menu" data-i18n-aria-label="nav.openMenu"
 						aria-expanded="false"
 						aria-controls="nav-wrapper">
 						<ion-icon name="menu" class="absolute inset-0 size-6"></ion-icon>
@@ -128,11 +127,14 @@ export default class EnzoHeader extends HTMLElement {
 			const currentPage = this.#header.querySelector(`a[href="/${this.page}"]`);
 			currentPage.classList.add('font-bold', 'text-black', 'dark:text-white');
 
-			const homepageAnchor = this.#header.querySelector('a[href="#"]');
+			const homepageAnchor = this.#header.querySelector('#homepage');
 			homepageAnchor.href = '/';
 		} else {
-			const homepageAnchor = this.#header.querySelector('a[href="/"]');
-			if (homepageAnchor) homepageAnchor.href = '#';
+			const homepageAnchor = this.#header.querySelector('#homepage');
+			homepageAnchor.addEventListener('click', (e) => {
+				e.preventDefault();
+				lenis.scrollTo(0);
+			});
 		}
 	}
 
@@ -260,9 +262,15 @@ export default class EnzoHeader extends HTMLElement {
 			'aria-expanded',
 			String(this.#isMenuOpen),
 		);
+		const menuKey = this.#isMenuOpen ? 'nav.closeMenu' : 'nav.openMenu';
+		this.#headerMenuButton.setAttribute('data-i18n-aria-label', menuKey);
 		this.#headerMenuButton.setAttribute(
 			'aria-label',
-			this.#isMenuOpen ? 'Close menu' : 'Open menu',
+			window.i18next?.isInitialized
+				? window.i18next.t(menuKey)
+				: this.#isMenuOpen
+					? 'Fechar menu'
+					: 'Abrir menu',
 		);
 	}
 
