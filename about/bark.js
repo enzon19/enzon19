@@ -1,5 +1,5 @@
-const lolla = new Audio('/assets/lolla.mp3');
-const tutti = new Audio('/assets/tutti.mp3');
+const lolla = new Audio('/assets/audios/lolla.mp3');
+const tutti = new Audio('/assets/audios/tutti.mp3');
 
 document.querySelector('#tutti-lolla').addEventListener('click', () => {
 	const r = Math.random();
