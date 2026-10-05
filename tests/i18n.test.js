@@ -278,6 +278,26 @@ test('URL overrides stored language and regional browser languages are normalize
 	}
 });
 
+test('footer language radios switch languages and reflect the active language', async () => {
+	const window = await setup('index.html');
+	try {
+		const radios = [...window.document.querySelectorAll('[data-language-radio]')];
+		expect(radios).toHaveLength(3);
+		expect(radios.find((radio) => radio.checked).value).toBe('en-GB');
+		const spanish = radios.find((radio) => radio.value === 'es');
+		spanish.checked = true;
+		spanish.dispatchEvent(new window.Event('change', { bubbles: true }));
+		await new Promise((resolve) => setTimeout(resolve, 10));
+		expect(window.document.documentElement.lang).toBe('es');
+		expect(window.document.querySelector('[data-i18n="home.aboutTitle"]').textContent).toBe('Sobre mí');
+		expect(window.localStorage.getItem('i18nextLng')).toBe('es');
+		await window.siteI18n.changeLanguage('pt-BR');
+		expect(radios.find((radio) => radio.checked).value).toBe('pt-BR');
+	} finally {
+		await window.happyDOM.close();
+	}
+});
+
 test('switching persists language and preserves other URL parameters and the hash', async () => {
 	const window = await setup('contact/index.html', {
 		url: 'https://enzon19.com/contact?source=test&lng=en-GB#footer',

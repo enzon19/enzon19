@@ -101,6 +101,9 @@
 		} catch {}
 		document.documentElement.lang = language;
 		translateRoot();
+		document.querySelectorAll('[data-language-radio]').forEach((radio) => {
+			radio.checked = radio.value === language;
+		});
 		document.querySelectorAll('[data-language-select]').forEach((select) => {
 			select.value = language;
 		});
@@ -166,7 +169,7 @@
 			],
 		});
 		document.addEventListener('change', (event) => {
-			if (event.target.matches('[data-language-select]'))
+			if (event.target.matches('[data-language-select], [data-language-radio]'))
 				changeLanguage(event.target.value).catch(console.error);
 		});
 		return i18next;

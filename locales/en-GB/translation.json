@@ -1,5 +1,9 @@
 {
 	"common.siteName": "enzon19",
+	"footer.tagline": "Creating for the web since 2021.",
+	"footer.pages": "Pages",
+	"footer.previousVersions": "Previous Versions",
+	"nav.home": "Home",
 	"home.metaDescription": "I'm Enzo, a developer passionate about turning problems and challenges into code, creating solutions that improve people's lives and make everyday life simpler and more fun.",
 	"home.headline": "<strong>Hi!</strong> I'm <strong>Enzo</strong>, a <strong>developer</strong> passionate about turning problems and challenges into code, <strong>creating solutions</strong> that improve people's lives and make <strong>everyday life simpler and more fun</strong>.",
 	"social.linkedin": "<ion-icon name=\"logo-linkedin\" class=\"text-xl\"></ion-icon> <span>Linkedin</span>",

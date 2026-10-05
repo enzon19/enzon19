@@ -1,5 +1,9 @@
 {
 	"common.siteName": "enzon19",
+	"footer.tagline": "Desde 2021 criando para a web.",
+	"footer.pages": "Páginas",
+	"footer.previousVersions": "Versões Anteriores",
+	"nav.home": "Início",
 	"home.metaDescription": "Eu sou o Enzo, um desenvolvedor apaixonado por transformar problemas e desafios em códigos, criando soluções que aprimoram a vida das pessoas e tornam o dia a dia mais simples e divertido.",
 	"home.headline": "<strong>Oi!</strong> Eu sou o <strong>Enzo</strong>, um <strong>desenvolvedor</strong> apaixonado por transformar problemas e desafios em códigos, <strong>criando soluções</strong> que aprimoram a vida das pessoas e tornam <strong>o dia a dia mais simples e divertido</strong>.",
 	"social.linkedin": "<ion-icon name=\"logo-linkedin\" class=\"text-xl\"></ion-icon> <span>Linkedin</span>",
