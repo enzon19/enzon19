@@ -49,3 +49,72 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -d "{\"files\":{\"overall.json\":{\"content\":$CONTENT}}}" \
             "https://api.github.com/gists/$GIST_ID"
+
+  fetch-last-movie:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get data from WeTrakr (last movie)
+        env:
+          WETRAKR_TOKEN: ${{ secrets.WETRAKR_TOKEN }}
+        run: |
+          curl -sf -L "https://api.wetrakr.com/users/3873/tracking/watched/movies?limit=1&extended=movie_level_1&sort_by=my_last_watched" -o last-movie.json \
+            -H "wetrakr-api-key: $WETRAKR_TOKEN"
+          jq -e '.[0].poster_path' last-movie.json > /dev/null
+
+      - name: Update Gist (last movie)
+        env:
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          GIST_ID: 66e4659e3ddae3ea4428706f1d11100b
+        run: |
+          CONTENT=$(cat last-movie.json | jq -Rs .)
+          curl -s -X PATCH \
+            -H "Authorization: token $GIST_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -d "{\"files\":{\"last-movie.json\":{\"content\":$CONTENT}}}" \
+            "https://api.github.com/gists/$GIST_ID"
+
+  fetch-last-show:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get data from WeTrakr (last show)
+        env:
+          WETRAKR_TOKEN: ${{ secrets.WETRAKR_TOKEN }}
+        run: |
+          curl -sf -L "https://api.wetrakr.com/users/3873/tracking/watched/shows?limit=1&extended=show_level_1&sort_by=my_last_watched" -o last-show.json \
+            -H "wetrakr-api-key: $WETRAKR_TOKEN"
+          jq -e '.[0].poster_path' last-show.json > /dev/null
+
+      - name: Update Gist (last show)
+        env:
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          GIST_ID: 66e4659e3ddae3ea4428706f1d11100b
+        run: |
+          CONTENT=$(cat last-show.json | jq -Rs .)
+          curl -s -X PATCH \
+            -H "Authorization: token $GIST_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -d "{\"files\":{\"last-show.json\":{\"content\":$CONTENT}}}" \
+            "https://api.github.com/gists/$GIST_ID"
+
+  fetch-current-show:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get data from WeTrakr (current show)
+        env:
+          WETRAKR_TOKEN: ${{ secrets.WETRAKR_TOKEN }}
+        run: |
+          curl -sf -L "https://api.wetrakr.com/users/3873/tracking/watched/episodes?limit=1&extended=show_level_1&sort_by=my_last_watched" -o current-show.json \
+            -H "wetrakr-api-key: $WETRAKR_TOKEN"
+          jq -e '.[0].show.poster_path' current-show.json > /dev/null
+
+      - name: Update Gist (current show)
+        env:
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+          GIST_ID: 66e4659e3ddae3ea4428706f1d11100b
+        run: |
+          CONTENT=$(cat current-show.json | jq -Rs .)
+          curl -s -X PATCH \
+            -H "Authorization: token $GIST_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -d "{\"files\":{\"current-show.json\":{\"content\":$CONTENT}}}" \
+            "https://api.github.com/gists/$GIST_ID"
