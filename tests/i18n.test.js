@@ -7,7 +7,7 @@ import { projects, tags, anchors } from '../projects/data.js';
 const read = (path) =>
 	readFileSync(new URL('../' + path, import.meta.url), 'utf8');
 const resources = Object.fromEntries(
-	['pt-BR', 'en-GB'].map((lng) => [
+	['pt-BR', 'en-GB', 'es'].map((lng) => [
 		lng,
 		JSON.parse(read(`locales/${lng}/translation.json`)),
 	]),
@@ -267,7 +267,7 @@ test('URL overrides stored language and regional browser languages are normalize
 		],
 		[
 			{ url: 'https://enzon19.com/?lng=invalid', browser: ['es', 'en-US'] },
-			'en-GB',
+			'es',
 		],
 		[{ url: 'https://enzon19.com/', browser: ['pt-BR'] }, 'pt-BR'],
 		[{ url: 'https://enzon19.com/', browser: ['fr'] }, 'pt-BR'],

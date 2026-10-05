@@ -1,6 +1,6 @@
 // [IA NOTICE] MADE WITH GPT
 (() => {
-	const languages = ['pt-BR', 'en-GB'];
+	const languages = ['pt-BR', 'en-GB', 'es'];
 	const attributes = ['alt', 'title', 'aria-label', 'placeholder', 'content'];
 	const selector = [
 		'[data-i18n]',
@@ -9,7 +9,7 @@
 	].join(',');
 	function normalizeLanguage(language) {
 		const base = language?.toLowerCase().split(/[-_]/)[0];
-		return { pt: 'pt-BR', en: 'en-GB' }[base];
+		return { pt: 'pt-BR', en: 'en-GB', es: 'es' }[base];
 	}
 	function detectLanguage() {
 		let stored;
