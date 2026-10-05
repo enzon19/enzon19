@@ -76,10 +76,16 @@ async function setup(
 	return window;
 }
 
-test('both dictionaries cover every static and project description key', () => {
-	expect(Object.keys(resources['pt-BR']).sort()).toEqual(
-		Object.keys(resources['en-GB']).sort(),
-	);
+test('all three dictionaries cover every static and project description key', () => {
+	const languages = ['pt-BR', 'en-GB', 'es'];
+	const keys = Object.keys(resources['pt-BR']).sort();
+	for (const language of languages) {
+		expect(Object.keys(resources[language]).sort()).toEqual(keys);
+		for (const key of keys) {
+			expect(resources[language][key]).toBeString();
+			expect(resources[language][key].trim().length).toBeGreaterThan(0);
+		}
+	}
 	for (const page of pages) {
 		expect([
 			...read(page).matchAll(/src="\/js\/translation.js"/g),
@@ -95,11 +101,11 @@ test('both dictionaries cover every static and project description key', () => {
 			),
 		].map((match) => match[1]);
 		for (const key of keys)
-			for (const lng of ['pt-BR', 'en-GB'])
+			for (const lng of languages)
 				expect(resources[lng][key]).toBeString();
 	}
 	for (const project of projects)
-		for (const lng of ['pt-BR', 'en-GB'])
+		for (const lng of languages)
 			expect(resources[lng]['description.' + project.id]).toBeString();
 });
 
@@ -200,12 +206,12 @@ test('original HTML content matches the pt-BR dictionary before translation', as
 });
 
 for (const page of pages)
-	test(`translates ${page} to English and back, keeping inline DOM`, async () => {
+	test(`translates ${page} across all three languages, keeping inline DOM`, async () => {
 		const window = await setup(page);
 		const { document } = window;
 		const strong = document.querySelector('p[data-i18n-html] strong');
-		for (const lng of ['en-GB', 'pt-BR']) {
-			if (lng === 'pt-BR') await window.siteI18n.changeLanguage(lng);
+		for (const lng of ['en-GB', 'es', 'pt-BR']) {
+			await window.siteI18n.changeLanguage(lng);
 			expect(document.documentElement.lang).toBe(lng);
 			for (const element of document.querySelectorAll(
 				'[data-i18n], [data-i18n-html]',
