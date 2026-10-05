@@ -408,7 +408,7 @@ export default class EnzoFooter extends HTMLElement {
 					gltf.animations[0];
 				const mixer = new THREE.AnimationMixer(root);
 				let deathAnimation;
-				let sound;
+				let sound = new Audio('/assets/audios/kill_cockroach.mp3');
 				let resizeObserver;
 				cleanupResources = () => {
 					resizeObserver?.disconnect();
@@ -471,7 +471,6 @@ export default class EnzoFooter extends HTMLElement {
 					(event) => {
 						if (dead || !hitsCockroach(event)) return;
 
-						sound = new Audio('/assets/audios/kill_cockroach.mp3');
 						sound.play();
 
 						dead = true;
