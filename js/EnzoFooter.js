@@ -21,24 +21,23 @@ gsap.fromTo(
 	},
 );
 
-gsap.fromTo(
-	'footer > div',
-	{
-		y: -250,
-		filter: 'blur(16px)',
-	},
-	{
-		y: 0,
-		filter: 'blur(0px)',
-		ease: 'none',
+gsap
+	.timeline({
+		defaults: { ease: 'none' },
 		scrollTrigger: {
 			trigger: 'footer',
 			start: 'top bottom',
-			end: '85% bottom',
+			end: 'bottom bottom',
 			scrub: true,
 		},
-	},
-);
+	})
+	.fromTo('footer > div', { y: -250 }, { y: 0, duration: 1 }, 0)
+	.fromTo(
+		'footer > div',
+		{ filter: 'blur(10px)' },
+		{ filter: 'blur(0px)', duration: 0.85 },
+		0,
+	);
 
 // [IA NOTICE] MADE WITH GPT
 // Keep the decorative walker in the same moving layer as the footer name.
