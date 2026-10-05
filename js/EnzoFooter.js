@@ -148,6 +148,10 @@ if (stage && canvas) {
 		);
 		canvas.addEventListener('click', (event) => {
 			if (dead || !hitsCockroach(event)) return;
+
+			const sound = new Audio('/assets/audios/kill_cockroach.mp3');
+			sound.play();
+
 			dead = true;
 			deathX = walker.position.x / travelLimit;
 			mixer.timeScale = 0;
