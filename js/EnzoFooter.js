@@ -3,7 +3,7 @@ gsap.fromTo(
 	{
 		backgroundColor: () =>
 			document.documentElement.classList.contains('dark')
-				? '#525252'
+				? '#323232'
 				: '#a1a1a1',
 	},
 	{
