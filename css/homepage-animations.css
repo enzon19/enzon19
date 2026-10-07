@@ -1,3 +1,11 @@
+/* Firefox: prevent canvas flickering from the animated ancestor filter. */
+@supports (-moz-appearance: none) {
+	#hero-content {
+		/* Override the inline filter animated by GSAP. */
+		filter: none !important;
+	}
+}
+
 /* Caret */
 #name::after {
 	content: '';
