@@ -282,7 +282,7 @@ export default class EnzoFooter extends HTMLElement {
 			.fromTo('footer > div', { y: -250 }, { y: 0, duration: 1 }, 0)
 			.fromTo(
 				'footer > div',
-				{ filter: 'blur(10px)' },
+				{ filter: 'blur(0.5rem)' },
 				{ filter: 'blur(0px)', duration: 0.85 },
 				0,
 			);
