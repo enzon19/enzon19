@@ -29,41 +29,17 @@ I started programming at 11 and, without a doubt, **programming is my passion!**
 
 ## Featured Projects
 
-<table>
-  <tr>
-    <td width="88" align="center" valign="middle">
-      <a href="https://dicionariobot.enzon19.com/">
-        <img src="assets/projects/dicionario-bot/logo502.png" width="56" height="56" alt="Dicionário Bot logo" />
-      </a>
-    </td>
-    <td>
-      <h3>Dicionário Bot</h3>
-      <p>A Brazilian Portuguese dictionary on Telegram.</p>
-      <p><a href="https://dicionariobot.enzon19.com/">Website</a> · <a href="https://t.me/dicionariobot">Telegram</a> · <a href="https://github.com/enzon19/dicionariobot">GitHub</a></p>
-    </td>
-  </tr>
-  <tr>
-    <td width="88" align="center" valign="middle">
-      <a href="https://quickreplymeet.enzon19.com/">
-        <img src="assets/projects/quick-reply-meet/logo512.png" width="56" height="56" alt="Quick Reply Meet logo" />
-      </a>
-    </td>
-    <td>
-      <h3>Quick Reply Meet</h3>
-      <p>Send messages in Google Meet™ chat without typing.</p>
-      <p><a href="https://quickreplymeet.enzon19.com/">Website</a> · <a href="https://chromewebstore.google.com/detail/quick-reply-meet/dodpcgfhomjldnenagdibjcoofheocfc">Chrome Web Store</a> · <a href="https://github.com/enzon19/quick-reply-meet">GitHub</a></p>
-    </td>
-  </tr>
-  <tr>
-    <td width="88" align="center" valign="middle">
-      <a href="https://reversetv.enzon19.com/">
-        <img src="assets/projects/trakt-tools/reversetv/logo512.png" width="56" height="56" alt="ReverseTV logo" />
-      </a>
-    </td>
-    <td>
-      <h3>ReverseTV</h3>
-      <p>Discover other roles played by each actor based on your Trakt history.</p>
-      <p><a href="https://reversetv.enzon19.com/">Website</a> · <a href="https://github.com/enzon19/reversetv">GitHub</a></p>
-    </td>
-  </tr>
-</table>
+- ### Dicionário Bot
+  A Brazilian Portuguese dictionary on Telegram.
+
+  [Website](https://dicionariobot.enzon19.com/) • [Telegram](https://t.me/dicionariobot) • [GitHub](https://github.com/enzon19/dicionariobot)
+
+- ### Quick Reply Meet
+  Send messages in Google Meet™ chat without typing.
+
+  [Website](https://quickreplymeet.enzon19.com/) • [Chrome Web Store](https://chromewebstore.google.com/detail/quick-reply-meet/dodpcgfhomjldnenagdibjcoofheocfc) • [GitHub](https://github.com/enzon19/quick-reply-meet)
+
+- ### ReverseTV
+  Discover other roles played by each actor based on your Trakt history.
+
+  [Website](https://reversetv.enzon19.com/) • [GitHub](https://github.com/enzon19/reversetv)
