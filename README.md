@@ -30,16 +30,19 @@ I started programming at 11 and, without a doubt, **programming is my passion!**
 ## Featured Projects
 
 - ### Dicionário Bot
+
   A Brazilian Portuguese dictionary on Telegram.
 
   [Website](https://dicionariobot.enzon19.com/) • [Telegram](https://t.me/dicionariobot) • [GitHub](https://github.com/enzon19/dicionariobot)
 
 - ### Quick Reply Meet
+
   Send messages in Google Meet™ chat without typing.
 
   [Website](https://quickreplymeet.enzon19.com/) • [Chrome Web Store](https://chromewebstore.google.com/detail/quick-reply-meet/dodpcgfhomjldnenagdibjcoofheocfc) • [GitHub](https://github.com/enzon19/quick-reply-meet)
 
 - ### ReverseTV
+
   Discover other roles played by each actor based on your Trakt history.
 
   [Website](https://reversetv.enzon19.com/) • [GitHub](https://github.com/enzon19/reversetv)
