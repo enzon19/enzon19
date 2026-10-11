@@ -64,16 +64,38 @@ function addHobby(template, imageURL, key, last = false, options = {}) {
 	hobbyRotationSign *= -1;
 }
 
+async function loadWatched(type, period = 'last') {
+	// type = 'movie' or 'show'
+	try {
+		const res = await fetch(
+			'https://gist.githubusercontent.com/enzon19/66e4659e3ddae3ea4428706f1d11100b/raw/' +
+				period +
+				'-' +
+				type +
+				'.json',
+		);
+		const data = await res.json();
+
+		if (period == 'current' && type == 'show') {
+			return 'https://image.tmdb.org/t/p/w300/' + data?.[0]?.show.poster_path;
+		} else {
+			return 'https://image.tmdb.org/t/p/w300/' + data?.[0]?.poster_path;
+		}
+	} catch (err) {
+		console.error(err);
+	}
+}
+
 const template = document.querySelector('#hobby-reference');
 (async () => {
 	await window.siteI18n.ready;
-	addHobby(template, '/assets/hobbies/last-movie.webp', 'hobbies.lastMovie');
+	addHobby(template, await loadWatched('movie', 'last'), 'hobbies.lastMovie');
 	addHobby(
 		template,
-		'/assets/hobbies/current-show.webp',
+		await loadWatched('show', 'current'),
 		'hobbies.currentShow',
 	);
-	addHobby(template, '/assets/hobbies/last-show.webp', 'hobbies.lastShow');
+	addHobby(template, await loadWatched('show', 'last'), 'hobbies.lastShow');
 	await addAlbumsToHobbies(template);
 	addHobby(
 		template,
