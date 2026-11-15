@@ -14,7 +14,7 @@ export const anchors = {
 	},
 	telegram: {
 		field: 'src',
-		value: 'https://api.iconify.design/fa6-brands:telegram.svg',
+		value: '/assets/icons/telegram.svg',
 	},
 	github: {
 		field: 'name',

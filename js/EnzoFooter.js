@@ -124,7 +124,7 @@ export default class EnzoFooter extends HTMLElement {
 							aria-label="English"
 							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/system:bg-white peer-checked/system:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/system:hover:bg-white peer-checked/system:hover:text-neutral-800 dark:peer-checked/system:bg-neutral-500/65 dark:peer-checked/system:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/system:hover:bg-neutral-500/65 dark:peer-checked/system:hover:text-white">
 							<ion-icon
-								src="https://api.iconify.design/twemoji:flag-united-kingdom.svg"
+								src="/assets/icons/flag-united-kingdom.svg"
 								class="text-lg grayscale"></ion-icon>
 						</label>
 						<input
@@ -140,7 +140,7 @@ export default class EnzoFooter extends HTMLElement {
 							aria-label="Português"
 							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/light:bg-white peer-checked/light:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/light:hover:bg-white peer-checked/light:hover:text-neutral-800 dark:peer-checked/light:bg-neutral-500/65 dark:peer-checked/light:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/light:hover:bg-neutral-500/65 dark:peer-checked/light:hover:text-white">
 							<ion-icon
-								src="https://api.iconify.design/twemoji:flag-brazil.svg"
+								src="/assets/icons/flag-brazil.svg"
 								class="text-lg grayscale"></ion-icon>
 						</label>
 						<input
@@ -156,7 +156,7 @@ export default class EnzoFooter extends HTMLElement {
 							aria-label="Español"
 							class="flex cursor-pointer items-center justify-center rounded-full p-1.5 text-neutral-500 transition-colors peer-checked/dark:bg-white peer-checked/dark:text-neutral-800 hover:bg-white hover:text-neutral-800 peer-checked/dark:hover:bg-white peer-checked/dark:hover:text-neutral-800 dark:peer-checked/dark:bg-neutral-500/65 dark:peer-checked/dark:text-white dark:hover:bg-neutral-600 dark:hover:text-white dark:peer-checked/dark:hover:bg-neutral-500/65 dark:peer-checked/dark:hover:text-white">
 							<ion-icon
-								src="https://api.iconify.design/twemoji:flag-spain.svg"
+								src="/assets/icons/flag-spain.svg"
 								class="text-lg grayscale"></ion-icon>
 						</label>
 					</div>
