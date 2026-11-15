@@ -250,8 +250,15 @@ let faceVariant = 'default';
 function drawWholeFace(mouseX, mouseY, blink, love) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	const targetY = mouseY ?? nameElement.getBoundingClientRect().y;
-	const targetX = mouseX ?? nameElement.getBoundingClientRect().x;
+	let targetX = mouseX;
+	let targetY = mouseY;
+	if (targetX == null || targetY == null) {
+		const nameRect = nameElement.getBoundingClientRect();
+		[targetX, targetY] = toCanvasCoords(
+			nameRect.left + nameRect.width / 2,
+			nameRect.top + nameRect.height / 2,
+		);
+	}
 
 	drawFace();
 	drawSmile(faceVariant);
@@ -263,13 +270,15 @@ function drawWholeFace(mouseX, mouseY, blink, love) {
 	drawEye(targetX, targetY, 'right', eyeVariant);
 }
 
-function getMousePosAndDraw({ clientX, clientY }) {
+function toCanvasCoords(clientX, clientY) {
 	const rect = canvas.getBoundingClientRect();
-
 	const scaleX = canvas.width / rect.width;
 	const scaleY = canvas.height / rect.height;
-	mouseX = (clientX - rect.left) * scaleX;
-	mouseY = (clientY - rect.top) * scaleY;
+	return [(clientX - rect.left) * scaleX, (clientY - rect.top) * scaleY];
+}
+
+function getMousePosAndDraw({ clientX, clientY }) {
+	[mouseX, mouseY] = toCanvasCoords(clientX, clientY);
 
 	if (faceVariant == 'dizzy') return;
 	checkMouseForDizzy(mouseX, mouseY);
